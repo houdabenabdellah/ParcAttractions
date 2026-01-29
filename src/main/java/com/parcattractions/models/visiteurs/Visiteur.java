@@ -3,17 +3,17 @@ package main.java.com.parcattractions.models.visiteurs;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
+import main.java.com.parcattractions.controllers.GestionnaireParc;
 import main.java.com.parcattractions.enums.EtatVisiteur;
 import main.java.com.parcattractions.enums.ProfilVisiteur;
 import main.java.com.parcattractions.enums.TypeBillet;
-import main.java.com.parcattractions.models.attractions.Attraction;
 import main.java.com.parcattractions.exceptions.attractions.AttractionException;
 import main.java.com.parcattractions.exceptions.attractions.AttractionFermeeException;
 import main.java.com.parcattractions.exceptions.attractions.CapaciteDepasseeException;
 import main.java.com.parcattractions.exceptions.attractions.RestrictionException;
 import main.java.com.parcattractions.exceptions.visiteurs.BudgetInsuffisantException;
 import main.java.com.parcattractions.exceptions.visiteurs.PatienceEpuiseeException;
-import main.java.com.parcattractions.controllers.GestionnaireParc;
+import main.java.com.parcattractions.models.attractions.Attraction;
 import main.java.com.parcattractions.models.services.Billet;
 import main.java.com.parcattractions.utils.Logger;
 import main.java.com.parcattractions.utils.Tarification;
@@ -351,13 +351,13 @@ public abstract class Visiteur extends Thread {
         
         String niveauSatisfaction;
         if (satisfaction >= 80) {
-            niveauSatisfaction = "Très satisfait 😊";
+            niveauSatisfaction = "Tres satisfait [Excellent]";
         } else if (satisfaction >= 60) {
-            niveauSatisfaction = "Satisfait 🙂";
+            niveauSatisfaction = "Satisfait [Bon]";
         } else if (satisfaction >= 40) {
-            niveauSatisfaction = "Neutre 😐";
+            niveauSatisfaction = "Neutre [Moyen]";
         } else {
-            niveauSatisfaction = "Insatisfait 😞";
+            niveauSatisfaction = "Insatisfait [Mauvais]";
         }
         
         Logger.logInfo(String.format(

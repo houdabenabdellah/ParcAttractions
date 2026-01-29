@@ -135,7 +135,7 @@ public class MenuItem {
      * @return Symbole végétarien si applicable
      */
     public String getSymboleVegetarien() {
-        return vegetarien ? "🌱" : "";
+        return vegetarien ? "[V]" : "";
     }
     
     /**
@@ -146,7 +146,7 @@ public class MenuItem {
         StringBuilder sb = new StringBuilder();
         sb.append(nom);
         if (vegetarien) {
-            sb.append(" 🌱");
+            sb.append(" [V]");
         }
         sb.append(" (").append(type.getLibelle()).append(")");
         sb.append(" - ").append(getPrixFormate());
@@ -167,7 +167,7 @@ public class MenuItem {
         sb.append("┌────────────────────────────────────┐\n");
         sb.append(String.format("│ %-34s │\n", nom.length() > 34 ? nom.substring(0, 34) : nom));
         if (vegetarien) {
-            sb.append("│ 🌱 Végétarien                      │\n");
+            sb.append("│ [V] Vegetarien                    │\n");
         }
         sb.append("├────────────────────────────────────┤\n");
         

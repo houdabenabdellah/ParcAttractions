@@ -21,11 +21,13 @@ import javax.swing.SwingUtilities;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import javax.swing.ImageIcon;
+import javax.swing.JTabbedPane;
 import main.java.com.parcattractions.controllers.GenerateurVisiteurs;
 import main.java.com.parcattractions.controllers.GestionnaireEvenements;
 import main.java.com.parcattractions.controllers.GestionnaireParc;
 import main.java.com.parcattractions.exceptions.systeme.ParcFermeException;
 import main.java.com.parcattractions.utils.Logger;
+import main.java.com.parcattractions.utils.ModeApplication;
 import java.awt.Color;
 import java.awt.Font;
 
@@ -43,6 +45,8 @@ public class MainFrame extends JFrame {
     private PanelStatistiques panelStatistiques;
     private PanelNotifications panelNotifications;
     private PanelVueParc panelVueParc;
+    private PanelGestion panelGestion;
+    private PanelTransactions panelTransactions;
     
     // Toolbar controls
     private JToolBar toolBar;
@@ -57,21 +61,31 @@ public class MainFrame extends JFrame {
     // Secondary actions toolbar removed — now in PanelAttractions
 
     private boolean simulationEnCours;
+    private ModeApplication modeApplication;
     
     /**
      * Constructeur
      */
     public MainFrame(GestionnaireParc gestionnaireParc, GenerateurVisiteurs generateurVisiteurs,
             GestionnaireEvenements gestionnaireEvenements) {
-        super("Parc d'Attractions - Simulation");
+        super("Parc d'Attractions");
         
         this.gestionnaireParc = gestionnaireParc;
         this.generateurVisiteurs = generateurVisiteurs;
         this.gestionnaireEvenements = gestionnaireEvenements;
         this.simulationEnCours = false;
+        this.modeApplication = ModeApplication.GESTION; // Par défaut
         
         initialiserInterface();
         configurerFermeture();
+    }
+    
+    /**
+     * Définit le mode de fonctionnement
+     */
+    public void setMode(ModeApplication mode) {
+        this.modeApplication = mode;
+        setTitle("Parc d'Attractions - " + mode.getNom());
     }
     
     /**
@@ -99,8 +113,16 @@ public class MainFrame extends JFrame {
         panelStatistiques = new PanelStatistiques(gestionnaireParc);
         panelNotifications = new PanelNotifications();
         panelVueParc = new PanelVueParc(gestionnaireParc);
+        panelGestion = new PanelGestion(gestionnaireParc);
+        panelTransactions = new PanelTransactions();
         
-        // Organisation
+        // Organisation avec onglets
+        JTabbedPane tabbedPane = new JTabbedPane();
+        tabbedPane.setBackground(UIStyles.BG_LIGHT);
+        
+        // Onglet Tableau de bord
+        JPanel dashboardTab = new JPanel(new BorderLayout());
+        dashboardTab.setBackground(UIStyles.BG_LIGHT);
         JPanel panelOuest = new JPanel(new BorderLayout());
         panelOuest.setBackground(UIStyles.BG_LIGHT);
         panelOuest.add(panelDashboard, BorderLayout.NORTH);
@@ -111,9 +133,15 @@ public class MainFrame extends JFrame {
         panelEst.add(panelNotifications, BorderLayout.CENTER);
         panelEst.add(panelVueParc, BorderLayout.SOUTH);
         
-        add(panelOuest, BorderLayout.WEST);
-        add(panelAttractions, BorderLayout.CENTER);
-        add(panelEst, BorderLayout.EAST);
+        dashboardTab.add(panelOuest, BorderLayout.WEST);
+        dashboardTab.add(panelAttractions, BorderLayout.CENTER);
+        dashboardTab.add(panelEst, BorderLayout.EAST);
+        
+        tabbedPane.addTab("Tableau de bord", dashboardTab);
+        tabbedPane.addTab("Gestion", panelGestion);
+        tabbedPane.addTab("Transactions", panelTransactions);
+        
+        add(tabbedPane, BorderLayout.CENTER);
     }
 
     /**
@@ -332,6 +360,17 @@ public class MainFrame extends JFrame {
         menuManager.add(subLancerEvenement);
         
         menuBar.add(menuManager);
+        
+        // Menu Rapports
+        JMenu menuRapports = new JMenu("Rapports");
+        JMenuItem itemAfficherRapports = new JMenuItem("Afficher les rapports");
+        itemAfficherRapports.addActionListener(e -> {
+            DialogRapports d = new DialogRapports(this, gestionnaireParc);
+            d.setVisible(true);
+        });
+        menuRapports.add(itemAfficherRapports);
+        
+        menuBar.add(menuRapports);
         
         // Menu Aide
         JMenu menuAide = new JMenu("Aide");

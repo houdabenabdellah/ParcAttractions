@@ -255,11 +255,11 @@ public class Boutique {
                     p.getNom(), p.getPrixFormate()));
                 
                 if (qte == 0) {
-                    sb.append("❌ ÉPUISÉ");
+                    sb.append("[EPUISE]");
                 } else if (qte <= seuilStockFaible) {
-                    sb.append("⚠️ Stock faible (").append(qte).append(")");
+                    sb.append("[Stock faible] (").append(qte).append(")");
                 } else {
-                    sb.append("✅ En stock (").append(qte).append(")");
+                    sb.append("[En stock] (").append(qte).append(")");
                 }
                 
                 sb.append("\n");

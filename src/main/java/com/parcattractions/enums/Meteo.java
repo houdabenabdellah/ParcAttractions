@@ -1,10 +1,10 @@
 package main.java.com.parcattractions.enums;
 
 public enum Meteo {
-    ENSOLEILLE("☀️ Ensoleillé", 0.5, 1.2),
-    NUAGEUX("🌥️ Nuageux", 0.3, 1.0),
-    PLUIE("🌧️ Pluie", 0.15, 0.7),
-    ORAGE("⛈️ Orage", 0.05, 0.0);
+    ENSOLEILLE("Ensoleille", 0.5, 1.2),
+    NUAGEUX("Nuageux", 0.3, 1.0),
+    PLUIE("Pluie", 0.15, 0.7),
+    ORAGE("Orage", 0.05, 0.0);
     
     private final String description;
     private final double probabilite; // Probabilité d'occurrence

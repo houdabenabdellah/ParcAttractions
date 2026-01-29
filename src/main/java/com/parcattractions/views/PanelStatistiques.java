@@ -30,9 +30,9 @@ public class PanelStatistiques extends JPanel {
             BorderFactory.createEmptyBorder(15, 15, 15, 15)
         ));
         
-        labelRevenus = new JLabel("💰 Revenus: 0.00 €");
-        labelSatisfaction = new JLabel("😊 Satisfaction: --");
-        labelTempsAttente = new JLabel("⏱️ Attente: --");
+        labelRevenus = new JLabel("Revenus: 0.00 €");
+        labelSatisfaction = new JLabel("Satisfaction: --");
+        labelTempsAttente = new JLabel("Attente: --");
         
         // Style les labels
         Font statFont = new Font("Segoe UI", Font.BOLD, 14);
@@ -58,8 +58,8 @@ public class PanelStatistiques extends JPanel {
     public void rafraichir() {
         var stats = gestionnaireParc.getStatistiques();
         
-        labelRevenus.setText("💰 Revenus: " + stats.getRevenusTotalFormate());
-        labelSatisfaction.setText("😊 Satisfaction: " + stats.getSatisfactionFormatee());
-        labelTempsAttente.setText("⏱️ Attente: " + stats.getTempsAttenteMoyenFormate());
+        labelRevenus.setText("Revenus: " + stats.getRevenusTotalFormate());
+        labelSatisfaction.setText("Satisfaction: " + stats.getSatisfactionFormatee());
+        labelTempsAttente.setText("Attente: " + stats.getTempsAttenteMoyenFormate());
     }
 }

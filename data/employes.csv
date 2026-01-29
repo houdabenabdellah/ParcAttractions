@@ -1,0 +1,7 @@
+ID;Nom;Poste;État;Fatigue;SalaireJour
+EMP001;Jean Dupont;Animateur;EN_SERVICE;25.5%;50.00€
+EMP002;Marie Martin;Contremaître;EN_SERVICE;15.3%;55.00€
+EMP003;Pierre Bernard;Maintenance;EN_REPOS;0.0%;50.00€
+EMP004;Sophie Laurent;Caissière;EN_SERVICE;30.0%;50.00€
+EMP005;Luc Moreau;Animateur;EN_SERVICE;45.2%;50.00€
+EMP006;Isabelle Durand;Contremaître;ABSENCE;0.0%;55.00€

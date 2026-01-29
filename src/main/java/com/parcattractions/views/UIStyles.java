@@ -34,8 +34,10 @@ public class UIStyles {
     // Fonts
     public static final Font TITLE_FONT = new Font("Segoe UI", Font.BOLD, 18);
     public static final Font HEADER_FONT = new Font("Segoe UI", Font.BOLD, 14);
+    public static final Font BOLD_FONT = new Font("Segoe UI", Font.BOLD, 12);
     public static final Font REGULAR_FONT = new Font("Segoe UI", Font.PLAIN, 12);
     public static final Font SMALL_FONT = new Font("Segoe UI", Font.PLAIN, 10);
+    public static final Font MONOSPACE_FONT = new Font("Courier New", Font.PLAIN, 11);
     
     /**
      * Applique un style moderne à un JLabel pour les titres

@@ -98,13 +98,13 @@ public class PanelAttractions extends JPanel {
     private String getEtatCouleur(EtatAttraction etat) {
         switch (etat) {
             case OPERATIONNELLE:
-                return "🟢 Opérationnelle";
+                return "Opérationnelle";
             case MAINTENANCE:
-                return "🟡 Maintenance";
+                return "Maintenance";
             case PANNE:
-                return "🔴 Panne";
+                return "Panne";
             case FERMEE:
-                return "⚫ Fermée";
+                return "Fermée";
             default:
                 return etat.toString();
         }

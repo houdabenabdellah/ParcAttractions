@@ -68,13 +68,13 @@ public class SystemeNotifications {
             // Logger selon priorité
             switch (type) {
                 case URGENCE:
-                    Logger.logError("🔴 " + message);
+                    Logger.logError(message);
                     break;
                 case ATTENTION:
-                    Logger.logWarning("🟠 " + message);
+                    Logger.logWarning(message);
                     break;
                 case INFO:
-                    Logger.logInfo("🟢 " + message);
+                    Logger.logInfo(message);
                     break;
             }
             

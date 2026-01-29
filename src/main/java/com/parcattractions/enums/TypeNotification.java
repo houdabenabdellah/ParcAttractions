@@ -3,9 +3,9 @@ package main.java.com.parcattractions.enums;
 import java.awt.Color;
 
 public enum TypeNotification {
-    URGENCE("🔴 URGENCE", 3, new Color(220, 53, 69)),
-    ATTENTION("🟠 ATTENTION", 2, new Color(255, 193, 7)),
-    INFO("🟢 INFO", 1, new Color(40, 167, 69));
+    URGENCE("URGENCE", 3, new Color(220, 53, 69)),
+    ATTENTION("ATTENTION", 2, new Color(255, 193, 7)),
+    INFO("INFO", 1, new Color(40, 167, 69));
     
     private final String prefixe;
     private final int priorite;

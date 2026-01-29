@@ -44,7 +44,7 @@ public class DialogGestionPersonnel extends JDialog {
     private List<Employe> employesList;
 
     public DialogGestionPersonnel(JFrame parent, GestionnaireParc gestionnaireParc) {
-        super(parent, "👨‍💼 Gérer le personnel (UC14)", true);
+        super(parent, "Gerer le personnel (UC14)", true);
         this.gestionnaireParc = gestionnaireParc;
         this.employesList = new ArrayList<>();
         setSize(620, 480);
@@ -89,11 +89,11 @@ public class DialogGestionPersonnel extends JDialog {
         btnAjouter.addActionListener(e -> ajouterEmploye());
         UIStyles.stylePrimaryButton(btnAjouter);
         
-        JButton btnRetirer = new JButton("❌ Retirer");
+        JButton btnRetirer = new JButton("Retirer");
         btnRetirer.addActionListener(e -> retirerEmploye());
         UIStyles.styleAccentButton(btnRetirer);
         
-        JButton btnFermer = new JButton("🚪 Fermer");
+        JButton btnFermer = new JButton("Fermer");
         btnFermer.addActionListener(e -> dispose());
         UIStyles.styleSecondaryButton(btnFermer);
         

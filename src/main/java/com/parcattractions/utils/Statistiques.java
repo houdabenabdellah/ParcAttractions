@@ -197,17 +197,17 @@ public class Statistiques {
      * @return Satisfaction formatée avec emoji
      */
     public synchronized String getSatisfactionFormatee() {
-        String emoji;
+        String indicateur;
         if (satisfactionMoyenne >= 80) {
-            emoji = "😊";
+            indicateur = "[Excellent]";
         } else if (satisfactionMoyenne >= 60) {
-            emoji = "🙂";
+            indicateur = "[Bon]";
         } else if (satisfactionMoyenne >= 40) {
-            emoji = "😐";
+            indicateur = "[Moyen]";
         } else {
-            emoji = "😞";
+            indicateur = "[Mauvais]";
         }
-        return String.format("%.1f%% %s", satisfactionMoyenne, emoji);
+        return String.format("%.1f%% %s", satisfactionMoyenne, indicateur);
     }
     
     /**

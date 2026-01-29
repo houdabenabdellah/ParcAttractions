@@ -35,29 +35,29 @@ public class PanelDashboard extends JPanel {
         ));
         
         // Heure
-        add(createDashboardCard("⏰ Heure", "labelHeure"));
+        add(createDashboardCard("Heure", "labelHeure"));
         labelHeure = new JLabel("--:--");
         
         // Visiteurs
-        add(createDashboardCard("👥 Visiteurs", "labelVisiteurs"));
+        add(createDashboardCard("Visiteurs", "labelVisiteurs"));
         labelVisiteurs = new JLabel("0");
         
         // Attractions
-        add(createDashboardCard("🎢 Attractions", "labelAttractions"));
+        add(createDashboardCard("Attractions", "labelAttractions"));
         labelAttractions = new JLabel("0/8");
         
         // Météo
-        add(createDashboardCard("⛅ Météo", "labelMeteo"));
+        add(createDashboardCard("Meteo", "labelMeteo"));
         labelMeteo = new JLabel("--");
         
         // Re-faire avec les bons labels créés
         removeAll();
         setLayout(new GridLayout(2, 2, 15, 15));
         
-        add(createDashboardItem("⏰ Heure", labelHeure));
-        add(createDashboardItem("👥 Visiteurs", labelVisiteurs));
-        add(createDashboardItem("🎢 Attractions", labelAttractions));
-        add(createDashboardItem("⛅ Météo", labelMeteo));
+        add(createDashboardItem("Heure", labelHeure));
+        add(createDashboardItem("Visiteurs", labelVisiteurs));
+        add(createDashboardItem("Attractions", labelAttractions));
+        add(createDashboardItem("Météo", labelMeteo));
     }
     
     /**

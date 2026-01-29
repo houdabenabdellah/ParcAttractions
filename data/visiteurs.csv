@@ -1,0 +1,7 @@
+ID;Nom;Age;Taille;Profil;État;Satisfaction;Tours
+V001;Alice Dupont;8;1.20;ENFANT;EN_ATTENTE;85.0%;3
+V002;Bob Martin;35;1.75;SOLO;EN_ATTENTE;75.0%;2
+V003;Carole Durand;42;1.65;FAMILLE;EN_ATTENTE;90.0%;4
+V004;David Laurent;28;1.80;COUPLE;EN_ATTENTE;80.0%;3
+V005;Emilie Bernard;15;1.60;ENFANT;EN_ATTENTE;88.0%;2
+V006;Francois Moreau;55;1.72;GROUPE;EN_ATTENTE;65.0%;1

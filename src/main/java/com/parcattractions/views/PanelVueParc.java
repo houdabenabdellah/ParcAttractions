@@ -28,7 +28,7 @@ public class PanelVueParc extends JPanel {
             BorderFactory.createEmptyBorder(15, 15, 15, 15)
         ));
         
-        labelEtat = new JLabel("🔴 Parc Fermé");
+        labelEtat = new JLabel("Parc Fermé");
         labelEtat.setFont(new Font("Segoe UI", Font.BOLD, 18));
         labelEtat.setForeground(UIStyles.DANGER_COLOR);
         labelEtat.setHorizontalAlignment(SwingConstants.CENTER);
@@ -47,10 +47,10 @@ public class PanelVueParc extends JPanel {
      */
     public void rafraichir() {
         if (gestionnaireParc.estOuvert()) {
-            labelEtat.setText("🟢 Parc Ouvert");
+            labelEtat.setText("Parc Ouvert");
             labelEtat.setForeground(UIStyles.SUCCESS_COLOR);
         } else {
-            labelEtat.setText("🔴 Parc Fermé");
+            labelEtat.setText("Parc Fermé");
             labelEtat.setForeground(UIStyles.DANGER_COLOR);
         }
     }

@@ -101,7 +101,7 @@ public class GestionnaireEvenements extends Thread {
      */
     private void lancerHappyHour() {
         evenementActuel = new HappyHour();
-        Logger.logInfo("🎉 Happy Hour démarré ! Réduction de 20% sur les billets");
+        Logger.logInfo("Happy Hour demarré ! Réduction de 20% sur les billets");
         SystemeNotifications.getInstance().ajouterNotification(
             main.java.com.parcattractions.enums.TypeNotification.INFO,
             "Happy Hour en cours - Réduction de 20% sur les billets jusqu'à 16h"
@@ -113,7 +113,7 @@ public class GestionnaireEvenements extends Thread {
      */
     private void lancerParade() {
         evenementActuel = new Parade();
-        Logger.logInfo("🎭 Parade démarrée !");
+        Logger.logInfo("Parade démarrée !");
         SystemeNotifications.getInstance().ajouterNotification(
             main.java.com.parcattractions.enums.TypeNotification.INFO,
             "Parade en cours dans le parc - Venez admirer le spectacle !"

@@ -1,8 +1,10 @@
 package main.java.com.parcattractions.controllers;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.CopyOnWriteArrayList;
 import main.java.com.parcattractions.enums.EtatAttraction;
 import main.java.com.parcattractions.enums.Meteo;
@@ -25,9 +27,12 @@ import main.java.com.parcattractions.models.employes.Vendeur;
 import main.java.com.parcattractions.models.services.Boutique;
 import main.java.com.parcattractions.models.services.Restaurant;
 import main.java.com.parcattractions.models.visiteurs.Visiteur;
+import main.java.com.parcattractions.utils.CSVManager;
+import main.java.com.parcattractions.utils.ExporteurCSV;
 import main.java.com.parcattractions.utils.Horloge;
 import main.java.com.parcattractions.utils.Logger;
 import main.java.com.parcattractions.utils.Statistiques;
+import main.java.com.parcattractions.utils.TransactionManager;
 
 /**
  * Gestionnaire principal du parc d'attractions
@@ -57,6 +62,10 @@ public class GestionnaireParc {
     private volatile boolean parcOuvert;
     private GestionnaireEvenements gestionnaireEvenements;
     
+    // Persistance et session
+    private LocalDateTime dateOuvertureSession;
+    private double revenuSessionActuelle;
+    
     /**
      * Constructeur privé (Singleton)
      */
@@ -69,6 +78,11 @@ public class GestionnaireParc {
         this.meteoActuelle = Meteo.ENSOLEILLE;
         this.parcOuvert = false;
         this.statistiques = new Statistiques();
+        this.revenuSessionActuelle = 0.0;
+        
+        // Initialiser CSVManager
+        CSVManager.initialiserFichiers();
+        Logger.logInfo("CSVManager initialisé");
         
         initialiserParc();
     }
@@ -187,6 +201,8 @@ public class GestionnaireParc {
         Logger.logInfo("═══════════════════════════════════════");
         
         parcOuvert = true;
+        dateOuvertureSession = LocalDateTime.now();
+        revenuSessionActuelle = 0.0;
         
         // Démarrer l'horloge
         horloge = new Horloge(10); // 1 sec = 10 min simulées
@@ -241,8 +257,24 @@ public class GestionnaireParc {
             employe.arreter();
         }
         
+        // Sauvegarder les données de session
+        sauvegarderSession();
+        
         Logger.logInfo("Parc fermé");
         Logger.logInfo(statistiques.genererRapport());
+        
+        // Exporter automatiquement les rapports
+        Logger.logInfo("Génération des rapports de fermeture...");
+        ExporteurCSV exporteur = new ExporteurCSV(this);
+        String fichierCSV = exporteur.exporterResume();
+        String fichierHTML = exporteur.exporterHTML();
+        
+        if (fichierCSV != null) {
+            Logger.logInfo("Rapport CSV généré : " + fichierCSV);
+        }
+        if (fichierHTML != null) {
+            Logger.logInfo("Rapport HTML généré : " + fichierHTML);
+        }
     }
 
     /**
@@ -346,6 +378,14 @@ public class GestionnaireParc {
     }
     
     /**
+     * Ajoute une attraction
+     */
+    public synchronized void ajouterAttraction(Attraction attraction) {
+        attractions.add(attraction);
+        Logger.logInfo("Attraction ajoutée: " + attraction.getNom());
+    }
+    
+    /**
      * Retourne la liste des visiteurs actuels
      */
     public List<Visiteur> getVisiteurs() {
@@ -434,7 +474,7 @@ public class GestionnaireParc {
         
         // Si orage, évacuer le parc
         if (meteo.estUrgence()) {
-            Logger.logError("⚠️ ORAGE DÉTECTÉ - ÉVACUATION DU PARC");
+            Logger.logError("ORAGE DETECTE - EVACUATION DU PARC");
             evacuerParc();
         } else if (meteo.fermeAttractionsExterieures()) {
             // Fermer attractions extérieures
@@ -584,4 +624,197 @@ public class GestionnaireParc {
             }
         }, "ReparationUrgence-" + attraction.getNom()).start();
     }
+    
+    // ================= PERSISTANCE DES DONNÉES =================
+    
+    /**
+     * Sauvegarde tous les visiteurs actuels en CSV
+     */
+    public synchronized void sauvegarderVisiteurs() {
+        Logger.logInfo("Sauvegarde des visiteurs en CSV...");
+        for (Visiteur visiteur : visiteurs) {
+            CSVManager.sauvegarderVisiteur(
+                (int) visiteur.getId(),
+                visiteur.getNomVisiteur(),
+                visiteur.getAge(),
+                visiteur.getTaille(),
+                visiteur.getProfil().name(),
+                visiteur.getEtat().name(),
+                visiteur.getSatisfaction(),
+                visiteur.getArgent(),
+                ""
+            );
+        }
+        Logger.logInfo("Sauvegarde de " + visiteurs.size() + " visiteurs complétée");
+    }
+    
+    /**
+     * Sauvegarde toutes les attractions en CSV
+     */
+    public synchronized void sauvegarderAttractions() {
+        Logger.logInfo("Sauvegarde des attractions en CSV...");
+        for (Attraction attraction : attractions) {
+            CSVManager.sauvegarderAttraction(
+                attraction.getNom(),
+                attraction.getType().name(),
+                attraction.getEtat().name(),
+                attraction.getCapacite(),
+                attraction.getToursEffectues(),
+                attraction.getVisiteursTotaux(),
+                attraction.getAgeMin(),
+                attraction.getTailleMin(),
+                attraction.getIntensite().name(),
+                attraction.getDureeTour()
+            );
+        }
+        Logger.logInfo("Sauvegarde de " + attractions.size() + " attractions complétée");
+    }
+    
+    /**
+     * Sauvegarde tous les employés en CSV
+     */
+    public synchronized void sauvegarderEmployes() {
+        Logger.logInfo("Sauvegarde des employés en CSV...");
+        for (Employe employe : employes) {
+            CSVManager.sauvegarderEmploye(
+                (int) employe.getId(),
+                employe.getNom(),
+                employe.getPoste(),
+                employe.getEtat().name(),
+                employe.getFatigue()
+            );
+        }
+        Logger.logInfo("Sauvegarde de " + employes.size() + " employés complétée");
+    }
+    
+    /**
+     * Sauvegarde une session complète du parc
+     */
+    private synchronized void sauvegarderSession() {
+        if (dateOuvertureSession == null) {
+            return;
+        }
+        
+        LocalDateTime dateFermeture = LocalDateTime.now();
+        double revenuBillets = CSVManager.calculerRevenuBillets();
+        double revenuRestaurant = CSVManager.calculerRevenuRestaurant();
+        double revenuSouvenirs = CSVManager.calculerRevenuSouvenirs();
+        double revenuTotal = revenuBillets + revenuRestaurant + revenuSouvenirs;
+        
+        CSVManager.enregistrerSession(
+            dateOuvertureSession,
+            dateFermeture,
+            visiteurs.size(),
+            revenuTotal,
+            revenuBillets,
+            revenuRestaurant,
+            revenuSouvenirs
+        );
+        
+        Logger.logInfo("Session sauvegardée: Revenus totaux = " + revenuTotal);
+    }
+    
+    /**
+     * Sauvegarde toutes les données du parc (visiteurs, attractions, employés, session)
+     */
+    public synchronized void sauvegarderToutDonnees() {
+        Logger.logInfo("═══════════════════════════════════════");
+        Logger.logInfo("   SAUVEGARDE DE TOUTES LES DONNÉES");
+        Logger.logInfo("═══════════════════════════════════════");
+        
+        sauvegarderVisiteurs();
+        sauvegarderAttractions();
+        sauvegarderEmployes();
+        
+        Logger.logInfo("Sauvegarde complète terminée");
+    }
+    
+    /**
+     * Charge les données depuis les fichiers CSV
+     */
+    public synchronized void chargerDonnees() {
+        Logger.logInfo("═══════════════════════════════════════");
+        Logger.logInfo("   CHARGEMENT DES DONNÉES");
+        Logger.logInfo("═══════════════════════════════════════");
+        
+        // Charger les visiteurs (optionnel - dépend de la configuration)
+        Map<Integer, String[]> visiteurCharges = CSVManager.chargerVisiteurs();
+        Logger.logInfo("Visiteurs chargés: " + visiteurCharges.size());
+        
+        // Charger les attractions
+        Map<String, String[]> attractionsChargees = CSVManager.chargerAttractions();
+        Logger.logInfo("Attractions chargées: " + attractionsChargees.size());
+        
+        // Charger les employés
+        Map<Integer, String[]> employesCharges = CSVManager.chargerEmployes();
+        Logger.logInfo("Employés chargés: " + employesCharges.size());
+        
+        // Charger les sessions antérieures
+        List<String[]> sessions = CSVManager.chargerSessions();
+        Logger.logInfo("Sessions chargées: " + sessions.size());
+        
+        Logger.logInfo("Chargement des données complété");
+    }
+    
+    /**
+     * Enregistre une vente de billet dans le CSV et le TransactionManager
+     */
+    public void enregistrerVenteBillet(int visiteurId, String typeBillet, double prix, int ageVisiteur) {
+        TransactionManager.enregistrerVenteBillet(visiteurId, typeBillet, prix, ageVisiteur);
+        revenuSessionActuelle += prix;
+    }
+    
+    /**
+     * Enregistre une vente au restaurant dans le CSV et le TransactionManager
+     */
+    public void enregistrerVenteRestaurant(int visiteurId, String typeRepas, double prix) {
+        TransactionManager.enregistrerVenteRestaurant(visiteurId, typeRepas, prix);
+        revenuSessionActuelle += prix;
+    }
+    
+    /**
+     * Enregistre une vente de souvenir dans le CSV et le TransactionManager
+     */
+    public void enregistrerVenteSouvenir(int visiteurId, String article, double prix) {
+        TransactionManager.enregistrerVenteSouvenir(visiteurId, article, prix);
+        revenuSessionActuelle += prix;
+    }
+    
+    /**
+     * Retourne le revenu de la session actuelle
+     */
+    public double getRevenuSessionActuelle() {
+        return revenuSessionActuelle;
+    }
+    
+    // ================= TRANSACTION MANAGER =================
+    
+    /**
+     * Retourne les statistiques financières du TransactionManager
+     */
+    public java.util.Map<String, Object> obtenirStatistiquesFinancieres() {
+        return TransactionManager.obtenirStatistiques();
+    }
+    
+    /**
+     * Retourne le rapport financier complet
+     */
+    public String genererRapportFinancier() {
+        return TransactionManager.genererRapportFinancier();
+    }
+    
+    /**
+     * Retourne le rapport détaillé des transactions
+     */
+    public String genererRapportDetaillé() {
+        return TransactionManager.genererRapportDetaille();
+    }
+    
+    /**
+     * Réinitialise les statistiques du TransactionManager (nouvelle session)
+     */
+    public void reinitialiserStatistiquesTransactions() {
+        TransactionManager.reinitialiserStatistiques();
+    }
 }
+

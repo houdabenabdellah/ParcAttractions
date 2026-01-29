@@ -16,7 +16,7 @@ import javax.swing.SwingConstants;
 public class DialogConfiguration extends JDialog {
     
     public DialogConfiguration(JFrame parent) {
-        super(parent, "⚙️ Configuration", true);
+        super(parent, "Configuration", true);
         setSize(500, 400);
         setLocationRelativeTo(parent);
         getContentPane().setBackground(UIStyles.BG_LIGHT);
