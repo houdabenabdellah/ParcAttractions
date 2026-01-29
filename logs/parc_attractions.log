@@ -1,0 +1,1876 @@
+
+================================================================================
+NOUVELLE SESSION - 2026-01-29 18:10:00
+================================================================================
+[2026-01-29 18:10:00] [INFO] ═══════════════════════════════════════
+[2026-01-29 18:10:00] [INFO]    PARC D'ATTRACTIONS - SIMULATION
+[2026-01-29 18:10:00] [INFO] ═══════════════════════════════════════
+[2026-01-29 18:10:00] [INFO] Initialisation du parc d'attractions...
+[2026-01-29 18:10:00] [INFO] 8 attractions créées
+[2026-01-29 18:10:00] [INFO] Restaurant créé: Restaurant Central (capacité: 80)
+[2026-01-29 18:10:00] [INFO] Restaurant créé: Snack Rapide (capacité: 40)
+[2026-01-29 18:10:00] [INFO] 2 restaurants créés
+[2026-01-29 18:10:00] [INFO] Stock initialisé pour Boutique Souvenirs (9 produits)
+[2026-01-29 18:10:00] [INFO] Boutique créée: Boutique Souvenirs
+[2026-01-29 18:10:00] [INFO] Stock initialisé pour Boutique Photos (9 produits)
+[2026-01-29 18:10:00] [INFO] Boutique créée: Boutique Photos
+[2026-01-29 18:10:00] [INFO] 2 boutiques créées
+[2026-01-29 18:10:00] [INFO] 8 opérateurs créés
+[2026-01-29 18:10:00] [INFO] 4 techniciens créés
+[2026-01-29 18:10:00] [INFO] 3 agents de sécurité créés
+[2026-01-29 18:10:00] [INFO] 5 vendeurs créés
+[2026-01-29 18:10:00] [INFO] Total: 20 employés créés
+[2026-01-29 18:10:00] [INFO] Parc initialisé avec succès
+[2026-01-29 18:10:00] [INFO] Thread démarré: GestionnaireMeteo
+[2026-01-29 18:10:00] [INFO] Thread démarré: GestionnaireEvenements
+[2026-01-29 18:10:00] [INFO] Thread arrêté: GestionnaireEvenements
+[2026-01-29 18:10:00] [INFO] Météo changée: ☀️ Ensoleillé → ☀️ Ensoleillé
+[2026-01-29 18:10:00] [INFO] Thread arrêté: GestionnaireMeteo
+[2026-01-29 18:10:00] [INFO] Application démarrée avec succès
+[2026-01-29 18:10:08] [INFO] ═══════════════════════════════════════
+[2026-01-29 18:10:08] [INFO]    OUVERTURE DU PARC D'ATTRACTIONS
+[2026-01-29 18:10:08] [INFO] ═══════════════════════════════════════
+[2026-01-29 18:10:08] [INFO] Attraction démarrée: Montagnes Russes Extrême
+[2026-01-29 18:10:08] [INFO] Thread démarré: Horloge
+[2026-01-29 18:10:08] [INFO] Attraction démarrée: Grande Roue Panoramique
+[2026-01-29 18:10:08] [INFO] Thread démarré: Montagnes Russes Extrême
+[2026-01-29 18:10:08] [INFO] Thread démarré: Manège Enchanté
+[2026-01-29 18:10:08] [INFO] Manège Enchanté : Attraction démarrée
+[2026-01-29 18:10:08] [INFO] Horloge démarrée - Vitesse: x10
+[2026-01-29 18:10:08] [INFO] Attraction démarrée: Manège Enchanté
+[2026-01-29 18:10:08] [INFO] Thread démarré: Grande Roue Panoramique
+[2026-01-29 18:10:08] [INFO] Grande Roue Panoramique : Attraction démarrée
+[2026-01-29 18:10:08] [INFO] Attraction démarrée: Maison Hantée des Ombres
+[2026-01-29 18:10:08] [INFO] Montagnes Russes Extrême : Attraction démarrée
+[2026-01-29 18:10:08] [INFO] Attraction démarrée: Simulateur VR Spatial
+[2026-01-29 18:10:08] [INFO] Thread démarré: Maison Hantée des Ombres
+[2026-01-29 18:10:08] [INFO] Maison Hantée des Ombres : Attraction démarrée
+[2026-01-29 18:10:08] [INFO] Attraction démarrée: Chute Libre Vertigineuse
+[2026-01-29 18:10:08] [INFO] Thread démarré: Simulateur VR Spatial
+[2026-01-29 18:10:08] [INFO] Simulateur VR Spatial : Attraction démarrée
+[2026-01-29 18:10:08] [INFO] Attraction démarrée: Carrousel Magique
+[2026-01-29 18:10:08] [INFO] Thread démarré: Chute Libre Vertigineuse
+[2026-01-29 18:10:08] [INFO] Chute Libre Vertigineuse : Attraction démarrée
+[2026-01-29 18:10:08] [INFO] Attraction démarrée: Toboggan Aquatique Splash
+[2026-01-29 18:10:08] [INFO] Thread démarré: Carrousel Magique
+[2026-01-29 18:10:08] [INFO] Carrousel Magique : Attraction démarrée
+[2026-01-29 18:10:08] [INFO] Thread démarré: Toboggan Aquatique Splash
+[2026-01-29 18:10:08] [INFO] Toboggan Aquatique Splash : Attraction démarrée
+[2026-01-29 18:10:08] [INFO] Thread démarré: Employe-1
+[2026-01-29 18:10:08] [INFO] Employé démarré: Jean Dupont
+[2026-01-29 18:10:08] [INFO] Employé démarré: Marie Martin
+[2026-01-29 18:10:08] [INFO] Thread démarré: Employe-2
+[2026-01-29 18:10:08] [INFO] Thread démarré: Employe-3
+[2026-01-29 18:10:08] [INFO] Employé démarré: Pierre Bernard
+[2026-01-29 18:10:08] [INFO] Employé démarré: Sophie Dubois
+[2026-01-29 18:10:08] [INFO] Thread démarré: Employe-4
+[2026-01-29 18:10:08] [INFO] Employé démarré: Luc Moreau
+[2026-01-29 18:10:08] [INFO] Thread démarré: Employe-5
+[2026-01-29 18:10:08] [INFO] Thread démarré: Employe-6
+[2026-01-29 18:10:08] [INFO] Employé démarré: Emma Laurent
+[2026-01-29 18:10:08] [INFO] Employé démarré: Thomas Simon
+[2026-01-29 18:10:08] [INFO] Thread démarré: Employe-7
+[2026-01-29 18:10:08] [INFO] Thread démarré: Employe-8
+[2026-01-29 18:10:08] [INFO] Employé démarré: Julie Michel
+[2026-01-29 18:10:08] [INFO] Employé démarré: Robert Durand
+[2026-01-29 18:10:08] [INFO] Thread démarré: Employe-9
+[2026-01-29 18:10:08] [INFO] Thread démarré: Employe-10
+[2026-01-29 18:10:08] [INFO] Employé démarré: Claire Leroy
+[2026-01-29 18:10:08] [INFO] Employé démarré: Marc Petit
+[2026-01-29 18:10:08] [INFO] Thread démarré: Employe-11
+[2026-01-29 18:10:08] [INFO] Thread démarré: Employe-12
+[2026-01-29 18:10:08] [INFO] Employé démarré: Isabelle Roux
+[2026-01-29 18:10:08] [INFO] Employé démarré: Paul Girard
+[2026-01-29 18:10:08] [INFO] Thread démarré: Employe-13
+[2026-01-29 18:10:08] [INFO] Thread démarré: Employe-14
+[2026-01-29 18:10:08] [INFO] Employé démarré: Anne Lefebvre
+[2026-01-29 18:10:08] [INFO] Employé démarré: Michel Bonnet
+[2026-01-29 18:10:08] [INFO] Thread démarré: Employe-15
+[2026-01-29 18:10:08] [INFO] Employé démarré: Camille Vincent
+[2026-01-29 18:10:08] [INFO] Employé démarré: Nicolas Fournier
+[2026-01-29 18:10:08] [INFO] Thread démarré: Employe-16
+[2026-01-29 18:10:08] [INFO] Thread démarré: Employe-17
+[2026-01-29 18:10:08] [INFO] Thread démarré: Employe-18
+[2026-01-29 18:10:08] [INFO] Employé démarré: Laura Garcia
+[2026-01-29 18:10:08] [INFO] Employé démarré: David Martinez
+[2026-01-29 18:10:08] [INFO] Thread démarré: Employe-19
+[2026-01-29 18:10:09] [INFO] Thread démarré: Employe-20
+[2026-01-29 18:10:09] [INFO] Employé démarré: Sarah Brown
+[2026-01-29 18:10:09] [INFO] Parc ouvert et opérationnel
+[2026-01-29 18:10:09] [INFO] Thread démarré: GenerateurVisiteurs
+[2026-01-29 18:10:10] [INFO] Thread démarré: Visiteur-1
+[2026-01-29 18:10:10] [INFO] Visiteur 1 : Billet acheté [Billet standard] - 50,00€
+[2026-01-29 18:10:10] [INFO] Visiteur 1 (Famille) arrive - Budget: 79,02€, Patience: 100
+[2026-01-29 18:10:10] [INFO] Visiteur 1 : Rejoint Grande Roue Panoramique (File: 0, Attente: 0 min 0 sec)
+[2026-01-29 18:10:12] [INFO] Thread démarré: Visiteur-2
+[2026-01-29 18:10:12] [INFO] Visiteur 2 : Billet acheté [Billet standard] - 50,00€
+[2026-01-29 18:10:12] [INFO] Visiteur 2 (Famille) arrive - Budget: 91,63€, Patience: 100
+[2026-01-29 18:10:12] [INFO] Visiteur 2 : Rejoint Manège Enchanté (File: 0, Attente: 0 min 0 sec)
+[2026-01-29 18:10:15] [INFO] Heure actuelle: 10:00
+[2026-01-29 18:10:21] [INFO] Heure actuelle: 11:00
+[2026-01-29 18:10:27] [INFO] Heure actuelle: 12:00
+[2026-01-29 18:10:33] [INFO] Heure actuelle: 13:00
+[2026-01-29 18:10:35] [INFO] Thread démarré: Visiteur-3
+[2026-01-29 18:10:35] [INFO] Visiteur 3 : Billet acheté [Fast-Pass] - 80,00€
+[2026-01-29 18:10:35] [INFO] Visiteur 3 (Amateur sensations fortes) arrive - Budget: 0,55€, Patience: 60
+[2026-01-29 18:10:35] [INFO] Visiteur 3 : Rejoint Chute Libre Vertigineuse (File: 0, Attente: 0 min 0 sec)
+[2026-01-29 18:10:39] [INFO] Heure actuelle: 14:00
+[2026-01-29 18:10:40] [INFO] ═══════════════════════════════════════
+[2026-01-29 18:10:40] [INFO]    FERMETURE DU PARC D'ATTRACTIONS
+[2026-01-29 18:10:40] [INFO] ═══════════════════════════════════════
+[2026-01-29 18:10:40] [INFO] GenerateurVisiteurs interrompu
+[2026-01-29 18:10:40] [INFO] Thread arrêté: GenerateurVisiteurs
+[2026-01-29 18:10:40] [INFO] Horloge interrompue
+[2026-01-29 18:10:40] [INFO] Visiteur 1 : Interrompu
+[2026-01-29 18:10:40] [INFO] Visiteur 3 : Interrompu
+[2026-01-29 18:10:40] [INFO] Visiteur 2 : Interrompu
+[2026-01-29 18:10:40] [INFO] Employe-3 interrompu
+[2026-01-29 18:10:40] [INFO] Employe-11 interrompu
+[2026-01-29 18:10:40] [INFO] Thread arrêté: Employe-11
+[2026-01-29 18:10:40] [INFO] Employe-10 interrompu
+[2026-01-29 18:10:40] [INFO] Thread arrêté: Employe-10
+[2026-01-29 18:10:40] [INFO] Employe-5 interrompu
+[2026-01-29 18:10:40] [INFO] Thread arrêté: Employe-5
+[2026-01-29 18:10:40] [INFO] Employe-17 interrompu
+[2026-01-29 18:10:40] [INFO] Thread arrêté: Employe-17
+[2026-01-29 18:10:40] [INFO] Employe-7 interrompu
+[2026-01-29 18:10:40] [INFO] Thread arrêté: Employe-7
+[2026-01-29 18:10:40] [INFO] Simulateur VR Spatial : Thread interrompu
+[2026-01-29 18:10:40] [INFO] Employe-20 interrompu
+[2026-01-29 18:10:40] [INFO] Thread arrêté: Employe-20
+[2026-01-29 18:10:40] [INFO] Maison Hantée des Ombres : Thread interrompu
+[2026-01-29 18:10:40] [INFO] Thread arrêté: Maison Hantée des Ombres
+[2026-01-29 18:10:40] [INFO] Employe-2 interrompu
+[2026-01-29 18:10:40] [INFO] Thread arrêté: Employe-2
+[2026-01-29 18:10:40] [INFO] Grande Roue Panoramique : Thread interrompu
+[2026-01-29 18:10:40] [INFO] Employe-19 interrompu
+[2026-01-29 18:10:40] [INFO] Thread arrêté: Employe-19
+[2026-01-29 18:10:40] [INFO] Employe-18 interrompu
+[2026-01-29 18:10:40] [INFO] Thread arrêté: Employe-18
+[2026-01-29 18:10:40] [INFO] Toboggan Aquatique Splash : Thread interrompu
+[2026-01-29 18:10:40] [INFO] Thread arrêté: Toboggan Aquatique Splash
+[2026-01-29 18:10:40] [INFO] Employe-16 interrompu
+[2026-01-29 18:10:40] [INFO] Thread arrêté: Employe-16
+[2026-01-29 18:10:40] [INFO] Employe-15 interrompu
+[2026-01-29 18:10:40] [INFO] Thread arrêté: Employe-15
+[2026-01-29 18:10:40] [INFO] Employe-13 interrompu
+[2026-01-29 18:10:40] [INFO] Thread arrêté: Employe-13
+[2026-01-29 18:10:40] [INFO] Employe-9 interrompu
+[2026-01-29 18:10:40] [INFO] Manège Enchanté : Thread interrompu
+[2026-01-29 18:10:40] [INFO] Thread arrêté: Manège Enchanté
+[2026-01-29 18:10:40] [INFO] Employe-12 interrompu
+[2026-01-29 18:10:40] [INFO] Thread arrêté: Employe-12
+[2026-01-29 18:10:40] [INFO] Employe-6 interrompu
+[2026-01-29 18:10:40] [INFO] Thread arrêté: Employe-6
+[2026-01-29 18:10:40] [INFO] Employe-14 interrompu
+[2026-01-29 18:10:40] [INFO] Thread arrêté: Employe-14
+[2026-01-29 18:10:40] [INFO] Parc fermé
+[2026-01-29 18:10:40] [INFO] Employe-4 interrompu
+[2026-01-29 18:10:40] [INFO] Thread arrêté: Employe-4
+[2026-01-29 18:10:40] [INFO] Employe-8 interrompu
+[2026-01-29 18:10:40] [INFO] Thread arrêté: Employe-8
+[2026-01-29 18:10:40] [INFO] Employe-1 interrompu
+[2026-01-29 18:10:40] [INFO] Thread arrêté: Employe-1
+[2026-01-29 18:10:40] [INFO] Chute Libre Vertigineuse : Thread interrompu
+[2026-01-29 18:10:40] [INFO] Montagnes Russes Extrême : Thread interrompu
+[2026-01-29 18:10:40] [INFO] Carrousel Magique : Thread interrompu
+[2026-01-29 18:10:40] [INFO] Thread arrêté: Montagnes Russes Extrême
+[2026-01-29 18:10:40] [INFO] Thread arrêté: Chute Libre Vertigineuse
+[2026-01-29 18:10:40] [INFO] === STATISTIQUES DU PARC ===
+Visiteurs total: 3
+Visiteurs actuels: 3
+Tours effectués: 0
+Revenus: 0,00 €
+Revenu moyen/visiteur: 0,00 €
+Temps attente moyen: 0 min 0 sec
+Satisfaction: 0,0% 😞
+============================
+[2026-01-29 18:10:40] [INFO] Thread arrêté: Employe-9
+[2026-01-29 18:10:40] [INFO] Thread arrêté: Grande Roue Panoramique
+[2026-01-29 18:10:40] [INFO] Thread arrêté: Simulateur VR Spatial
+[2026-01-29 18:10:40] [INFO] Thread arrêté: Employe-3
+[2026-01-29 18:10:40] [INFO] Visiteur 2 quitte le parc - Attractions: 0 - Satisfaction: 50% (Neutre 😐) - Argent restant: 91,63€
+[2026-01-29 18:10:40] [INFO] Thread arrêté: Visiteur-2
+[2026-01-29 18:10:40] [INFO] Visiteur 3 quitte le parc - Attractions: 0 - Satisfaction: 50% (Neutre 😐) - Argent restant: 0,55€
+[2026-01-29 18:10:40] [INFO] Thread arrêté: Visiteur-3
+[2026-01-29 18:10:40] [INFO] Visiteur 1 quitte le parc - Attractions: 0 - Satisfaction: 50% (Neutre 😐) - Argent restant: 79,02€
+[2026-01-29 18:10:40] [INFO] Thread arrêté: Visiteur-1
+[2026-01-29 18:10:40] [INFO] Thread arrêté: Horloge
+[2026-01-29 18:10:40] [INFO] Thread arrêté: Carrousel Magique
+
+================================================================================
+FIN DE SESSION - 2026-01-29 18:10:43
+================================================================================
+
+
+================================================================================
+NOUVELLE SESSION - 2026-01-29 18:17:26
+================================================================================
+[2026-01-29 18:17:26] [INFO] ═══════════════════════════════════════
+[2026-01-29 18:17:26] [INFO]    PARC D'ATTRACTIONS - SIMULATION
+[2026-01-29 18:17:26] [INFO] ═══════════════════════════════════════
+[2026-01-29 18:17:26] [INFO] Initialisation du parc d'attractions...
+[2026-01-29 18:17:26] [INFO] 8 attractions créées
+[2026-01-29 18:17:26] [INFO] Restaurant créé: Restaurant Central (capacité: 80)
+[2026-01-29 18:17:26] [INFO] Restaurant créé: Snack Rapide (capacité: 40)
+[2026-01-29 18:17:26] [INFO] 2 restaurants créés
+[2026-01-29 18:17:26] [INFO] Stock initialisé pour Boutique Souvenirs (9 produits)
+[2026-01-29 18:17:26] [INFO] Boutique créée: Boutique Souvenirs
+[2026-01-29 18:17:26] [INFO] Stock initialisé pour Boutique Photos (9 produits)
+[2026-01-29 18:17:26] [INFO] Boutique créée: Boutique Photos
+[2026-01-29 18:17:26] [INFO] 2 boutiques créées
+[2026-01-29 18:17:26] [INFO] 8 opérateurs créés
+[2026-01-29 18:17:26] [INFO] 4 techniciens créés
+[2026-01-29 18:17:26] [INFO] 3 agents de sécurité créés
+[2026-01-29 18:17:26] [INFO] 5 vendeurs créés
+[2026-01-29 18:17:26] [INFO] Total: 20 employés créés
+[2026-01-29 18:17:26] [INFO] Parc initialisé avec succès
+[2026-01-29 18:17:26] [INFO] Thread démarré: GestionnaireEvenements
+[2026-01-29 18:17:26] [INFO] Thread démarré: GestionnaireMeteo
+[2026-01-29 18:17:26] [INFO] Thread arrêté: GestionnaireEvenements
+[2026-01-29 18:17:26] [INFO] Météo changée: ☀️ Ensoleillé → ☀️ Ensoleillé
+[2026-01-29 18:17:26] [INFO] Thread arrêté: GestionnaireMeteo
+[2026-01-29 18:17:26] [INFO] Application démarrée avec succès
+[2026-01-29 18:17:35] [INFO] ═══════════════════════════════════════
+[2026-01-29 18:17:35] [INFO]    OUVERTURE DU PARC D'ATTRACTIONS
+[2026-01-29 18:17:35] [INFO] ═══════════════════════════════════════
+[2026-01-29 18:17:35] [INFO] Attraction démarrée: Montagnes Russes Extrême
+[2026-01-29 18:17:35] [INFO] Thread démarré: Horloge
+[2026-01-29 18:17:35] [INFO] Thread démarré: Grande Roue Panoramique
+[2026-01-29 18:17:35] [INFO] Attraction démarrée: Grande Roue Panoramique
+[2026-01-29 18:17:35] [INFO] Thread démarré: Montagnes Russes Extrême
+[2026-01-29 18:17:35] [INFO] Montagnes Russes Extrême : Attraction démarrée
+[2026-01-29 18:17:35] [INFO] Attraction démarrée: Manège Enchanté
+[2026-01-29 18:17:35] [INFO] Grande Roue Panoramique : Attraction démarrée
+[2026-01-29 18:17:35] [INFO] Horloge démarrée - Vitesse: x10
+[2026-01-29 18:17:35] [INFO] Thread démarré: Maison Hantée des Ombres
+[2026-01-29 18:17:35] [INFO] Maison Hantée des Ombres : Attraction démarrée
+[2026-01-29 18:17:35] [INFO] Attraction démarrée: Maison Hantée des Ombres
+[2026-01-29 18:17:35] [INFO] Thread démarré: Manège Enchanté
+[2026-01-29 18:17:35] [INFO] Manège Enchanté : Attraction démarrée
+[2026-01-29 18:17:35] [INFO] Attraction démarrée: Simulateur VR Spatial
+[2026-01-29 18:17:35] [INFO] Thread démarré: Simulateur VR Spatial
+[2026-01-29 18:17:35] [INFO] Simulateur VR Spatial : Attraction démarrée
+[2026-01-29 18:17:35] [INFO] Attraction démarrée: Chute Libre Vertigineuse
+[2026-01-29 18:17:35] [INFO] Thread démarré: Chute Libre Vertigineuse
+[2026-01-29 18:17:35] [INFO] Chute Libre Vertigineuse : Attraction démarrée
+[2026-01-29 18:17:35] [INFO] Attraction démarrée: Carrousel Magique
+[2026-01-29 18:17:35] [INFO] Thread démarré: Carrousel Magique
+[2026-01-29 18:17:35] [INFO] Carrousel Magique : Attraction démarrée
+[2026-01-29 18:17:35] [INFO] Attraction démarrée: Toboggan Aquatique Splash
+[2026-01-29 18:17:35] [INFO] Thread démarré: Toboggan Aquatique Splash
+[2026-01-29 18:17:35] [INFO] Toboggan Aquatique Splash : Attraction démarrée
+[2026-01-29 18:17:35] [INFO] Employé démarré: Jean Dupont
+[2026-01-29 18:17:35] [INFO] Thread démarré: Employe-1
+[2026-01-29 18:17:35] [INFO] Employé démarré: Marie Martin
+[2026-01-29 18:17:35] [INFO] Thread démarré: Employe-2
+[2026-01-29 18:17:35] [INFO] Employé démarré: Pierre Bernard
+[2026-01-29 18:17:35] [INFO] Thread démarré: Employe-3
+[2026-01-29 18:17:35] [INFO] Employé démarré: Sophie Dubois
+[2026-01-29 18:17:35] [INFO] Thread démarré: Employe-4
+[2026-01-29 18:17:35] [INFO] Employé démarré: Luc Moreau
+[2026-01-29 18:17:35] [INFO] Thread démarré: Employe-5
+[2026-01-29 18:17:35] [INFO] Employé démarré: Emma Laurent
+[2026-01-29 18:17:35] [INFO] Thread démarré: Employe-6
+[2026-01-29 18:17:35] [INFO] Employé démarré: Thomas Simon
+[2026-01-29 18:17:35] [INFO] Thread démarré: Employe-7
+[2026-01-29 18:17:35] [INFO] Employé démarré: Julie Michel
+[2026-01-29 18:17:35] [INFO] Thread démarré: Employe-8
+[2026-01-29 18:17:35] [INFO] Employé démarré: Robert Durand
+[2026-01-29 18:17:35] [INFO] Thread démarré: Employe-9
+[2026-01-29 18:17:35] [INFO] Thread démarré: Employe-10
+[2026-01-29 18:17:35] [INFO] Employé démarré: Claire Leroy
+[2026-01-29 18:17:35] [INFO] Employé démarré: Marc Petit
+[2026-01-29 18:17:35] [INFO] Thread démarré: Employe-11
+[2026-01-29 18:17:35] [INFO] Thread démarré: Employe-12
+[2026-01-29 18:17:35] [INFO] Employé démarré: Isabelle Roux
+[2026-01-29 18:17:35] [INFO] Employé démarré: Paul Girard
+[2026-01-29 18:17:35] [INFO] Thread démarré: Employe-13
+[2026-01-29 18:17:35] [INFO] Employé démarré: Anne Lefebvre
+[2026-01-29 18:17:35] [INFO] Thread démarré: Employe-14
+[2026-01-29 18:17:35] [INFO] Thread démarré: Employe-15
+[2026-01-29 18:17:35] [INFO] Employé démarré: Michel Bonnet
+[2026-01-29 18:17:35] [INFO] Employé démarré: Camille Vincent
+[2026-01-29 18:17:35] [INFO] Employé démarré: Nicolas Fournier
+[2026-01-29 18:17:35] [INFO] Employé démarré: Laura Garcia
+[2026-01-29 18:17:35] [INFO] Thread démarré: Employe-18
+[2026-01-29 18:17:35] [INFO] Thread démarré: Employe-16
+[2026-01-29 18:17:35] [INFO] Thread démarré: Employe-17
+[2026-01-29 18:17:35] [INFO] Thread démarré: Employe-19
+[2026-01-29 18:17:35] [INFO] Employé démarré: David Martinez
+[2026-01-29 18:17:35] [INFO] Employé démarré: Sarah Brown
+[2026-01-29 18:17:35] [INFO] Parc ouvert et opérationnel
+[2026-01-29 18:17:35] [INFO] Thread démarré: Employe-20
+[2026-01-29 18:17:35] [INFO] Thread démarré: GenerateurVisiteurs
+[2026-01-29 18:17:38] [INFO] Thread démarré: Visiteur-1
+[2026-01-29 18:17:38] [INFO] Visiteur 1 : Billet acheté [Billet standard] - 50,00€
+[2026-01-29 18:17:38] [INFO] Visiteur 1 (Amateur sensations fortes) arrive - Budget: 18,87€, Patience: 60
+[2026-01-29 18:17:38] [INFO] Visiteur 1 : Rejoint Chute Libre Vertigineuse (File: 0, Attente: 0 min 0 sec)
+[2026-01-29 18:17:41] [INFO] Heure actuelle: 10:00
+[2026-01-29 18:17:41] [INFO] Thread démarré: Visiteur-3
+[2026-01-29 18:17:41] [INFO] Visiteur 3 : Billet acheté [Billet standard] - 30,00€
+[2026-01-29 18:17:41] [INFO] Visiteur 3 (Enfant) arrive - Budget: 3,63€, Patience: 40
+[2026-01-29 18:17:41] [INFO] Visiteur 3 : Rejoint Manège Enchanté (File: 0, Attente: 0 min 0 sec)
+[2026-01-29 18:17:47] [INFO] Heure actuelle: 11:00
+[2026-01-29 18:17:47] [INFO] Thread démarré: Visiteur-4
+[2026-01-29 18:17:47] [INFO] Visiteur 4 : Billet acheté [Billet standard] - 50,00€
+[2026-01-29 18:17:47] [INFO] Visiteur 4 (Amateur sensations fortes) arrive - Budget: 43,12€, Patience: 60
+[2026-01-29 18:17:47] [INFO] Visiteur 4 : Rejoint Simulateur VR Spatial (File: 0, Attente: 0 min 0 sec)
+[2026-01-29 18:17:50] [INFO] Thread démarré: Visiteur-5
+[2026-01-29 18:17:50] [INFO] Visiteur 5 : Billet acheté [Billet standard] - 50,00€
+[2026-01-29 18:17:50] [INFO] Visiteur 5 (Groupe d'amis) arrive - Budget: 56,60€, Patience: 80
+[2026-01-29 18:17:50] [INFO] Visiteur 5 : Rejoint Maison Hantée des Ombres (File: 0, Attente: 0 min 0 sec)
+[2026-01-29 18:17:53] [INFO] Heure actuelle: 12:00
+[2026-01-29 18:17:59] [INFO] Heure actuelle: 13:00
+[2026-01-29 18:18:00] [INFO] Thread démarré: Visiteur-9
+[2026-01-29 18:18:00] [INFO] Visiteur 9 : Billet acheté [Fast-Pass] - 80,00€
+[2026-01-29 18:18:00] [INFO] Visiteur 9 (Groupe d'amis) arrive - Budget: 60,95€, Patience: 80
+[2026-01-29 18:18:00] [INFO] Visiteur 9 : Rejoint Montagnes Russes Extrême (File: 0, Attente: 0 min 0 sec)
+[2026-01-29 18:18:01] [INFO] Thread démarré: Visiteur-13
+[2026-01-29 18:18:01] [INFO] Visiteur 13 : Billet acheté [Fast-Pass] - 80,00€
+[2026-01-29 18:18:01] [INFO] Visiteur 13 (Groupe d'amis) arrive - Budget: 34,25€, Patience: 80
+[2026-01-29 18:18:01] [INFO] Visiteur 13 : Rejoint Toboggan Aquatique Splash (File: 0, Attente: 0 min 0 sec)
+[2026-01-29 18:18:02] [INFO] Visiteur 1 : Tour sur Chute Libre Vertigineuse terminé (Satisfaction: 65%)
+[2026-01-29 18:18:02] [INFO] Thread démarré: Visiteur-17
+[2026-01-29 18:18:02] [INFO] Visiteur 17 : Billet acheté [Billet standard] - 50,00€
+[2026-01-29 18:18:02] [INFO] Visiteur 17 (Famille) arrive - Budget: 129,50€, Patience: 100
+[2026-01-29 18:18:02] [INFO] Visiteur 17 : Rejoint Grande Roue Panoramique (File: 0, Attente: 0 min 0 sec)
+[2026-01-29 18:18:04] [INFO] Visiteur 1 : Rejoint Simulateur VR Spatial (File: 1, Attente: 4 min 0 sec)
+[2026-01-29 18:18:05] [INFO] Heure actuelle: 14:00
+[2026-01-29 18:18:08] [INFO] ═══════════════════════════════════════
+[2026-01-29 18:18:08] [INFO]    FERMETURE DU PARC D'ATTRACTIONS
+[2026-01-29 18:18:08] [INFO] ═══════════════════════════════════════
+[2026-01-29 18:18:08] [INFO] GenerateurVisiteurs interrompu
+[2026-01-29 18:18:08] [INFO] Horloge interrompue
+[2026-01-29 18:18:08] [INFO] Visiteur 17 : Interrompu
+[2026-01-29 18:18:08] [INFO] Employe-13 interrompu
+[2026-01-29 18:18:08] [INFO] Employe-12 interrompu
+[2026-01-29 18:18:08] [INFO] Thread arrêté: Employe-12
+[2026-01-29 18:18:08] [INFO] Visiteur 13 : Interrompu
+[2026-01-29 18:18:08] [INFO] Visiteur 5 : Interrompu
+[2026-01-29 18:18:08] [INFO] Visiteur 4 : Interrompu
+[2026-01-29 18:18:08] [INFO] Visiteur 9 : Interrompu
+[2026-01-29 18:18:08] [INFO] Visiteur 1 : Interrompu
+[2026-01-29 18:18:08] [INFO] Visiteur 3 : Interrompu
+[2026-01-29 18:18:08] [INFO] Employe-18 interrompu
+[2026-01-29 18:18:08] [INFO] Thread arrêté: Employe-18
+[2026-01-29 18:18:08] [INFO] Employe-11 interrompu
+[2026-01-29 18:18:08] [INFO] Thread arrêté: Employe-11
+[2026-01-29 18:18:08] [INFO] Employe-19 interrompu
+[2026-01-29 18:18:08] [INFO] Thread arrêté: Employe-19
+[2026-01-29 18:18:08] [INFO] Employe-20 interrompu
+[2026-01-29 18:18:08] [INFO] Thread arrêté: Employe-20
+[2026-01-29 18:18:08] [INFO] Toboggan Aquatique Splash : Thread interrompu
+[2026-01-29 18:18:08] [INFO] Employe-10 interrompu
+[2026-01-29 18:18:08] [INFO] Thread arrêté: Employe-10
+[2026-01-29 18:18:08] [INFO] Employe-15 interrompu
+[2026-01-29 18:18:08] [INFO] Thread arrêté: Employe-15
+[2026-01-29 18:18:08] [INFO] Employe-17 interrompu
+[2026-01-29 18:18:08] [INFO] Thread arrêté: Employe-17
+[2026-01-29 18:18:08] [INFO] Parc fermé
+[2026-01-29 18:18:08] [INFO] Employe-16 interrompu
+[2026-01-29 18:18:08] [INFO] Thread arrêté: Employe-16
+[2026-01-29 18:18:08] [INFO] Employe-14 interrompu
+[2026-01-29 18:18:08] [INFO] Thread arrêté: Employe-14
+[2026-01-29 18:18:08] [INFO] Employe-5 interrompu
+[2026-01-29 18:18:08] [INFO] Thread arrêté: Employe-5
+[2026-01-29 18:18:08] [INFO] Employe-3 interrompu
+[2026-01-29 18:18:08] [INFO] Employe-7 interrompu
+[2026-01-29 18:18:08] [INFO] Thread arrêté: Employe-7
+[2026-01-29 18:18:08] [INFO] Employe-9 interrompu
+[2026-01-29 18:18:08] [INFO] Thread arrêté: Employe-9
+[2026-01-29 18:18:08] [INFO] Employe-4 interrompu
+[2026-01-29 18:18:08] [INFO] Thread arrêté: Employe-4
+[2026-01-29 18:18:08] [INFO] Employe-2 interrompu
+[2026-01-29 18:18:08] [INFO] Thread arrêté: Employe-2
+[2026-01-29 18:18:08] [INFO] Employe-6 interrompu
+[2026-01-29 18:18:08] [INFO] Thread arrêté: Employe-6
+[2026-01-29 18:18:08] [INFO] Employe-8 interrompu
+[2026-01-29 18:18:08] [INFO] Thread arrêté: Employe-8
+[2026-01-29 18:18:08] [INFO] Employe-1 interrompu
+[2026-01-29 18:18:08] [INFO] Thread arrêté: Employe-1
+[2026-01-29 18:18:08] [INFO] Manège Enchanté : Thread interrompu
+[2026-01-29 18:18:08] [INFO] Carrousel Magique : Thread interrompu
+[2026-01-29 18:18:08] [INFO] Thread arrêté: Carrousel Magique
+[2026-01-29 18:18:08] [INFO] Montagnes Russes Extrême : Thread interrompu
+[2026-01-29 18:18:08] [INFO] Grande Roue Panoramique : Thread interrompu
+[2026-01-29 18:18:08] [INFO] Chute Libre Vertigineuse : Thread interrompu
+[2026-01-29 18:18:08] [INFO] Thread arrêté: Chute Libre Vertigineuse
+[2026-01-29 18:18:08] [INFO] Simulateur VR Spatial : Thread interrompu
+[2026-01-29 18:18:08] [INFO] Maison Hantée des Ombres : Thread interrompu
+[2026-01-29 18:18:08] [INFO] Thread arrêté: Maison Hantée des Ombres
+[2026-01-29 18:18:08] [INFO] Thread arrêté: GenerateurVisiteurs
+[2026-01-29 18:18:08] [INFO] Thread arrêté: Simulateur VR Spatial
+[2026-01-29 18:18:08] [INFO] Thread arrêté: Grande Roue Panoramique
+[2026-01-29 18:18:08] [INFO] Thread arrêté: Montagnes Russes Extrême
+[2026-01-29 18:18:08] [INFO] Thread arrêté: Manège Enchanté
+[2026-01-29 18:18:08] [INFO] Thread arrêté: Employe-3
+[2026-01-29 18:18:08] [INFO] === STATISTIQUES DU PARC ===
+Visiteurs total: 7
+Visiteurs actuels: 7
+Tours effectués: 0
+Revenus: 0,00 €
+Revenu moyen/visiteur: 0,00 €
+Temps attente moyen: 0 min 0 sec
+Satisfaction: 0,0% 😞
+============================
+[2026-01-29 18:18:08] [INFO] Thread arrêté: Toboggan Aquatique Splash
+[2026-01-29 18:18:08] [INFO] Visiteur 3 quitte le parc - Attractions: 0 - Satisfaction: 50% (Neutre 😐) - Argent restant: 3,63€
+[2026-01-29 18:18:08] [INFO] Visiteur 1 quitte le parc - Attractions: 1 - Satisfaction: 65% (Satisfait 🙂) - Argent restant: 18,87€
+[2026-01-29 18:18:08] [INFO] Thread arrêté: Visiteur-1
+[2026-01-29 18:18:08] [INFO] Visiteur 9 quitte le parc - Attractions: 0 - Satisfaction: 50% (Neutre 😐) - Argent restant: 60,95€
+[2026-01-29 18:18:08] [INFO] Thread arrêté: Visiteur-9
+[2026-01-29 18:18:08] [INFO] Visiteur 4 quitte le parc - Attractions: 0 - Satisfaction: 50% (Neutre 😐) - Argent restant: 43,12€
+[2026-01-29 18:18:08] [INFO] Thread arrêté: Visiteur-4
+[2026-01-29 18:18:08] [INFO] Visiteur 5 quitte le parc - Attractions: 0 - Satisfaction: 50% (Neutre 😐) - Argent restant: 56,60€
+[2026-01-29 18:18:08] [INFO] Thread arrêté: Visiteur-5
+[2026-01-29 18:18:08] [INFO] Visiteur 13 quitte le parc - Attractions: 0 - Satisfaction: 50% (Neutre 😐) - Argent restant: 34,25€
+[2026-01-29 18:18:08] [INFO] Thread arrêté: Visiteur-13
+[2026-01-29 18:18:08] [INFO] Thread arrêté: Employe-13
+[2026-01-29 18:18:08] [INFO] Visiteur 17 quitte le parc - Attractions: 0 - Satisfaction: 50% (Neutre 😐) - Argent restant: 129,50€
+[2026-01-29 18:18:08] [INFO] Thread arrêté: Visiteur-17
+[2026-01-29 18:18:08] [INFO] Thread arrêté: Horloge
+[2026-01-29 18:18:08] [INFO] Thread arrêté: Visiteur-3
+
+================================================================================
+FIN DE SESSION - 2026-01-29 18:26:09
+================================================================================
+
+
+================================================================================
+NOUVELLE SESSION - 2026-01-29 18:26:17
+================================================================================
+[2026-01-29 18:26:17] [INFO] ═══════════════════════════════════════
+[2026-01-29 18:26:17] [INFO]    PARC D'ATTRACTIONS - SIMULATION
+[2026-01-29 18:26:17] [INFO] ═══════════════════════════════════════
+[2026-01-29 18:26:17] [INFO] Initialisation du parc d'attractions...
+[2026-01-29 18:26:17] [INFO] 8 attractions créées
+[2026-01-29 18:26:17] [INFO] Restaurant créé: Restaurant Central (capacité: 80)
+[2026-01-29 18:26:17] [INFO] Restaurant créé: Snack Rapide (capacité: 40)
+[2026-01-29 18:26:17] [INFO] 2 restaurants créés
+[2026-01-29 18:26:17] [INFO] Stock initialisé pour Boutique Souvenirs (9 produits)
+[2026-01-29 18:26:17] [INFO] Boutique créée: Boutique Souvenirs
+[2026-01-29 18:26:17] [INFO] Stock initialisé pour Boutique Photos (9 produits)
+[2026-01-29 18:26:17] [INFO] Boutique créée: Boutique Photos
+[2026-01-29 18:26:17] [INFO] 2 boutiques créées
+[2026-01-29 18:26:17] [INFO] 8 opérateurs créés
+[2026-01-29 18:26:17] [INFO] 4 techniciens créés
+[2026-01-29 18:26:17] [INFO] 3 agents de sécurité créés
+[2026-01-29 18:26:17] [INFO] 5 vendeurs créés
+[2026-01-29 18:26:17] [INFO] Total: 20 employés créés
+[2026-01-29 18:26:17] [INFO] Parc initialisé avec succès
+[2026-01-29 18:26:17] [INFO] Thread démarré: GestionnaireMeteo
+[2026-01-29 18:26:17] [INFO] Thread démarré: GestionnaireEvenements
+[2026-01-29 18:26:17] [INFO] Thread arrêté: GestionnaireEvenements
+[2026-01-29 18:26:17] [INFO] Météo changée: ☀️ Ensoleillé → ☀️ Ensoleillé
+[2026-01-29 18:26:17] [INFO] Thread arrêté: GestionnaireMeteo
+[2026-01-29 18:26:17] [INFO] Application démarrée avec succès
+[2026-01-29 18:26:29] [INFO] ═══════════════════════════════════════
+[2026-01-29 18:26:29] [INFO]    OUVERTURE DU PARC D'ATTRACTIONS
+[2026-01-29 18:26:29] [INFO] ═══════════════════════════════════════
+[2026-01-29 18:26:29] [INFO] Attraction démarrée: Montagnes Russes Extrême
+[2026-01-29 18:26:29] [INFO] Thread démarré: Horloge
+[2026-01-29 18:26:29] [INFO] Attraction démarrée: Grande Roue Panoramique
+[2026-01-29 18:26:29] [INFO] Thread démarré: Montagnes Russes Extrême
+[2026-01-29 18:26:29] [INFO] Attraction démarrée: Manège Enchanté
+[2026-01-29 18:26:29] [INFO] Horloge démarrée - Vitesse: x10
+[2026-01-29 18:26:29] [INFO] Thread démarré: Grande Roue Panoramique
+[2026-01-29 18:26:29] [INFO] Grande Roue Panoramique : Attraction démarrée
+[2026-01-29 18:26:29] [INFO] Thread démarré: Maison Hantée des Ombres
+[2026-01-29 18:26:29] [INFO] Maison Hantée des Ombres : Attraction démarrée
+[2026-01-29 18:26:29] [INFO] Attraction démarrée: Maison Hantée des Ombres
+[2026-01-29 18:26:29] [INFO] Thread démarré: Manège Enchanté
+[2026-01-29 18:26:29] [INFO] Manège Enchanté : Attraction démarrée
+[2026-01-29 18:26:29] [INFO] Montagnes Russes Extrême : Attraction démarrée
+[2026-01-29 18:26:29] [INFO] Thread démarré: Simulateur VR Spatial
+[2026-01-29 18:26:29] [INFO] Simulateur VR Spatial : Attraction démarrée
+[2026-01-29 18:26:29] [INFO] Attraction démarrée: Simulateur VR Spatial
+[2026-01-29 18:26:29] [INFO] Attraction démarrée: Chute Libre Vertigineuse
+[2026-01-29 18:26:29] [INFO] Thread démarré: Chute Libre Vertigineuse
+[2026-01-29 18:26:29] [INFO] Chute Libre Vertigineuse : Attraction démarrée
+[2026-01-29 18:26:29] [INFO] Attraction démarrée: Carrousel Magique
+[2026-01-29 18:26:29] [INFO] Thread démarré: Carrousel Magique
+[2026-01-29 18:26:29] [INFO] Carrousel Magique : Attraction démarrée
+[2026-01-29 18:26:29] [INFO] Attraction démarrée: Toboggan Aquatique Splash
+[2026-01-29 18:26:29] [INFO] Thread démarré: Toboggan Aquatique Splash
+[2026-01-29 18:26:29] [INFO] Toboggan Aquatique Splash : Attraction démarrée
+[2026-01-29 18:26:29] [INFO] Employé démarré: Jean Dupont
+[2026-01-29 18:26:29] [INFO] Thread démarré: Employe-1
+[2026-01-29 18:26:29] [INFO] Thread démarré: Employe-2
+[2026-01-29 18:26:29] [INFO] Employé démarré: Marie Martin
+[2026-01-29 18:26:29] [INFO] Employé démarré: Pierre Bernard
+[2026-01-29 18:26:29] [INFO] Thread démarré: Employe-3
+[2026-01-29 18:26:29] [INFO] Employé démarré: Sophie Dubois
+[2026-01-29 18:26:29] [INFO] Thread démarré: Employe-4
+[2026-01-29 18:26:29] [INFO] Thread démarré: Employe-5
+[2026-01-29 18:26:29] [INFO] Employé démarré: Luc Moreau
+[2026-01-29 18:26:29] [INFO] Employé démarré: Emma Laurent
+[2026-01-29 18:26:29] [INFO] Thread démarré: Employe-6
+[2026-01-29 18:26:29] [INFO] Employé démarré: Thomas Simon
+[2026-01-29 18:26:29] [INFO] Thread démarré: Employe-7
+[2026-01-29 18:26:29] [INFO] Employé démarré: Julie Michel
+[2026-01-29 18:26:29] [INFO] Thread démarré: Employe-8
+[2026-01-29 18:26:29] [INFO] Employé démarré: Robert Durand
+[2026-01-29 18:26:29] [INFO] Thread démarré: Employe-9
+[2026-01-29 18:26:29] [INFO] Employé démarré: Claire Leroy
+[2026-01-29 18:26:29] [INFO] Thread démarré: Employe-10
+[2026-01-29 18:26:29] [INFO] Employé démarré: Marc Petit
+[2026-01-29 18:26:29] [INFO] Thread démarré: Employe-11
+[2026-01-29 18:26:29] [INFO] Employé démarré: Isabelle Roux
+[2026-01-29 18:26:29] [INFO] Thread démarré: Employe-12
+[2026-01-29 18:26:29] [INFO] Employé démarré: Paul Girard
+[2026-01-29 18:26:29] [INFO] Thread démarré: Employe-13
+[2026-01-29 18:26:29] [INFO] Employé démarré: Anne Lefebvre
+[2026-01-29 18:26:29] [INFO] Thread démarré: Employe-14
+[2026-01-29 18:26:29] [INFO] Employé démarré: Michel Bonnet
+[2026-01-29 18:26:29] [INFO] Thread démarré: Employe-15
+[2026-01-29 18:26:29] [INFO] Employé démarré: Camille Vincent
+[2026-01-29 18:26:29] [INFO] Thread démarré: Employe-16
+[2026-01-29 18:26:29] [INFO] Employé démarré: Nicolas Fournier
+[2026-01-29 18:26:29] [INFO] Thread démarré: Employe-17
+[2026-01-29 18:26:29] [INFO] Employé démarré: Laura Garcia
+[2026-01-29 18:26:29] [INFO] Thread démarré: Employe-18
+[2026-01-29 18:26:29] [INFO] Thread démarré: Employe-19
+[2026-01-29 18:26:29] [INFO] Employé démarré: David Martinez
+[2026-01-29 18:26:29] [INFO] Employé démarré: Sarah Brown
+[2026-01-29 18:26:29] [INFO] Parc ouvert et opérationnel
+[2026-01-29 18:26:29] [INFO] Thread démarré: Employe-20
+[2026-01-29 18:26:29] [INFO] Thread démarré: GenerateurVisiteurs
+[2026-01-29 18:26:29] [INFO] Thread démarré: Visiteur-1
+[2026-01-29 18:26:29] [INFO] Visiteur 1 : Billet acheté [Billet standard] - 50,00€
+[2026-01-29 18:26:29] [INFO] Visiteur 1 (Groupe d'amis) arrive - Budget: 93,63€, Patience: 80
+[2026-01-29 18:26:29] [INFO] Visiteur 1 : Rejoint Chute Libre Vertigineuse (File: 0, Attente: 0 min 0 sec)
+[2026-01-29 18:26:31] [INFO] Thread démarré: Visiteur-7
+[2026-01-29 18:26:31] [INFO] Visiteur 7 : Billet acheté [Billet standard] - 50,00€
+[2026-01-29 18:26:31] [INFO] Visiteur 7 (Couple) arrive - Budget: 100,76€, Patience: 120
+[2026-01-29 18:26:31] [INFO] Visiteur 7 : Rejoint Carrousel Magique (File: 0, Attente: 0 min 0 sec)
+[2026-01-29 18:26:35] [INFO] Heure actuelle: 10:00
+[2026-01-29 18:26:35] [INFO] Thread démarré: Visiteur-8
+[2026-01-29 18:26:35] [INFO] Visiteur 8 : Billet acheté [Billet standard] - 50,00€
+[2026-01-29 18:26:35] [INFO] Visiteur 8 (Amateur sensations fortes) arrive - Budget: 21,03€, Patience: 60
+[2026-01-29 18:26:35] [INFO] Visiteur 8 : Rejoint Simulateur VR Spatial (File: 0, Attente: 0 min 0 sec)
+[2026-01-29 18:26:36] [INFO] Thread démarré: Visiteur-9
+[2026-01-29 18:26:36] [INFO] Visiteur 9 : Billet acheté [Billet standard] - 50,00€
+[2026-01-29 18:26:36] [INFO] Visiteur 9 (Amateur sensations fortes) arrive - Budget: 16,33€, Patience: 60
+[2026-01-29 18:26:36] [INFO] Visiteur 9 : Rejoint Montagnes Russes Extrême (File: 0, Attente: 0 min 0 sec)
+[2026-01-29 18:26:39] [INFO] Horloge en pause
+[2026-01-29 18:26:39] [INFO] Simulation mise en pause
+[2026-01-29 18:26:42] [INFO] Horloge avancée d'un pas: 11:00
+[2026-01-29 18:26:42] [INFO] Simulation avancée d'un pas
+[2026-01-29 18:26:48] [INFO] Horloge avancée d'un pas: 11:10
+[2026-01-29 18:26:48] [INFO] Simulation avancée d'un pas
+[2026-01-29 18:26:53] [INFO] Visiteur 1 : Tour sur Chute Libre Vertigineuse terminé (Satisfaction: 65%)
+[2026-01-29 18:26:54] [INFO] ═══════════════════════════════════════
+[2026-01-29 18:26:54] [INFO]    FERMETURE DU PARC D'ATTRACTIONS
+[2026-01-29 18:26:54] [INFO] ═══════════════════════════════════════
+[2026-01-29 18:26:54] [INFO] GenerateurVisiteurs interrompu
+[2026-01-29 18:26:54] [INFO] Maison Hantée des Ombres : Thread interrompu
+[2026-01-29 18:26:54] [INFO] Horloge interrompue
+[2026-01-29 18:26:54] [INFO] Thread arrêté: Maison Hantée des Ombres
+[2026-01-29 18:26:54] [INFO] Employe-14 interrompu
+[2026-01-29 18:26:54] [INFO] Employe-15 interrompu
+[2026-01-29 18:26:54] [INFO] Thread arrêté: Employe-15
+[2026-01-29 18:26:54] [INFO] Employe-10 interrompu
+[2026-01-29 18:26:54] [INFO] Thread arrêté: Employe-10
+[2026-01-29 18:26:54] [INFO] Grande Roue Panoramique : Thread interrompu
+[2026-01-29 18:26:54] [INFO] Employe-20 interrompu
+[2026-01-29 18:26:54] [INFO] Thread arrêté: Employe-20
+[2026-01-29 18:26:54] [INFO] Visiteur 7 : Interrompu
+[2026-01-29 18:26:54] [INFO] Employe-11 interrompu
+[2026-01-29 18:26:54] [INFO] Visiteur 7 quitte le parc - Attractions: 0 - Satisfaction: 50% (Neutre 😐) - Argent restant: 100,76€
+[2026-01-29 18:26:54] [INFO] Employe-19 interrompu
+[2026-01-29 18:26:54] [INFO] Thread arrêté: Employe-19
+[2026-01-29 18:26:54] [INFO] Manège Enchanté : Thread interrompu
+[2026-01-29 18:26:54] [INFO] Employe-13 interrompu
+[2026-01-29 18:26:54] [INFO] Thread arrêté: Employe-13
+[2026-01-29 18:26:54] [INFO] Employe-9 interrompu
+[2026-01-29 18:26:54] [INFO] Thread arrêté: Employe-9
+[2026-01-29 18:26:54] [INFO] Employe-18 interrompu
+[2026-01-29 18:26:54] [INFO] Thread arrêté: Employe-18
+[2026-01-29 18:26:54] [INFO] Employe-17 interrompu
+[2026-01-29 18:26:54] [INFO] Thread arrêté: Employe-17
+[2026-01-29 18:26:54] [INFO] Visiteur 9 : Interrompu
+[2026-01-29 18:26:54] [INFO] Visiteur 8 : Interrompu
+[2026-01-29 18:26:54] [INFO] Visiteur 1 : Interrompu
+[2026-01-29 18:26:54] [INFO] Parc fermé
+[2026-01-29 18:26:54] [INFO] Employe-16 interrompu
+[2026-01-29 18:26:54] [INFO] Thread arrêté: Employe-16
+[2026-01-29 18:26:54] [INFO] Employe-8 interrompu
+[2026-01-29 18:26:54] [INFO] Thread arrêté: Employe-8
+[2026-01-29 18:26:54] [INFO] Employe-3 interrompu
+[2026-01-29 18:26:54] [INFO] Thread arrêté: Employe-3
+[2026-01-29 18:26:54] [INFO] Employe-12 interrompu
+[2026-01-29 18:26:54] [INFO] Thread arrêté: Employe-12
+[2026-01-29 18:26:54] [INFO] Employe-5 interrompu
+[2026-01-29 18:26:54] [INFO] Thread arrêté: Employe-5
+[2026-01-29 18:26:54] [INFO] Employe-1 interrompu
+[2026-01-29 18:26:54] [INFO] Employe-6 interrompu
+[2026-01-29 18:26:54] [INFO] Thread arrêté: Employe-6
+[2026-01-29 18:26:54] [INFO] Employe-2 interrompu
+[2026-01-29 18:26:54] [INFO] Thread arrêté: Employe-2
+[2026-01-29 18:26:54] [INFO] Employe-7 interrompu
+[2026-01-29 18:26:54] [INFO] Thread arrêté: Employe-7
+[2026-01-29 18:26:54] [INFO] Employe-4 interrompu
+[2026-01-29 18:26:54] [INFO] Thread arrêté: Employe-4
+[2026-01-29 18:26:54] [INFO] Thread arrêté: GenerateurVisiteurs
+[2026-01-29 18:26:54] [INFO] Montagnes Russes Extrême : Thread interrompu
+[2026-01-29 18:26:54] [INFO] Toboggan Aquatique Splash : Thread interrompu
+[2026-01-29 18:26:54] [INFO] Thread arrêté: Toboggan Aquatique Splash
+[2026-01-29 18:26:54] [INFO] Chute Libre Vertigineuse : Thread interrompu
+[2026-01-29 18:26:54] [INFO] Simulateur VR Spatial : Thread interrompu
+[2026-01-29 18:26:54] [INFO] Carrousel Magique : Thread interrompu
+[2026-01-29 18:26:54] [INFO] Thread arrêté: Simulateur VR Spatial
+[2026-01-29 18:26:54] [INFO] Thread arrêté: Chute Libre Vertigineuse
+[2026-01-29 18:26:54] [INFO] Thread arrêté: Montagnes Russes Extrême
+[2026-01-29 18:26:54] [INFO] Thread arrêté: Employe-1
+[2026-01-29 18:26:54] [INFO] === STATISTIQUES DU PARC ===
+Visiteurs total: 4
+Visiteurs actuels: 4
+Tours effectués: 0
+Revenus: 0,00 €
+Revenu moyen/visiteur: 0,00 €
+Temps attente moyen: 0 min 0 sec
+Satisfaction: 0,0% 😞
+============================
+[2026-01-29 18:26:54] [INFO] Visiteur 1 quitte le parc - Attractions: 1 - Satisfaction: 65% (Satisfait 🙂) - Argent restant: 93,63€
+[2026-01-29 18:26:54] [INFO] Thread arrêté: Visiteur-1
+[2026-01-29 18:26:54] [INFO] Visiteur 8 quitte le parc - Attractions: 0 - Satisfaction: 50% (Neutre 😐) - Argent restant: 21,03€
+[2026-01-29 18:26:54] [INFO] Thread arrêté: Visiteur-8
+[2026-01-29 18:26:54] [INFO] Visiteur 9 quitte le parc - Attractions: 0 - Satisfaction: 50% (Neutre 😐) - Argent restant: 16,33€
+[2026-01-29 18:26:54] [INFO] Thread arrêté: Visiteur-9
+[2026-01-29 18:26:54] [INFO] Thread arrêté: Manège Enchanté
+[2026-01-29 18:26:54] [INFO] Thread arrêté: Visiteur-7
+[2026-01-29 18:26:54] [INFO] Thread arrêté: Employe-11
+[2026-01-29 18:26:54] [INFO] Thread arrêté: Grande Roue Panoramique
+[2026-01-29 18:26:54] [INFO] Thread arrêté: Employe-14
+[2026-01-29 18:26:54] [INFO] Thread arrêté: Horloge
+[2026-01-29 18:26:54] [INFO] Thread arrêté: Carrousel Magique
+
+================================================================================
+NOUVELLE SESSION - 2026-01-29 18:30:26
+================================================================================
+[2026-01-29 18:30:26] [INFO] ═══════════════════════════════════════
+[2026-01-29 18:30:26] [INFO]    PARC D'ATTRACTIONS - SIMULATION
+[2026-01-29 18:30:26] [INFO] ═══════════════════════════════════════
+[2026-01-29 18:30:26] [INFO] Initialisation du parc d'attractions...
+[2026-01-29 18:30:26] [INFO] 8 attractions créées
+[2026-01-29 18:30:26] [INFO] Restaurant créé: Restaurant Central (capacité: 80)
+[2026-01-29 18:30:26] [INFO] Restaurant créé: Snack Rapide (capacité: 40)
+[2026-01-29 18:30:26] [INFO] 2 restaurants créés
+[2026-01-29 18:30:26] [INFO] Stock initialisé pour Boutique Souvenirs (9 produits)
+[2026-01-29 18:30:26] [INFO] Boutique créée: Boutique Souvenirs
+[2026-01-29 18:30:26] [INFO] Stock initialisé pour Boutique Photos (9 produits)
+[2026-01-29 18:30:26] [INFO] Boutique créée: Boutique Photos
+[2026-01-29 18:30:26] [INFO] 2 boutiques créées
+[2026-01-29 18:30:26] [INFO] 8 opérateurs créés
+[2026-01-29 18:30:26] [INFO] 4 techniciens créés
+[2026-01-29 18:30:26] [INFO] 3 agents de sécurité créés
+[2026-01-29 18:30:26] [INFO] 5 vendeurs créés
+[2026-01-29 18:30:26] [INFO] Total: 20 employés créés
+[2026-01-29 18:30:26] [INFO] Parc initialisé avec succès
+[2026-01-29 18:30:26] [INFO] Thread démarré: GestionnaireMeteo
+[2026-01-29 18:30:26] [INFO] Thread démarré: GestionnaireEvenements
+[2026-01-29 18:30:26] [INFO] Thread arrêté: GestionnaireEvenements
+[2026-01-29 18:30:26] [INFO] Météo changée: ☀️ Ensoleillé → ☀️ Ensoleillé
+[2026-01-29 18:30:26] [INFO] Thread arrêté: GestionnaireMeteo
+[2026-01-29 18:30:26] [INFO] Application démarrée avec succès
+[2026-01-29 18:30:31] [INFO] ═══════════════════════════════════════
+[2026-01-29 18:30:31] [INFO]    OUVERTURE DU PARC D'ATTRACTIONS
+[2026-01-29 18:30:31] [INFO] ═══════════════════════════════════════
+[2026-01-29 18:30:31] [INFO] Attraction démarrée: Montagnes Russes Extrême
+[2026-01-29 18:30:31] [INFO] Thread démarré: Horloge
+[2026-01-29 18:30:31] [INFO] Attraction démarrée: Grande Roue Panoramique
+[2026-01-29 18:30:31] [INFO] Thread démarré: Montagnes Russes Extrême
+[2026-01-29 18:30:31] [INFO] Attraction démarrée: Manège Enchanté
+[2026-01-29 18:30:31] [INFO] Horloge démarrée - Vitesse: x10
+[2026-01-29 18:30:31] [INFO] Thread démarré: Grande Roue Panoramique
+[2026-01-29 18:30:31] [INFO] Grande Roue Panoramique : Attraction démarrée
+[2026-01-29 18:30:31] [INFO] Thread démarré: Maison Hantée des Ombres
+[2026-01-29 18:30:31] [INFO] Maison Hantée des Ombres : Attraction démarrée
+[2026-01-29 18:30:31] [INFO] Attraction démarrée: Maison Hantée des Ombres
+[2026-01-29 18:30:31] [INFO] Thread démarré: Manège Enchanté
+[2026-01-29 18:30:31] [INFO] Manège Enchanté : Attraction démarrée
+[2026-01-29 18:30:31] [INFO] Montagnes Russes Extrême : Attraction démarrée
+[2026-01-29 18:30:31] [INFO] Thread démarré: Simulateur VR Spatial
+[2026-01-29 18:30:31] [INFO] Simulateur VR Spatial : Attraction démarrée
+[2026-01-29 18:30:31] [INFO] Attraction démarrée: Simulateur VR Spatial
+[2026-01-29 18:30:31] [INFO] Attraction démarrée: Chute Libre Vertigineuse
+[2026-01-29 18:30:31] [INFO] Thread démarré: Chute Libre Vertigineuse
+[2026-01-29 18:30:31] [INFO] Chute Libre Vertigineuse : Attraction démarrée
+[2026-01-29 18:30:31] [INFO] Attraction démarrée: Carrousel Magique
+[2026-01-29 18:30:31] [INFO] Thread démarré: Carrousel Magique
+[2026-01-29 18:30:31] [INFO] Carrousel Magique : Attraction démarrée
+[2026-01-29 18:30:31] [INFO] Attraction démarrée: Toboggan Aquatique Splash
+[2026-01-29 18:30:31] [INFO] Thread démarré: Toboggan Aquatique Splash
+[2026-01-29 18:30:31] [INFO] Toboggan Aquatique Splash : Attraction démarrée
+[2026-01-29 18:30:31] [INFO] Thread démarré: Employe-1
+[2026-01-29 18:30:31] [INFO] Employé démarré: Jean Dupont
+[2026-01-29 18:30:31] [INFO] Employé démarré: Marie Martin
+[2026-01-29 18:30:31] [INFO] Thread démarré: Employe-2
+[2026-01-29 18:30:31] [INFO] Employé démarré: Pierre Bernard
+[2026-01-29 18:30:31] [INFO] Thread démarré: Employe-3
+[2026-01-29 18:30:31] [INFO] Employé démarré: Sophie Dubois
+[2026-01-29 18:30:31] [INFO] Thread démarré: Employe-4
+[2026-01-29 18:30:31] [INFO] Employé démarré: Luc Moreau
+[2026-01-29 18:30:31] [INFO] Thread démarré: Employe-5
+[2026-01-29 18:30:31] [INFO] Thread démarré: Employe-6
+[2026-01-29 18:30:31] [INFO] Employé démarré: Emma Laurent
+[2026-01-29 18:30:31] [INFO] Employé démarré: Thomas Simon
+[2026-01-29 18:30:31] [INFO] Thread démarré: Employe-7
+[2026-01-29 18:30:31] [INFO] Employé démarré: Julie Michel
+[2026-01-29 18:30:31] [INFO] Thread démarré: Employe-8
+[2026-01-29 18:30:31] [INFO] Employé démarré: Robert Durand
+[2026-01-29 18:30:31] [INFO] Thread démarré: Employe-9
+[2026-01-29 18:30:31] [INFO] Employé démarré: Claire Leroy
+[2026-01-29 18:30:31] [INFO] Thread démarré: Employe-10
+[2026-01-29 18:30:31] [INFO] Employé démarré: Marc Petit
+[2026-01-29 18:30:31] [INFO] Thread démarré: Employe-11
+[2026-01-29 18:30:31] [INFO] Employé démarré: Isabelle Roux
+[2026-01-29 18:30:31] [INFO] Thread démarré: Employe-12
+[2026-01-29 18:30:31] [INFO] Thread démarré: Employe-13
+[2026-01-29 18:30:31] [INFO] Employé démarré: Paul Girard
+[2026-01-29 18:30:31] [INFO] Employé démarré: Anne Lefebvre
+[2026-01-29 18:30:31] [INFO] Thread démarré: Employe-14
+[2026-01-29 18:30:31] [INFO] Employé démarré: Michel Bonnet
+[2026-01-29 18:30:31] [INFO] Thread démarré: Employe-15
+[2026-01-29 18:30:31] [INFO] Employé démarré: Camille Vincent
+[2026-01-29 18:30:31] [INFO] Thread démarré: Employe-16
+[2026-01-29 18:30:31] [INFO] Thread démarré: Employe-17
+[2026-01-29 18:30:31] [INFO] Employé démarré: Nicolas Fournier
+[2026-01-29 18:30:31] [INFO] Employé démarré: Laura Garcia
+[2026-01-29 18:30:31] [INFO] Thread démarré: Employe-18
+[2026-01-29 18:30:31] [INFO] Employé démarré: David Martinez
+[2026-01-29 18:30:31] [INFO] Thread démarré: Employe-19
+[2026-01-29 18:30:31] [INFO] Employé démarré: Sarah Brown
+[2026-01-29 18:30:31] [INFO] Parc ouvert et opérationnel
+[2026-01-29 18:30:31] [INFO] Thread démarré: Employe-20
+[2026-01-29 18:30:31] [INFO] Vitesse de simulation changée: x10
+[2026-01-29 18:30:31] [INFO] Thread démarré: GenerateurVisiteurs
+[2026-01-29 18:30:32] [INFO] Thread démarré: Visiteur-1
+[2026-01-29 18:30:32] [INFO] Visiteur 1 : Billet acheté [Billet standard] - 50,00€
+[2026-01-29 18:30:32] [INFO] Visiteur 1 (Famille) arrive - Budget: 108,26€, Patience: 100
+[2026-01-29 18:30:32] [INFO] Visiteur 1 : Rejoint Grande Roue Panoramique (File: 0, Attente: 0 min 0 sec)
+[2026-01-29 18:30:37] [INFO] Heure actuelle: 10:00
+[2026-01-29 18:30:39] [INFO] Thread démarré: Visiteur-3
+[2026-01-29 18:30:39] [INFO] Visiteur 3 : Billet acheté [Billet standard] - 30,00€
+[2026-01-29 18:30:39] [INFO] Visiteur 3 (Enfant) arrive - Budget: 5,46€, Patience: 40
+[2026-01-29 18:30:39] [INFO] Visiteur 3 : Rejoint Manège Enchanté (File: 0, Attente: 0 min 0 sec)
+[2026-01-29 18:30:43] [INFO] ═══════════════════════════════════════
+[2026-01-29 18:30:43] [INFO]    FERMETURE DU PARC D'ATTRACTIONS
+[2026-01-29 18:30:43] [INFO] ═══════════════════════════════════════
+[2026-01-29 18:30:43] [INFO] GenerateurVisiteurs interrompu
+[2026-01-29 18:30:43] [INFO] Horloge interrompue
+[2026-01-29 18:30:43] [INFO] Thread arrêté: Horloge
+[2026-01-29 18:30:43] [INFO] Employe-1 interrompu
+[2026-01-29 18:30:43] [INFO] Employe-2 interrompu
+[2026-01-29 18:30:43] [INFO] Thread arrêté: Employe-2
+[2026-01-29 18:30:43] [INFO] Grande Roue Panoramique : Thread interrompu
+[2026-01-29 18:30:43] [INFO] Carrousel Magique : Thread interrompu
+[2026-01-29 18:30:43] [INFO] Thread arrêté: Carrousel Magique
+[2026-01-29 18:30:43] [INFO] Toboggan Aquatique Splash : Thread interrompu
+[2026-01-29 18:30:43] [INFO] Chute Libre Vertigineuse : Thread interrompu
+[2026-01-29 18:30:43] [INFO] Thread arrêté: Chute Libre Vertigineuse
+[2026-01-29 18:30:43] [INFO] Manège Enchanté : Thread interrompu
+[2026-01-29 18:30:43] [INFO] Maison Hantée des Ombres : Thread interrompu
+[2026-01-29 18:30:43] [INFO] Thread arrêté: Maison Hantée des Ombres
+[2026-01-29 18:30:43] [INFO] Simulateur VR Spatial : Thread interrompu
+[2026-01-29 18:30:43] [INFO] Montagnes Russes Extrême : Thread interrompu
+[2026-01-29 18:30:43] [INFO] Thread arrêté: GenerateurVisiteurs
+[2026-01-29 18:30:43] [INFO] Thread arrêté: Montagnes Russes Extrême
+[2026-01-29 18:30:43] [INFO] Thread arrêté: Simulateur VR Spatial
+[2026-01-29 18:30:43] [INFO] Thread arrêté: Manège Enchanté
+[2026-01-29 18:30:43] [INFO] Thread arrêté: Toboggan Aquatique Splash
+[2026-01-29 18:30:43] [INFO] Thread arrêté: Grande Roue Panoramique
+[2026-01-29 18:30:43] [INFO] Thread arrêté: Employe-1
+[2026-01-29 18:30:43] [INFO] Employe-20 interrompu
+[2026-01-29 18:30:43] [INFO] Thread arrêté: Employe-20
+[2026-01-29 18:30:43] [INFO] Employe-19 interrompu
+[2026-01-29 18:30:43] [INFO] Thread arrêté: Employe-19
+[2026-01-29 18:30:43] [INFO] Employe-18 interrompu
+[2026-01-29 18:30:43] [INFO] Thread arrêté: Employe-18
+[2026-01-29 18:30:43] [INFO] Employe-5 interrompu
+[2026-01-29 18:30:43] [INFO] Thread arrêté: Employe-5
+[2026-01-29 18:30:43] [INFO] Employe-8 interrompu
+[2026-01-29 18:30:43] [INFO] Thread arrêté: Employe-8
+[2026-01-29 18:30:43] [INFO] Visiteur 3 : Interrompu
+[2026-01-29 18:30:43] [INFO] Visiteur 1 : Interrompu
+[2026-01-29 18:30:43] [INFO] Employe-16 interrompu
+[2026-01-29 18:30:43] [INFO] Thread arrêté: Employe-16
+[2026-01-29 18:30:43] [INFO] Parc fermé
+[2026-01-29 18:30:43] [INFO] Employe-6 interrompu
+[2026-01-29 18:30:43] [INFO] Thread arrêté: Employe-6
+[2026-01-29 18:30:43] [INFO] Employe-17 interrompu
+[2026-01-29 18:30:43] [INFO] Thread arrêté: Employe-17
+[2026-01-29 18:30:43] [INFO] Employe-14 interrompu
+[2026-01-29 18:30:43] [INFO] Thread arrêté: Employe-14
+[2026-01-29 18:30:43] [INFO] Employe-12 interrompu
+[2026-01-29 18:30:43] [INFO] Thread arrêté: Employe-12
+[2026-01-29 18:30:43] [INFO] Employe-7 interrompu
+[2026-01-29 18:30:43] [INFO] Thread arrêté: Employe-7
+[2026-01-29 18:30:43] [INFO] Employe-15 interrompu
+[2026-01-29 18:30:43] [INFO] Thread arrêté: Employe-15
+[2026-01-29 18:30:43] [INFO] Employe-4 interrompu
+[2026-01-29 18:30:43] [INFO] Thread arrêté: Employe-4
+[2026-01-29 18:30:43] [INFO] Employe-13 interrompu
+[2026-01-29 18:30:43] [INFO] Thread arrêté: Employe-13
+[2026-01-29 18:30:43] [INFO] Employe-11 interrompu
+[2026-01-29 18:30:43] [INFO] Thread arrêté: Employe-11
+[2026-01-29 18:30:43] [INFO] Employe-9 interrompu
+[2026-01-29 18:30:43] [INFO] Thread arrêté: Employe-9
+[2026-01-29 18:30:43] [INFO] Employe-3 interrompu
+[2026-01-29 18:30:43] [INFO] Employe-10 interrompu
+[2026-01-29 18:30:43] [INFO] Thread arrêté: Employe-10
+[2026-01-29 18:30:43] [INFO] Thread arrêté: Employe-3
+[2026-01-29 18:30:43] [INFO] === STATISTIQUES DU PARC ===
+Visiteurs total: 2
+Visiteurs actuels: 2
+Tours effectués: 0
+Revenus: 0,00 €
+Revenu moyen/visiteur: 0,00 €
+Temps attente moyen: 0 min 0 sec
+Satisfaction: 0,0% 😞
+============================
+[2026-01-29 18:30:43] [INFO] Visiteur 1 quitte le parc - Attractions: 0 - Satisfaction: 50% (Neutre 😐) - Argent restant: 108,26€
+[2026-01-29 18:30:43] [INFO] Thread arrêté: Visiteur-1
+[2026-01-29 18:30:43] [INFO] Visiteur 3 quitte le parc - Attractions: 0 - Satisfaction: 50% (Neutre 😐) - Argent restant: 5,46€
+[2026-01-29 18:30:43] [INFO] Thread arrêté: Visiteur-3
+
+================================================================================
+FIN DE SESSION - 2026-01-29 18:30:44
+================================================================================
+
+
+================================================================================
+NOUVELLE SESSION - 2026-01-29 18:37:50
+================================================================================
+[2026-01-29 18:37:50] [INFO] ═══════════════════════════════════════
+[2026-01-29 18:37:50] [INFO]    PARC D'ATTRACTIONS - SIMULATION
+[2026-01-29 18:37:50] [INFO] ═══════════════════════════════════════
+[2026-01-29 18:37:50] [INFO] Initialisation du parc d'attractions...
+[2026-01-29 18:37:50] [INFO] 8 attractions créées
+[2026-01-29 18:37:50] [INFO] Restaurant créé: Restaurant Central (capacité: 80)
+[2026-01-29 18:37:50] [INFO] Restaurant créé: Snack Rapide (capacité: 40)
+[2026-01-29 18:37:50] [INFO] 2 restaurants créés
+[2026-01-29 18:37:50] [INFO] Stock initialisé pour Boutique Souvenirs (9 produits)
+[2026-01-29 18:37:50] [INFO] Boutique créée: Boutique Souvenirs
+[2026-01-29 18:37:50] [INFO] Stock initialisé pour Boutique Photos (9 produits)
+[2026-01-29 18:37:50] [INFO] Boutique créée: Boutique Photos
+[2026-01-29 18:37:50] [INFO] 2 boutiques créées
+[2026-01-29 18:37:50] [INFO] 8 opérateurs créés
+[2026-01-29 18:37:50] [INFO] 4 techniciens créés
+[2026-01-29 18:37:50] [INFO] 3 agents de sécurité créés
+[2026-01-29 18:37:50] [INFO] 5 vendeurs créés
+[2026-01-29 18:37:50] [INFO] Total: 20 employés créés
+[2026-01-29 18:37:50] [INFO] Parc initialisé avec succès
+[2026-01-29 18:37:50] [INFO] Thread démarré: GestionnaireMeteo
+[2026-01-29 18:37:50] [INFO] Thread démarré: GestionnaireEvenements
+[2026-01-29 18:37:50] [INFO] Thread arrêté: GestionnaireEvenements
+[2026-01-29 18:37:50] [INFO] Météo changée: ☀️ Ensoleillé → ☀️ Ensoleillé
+[2026-01-29 18:37:50] [INFO] Thread arrêté: GestionnaireMeteo
+[2026-01-29 18:37:51] [INFO] Application démarrée avec succès
+[2026-01-29 18:38:00] [INFO] ═══════════════════════════════════════
+[2026-01-29 18:38:00] [INFO]    OUVERTURE DU PARC D'ATTRACTIONS
+[2026-01-29 18:38:00] [INFO] ═══════════════════════════════════════
+[2026-01-29 18:38:00] [INFO] Attraction démarrée: Montagnes Russes Extrême
+[2026-01-29 18:38:00] [INFO] Attraction démarrée: Grande Roue Panoramique
+[2026-01-29 18:38:00] [INFO] Thread démarré: Montagnes Russes Extrême
+[2026-01-29 18:38:00] [INFO] Thread démarré: Horloge
+[2026-01-29 18:38:00] [INFO] Thread démarré: Manège Enchanté
+[2026-01-29 18:38:00] [INFO] Manège Enchanté : Attraction démarrée
+[2026-01-29 18:38:00] [INFO] Montagnes Russes Extrême : Attraction démarrée
+[2026-01-29 18:38:00] [INFO] Thread démarré: Grande Roue Panoramique
+[2026-01-29 18:38:00] [INFO] Grande Roue Panoramique : Attraction démarrée
+[2026-01-29 18:38:00] [INFO] Attraction démarrée: Manège Enchanté
+[2026-01-29 18:38:00] [INFO] Horloge démarrée - Vitesse: x10
+[2026-01-29 18:38:00] [INFO] Attraction démarrée: Maison Hantée des Ombres
+[2026-01-29 18:38:00] [INFO] Thread démarré: Maison Hantée des Ombres
+[2026-01-29 18:38:00] [INFO] Maison Hantée des Ombres : Attraction démarrée
+[2026-01-29 18:38:00] [INFO] Attraction démarrée: Simulateur VR Spatial
+[2026-01-29 18:38:00] [INFO] Thread démarré: Simulateur VR Spatial
+[2026-01-29 18:38:00] [INFO] Simulateur VR Spatial : Attraction démarrée
+[2026-01-29 18:38:00] [INFO] Attraction démarrée: Chute Libre Vertigineuse
+[2026-01-29 18:38:00] [INFO] Thread démarré: Chute Libre Vertigineuse
+[2026-01-29 18:38:00] [INFO] Chute Libre Vertigineuse : Attraction démarrée
+[2026-01-29 18:38:00] [INFO] Attraction démarrée: Carrousel Magique
+[2026-01-29 18:38:00] [INFO] Thread démarré: Carrousel Magique
+[2026-01-29 18:38:00] [INFO] Carrousel Magique : Attraction démarrée
+[2026-01-29 18:38:00] [INFO] Thread démarré: Toboggan Aquatique Splash
+[2026-01-29 18:38:00] [INFO] Toboggan Aquatique Splash : Attraction démarrée
+[2026-01-29 18:38:00] [INFO] Attraction démarrée: Toboggan Aquatique Splash
+[2026-01-29 18:38:00] [INFO] Employé démarré: Jean Dupont
+[2026-01-29 18:38:00] [INFO] Thread démarré: Employe-1
+[2026-01-29 18:38:00] [INFO] Employé démarré: Marie Martin
+[2026-01-29 18:38:00] [INFO] Thread démarré: Employe-2
+[2026-01-29 18:38:00] [INFO] Thread démarré: Employe-3
+[2026-01-29 18:38:00] [INFO] Employé démarré: Pierre Bernard
+[2026-01-29 18:38:00] [INFO] Employé démarré: Sophie Dubois
+[2026-01-29 18:38:00] [INFO] Thread démarré: Employe-4
+[2026-01-29 18:38:00] [INFO] Employé démarré: Luc Moreau
+[2026-01-29 18:38:00] [INFO] Thread démarré: Employe-5
+[2026-01-29 18:38:00] [INFO] Employé démarré: Emma Laurent
+[2026-01-29 18:38:00] [INFO] Thread démarré: Employe-6
+[2026-01-29 18:38:00] [INFO] Employé démarré: Thomas Simon
+[2026-01-29 18:38:00] [INFO] Thread démarré: Employe-7
+[2026-01-29 18:38:00] [INFO] Employé démarré: Julie Michel
+[2026-01-29 18:38:00] [INFO] Thread démarré: Employe-8
+[2026-01-29 18:38:00] [INFO] Employé démarré: Robert Durand
+[2026-01-29 18:38:00] [INFO] Thread démarré: Employe-9
+[2026-01-29 18:38:00] [INFO] Employé démarré: Claire Leroy
+[2026-01-29 18:38:00] [INFO] Thread démarré: Employe-10
+[2026-01-29 18:38:00] [INFO] Employé démarré: Marc Petit
+[2026-01-29 18:38:00] [INFO] Thread démarré: Employe-11
+[2026-01-29 18:38:00] [INFO] Employé démarré: Isabelle Roux
+[2026-01-29 18:38:00] [INFO] Thread démarré: Employe-12
+[2026-01-29 18:38:00] [INFO] Employé démarré: Paul Girard
+[2026-01-29 18:38:00] [INFO] Thread démarré: Employe-13
+[2026-01-29 18:38:00] [INFO] Employé démarré: Anne Lefebvre
+[2026-01-29 18:38:00] [INFO] Thread démarré: Employe-14
+[2026-01-29 18:38:00] [INFO] Employé démarré: Michel Bonnet
+[2026-01-29 18:38:00] [INFO] Thread démarré: Employe-15
+[2026-01-29 18:38:00] [INFO] Employé démarré: Camille Vincent
+[2026-01-29 18:38:00] [INFO] Thread démarré: Employe-16
+[2026-01-29 18:38:00] [INFO] Employé démarré: Nicolas Fournier
+[2026-01-29 18:38:00] [INFO] Thread démarré: Employe-17
+[2026-01-29 18:38:00] [INFO] Employé démarré: Laura Garcia
+[2026-01-29 18:38:00] [INFO] Thread démarré: Employe-18
+[2026-01-29 18:38:00] [INFO] Employé démarré: David Martinez
+[2026-01-29 18:38:00] [INFO] Thread démarré: Employe-19
+[2026-01-29 18:38:00] [INFO] Employé démarré: Sarah Brown
+[2026-01-29 18:38:00] [INFO] Parc ouvert et opérationnel
+[2026-01-29 18:38:00] [INFO] Thread démarré: Employe-20
+[2026-01-29 18:38:00] [INFO] Vitesse de simulation changée: x10
+[2026-01-29 18:38:00] [INFO] Thread démarré: GenerateurVisiteurs
+[2026-01-29 18:38:00] [INFO] Thread démarré: Visiteur-1
+[2026-01-29 18:38:00] [INFO] Visiteur 1 : Billet acheté [Fast-Pass] - 80,00€
+[2026-01-29 18:38:00] [INFO] Visiteur 1 (Groupe d'amis) arrive - Budget: 42,77€, Patience: 80
+[2026-01-29 18:38:00] [INFO] Visiteur 1 : Rejoint Simulateur VR Spatial (File: 0, Attente: 0 min 0 sec)
+[2026-01-29 18:38:02] [INFO] Thread démarré: Visiteur-5
+[2026-01-29 18:38:02] [INFO] Visiteur 5 : Billet acheté [Fast-Pass] - 80,00€
+[2026-01-29 18:38:02] [INFO] Visiteur 5 (Famille) arrive - Budget: 89,62€, Patience: 100
+[2026-01-29 18:38:02] [INFO] Visiteur 5 : Rejoint Grande Roue Panoramique (File: 0, Attente: 0 min 0 sec)
+[2026-01-29 18:38:03] [INFO] Thread démarré: Visiteur-6
+[2026-01-29 18:38:03] [INFO] Visiteur 6 : Billet acheté [Billet standard] - 50,00€
+[2026-01-29 18:38:03] [INFO] Visiteur 6 (Groupe d'amis) arrive - Budget: 48,86€, Patience: 80
+[2026-01-29 18:38:03] [INFO] Visiteur 6 : Rejoint Chute Libre Vertigineuse (File: 0, Attente: 0 min 0 sec)
+[2026-01-29 18:38:06] [INFO] Heure actuelle: 10:00
+[2026-01-29 18:38:13] [INFO] Heure actuelle: 11:00
+[2026-01-29 18:38:19] [INFO] Heure actuelle: 12:00
+[2026-01-29 18:38:19] [INFO] Thread démarré: Visiteur-11
+[2026-01-29 18:38:19] [INFO] Visiteur 11 : Billet acheté [Billet standard] - 50,00€
+[2026-01-29 18:38:19] [INFO] Visiteur 11 (Groupe d'amis) arrive - Budget: 70,70€, Patience: 80
+[2026-01-29 18:38:19] [INFO] Visiteur 11 : Rejoint Maison Hantée des Ombres (File: 0, Attente: 0 min 0 sec)
+[2026-01-29 18:38:21] [INFO] Thread démarré: Visiteur-15
+[2026-01-29 18:38:21] [INFO] Visiteur 15 : Billet acheté [Billet standard] - 50,00€
+[2026-01-29 18:38:21] [INFO] Visiteur 15 (Famille) arrive - Budget: 114,64€, Patience: 100
+[2026-01-29 18:38:21] [INFO] Visiteur 15 : Rejoint Manège Enchanté (File: 0, Attente: 0 min 0 sec)
+[2026-01-29 18:38:22] [INFO] Thread démarré: Visiteur-16
+[2026-01-29 18:38:22] [INFO] Visiteur 16 : Billet acheté [Fast-Pass] - 80,00€
+[2026-01-29 18:38:22] [INFO] Visiteur 16 (Famille) arrive - Budget: 70,92€, Patience: 100
+[2026-01-29 18:38:22] [INFO] Visiteur 16 : Rejoint Toboggan Aquatique Splash (File: 0, Attente: 0 min 0 sec)
+[2026-01-29 18:38:25] [INFO] Heure actuelle: 13:00
+[2026-01-29 18:38:27] [INFO] Visiteur 6 : Tour sur Chute Libre Vertigineuse terminé (Satisfaction: 65%)
+[2026-01-29 18:38:29] [INFO] Thread démarré: Visiteur-17
+[2026-01-29 18:38:29] [INFO] Visiteur 17 : Billet acheté [Fast-Pass] - 80,00€
+[2026-01-29 18:38:29] [INFO] Visiteur 17 (Famille) arrive - Budget: 40,89€, Patience: 100
+[2026-01-29 18:38:29] [INFO] Visiteur 17 : Rejoint Carrousel Magique (File: 0, Attente: 0 min 0 sec)
+[2026-01-29 18:38:29] [INFO] Visiteur 6 : Rejoint Montagnes Russes Extrême (File: 0, Attente: 0 min 0 sec)
+[2026-01-29 18:38:31] [INFO] Heure actuelle: 14:00
+[2026-01-29 18:38:31] [INFO] Horloge en pause
+[2026-01-29 18:38:31] [INFO] Simulation mise en pause
+[2026-01-29 18:38:34] [INFO] Horloge reprise
+[2026-01-29 18:38:34] [INFO] Simulation reprise
+[2026-01-29 18:38:38] [INFO] Horloge reprise
+[2026-01-29 18:38:38] [INFO] Simulation reprise
+[2026-01-29 18:38:39] [INFO] Heure actuelle: 15:00
+[2026-01-29 18:38:40] [INFO] Horloge en pause
+[2026-01-29 18:38:40] [INFO] Horloge avancée d'un pas: 15:20
+[2026-01-29 18:38:40] [INFO] Simulation avancée d'un pas
+[2026-01-29 18:38:43] [INFO] Thread démarré: Visiteur-18
+[2026-01-29 18:38:43] [INFO] Visiteur 18 : Billet acheté [Billet standard] - 50,00€
+[2026-01-29 18:38:43] [INFO] Visiteur 18 (Amateur sensations fortes) arrive - Budget: 30,52€, Patience: 60
+[2026-01-29 18:38:43] [INFO] Visiteur 18 : Rejoint Chute Libre Vertigineuse (File: 1, Attente: 2 min 0 sec)
+[2026-01-29 18:38:46] [INFO] ═══════════════════════════════════════
+[2026-01-29 18:38:46] [INFO]    FERMETURE DU PARC D'ATTRACTIONS
+[2026-01-29 18:38:46] [INFO] ═══════════════════════════════════════
+[2026-01-29 18:38:46] [INFO] GenerateurVisiteurs interrompu
+[2026-01-29 18:38:46] [INFO] Employe-10 interrompu
+[2026-01-29 18:38:46] [INFO] Employe-8 interrompu
+[2026-01-29 18:38:46] [INFO] Thread arrêté: Employe-8
+[2026-01-29 18:38:46] [INFO] Employe-19 interrompu
+[2026-01-29 18:38:46] [INFO] Thread arrêté: Employe-19
+[2026-01-29 18:38:46] [INFO] Visiteur 1 : Interrompu
+[2026-01-29 18:38:46] [INFO] Employe-14 interrompu
+[2026-01-29 18:38:46] [INFO] Employe-15 interrompu
+[2026-01-29 18:38:46] [INFO] Thread arrêté: Employe-15
+[2026-01-29 18:38:46] [INFO] Employe-3 interrompu
+[2026-01-29 18:38:46] [INFO] Thread arrêté: Employe-3
+[2026-01-29 18:38:46] [INFO] Employe-4 interrompu
+[2026-01-29 18:38:46] [INFO] Thread arrêté: Employe-4
+[2026-01-29 18:38:46] [INFO] Visiteur 18 : Interrompu
+[2026-01-29 18:38:46] [INFO] Employe-18 interrompu
+[2026-01-29 18:38:46] [INFO] Thread arrêté: Employe-18
+[2026-01-29 18:38:46] [INFO] Employe-11 interrompu
+[2026-01-29 18:38:46] [INFO] Thread arrêté: Employe-11
+[2026-01-29 18:38:46] [INFO] Visiteur 17 : Interrompu
+[2026-01-29 18:38:46] [INFO] Employe-20 interrompu
+[2026-01-29 18:38:46] [INFO] Thread arrêté: Employe-20
+[2026-01-29 18:38:46] [INFO] Employe-7 interrompu
+[2026-01-29 18:38:46] [INFO] Thread arrêté: Employe-7
+[2026-01-29 18:38:46] [INFO] Visiteur 11 : Interrompu
+[2026-01-29 18:38:46] [INFO] Visiteur 15 : Interrompu
+[2026-01-29 18:38:46] [INFO] Visiteur 5 : Interrompu
+[2026-01-29 18:38:46] [INFO] Visiteur 16 : Interrompu
+[2026-01-29 18:38:46] [INFO] Visiteur 6 : Interrompu
+[2026-01-29 18:38:46] [INFO] Employe-13 interrompu
+[2026-01-29 18:38:46] [INFO] Thread arrêté: Employe-13
+[2026-01-29 18:38:46] [INFO] Employe-12 interrompu
+[2026-01-29 18:38:46] [INFO] Thread arrêté: Employe-12
+[2026-01-29 18:38:46] [INFO] Employe-16 interrompu
+[2026-01-29 18:38:46] [INFO] Thread arrêté: Employe-16
+[2026-01-29 18:38:46] [INFO] Montagnes Russes Extrême : Thread interrompu
+[2026-01-29 18:38:46] [INFO] Employe-9 interrompu
+[2026-01-29 18:38:46] [INFO] Thread arrêté: Employe-9
+[2026-01-29 18:38:46] [INFO] Employe-17 interrompu
+[2026-01-29 18:38:46] [INFO] Thread arrêté: Employe-17
+[2026-01-29 18:38:46] [INFO] Employe-2 interrompu
+[2026-01-29 18:38:46] [INFO] Thread arrêté: Employe-2
+[2026-01-29 18:38:46] [INFO] Parc fermé
+[2026-01-29 18:38:46] [INFO] Employe-5 interrompu
+[2026-01-29 18:38:46] [INFO] Thread arrêté: Employe-5
+[2026-01-29 18:38:46] [INFO] Employe-1 interrompu
+[2026-01-29 18:38:46] [INFO] Thread arrêté: Employe-1
+[2026-01-29 18:38:46] [INFO] Employe-6 interrompu
+[2026-01-29 18:38:46] [INFO] Thread arrêté: Employe-6
+[2026-01-29 18:38:46] [INFO] Maison Hantée des Ombres : Thread interrompu
+[2026-01-29 18:38:46] [INFO] Simulateur VR Spatial : Thread interrompu
+[2026-01-29 18:38:46] [INFO] Chute Libre Vertigineuse : Thread interrompu
+[2026-01-29 18:38:46] [INFO] Thread arrêté: Chute Libre Vertigineuse
+[2026-01-29 18:38:46] [INFO] Grande Roue Panoramique : Thread interrompu
+[2026-01-29 18:38:46] [INFO] Toboggan Aquatique Splash : Thread interrompu
+[2026-01-29 18:38:46] [INFO] Thread arrêté: Toboggan Aquatique Splash
+[2026-01-29 18:38:46] [INFO] Carrousel Magique : Thread interrompu
+[2026-01-29 18:38:46] [INFO] Manège Enchanté : Thread interrompu
+[2026-01-29 18:38:46] [INFO] Horloge interrompue
+[2026-01-29 18:38:46] [INFO] Thread arrêté: Manège Enchanté
+[2026-01-29 18:38:46] [INFO] Thread arrêté: Carrousel Magique
+[2026-01-29 18:38:46] [INFO] Thread arrêté: Grande Roue Panoramique
+[2026-01-29 18:38:46] [INFO] Thread arrêté: Simulateur VR Spatial
+[2026-01-29 18:38:46] [INFO] Thread arrêté: Maison Hantée des Ombres
+[2026-01-29 18:38:46] [INFO] === STATISTIQUES DU PARC ===
+Visiteurs total: 8
+Visiteurs actuels: 8
+Tours effectués: 0
+Revenus: 0,00 €
+Revenu moyen/visiteur: 0,00 €
+Temps attente moyen: 0 min 0 sec
+Satisfaction: 0,0% 😞
+============================
+[2026-01-29 18:38:46] [INFO] Thread arrêté: Montagnes Russes Extrême
+[2026-01-29 18:38:46] [INFO] Visiteur 6 quitte le parc - Attractions: 1 - Satisfaction: 65% (Satisfait 🙂) - Argent restant: 48,86€
+[2026-01-29 18:38:46] [INFO] Visiteur 16 quitte le parc - Attractions: 0 - Satisfaction: 50% (Neutre 😐) - Argent restant: 70,92€
+[2026-01-29 18:38:46] [INFO] Thread arrêté: Visiteur-16
+[2026-01-29 18:38:46] [INFO] Visiteur 5 quitte le parc - Attractions: 0 - Satisfaction: 50% (Neutre 😐) - Argent restant: 89,62€
+[2026-01-29 18:38:46] [INFO] Thread arrêté: Visiteur-5
+[2026-01-29 18:38:46] [INFO] Visiteur 15 quitte le parc - Attractions: 0 - Satisfaction: 50% (Neutre 😐) - Argent restant: 114,64€
+[2026-01-29 18:38:46] [INFO] Thread arrêté: Visiteur-15
+[2026-01-29 18:38:46] [INFO] Visiteur 11 quitte le parc - Attractions: 0 - Satisfaction: 50% (Neutre 😐) - Argent restant: 70,70€
+[2026-01-29 18:38:46] [INFO] Thread arrêté: Visiteur-11
+[2026-01-29 18:38:46] [INFO] Visiteur 17 quitte le parc - Attractions: 0 - Satisfaction: 50% (Neutre 😐) - Argent restant: 40,89€
+[2026-01-29 18:38:46] [INFO] Thread arrêté: Visiteur-17
+[2026-01-29 18:38:46] [INFO] Visiteur 18 quitte le parc - Attractions: 0 - Satisfaction: 50% (Neutre 😐) - Argent restant: 30,52€
+[2026-01-29 18:38:46] [INFO] Thread arrêté: Visiteur-18
+[2026-01-29 18:38:46] [INFO] Thread arrêté: Employe-14
+[2026-01-29 18:38:46] [INFO] Visiteur 1 quitte le parc - Attractions: 0 - Satisfaction: 50% (Neutre 😐) - Argent restant: 42,77€
+[2026-01-29 18:38:46] [INFO] Thread arrêté: Visiteur-1
+[2026-01-29 18:38:46] [INFO] Thread arrêté: Employe-10
+[2026-01-29 18:38:46] [INFO] Thread arrêté: GenerateurVisiteurs
+[2026-01-29 18:38:46] [INFO] Thread arrêté: Visiteur-6
+[2026-01-29 18:38:46] [INFO] Thread arrêté: Horloge
+[2026-01-29 18:43:16] [INFO] ═══════════════════════════════════════
+[2026-01-29 18:43:16] [INFO]    OUVERTURE DU PARC D'ATTRACTIONS
+[2026-01-29 18:43:16] [INFO] ═══════════════════════════════════════
+[2026-01-29 18:43:16] [INFO] Thread démarré: Horloge
+[2026-01-29 18:43:16] [INFO] Horloge démarrée - Vitesse: x10
+[2026-01-29 18:43:22] [INFO] Heure actuelle: 10:00
+[2026-01-29 18:43:28] [INFO] Heure actuelle: 11:00
+[2026-01-29 18:43:34] [INFO] Heure actuelle: 12:00
+[2026-01-29 18:43:40] [INFO] Heure actuelle: 13:00
+[2026-01-29 18:43:46] [INFO] Heure actuelle: 14:00
+
+================================================================================
+FIN DE SESSION - 2026-01-29 18:43:52
+================================================================================
+
+
+================================================================================
+NOUVELLE SESSION - 2026-01-29 19:04:21
+================================================================================
+[2026-01-29 19:04:21] [INFO] ═══════════════════════════════════════
+[2026-01-29 19:04:21] [INFO]    PARC D'ATTRACTIONS - SIMULATION
+[2026-01-29 19:04:21] [INFO] ═══════════════════════════════════════
+[2026-01-29 19:04:21] [INFO] Initialisation du parc d'attractions...
+[2026-01-29 19:04:21] [INFO] 8 attractions créées
+[2026-01-29 19:04:21] [INFO] Restaurant créé: Restaurant Central (capacité: 80)
+[2026-01-29 19:04:21] [INFO] Restaurant créé: Snack Rapide (capacité: 40)
+[2026-01-29 19:04:21] [INFO] 2 restaurants créés
+[2026-01-29 19:04:21] [INFO] Stock initialisé pour Boutique Souvenirs (9 produits)
+[2026-01-29 19:04:21] [INFO] Boutique créée: Boutique Souvenirs
+[2026-01-29 19:04:21] [INFO] Stock initialisé pour Boutique Photos (9 produits)
+[2026-01-29 19:04:21] [INFO] Boutique créée: Boutique Photos
+[2026-01-29 19:04:21] [INFO] 2 boutiques créées
+[2026-01-29 19:04:21] [INFO] 8 opérateurs créés
+[2026-01-29 19:04:21] [INFO] 4 techniciens créés
+[2026-01-29 19:04:21] [INFO] 3 agents de sécurité créés
+[2026-01-29 19:04:21] [INFO] 5 vendeurs créés
+[2026-01-29 19:04:21] [INFO] Total: 20 employés créés
+[2026-01-29 19:04:21] [INFO] Parc initialisé avec succès
+[2026-01-29 19:04:21] [INFO] Thread démarré: GestionnaireMeteo
+[2026-01-29 19:04:21] [INFO] Thread démarré: GestionnaireEvenements
+[2026-01-29 19:04:21] [INFO] Météo changée: ☀️ Ensoleillé → ☀️ Ensoleillé
+[2026-01-29 19:04:22] [INFO] Application démarrée avec succès
+[2026-01-29 19:04:48] [INFO] Thread démarré: Employe-21
+[2026-01-29 19:04:48] [INFO] Employé ajouté: houda ben [Vendeur Restaurant] - État: Disponible - Fatigue: 0%
+[2026-01-29 19:05:04] [INFO] Employé retiré: Laura Garcia [Vendeur Boutique] - État: Disponible - Fatigue: 0%
+[2026-01-29 19:05:16] [INFO] 🎉 Happy Hour démarré ! Réduction de 20% sur les billets
+[2026-01-29 19:05:16] [INFO] 🟢 Happy Hour en cours - Réduction de 20% sur les billets jusqu'à 16h
+[2026-01-29 19:05:23] [INFO] ═══════════════════════════════════════
+[2026-01-29 19:05:23] [INFO]    OUVERTURE DU PARC D'ATTRACTIONS
+[2026-01-29 19:05:23] [INFO] ═══════════════════════════════════════
+[2026-01-29 19:05:23] [INFO] Attraction démarrée: Montagnes Russes Extrême
+[2026-01-29 19:05:23] [INFO] Thread démarré: Montagnes Russes Extrême
+[2026-01-29 19:05:23] [INFO] Thread démarré: Horloge
+[2026-01-29 19:05:23] [INFO] Thread démarré: Grande Roue Panoramique
+[2026-01-29 19:05:23] [INFO] Grande Roue Panoramique : Attraction démarrée
+[2026-01-29 19:05:23] [INFO] Montagnes Russes Extrême : Attraction démarrée
+[2026-01-29 19:05:23] [INFO] Attraction démarrée: Grande Roue Panoramique
+[2026-01-29 19:05:23] [INFO] Horloge démarrée - Vitesse: x10
+[2026-01-29 19:05:23] [INFO] Attraction démarrée: Manège Enchanté
+[2026-01-29 19:05:23] [INFO] Thread démarré: Manège Enchanté
+[2026-01-29 19:05:23] [INFO] Manège Enchanté : Attraction démarrée
+[2026-01-29 19:05:23] [INFO] Attraction démarrée: Maison Hantée des Ombres
+[2026-01-29 19:05:23] [INFO] Thread démarré: Maison Hantée des Ombres
+[2026-01-29 19:05:23] [INFO] Maison Hantée des Ombres : Attraction démarrée
+[2026-01-29 19:05:23] [INFO] Attraction démarrée: Simulateur VR Spatial
+[2026-01-29 19:05:23] [INFO] Thread démarré: Simulateur VR Spatial
+[2026-01-29 19:05:23] [INFO] Simulateur VR Spatial : Attraction démarrée
+[2026-01-29 19:05:23] [INFO] Attraction démarrée: Chute Libre Vertigineuse
+[2026-01-29 19:05:23] [INFO] Thread démarré: Chute Libre Vertigineuse
+[2026-01-29 19:05:23] [INFO] Chute Libre Vertigineuse : Attraction démarrée
+[2026-01-29 19:05:23] [INFO] Attraction démarrée: Carrousel Magique
+[2026-01-29 19:05:23] [INFO] Thread démarré: Carrousel Magique
+[2026-01-29 19:05:23] [INFO] Carrousel Magique : Attraction démarrée
+[2026-01-29 19:05:23] [INFO] Attraction démarrée: Toboggan Aquatique Splash
+[2026-01-29 19:05:23] [INFO] Thread démarré: Toboggan Aquatique Splash
+[2026-01-29 19:05:23] [INFO] Employé démarré: Jean Dupont
+[2026-01-29 19:05:23] [INFO] Thread démarré: Employe-1
+[2026-01-29 19:05:23] [INFO] Toboggan Aquatique Splash : Attraction démarrée
+[2026-01-29 19:05:23] [INFO] Thread démarré: Employe-2
+[2026-01-29 19:05:23] [INFO] Employé démarré: Marie Martin
+[2026-01-29 19:05:23] [INFO] Employé démarré: Pierre Bernard
+[2026-01-29 19:05:23] [INFO] Employé démarré: Sophie Dubois
+[2026-01-29 19:05:23] [INFO] Thread démarré: Employe-4
+[2026-01-29 19:05:23] [INFO] Thread démarré: Employe-3
+[2026-01-29 19:05:23] [INFO] Thread démarré: Employe-5
+[2026-01-29 19:05:23] [INFO] Employé démarré: Luc Moreau
+[2026-01-29 19:05:23] [INFO] Employé démarré: Emma Laurent
+[2026-01-29 19:05:23] [INFO] Thread démarré: Employe-6
+[2026-01-29 19:05:23] [INFO] Employé démarré: Thomas Simon
+[2026-01-29 19:05:23] [INFO] Thread démarré: Employe-7
+[2026-01-29 19:05:23] [INFO] Employé démarré: Julie Michel
+[2026-01-29 19:05:23] [INFO] Thread démarré: Employe-8
+[2026-01-29 19:05:23] [INFO] Employé démarré: Robert Durand
+[2026-01-29 19:05:23] [INFO] Thread démarré: Employe-9
+[2026-01-29 19:05:23] [INFO] Employé démarré: Claire Leroy
+[2026-01-29 19:05:23] [INFO] Thread démarré: Employe-10
+[2026-01-29 19:05:23] [INFO] Employé démarré: Marc Petit
+[2026-01-29 19:05:23] [INFO] Thread démarré: Employe-11
+[2026-01-29 19:05:23] [INFO] Employé démarré: Isabelle Roux
+[2026-01-29 19:05:23] [INFO] Thread démarré: Employe-12
+[2026-01-29 19:05:23] [INFO] Employé démarré: Paul Girard
+[2026-01-29 19:05:23] [INFO] Thread démarré: Employe-13
+[2026-01-29 19:05:23] [INFO] Employé démarré: Anne Lefebvre
+[2026-01-29 19:05:23] [INFO] Thread démarré: Employe-14
+[2026-01-29 19:05:23] [INFO] Employé démarré: Michel Bonnet
+[2026-01-29 19:05:23] [INFO] Thread démarré: Employe-15
+[2026-01-29 19:05:23] [INFO] Employé démarré: Camille Vincent
+[2026-01-29 19:05:23] [INFO] Thread démarré: Employe-16
+[2026-01-29 19:05:23] [INFO] Employé démarré: Nicolas Fournier
+[2026-01-29 19:05:23] [INFO] Thread démarré: Employe-17
+[2026-01-29 19:05:23] [INFO] Employé démarré: David Martinez
+[2026-01-29 19:05:23] [INFO] Thread démarré: Employe-19
+[2026-01-29 19:05:23] [INFO] Employé démarré: Sarah Brown
+[2026-01-29 19:05:23] [INFO] Thread démarré: Employe-20
+[2026-01-29 19:05:30] [INFO] Heure actuelle: 10:00
+[2026-01-29 19:05:36] [INFO] Heure actuelle: 11:00
+[2026-01-29 19:05:42] [INFO] Heure actuelle: 12:00
+[2026-01-29 19:05:48] [INFO] Heure actuelle: 13:00
+[2026-01-29 19:05:54] [INFO] Heure actuelle: 14:00
+[2026-01-29 19:06:00] [INFO] Heure actuelle: 15:00
+[2026-01-29 19:06:06] [INFO] Heure actuelle: 16:00
+[2026-01-29 19:06:12] [INFO] Heure actuelle: 17:00
+[2026-01-29 19:06:18] [INFO] Heure actuelle: 18:00
+[2026-01-29 19:06:24] [INFO] Heure actuelle: 19:00
+
+================================================================================
+FIN DE SESSION - 2026-01-29 19:06:24
+================================================================================
+
+
+================================================================================
+NOUVELLE SESSION - 2026-01-29 19:06:26
+================================================================================
+[2026-01-29 19:06:26] [INFO] ═══════════════════════════════════════
+[2026-01-29 19:06:26] [INFO]    PARC D'ATTRACTIONS - SIMULATION
+[2026-01-29 19:06:26] [INFO] ═══════════════════════════════════════
+[2026-01-29 19:06:26] [INFO] Initialisation du parc d'attractions...
+[2026-01-29 19:06:26] [INFO] 8 attractions créées
+[2026-01-29 19:06:26] [INFO] Restaurant créé: Restaurant Central (capacité: 80)
+[2026-01-29 19:06:26] [INFO] Restaurant créé: Snack Rapide (capacité: 40)
+[2026-01-29 19:06:26] [INFO] 2 restaurants créés
+[2026-01-29 19:06:26] [INFO] Stock initialisé pour Boutique Souvenirs (9 produits)
+[2026-01-29 19:06:26] [INFO] Boutique créée: Boutique Souvenirs
+[2026-01-29 19:06:26] [INFO] Stock initialisé pour Boutique Photos (9 produits)
+[2026-01-29 19:06:26] [INFO] Boutique créée: Boutique Photos
+[2026-01-29 19:06:26] [INFO] 2 boutiques créées
+[2026-01-29 19:06:26] [INFO] 8 opérateurs créés
+[2026-01-29 19:06:26] [INFO] 4 techniciens créés
+[2026-01-29 19:06:26] [INFO] 3 agents de sécurité créés
+[2026-01-29 19:06:26] [INFO] 5 vendeurs créés
+[2026-01-29 19:06:26] [INFO] Total: 20 employés créés
+[2026-01-29 19:06:26] [INFO] Parc initialisé avec succès
+[2026-01-29 19:06:26] [INFO] Thread démarré: GestionnaireMeteo
+[2026-01-29 19:06:26] [INFO] Thread démarré: GestionnaireEvenements
+[2026-01-29 19:06:26] [INFO] Météo changée: ☀️ Ensoleillé → ☀️ Ensoleillé
+[2026-01-29 19:06:27] [INFO] Application démarrée avec succès
+[2026-01-29 19:06:31] [INFO] ═══════════════════════════════════════
+[2026-01-29 19:06:31] [INFO]    OUVERTURE DU PARC D'ATTRACTIONS
+[2026-01-29 19:06:31] [INFO] ═══════════════════════════════════════
+[2026-01-29 19:06:31] [INFO] Attraction démarrée: Montagnes Russes Extrême
+[2026-01-29 19:06:31] [INFO] Thread démarré: Montagnes Russes Extrême
+[2026-01-29 19:06:31] [INFO] Thread démarré: Horloge
+[2026-01-29 19:06:31] [INFO] Thread démarré: Grande Roue Panoramique
+[2026-01-29 19:06:31] [INFO] Grande Roue Panoramique : Attraction démarrée
+[2026-01-29 19:06:31] [INFO] Montagnes Russes Extrême : Attraction démarrée
+[2026-01-29 19:06:31] [INFO] Attraction démarrée: Grande Roue Panoramique
+[2026-01-29 19:06:31] [INFO] Horloge démarrée - Vitesse: x10
+[2026-01-29 19:06:31] [INFO] Thread démarré: Manège Enchanté
+[2026-01-29 19:06:31] [INFO] Manège Enchanté : Attraction démarrée
+[2026-01-29 19:06:31] [INFO] Attraction démarrée: Manège Enchanté
+[2026-01-29 19:06:31] [INFO] Attraction démarrée: Maison Hantée des Ombres
+[2026-01-29 19:06:31] [INFO] Thread démarré: Maison Hantée des Ombres
+[2026-01-29 19:06:31] [INFO] Maison Hantée des Ombres : Attraction démarrée
+[2026-01-29 19:06:31] [INFO] Attraction démarrée: Simulateur VR Spatial
+[2026-01-29 19:06:31] [INFO] Thread démarré: Simulateur VR Spatial
+[2026-01-29 19:06:31] [INFO] Simulateur VR Spatial : Attraction démarrée
+[2026-01-29 19:06:31] [INFO] Thread démarré: Chute Libre Vertigineuse
+[2026-01-29 19:06:31] [INFO] Chute Libre Vertigineuse : Attraction démarrée
+[2026-01-29 19:06:31] [INFO] Attraction démarrée: Chute Libre Vertigineuse
+[2026-01-29 19:06:31] [INFO] Attraction démarrée: Carrousel Magique
+[2026-01-29 19:06:31] [INFO] Thread démarré: Carrousel Magique
+[2026-01-29 19:06:31] [INFO] Carrousel Magique : Attraction démarrée
+[2026-01-29 19:06:31] [INFO] Thread démarré: Toboggan Aquatique Splash
+[2026-01-29 19:06:31] [INFO] Toboggan Aquatique Splash : Attraction démarrée
+[2026-01-29 19:06:31] [INFO] Attraction démarrée: Toboggan Aquatique Splash
+[2026-01-29 19:06:31] [INFO] Employé démarré: Jean Dupont
+[2026-01-29 19:06:31] [INFO] Thread démarré: Employe-1
+[2026-01-29 19:06:31] [INFO] Thread démarré: Employe-2
+[2026-01-29 19:06:31] [INFO] Employé démarré: Marie Martin
+[2026-01-29 19:06:31] [INFO] Employé démarré: Pierre Bernard
+[2026-01-29 19:06:31] [INFO] Thread démarré: Employe-3
+[2026-01-29 19:06:31] [INFO] Employé démarré: Sophie Dubois
+[2026-01-29 19:06:31] [INFO] Thread démarré: Employe-4
+[2026-01-29 19:06:31] [INFO] Thread démarré: Employe-5
+[2026-01-29 19:06:31] [INFO] Employé démarré: Luc Moreau
+[2026-01-29 19:06:31] [INFO] Employé démarré: Emma Laurent
+[2026-01-29 19:06:31] [INFO] Thread démarré: Employe-6
+[2026-01-29 19:06:31] [INFO] Employé démarré: Thomas Simon
+[2026-01-29 19:06:31] [INFO] Thread démarré: Employe-7
+[2026-01-29 19:06:31] [INFO] Employé démarré: Julie Michel
+[2026-01-29 19:06:31] [INFO] Thread démarré: Employe-8
+[2026-01-29 19:06:31] [INFO] Employé démarré: Robert Durand
+[2026-01-29 19:06:31] [INFO] Thread démarré: Employe-9
+[2026-01-29 19:06:31] [INFO] Employé démarré: Claire Leroy
+[2026-01-29 19:06:31] [INFO] Thread démarré: Employe-10
+[2026-01-29 19:06:31] [INFO] Employé démarré: Marc Petit
+[2026-01-29 19:06:31] [INFO] Thread démarré: Employe-11
+[2026-01-29 19:06:31] [INFO] Employé démarré: Isabelle Roux
+[2026-01-29 19:06:31] [INFO] Thread démarré: Employe-12
+[2026-01-29 19:06:31] [INFO] Employé démarré: Paul Girard
+[2026-01-29 19:06:31] [INFO] Thread démarré: Employe-13
+[2026-01-29 19:06:31] [INFO] Employé démarré: Anne Lefebvre
+[2026-01-29 19:06:31] [INFO] Thread démarré: Employe-14
+[2026-01-29 19:06:31] [INFO] Thread démarré: Employe-15
+[2026-01-29 19:06:31] [INFO] Employé démarré: Michel Bonnet
+[2026-01-29 19:06:31] [INFO] Employé démarré: Camille Vincent
+[2026-01-29 19:06:31] [INFO] Thread démarré: Employe-16
+[2026-01-29 19:06:31] [INFO] Employé démarré: Nicolas Fournier
+[2026-01-29 19:06:31] [INFO] Thread démarré: Employe-17
+[2026-01-29 19:06:31] [INFO] Employé démarré: Laura Garcia
+[2026-01-29 19:06:31] [INFO] Thread démarré: Employe-18
+[2026-01-29 19:06:31] [INFO] Employé démarré: David Martinez
+[2026-01-29 19:06:31] [INFO] Thread démarré: Employe-19
+[2026-01-29 19:06:31] [INFO] Employé démarré: Sarah Brown
+[2026-01-29 19:06:31] [INFO] Parc ouvert et opérationnel
+[2026-01-29 19:06:31] [INFO] Thread démarré: Employe-20
+[2026-01-29 19:06:31] [INFO] Vitesse de simulation changée: x10
+[2026-01-29 19:06:31] [INFO] Thread démarré: GenerateurVisiteurs
+[2026-01-29 19:06:33] [INFO] Thread démarré: Visiteur-3
+[2026-01-29 19:06:33] [INFO] Visiteur 3 : Billet acheté [Billet standard] - 50,00€
+[2026-01-29 19:06:33] [INFO] Visiteur 3 (Couple) arrive - Budget: 129,01€, Patience: 120
+[2026-01-29 19:06:33] [INFO] Visiteur 3 : Rejoint Carrousel Magique (File: 0, Attente: 0 min 0 sec)
+[2026-01-29 19:06:36] [INFO] Thread démarré: Visiteur-4
+[2026-01-29 19:06:36] [INFO] Visiteur 4 : Billet acheté [Billet standard] - 50,00€
+[2026-01-29 19:06:36] [INFO] Visiteur 4 (Famille) arrive - Budget: 89,50€, Patience: 100
+[2026-01-29 19:06:36] [INFO] Visiteur 4 : Rejoint Grande Roue Panoramique (File: 0, Attente: 0 min 0 sec)
+[2026-01-29 19:06:37] [INFO] Heure actuelle: 10:00
+[2026-01-29 19:06:38] [INFO] Thread démarré: Visiteur-5
+[2026-01-29 19:06:38] [INFO] Visiteur 5 : Billet acheté [Billet standard] - 50,00€
+[2026-01-29 19:06:38] [INFO] Visiteur 5 (Famille) arrive - Budget: 100,16€, Patience: 100
+[2026-01-29 19:06:38] [INFO] Visiteur 5 : Rejoint Manège Enchanté (File: 0, Attente: 0 min 0 sec)
+[2026-01-29 19:06:41] [INFO] 🎉 Happy Hour démarré ! Réduction de 20% sur les billets
+[2026-01-29 19:06:41] [INFO] 🟢 Happy Hour en cours - Réduction de 20% sur les billets jusqu'à 16h
+[2026-01-29 19:06:43] [INFO] Thread démarré: Visiteur-6
+[2026-01-29 19:06:43] [INFO] Visiteur 6 : Billet acheté [Billet standard] - 50,00€
+[2026-01-29 19:06:43] [INFO] Visiteur 6 (Groupe d'amis) arrive - Budget: 93,05€, Patience: 80
+[2026-01-29 19:06:43] [INFO] Visiteur 6 : Rejoint Chute Libre Vertigineuse (File: 0, Attente: 0 min 0 sec)
+[2026-01-29 19:06:44] [INFO] Heure actuelle: 11:00
+[2026-01-29 19:06:50] [INFO] Heure actuelle: 12:00
+[2026-01-29 19:06:52] [INFO] Thread démarré: Visiteur-12
+[2026-01-29 19:06:52] [INFO] Visiteur 12 : Billet acheté [Billet standard] - 50,00€
+[2026-01-29 19:06:52] [INFO] Visiteur 12 (Groupe d'amis) arrive - Budget: 72,99€, Patience: 80
+[2026-01-29 19:06:52] [INFO] Visiteur 12 : Rejoint Simulateur VR Spatial (File: 0, Attente: 0 min 0 sec)
+[2026-01-29 19:06:56] [INFO] Heure actuelle: 13:00
+[2026-01-29 19:06:58] [INFO] Thread démarré: Visiteur-18
+[2026-01-29 19:06:58] [INFO] Visiteur 18 : Billet acheté [Billet standard] - 30,00€
+[2026-01-29 19:06:58] [INFO] Visiteur 18 (Enfant) arrive - Budget: 5,26€, Patience: 40
+[2026-01-29 19:06:58] [INFO] Visiteur 18 : Rejoint Toboggan Aquatique Splash (File: 0, Attente: 0 min 0 sec)
+[2026-01-29 19:07:00] [INFO] Thread démarré: Visiteur-19
+[2026-01-29 19:07:00] [INFO] Visiteur 19 : Billet acheté [Billet standard] - 50,00€
+[2026-01-29 19:07:00] [INFO] Visiteur 19 (Amateur sensations fortes) arrive - Budget: 14,33€, Patience: 60
+[2026-01-29 19:07:00] [INFO] Visiteur 19 : Rejoint Montagnes Russes Extrême (File: 0, Attente: 0 min 0 sec)
+[2026-01-29 19:07:01] [INFO] Thread démarré: Visiteur-20
+[2026-01-29 19:07:01] [INFO] Visiteur 20 : Billet acheté [Billet standard] - 50,00€
+[2026-01-29 19:07:01] [INFO] Visiteur 20 (Famille) arrive - Budget: 101,47€, Patience: 100
+[2026-01-29 19:07:01] [INFO] Visiteur 20 : Rejoint Manège Enchanté (File: 1, Attente: 3 min 0 sec)
+[2026-01-29 19:07:02] [INFO] Heure actuelle: 14:00
+[2026-01-29 19:07:06] [INFO] Thread démarré: Visiteur-23
+[2026-01-29 19:07:06] [INFO] Visiteur 23 : Billet acheté [Billet standard] - 50,00€
+[2026-01-29 19:07:06] [INFO] Visiteur 23 (Couple) arrive - Budget: 124,02€, Patience: 120
+[2026-01-29 19:07:06] [INFO] Visiteur 23 : Rejoint Maison Hantée des Ombres (File: 0, Attente: 0 min 0 sec)
+[2026-01-29 19:07:07] [INFO] Visiteur 6 : Tour sur Chute Libre Vertigineuse terminé (Satisfaction: 65%)
+[2026-01-29 19:07:08] [INFO] Heure actuelle: 15:00
+[2026-01-29 19:07:09] [INFO] Visiteur 6 : Rejoint Simulateur VR Spatial (File: 1, Attente: 4 min 0 sec)
+[2026-01-29 19:07:10] [INFO] ═══════════════════════════════════════
+[2026-01-29 19:07:10] [INFO]    FERMETURE DU PARC D'ATTRACTIONS
+[2026-01-29 19:07:10] [INFO] ═══════════════════════════════════════
+[2026-01-29 19:07:10] [INFO] GenerateurVisiteurs interrompu
+[2026-01-29 19:07:10] [INFO] Horloge interrompue
+[2026-01-29 19:07:10] [INFO] Employe-20 interrompu
+[2026-01-29 19:07:10] [INFO] Visiteur 3 : Interrompu
+[2026-01-29 19:07:10] [INFO] Employe-13 interrompu
+[2026-01-29 19:07:10] [INFO] Thread arrêté: Employe-13
+[2026-01-29 19:07:10] [INFO] Employe-10 interrompu
+[2026-01-29 19:07:10] [INFO] Thread arrêté: Employe-10
+[2026-01-29 19:07:10] [INFO] Employe-19 interrompu
+[2026-01-29 19:07:10] [INFO] Thread arrêté: Employe-19
+[2026-01-29 19:07:10] [INFO] Employe-8 interrompu
+[2026-01-29 19:07:10] [INFO] Thread arrêté: Employe-8
+[2026-01-29 19:07:10] [INFO] Employe-14 interrompu
+[2026-01-29 19:07:10] [INFO] Thread arrêté: Employe-14
+[2026-01-29 19:07:10] [INFO] Employe-12 interrompu
+[2026-01-29 19:07:10] [INFO] Thread arrêté: Employe-12
+[2026-01-29 19:07:10] [INFO] Employe-9 interrompu
+[2026-01-29 19:07:10] [INFO] Thread arrêté: Employe-9
+[2026-01-29 19:07:10] [INFO] Carrousel Magique : Thread interrompu
+[2026-01-29 19:07:10] [INFO] Employe-7 interrompu
+[2026-01-29 19:07:10] [INFO] Thread arrêté: Employe-7
+[2026-01-29 19:07:10] [INFO] Employe-2 interrompu
+[2026-01-29 19:07:10] [INFO] Thread arrêté: Employe-2
+[2026-01-29 19:07:10] [INFO] Visiteur 19 : Interrompu
+[2026-01-29 19:07:10] [INFO] Visiteur 6 : Interrompu
+[2026-01-29 19:07:10] [INFO] Visiteur 5 : Interrompu
+[2026-01-29 19:07:10] [INFO] Visiteur 20 : Interrompu
+[2026-01-29 19:07:10] [INFO] Visiteur 18 : Interrompu
+[2026-01-29 19:07:10] [INFO] Visiteur 23 : Interrompu
+[2026-01-29 19:07:10] [INFO] Visiteur 12 : Interrompu
+[2026-01-29 19:07:10] [INFO] Visiteur 4 : Interrompu
+[2026-01-29 19:07:10] [INFO] Employe-18 interrompu
+[2026-01-29 19:07:10] [INFO] Thread arrêté: Employe-18
+[2026-01-29 19:07:10] [INFO] Employe-16 interrompu
+[2026-01-29 19:07:10] [INFO] Thread arrêté: Employe-16
+[2026-01-29 19:07:10] [INFO] Employe-1 interrompu
+[2026-01-29 19:07:10] [INFO] Thread arrêté: Employe-1
+[2026-01-29 19:07:10] [INFO] Employe-17 interrompu
+[2026-01-29 19:07:10] [INFO] Thread arrêté: Employe-17
+[2026-01-29 19:07:10] [INFO] Employe-6 interrompu
+[2026-01-29 19:07:10] [INFO] Thread arrêté: Employe-6
+[2026-01-29 19:07:10] [INFO] Employe-4 interrompu
+[2026-01-29 19:07:10] [INFO] Thread arrêté: Employe-4
+[2026-01-29 19:07:10] [INFO] Employe-11 interrompu
+[2026-01-29 19:07:10] [INFO] Thread arrêté: Employe-11
+[2026-01-29 19:07:10] [INFO] Employe-15 interrompu
+[2026-01-29 19:07:10] [INFO] Thread arrêté: Employe-15
+[2026-01-29 19:07:10] [INFO] Employe-5 interrompu
+[2026-01-29 19:07:10] [INFO] Thread arrêté: Employe-5
+[2026-01-29 19:07:10] [INFO] Parc fermé
+[2026-01-29 19:07:10] [INFO] Employe-3 interrompu
+[2026-01-29 19:07:10] [INFO] Thread arrêté: Employe-3
+[2026-01-29 19:07:10] [INFO] Maison Hantée des Ombres : Thread interrompu
+[2026-01-29 19:07:10] [INFO] Manège Enchanté : Thread interrompu
+[2026-01-29 19:07:10] [INFO] Toboggan Aquatique Splash : Thread interrompu
+[2026-01-29 19:07:10] [INFO] Thread arrêté: GenerateurVisiteurs
+[2026-01-29 19:07:10] [INFO] Simulateur VR Spatial : Thread interrompu
+[2026-01-29 19:07:10] [INFO] Thread arrêté: Simulateur VR Spatial
+[2026-01-29 19:07:10] [INFO] Montagnes Russes Extrême : Thread interrompu
+[2026-01-29 19:07:10] [INFO] Thread arrêté: Montagnes Russes Extrême
+[2026-01-29 19:07:10] [INFO] Grande Roue Panoramique : Thread interrompu
+[2026-01-29 19:07:10] [INFO] Chute Libre Vertigineuse : Thread interrompu
+[2026-01-29 19:07:10] [INFO] Thread arrêté: Grande Roue Panoramique
+[2026-01-29 19:07:10] [INFO] Thread arrêté: Toboggan Aquatique Splash
+[2026-01-29 19:07:10] [INFO] Thread arrêté: Manège Enchanté
+[2026-01-29 19:07:10] [INFO] Thread arrêté: Maison Hantée des Ombres
+[2026-01-29 19:07:10] [INFO] === STATISTIQUES DU PARC ===
+Visiteurs total: 9
+Visiteurs actuels: 9
+Tours effectués: 0
+Revenus: 430,00 €
+Revenu moyen/visiteur: 47,78 €
+Temps attente moyen: 0 min 6 sec
+Satisfaction: 32,5% 😞
+============================
+[2026-01-29 19:07:10] [INFO] Thread arrêté: Carrousel Magique
+[2026-01-29 19:07:10] [INFO] Thread arrêté: Employe-20
+[2026-01-29 19:07:10] [INFO] Thread arrêté: Horloge
+[2026-01-29 19:07:10] [INFO] Visiteur 4 quitte le parc - Attractions: 0 - Satisfaction: 50% (Neutre 😐) - Argent restant: 89,50€
+[2026-01-29 19:07:10] [INFO] Thread arrêté: Chute Libre Vertigineuse
+[2026-01-29 19:07:10] [INFO] Visiteur 3 quitte le parc - Attractions: 0 - Satisfaction: 50% (Neutre 😐) - Argent restant: 129,01€
+[2026-01-29 19:07:10] [INFO] Thread arrêté: Visiteur-3
+[2026-01-29 19:07:10] [INFO] Visiteur 19 quitte le parc - Attractions: 0 - Satisfaction: 50% (Neutre 😐) - Argent restant: 14,33€
+[2026-01-29 19:07:10] [INFO] Thread arrêté: Visiteur-19
+[2026-01-29 19:07:10] [INFO] Thread arrêté: Visiteur-4
+[2026-01-29 19:07:10] [INFO] Visiteur 6 quitte le parc - Attractions: 1 - Satisfaction: 65% (Satisfait 🙂) - Argent restant: 93,05€
+[2026-01-29 19:07:10] [INFO] Thread arrêté: Visiteur-6
+[2026-01-29 19:07:10] [INFO] Visiteur 20 quitte le parc - Attractions: 0 - Satisfaction: 50% (Neutre 😐) - Argent restant: 101,47€
+[2026-01-29 19:07:10] [INFO] Thread arrêté: Visiteur-20
+[2026-01-29 19:07:10] [INFO] Visiteur 5 quitte le parc - Attractions: 0 - Satisfaction: 50% (Neutre 😐) - Argent restant: 100,16€
+[2026-01-29 19:07:10] [INFO] Thread arrêté: Visiteur-5
+[2026-01-29 19:07:10] [INFO] Visiteur 18 quitte le parc - Attractions: 0 - Satisfaction: 50% (Neutre 😐) - Argent restant: 5,26€
+[2026-01-29 19:07:10] [INFO] Thread arrêté: Visiteur-18
+[2026-01-29 19:07:10] [INFO] Visiteur 12 quitte le parc - Attractions: 0 - Satisfaction: 50% (Neutre 😐) - Argent restant: 72,99€
+[2026-01-29 19:07:10] [INFO] Thread arrêté: Visiteur-12
+[2026-01-29 19:07:10] [INFO] Visiteur 23 quitte le parc - Attractions: 0 - Satisfaction: 50% (Neutre 😐) - Argent restant: 124,02€
+[2026-01-29 19:07:10] [INFO] Thread arrêté: Visiteur-23
+
+================================================================================
+FIN DE SESSION - 2026-01-29 19:07:10
+================================================================================
+
+
+================================================================================
+NOUVELLE SESSION - 2026-01-29 19:27:23
+================================================================================
+[2026-01-29 19:27:23] [INFO] ═══════════════════════════════════════
+[2026-01-29 19:27:23] [INFO]    PARC D'ATTRACTIONS - SIMULATION
+[2026-01-29 19:27:23] [INFO] ═══════════════════════════════════════
+[2026-01-29 19:27:23] [INFO] Initialisation du parc d'attractions...
+[2026-01-29 19:27:23] [INFO] 8 attractions créées
+[2026-01-29 19:27:23] [INFO] Restaurant créé: Restaurant Central (capacité: 80)
+[2026-01-29 19:27:23] [INFO] Restaurant créé: Snack Rapide (capacité: 40)
+[2026-01-29 19:27:23] [INFO] 2 restaurants créés
+[2026-01-29 19:27:23] [INFO] Stock initialisé pour Boutique Souvenirs (9 produits)
+[2026-01-29 19:27:23] [INFO] Boutique créée: Boutique Souvenirs
+[2026-01-29 19:27:23] [INFO] Stock initialisé pour Boutique Photos (9 produits)
+[2026-01-29 19:27:23] [INFO] Boutique créée: Boutique Photos
+[2026-01-29 19:27:23] [INFO] 2 boutiques créées
+[2026-01-29 19:27:23] [INFO] 8 opérateurs créés
+[2026-01-29 19:27:23] [INFO] 4 techniciens créés
+[2026-01-29 19:27:23] [INFO] 3 agents de sécurité créés
+[2026-01-29 19:27:23] [INFO] 5 vendeurs créés
+[2026-01-29 19:27:23] [INFO] Total: 20 employés créés
+[2026-01-29 19:27:23] [INFO] Parc initialisé avec succès
+[2026-01-29 19:27:23] [INFO] Thread démarré: GestionnaireMeteo
+[2026-01-29 19:27:23] [INFO] Thread démarré: GestionnaireEvenements
+[2026-01-29 19:27:23] [INFO] Météo changée: ☀️ Ensoleillé → ☀️ Ensoleillé
+[2026-01-29 19:27:24] [INFO] Application démarrée avec succès
+[2026-01-29 19:27:31] [INFO] ═══════════════════════════════════════
+[2026-01-29 19:27:31] [INFO]    OUVERTURE DU PARC D'ATTRACTIONS
+[2026-01-29 19:27:31] [INFO] ═══════════════════════════════════════
+[2026-01-29 19:27:31] [INFO] Attraction démarrée: Montagnes Russes Extrême
+[2026-01-29 19:27:31] [INFO] Thread démarré: Montagnes Russes Extrême
+[2026-01-29 19:27:31] [INFO] Thread démarré: Horloge
+[2026-01-29 19:27:31] [INFO] Montagnes Russes Extrême : Attraction démarrée
+[2026-01-29 19:27:31] [INFO] Thread démarré: Grande Roue Panoramique
+[2026-01-29 19:27:31] [INFO] Attraction démarrée: Grande Roue Panoramique
+[2026-01-29 19:27:31] [INFO] Grande Roue Panoramique : Attraction démarrée
+[2026-01-29 19:27:31] [INFO] Horloge démarrée - Vitesse: x10
+[2026-01-29 19:27:31] [INFO] Thread démarré: Manège Enchanté
+[2026-01-29 19:27:31] [INFO] Manège Enchanté : Attraction démarrée
+[2026-01-29 19:27:31] [INFO] Attraction démarrée: Manège Enchanté
+[2026-01-29 19:27:31] [INFO] Attraction démarrée: Maison Hantée des Ombres
+[2026-01-29 19:27:31] [INFO] Thread démarré: Maison Hantée des Ombres
+[2026-01-29 19:27:31] [INFO] Maison Hantée des Ombres : Attraction démarrée
+[2026-01-29 19:27:31] [INFO] Attraction démarrée: Simulateur VR Spatial
+[2026-01-29 19:27:31] [INFO] Thread démarré: Simulateur VR Spatial
+[2026-01-29 19:27:31] [INFO] Simulateur VR Spatial : Attraction démarrée
+[2026-01-29 19:27:31] [INFO] Attraction démarrée: Chute Libre Vertigineuse
+[2026-01-29 19:27:31] [INFO] Thread démarré: Chute Libre Vertigineuse
+[2026-01-29 19:27:31] [INFO] Chute Libre Vertigineuse : Attraction démarrée
+[2026-01-29 19:27:31] [INFO] Attraction démarrée: Carrousel Magique
+[2026-01-29 19:27:31] [INFO] Thread démarré: Carrousel Magique
+[2026-01-29 19:27:31] [INFO] Carrousel Magique : Attraction démarrée
+[2026-01-29 19:27:31] [INFO] Thread démarré: Toboggan Aquatique Splash
+[2026-01-29 19:27:31] [INFO] Toboggan Aquatique Splash : Attraction démarrée
+[2026-01-29 19:27:31] [INFO] Attraction démarrée: Toboggan Aquatique Splash
+[2026-01-29 19:27:31] [INFO] Employé démarré: Jean Dupont
+[2026-01-29 19:27:31] [INFO] Thread démarré: Employe-1
+[2026-01-29 19:27:31] [INFO] Employé démarré: Marie Martin
+[2026-01-29 19:27:31] [INFO] Thread démarré: Employe-2
+[2026-01-29 19:27:31] [INFO] Employé démarré: Pierre Bernard
+[2026-01-29 19:27:31] [INFO] Thread démarré: Employe-3
+[2026-01-29 19:27:31] [INFO] Employé démarré: Sophie Dubois
+[2026-01-29 19:27:31] [INFO] Thread démarré: Employe-4
+[2026-01-29 19:27:31] [INFO] Employé démarré: Luc Moreau
+[2026-01-29 19:27:31] [INFO] Thread démarré: Employe-5
+[2026-01-29 19:27:31] [INFO] Thread démarré: Employe-6
+[2026-01-29 19:27:31] [INFO] Employé démarré: Emma Laurent
+[2026-01-29 19:27:31] [INFO] Employé démarré: Thomas Simon
+[2026-01-29 19:27:31] [INFO] Thread démarré: Employe-7
+[2026-01-29 19:27:31] [INFO] Employé démarré: Julie Michel
+[2026-01-29 19:27:31] [INFO] Thread démarré: Employe-8
+[2026-01-29 19:27:31] [INFO] Employé démarré: Robert Durand
+[2026-01-29 19:27:31] [INFO] Thread démarré: Employe-9
+[2026-01-29 19:27:31] [INFO] Employé démarré: Claire Leroy
+[2026-01-29 19:27:31] [INFO] Thread démarré: Employe-10
+[2026-01-29 19:27:31] [INFO] Thread démarré: Employe-11
+[2026-01-29 19:27:31] [INFO] Employé démarré: Marc Petit
+[2026-01-29 19:27:31] [INFO] Employé démarré: Isabelle Roux
+[2026-01-29 19:27:31] [INFO] Thread démarré: Employe-12
+[2026-01-29 19:27:31] [INFO] Thread démarré: Employe-13
+[2026-01-29 19:27:31] [INFO] Employé démarré: Paul Girard
+[2026-01-29 19:27:31] [INFO] Employé démarré: Anne Lefebvre
+[2026-01-29 19:27:31] [INFO] Thread démarré: Employe-14
+[2026-01-29 19:27:31] [INFO] Employé démarré: Michel Bonnet
+[2026-01-29 19:27:31] [INFO] Thread démarré: Employe-15
+[2026-01-29 19:27:31] [INFO] Employé démarré: Camille Vincent
+[2026-01-29 19:27:31] [INFO] Thread démarré: Employe-16
+[2026-01-29 19:27:31] [INFO] Employé démarré: Nicolas Fournier
+[2026-01-29 19:27:31] [INFO] Thread démarré: Employe-17
+[2026-01-29 19:27:31] [INFO] Employé démarré: Laura Garcia
+[2026-01-29 19:27:31] [INFO] Thread démarré: Employe-18
+[2026-01-29 19:27:31] [INFO] Employé démarré: David Martinez
+[2026-01-29 19:27:31] [INFO] Thread démarré: Employe-19
+[2026-01-29 19:27:31] [INFO] Employé démarré: Sarah Brown
+[2026-01-29 19:27:31] [INFO] Parc ouvert et opérationnel
+[2026-01-29 19:27:31] [INFO] Thread démarré: Employe-20
+[2026-01-29 19:27:31] [INFO] Vitesse de simulation changée: x10
+[2026-01-29 19:27:31] [INFO] Thread démarré: GenerateurVisiteurs
+[2026-01-29 19:27:36] [INFO] Thread démarré: Visiteur-2
+[2026-01-29 19:27:36] [ERROR] Visiteur 2 ne peut pas entrer: Visiteur 2: budget insuffisant (25,14€ disponibles < 30,00€ requis)
+[2026-01-29 19:27:36] [INFO] Visiteur 2 quitte le parc - Attractions: 0 - Satisfaction: 50% (Neutre 😐) - Argent restant: 25,14€
+[2026-01-29 19:27:36] [INFO] Thread arrêté: Visiteur-2
+[2026-01-29 19:27:37] [INFO] Heure actuelle: 10:00
+[2026-01-29 19:27:38] [INFO] Thread démarré: Visiteur-3
+[2026-01-29 19:27:38] [INFO] Visiteur 3 : Billet acheté [Billet standard] - 50,00€
+[2026-01-29 19:27:38] [INFO] Visiteur 3 (Amateur sensations fortes) arrive - Budget: 45,46€, Patience: 60
+[2026-01-29 19:27:38] [INFO] Visiteur 3 : Rejoint Chute Libre Vertigineuse (File: 0, Attente: 0 min 0 sec)
+[2026-01-29 19:27:40] [INFO] ═══════════════════════════════════════
+[2026-01-29 19:27:40] [INFO]    FERMETURE DU PARC D'ATTRACTIONS
+[2026-01-29 19:27:40] [INFO] ═══════════════════════════════════════
+[2026-01-29 19:27:40] [INFO] GenerateurVisiteurs interrompu
+[2026-01-29 19:27:40] [INFO] Thread arrêté: GenerateurVisiteurs
+[2026-01-29 19:27:40] [INFO] Horloge interrompue
+[2026-01-29 19:27:40] [INFO] Employe-13 interrompu
+[2026-01-29 19:27:40] [INFO] Employe-19 interrompu
+[2026-01-29 19:27:40] [INFO] Thread arrêté: Employe-19
+[2026-01-29 19:27:40] [INFO] Visiteur 3 : Interrompu
+[2026-01-29 19:27:40] [INFO] Employe-20 interrompu
+[2026-01-29 19:27:40] [INFO] Thread arrêté: Employe-20
+[2026-01-29 19:27:40] [INFO] Employe-18 interrompu
+[2026-01-29 19:27:40] [INFO] Thread arrêté: Employe-18
+[2026-01-29 19:27:40] [INFO] Employe-17 interrompu
+[2026-01-29 19:27:40] [INFO] Thread arrêté: Employe-17
+[2026-01-29 19:27:40] [INFO] Employe-15 interrompu
+[2026-01-29 19:27:40] [INFO] Thread arrêté: Employe-15
+[2026-01-29 19:27:40] [INFO] Employe-16 interrompu
+[2026-01-29 19:27:40] [INFO] Thread arrêté: Employe-16
+[2026-01-29 19:27:40] [INFO] Parc fermé
+[2026-01-29 19:27:40] [INFO] Employe-14 interrompu
+[2026-01-29 19:27:40] [INFO] Thread arrêté: Employe-14
+[2026-01-29 19:27:40] [INFO] Employe-10 interrompu
+[2026-01-29 19:27:40] [INFO] Thread arrêté: Employe-10
+[2026-01-29 19:27:40] [INFO] Employe-12 interrompu
+[2026-01-29 19:27:40] [INFO] Thread arrêté: Employe-12
+[2026-01-29 19:27:40] [INFO] Employe-11 interrompu
+[2026-01-29 19:27:40] [INFO] Thread arrêté: Employe-11
+[2026-01-29 19:27:40] [INFO] Employe-4 interrompu
+[2026-01-29 19:27:40] [INFO] Thread arrêté: Employe-4
+[2026-01-29 19:27:40] [INFO] Employe-1 interrompu
+[2026-01-29 19:27:40] [INFO] Thread arrêté: Employe-1
+[2026-01-29 19:27:40] [INFO] Employe-5 interrompu
+[2026-01-29 19:27:40] [INFO] Thread arrêté: Employe-5
+[2026-01-29 19:27:40] [INFO] Employe-8 interrompu
+[2026-01-29 19:27:40] [INFO] Thread arrêté: Employe-8
+[2026-01-29 19:27:40] [INFO] Employe-2 interrompu
+[2026-01-29 19:27:40] [INFO] Thread arrêté: Employe-2
+[2026-01-29 19:27:40] [INFO] Employe-9 interrompu
+[2026-01-29 19:27:40] [INFO] Thread arrêté: Employe-9
+[2026-01-29 19:27:40] [INFO] Employe-7 interrompu
+[2026-01-29 19:27:40] [INFO] Thread arrêté: Employe-7
+[2026-01-29 19:27:40] [INFO] Simulateur VR Spatial : Thread interrompu
+[2026-01-29 19:27:40] [INFO] Employe-6 interrompu
+[2026-01-29 19:27:40] [INFO] Thread arrêté: Employe-6
+[2026-01-29 19:27:40] [INFO] Employe-3 interrompu
+[2026-01-29 19:27:40] [INFO] Thread arrêté: Employe-3
+[2026-01-29 19:27:40] [INFO] Chute Libre Vertigineuse : Thread interrompu
+[2026-01-29 19:27:40] [INFO] Manège Enchanté : Thread interrompu
+[2026-01-29 19:27:40] [INFO] Carrousel Magique : Thread interrompu
+[2026-01-29 19:27:40] [INFO] Thread arrêté: Carrousel Magique
+[2026-01-29 19:27:40] [INFO] Grande Roue Panoramique : Thread interrompu
+[2026-01-29 19:27:40] [INFO] Toboggan Aquatique Splash : Thread interrompu
+[2026-01-29 19:27:40] [INFO] Maison Hantée des Ombres : Thread interrompu
+[2026-01-29 19:27:40] [INFO] Montagnes Russes Extrême : Thread interrompu
+[2026-01-29 19:27:40] [INFO] Thread arrêté: Montagnes Russes Extrême
+[2026-01-29 19:27:40] [INFO] Thread arrêté: Maison Hantée des Ombres
+[2026-01-29 19:27:40] [INFO] Thread arrêté: Toboggan Aquatique Splash
+[2026-01-29 19:27:40] [INFO] Thread arrêté: Grande Roue Panoramique
+[2026-01-29 19:27:40] [INFO] Thread arrêté: Manège Enchanté
+[2026-01-29 19:27:40] [INFO] Thread arrêté: Chute Libre Vertigineuse
+[2026-01-29 19:27:40] [INFO] Thread arrêté: Simulateur VR Spatial
+[2026-01-29 19:27:40] [INFO] === STATISTIQUES DU PARC ===
+Visiteurs total: 2
+Visiteurs actuels: 0
+Tours effectués: 0
+Revenus: 50,00 €
+Revenu moyen/visiteur: 25,00 €
+Temps attente moyen: 0 min 0 sec
+Satisfaction: 0,0% 😞
+Avis positifs: 0 | Négatifs: 2
+============================
+[2026-01-29 19:27:40] [INFO] Thread arrêté: Employe-13
+[2026-01-29 19:27:40] [INFO] Thread arrêté: Horloge
+[2026-01-29 19:27:40] [INFO] Visiteur 3 quitte le parc - Attractions: 0 - Satisfaction: 50% (Neutre 😐) - Argent restant: 45,46€
+[2026-01-29 19:27:40] [INFO] Thread arrêté: Visiteur-3
+
+================================================================================
+FIN DE SESSION - 2026-01-29 19:27:50
+================================================================================
+
+
+================================================================================
+NOUVELLE SESSION - 2026-01-29 19:36:36
+================================================================================
+[2026-01-29 19:36:36] [INFO] ═══════════════════════════════════════
+[2026-01-29 19:36:36] [INFO]    PARC D'ATTRACTIONS - SIMULATION
+[2026-01-29 19:36:36] [INFO] ═══════════════════════════════════════
+[2026-01-29 19:36:36] [INFO] Initialisation du parc d'attractions...
+[2026-01-29 19:36:36] [INFO] 8 attractions créées
+[2026-01-29 19:36:36] [INFO] Restaurant créé: Restaurant Central (capacité: 80)
+[2026-01-29 19:36:36] [INFO] Restaurant créé: Snack Rapide (capacité: 40)
+[2026-01-29 19:36:36] [INFO] 2 restaurants créés
+[2026-01-29 19:36:36] [INFO] Stock initialisé pour Boutique Souvenirs (9 produits)
+[2026-01-29 19:36:36] [INFO] Boutique créée: Boutique Souvenirs
+[2026-01-29 19:36:36] [INFO] Stock initialisé pour Boutique Photos (9 produits)
+[2026-01-29 19:36:36] [INFO] Boutique créée: Boutique Photos
+[2026-01-29 19:36:36] [INFO] 2 boutiques créées
+[2026-01-29 19:36:36] [INFO] 8 opérateurs créés
+[2026-01-29 19:36:36] [INFO] 4 techniciens créés
+[2026-01-29 19:36:36] [INFO] 3 agents de sécurité créés
+[2026-01-29 19:36:36] [INFO] 5 vendeurs créés
+[2026-01-29 19:36:36] [INFO] Total: 20 employés créés
+[2026-01-29 19:36:36] [INFO] Parc initialisé avec succès
+[2026-01-29 19:36:36] [INFO] Thread démarré: GestionnaireEvenements
+[2026-01-29 19:36:36] [INFO] Thread démarré: GestionnaireMeteo
+[2026-01-29 19:36:36] [INFO] Météo changée: ☀️ Ensoleillé → ☀️ Ensoleillé
+[2026-01-29 19:36:37] [INFO] Application démarrée avec succès
+[2026-01-29 19:36:46] [INFO] ═══════════════════════════════════════
+[2026-01-29 19:36:46] [INFO]    OUVERTURE DU PARC D'ATTRACTIONS
+[2026-01-29 19:36:46] [INFO] ═══════════════════════════════════════
+[2026-01-29 19:36:46] [INFO] Attraction démarrée: Montagnes Russes Extrême
+[2026-01-29 19:36:46] [INFO] Thread démarré: Horloge
+[2026-01-29 19:36:46] [INFO] Thread démarré: Grande Roue Panoramique
+[2026-01-29 19:36:46] [INFO] Thread démarré: Montagnes Russes Extrême
+[2026-01-29 19:36:46] [INFO] Montagnes Russes Extrême : Attraction démarrée
+[2026-01-29 19:36:46] [INFO] Attraction démarrée: Grande Roue Panoramique
+[2026-01-29 19:36:46] [INFO] Grande Roue Panoramique : Attraction démarrée
+[2026-01-29 19:36:46] [INFO] Horloge démarrée - Vitesse: x10
+[2026-01-29 19:36:46] [INFO] Thread démarré: Manège Enchanté
+[2026-01-29 19:36:46] [INFO] Manège Enchanté : Attraction démarrée
+[2026-01-29 19:36:46] [INFO] Attraction démarrée: Manège Enchanté
+[2026-01-29 19:36:46] [INFO] Attraction démarrée: Maison Hantée des Ombres
+[2026-01-29 19:36:46] [INFO] Thread démarré: Maison Hantée des Ombres
+[2026-01-29 19:36:46] [INFO] Maison Hantée des Ombres : Attraction démarrée
+[2026-01-29 19:36:46] [INFO] Attraction démarrée: Simulateur VR Spatial
+[2026-01-29 19:36:46] [INFO] Thread démarré: Simulateur VR Spatial
+[2026-01-29 19:36:46] [INFO] Simulateur VR Spatial : Attraction démarrée
+[2026-01-29 19:36:46] [INFO] Attraction démarrée: Chute Libre Vertigineuse
+[2026-01-29 19:36:46] [INFO] Thread démarré: Chute Libre Vertigineuse
+[2026-01-29 19:36:46] [INFO] Chute Libre Vertigineuse : Attraction démarrée
+[2026-01-29 19:36:46] [INFO] Attraction démarrée: Carrousel Magique
+[2026-01-29 19:36:46] [INFO] Thread démarré: Carrousel Magique
+[2026-01-29 19:36:46] [INFO] Carrousel Magique : Attraction démarrée
+[2026-01-29 19:36:46] [INFO] Attraction démarrée: Toboggan Aquatique Splash
+[2026-01-29 19:36:46] [INFO] Thread démarré: Toboggan Aquatique Splash
+[2026-01-29 19:36:46] [INFO] Toboggan Aquatique Splash : Attraction démarrée
+[2026-01-29 19:36:46] [INFO] Employé démarré: Jean Dupont
+[2026-01-29 19:36:46] [INFO] Thread démarré: Employe-1
+[2026-01-29 19:36:46] [INFO] Thread démarré: Employe-2
+[2026-01-29 19:36:46] [INFO] Employé démarré: Marie Martin
+[2026-01-29 19:36:46] [INFO] Employé démarré: Pierre Bernard
+[2026-01-29 19:36:46] [INFO] Thread démarré: Employe-3
+[2026-01-29 19:36:46] [INFO] Thread démarré: Employe-4
+[2026-01-29 19:36:46] [INFO] Employé démarré: Sophie Dubois
+[2026-01-29 19:36:46] [INFO] Employé démarré: Luc Moreau
+[2026-01-29 19:36:46] [INFO] Employé démarré: Emma Laurent
+[2026-01-29 19:36:46] [INFO] Thread démarré: Employe-5
+[2026-01-29 19:36:46] [INFO] Employé démarré: Thomas Simon
+[2026-01-29 19:36:46] [INFO] Thread démarré: Employe-6
+[2026-01-29 19:36:46] [INFO] Employé démarré: Julie Michel
+[2026-01-29 19:36:46] [INFO] Thread démarré: Employe-7
+[2026-01-29 19:36:46] [INFO] Employé démarré: Robert Durand
+[2026-01-29 19:36:46] [INFO] Thread démarré: Employe-8
+[2026-01-29 19:36:46] [INFO] Employé démarré: Claire Leroy
+[2026-01-29 19:36:46] [INFO] Thread démarré: Employe-9
+[2026-01-29 19:36:46] [INFO] Employé démarré: Marc Petit
+[2026-01-29 19:36:46] [INFO] Thread démarré: Employe-10
+[2026-01-29 19:36:46] [INFO] Employé démarré: Isabelle Roux
+[2026-01-29 19:36:46] [INFO] Thread démarré: Employe-11
+[2026-01-29 19:36:46] [INFO] Employé démarré: Paul Girard
+[2026-01-29 19:36:46] [INFO] Thread démarré: Employe-12
+[2026-01-29 19:36:46] [INFO] Employé démarré: Anne Lefebvre
+[2026-01-29 19:36:46] [INFO] Thread démarré: Employe-13
+[2026-01-29 19:36:46] [INFO] Employé démarré: Michel Bonnet
+[2026-01-29 19:36:46] [INFO] Thread démarré: Employe-14
+[2026-01-29 19:36:46] [INFO] Employé démarré: Camille Vincent
+[2026-01-29 19:36:46] [INFO] Thread démarré: Employe-15
+[2026-01-29 19:36:46] [INFO] Employé démarré: Nicolas Fournier
+[2026-01-29 19:36:46] [INFO] Thread démarré: Employe-16
+[2026-01-29 19:36:46] [INFO] Employé démarré: Laura Garcia
+[2026-01-29 19:36:46] [INFO] Thread démarré: Employe-17
+[2026-01-29 19:36:46] [INFO] Employé démarré: David Martinez
+[2026-01-29 19:36:46] [INFO] Thread démarré: Employe-18
+[2026-01-29 19:36:46] [INFO] Thread démarré: Employe-20
+[2026-01-29 19:36:46] [INFO] Employé démarré: Sarah Brown
+[2026-01-29 19:36:46] [INFO] Thread démarré: Employe-19
+[2026-01-29 19:36:46] [INFO] Parc ouvert et opérationnel
+[2026-01-29 19:36:46] [INFO] Vitesse de simulation changée: x10
+[2026-01-29 19:36:46] [INFO] Thread démarré: GenerateurVisiteurs
+[2026-01-29 19:36:52] [INFO] Heure actuelle: 10:00
+[2026-01-29 19:36:58] [INFO] Heure actuelle: 11:00
+[2026-01-29 19:36:59] [INFO] Thread démarré: Visiteur-3
+[2026-01-29 19:36:59] [INFO] Visiteur 3 : Billet acheté [Fast-Pass] - 80,00€
+[2026-01-29 19:36:59] [INFO] Visiteur 3 (Couple) arrive - Budget: 64,21€, Patience: 120
+[2026-01-29 19:36:59] [INFO] Visiteur 3 : Rejoint Carrousel Magique (File: 0, Attente: 0 min 0 sec)
+[2026-01-29 19:37:04] [INFO] Heure actuelle: 12:00
+[2026-01-29 19:37:07] [INFO] Thread démarré: Visiteur-6
+[2026-01-29 19:37:07] [INFO] Visiteur 6 : Billet acheté [Billet standard] - 50,00€
+[2026-01-29 19:37:07] [INFO] Visiteur 6 (Couple) arrive - Budget: 128,63€, Patience: 120
+[2026-01-29 19:37:07] [INFO] Visiteur 6 : Rejoint Grande Roue Panoramique (File: 0, Attente: 0 min 0 sec)
+[2026-01-29 19:37:09] [INFO] Thread démarré: Visiteur-7
+[2026-01-29 19:37:09] [INFO] Visiteur 7 : Billet acheté [Billet standard] - 50,00€
+[2026-01-29 19:37:09] [INFO] Visiteur 7 (Amateur sensations fortes) arrive - Budget: 29,29€, Patience: 60
+[2026-01-29 19:37:09] [INFO] Visiteur 7 : Rejoint Montagnes Russes Extrême (File: 0, Attente: 0 min 0 sec)
+[2026-01-29 19:37:10] [INFO] Heure actuelle: 13:00
+[2026-01-29 19:37:12] [INFO] ═══════════════════════════════════════
+[2026-01-29 19:37:12] [INFO]    FERMETURE DU PARC D'ATTRACTIONS
+[2026-01-29 19:37:12] [INFO] ═══════════════════════════════════════
+[2026-01-29 19:37:12] [INFO] GenerateurVisiteurs interrompu
+[2026-01-29 19:37:12] [INFO] Horloge interrompue
+[2026-01-29 19:37:12] [INFO] Employe-14 interrompu
+[2026-01-29 19:37:12] [INFO] Visiteur 6 : Interrompu
+[2026-01-29 19:37:12] [INFO] Visiteur 3 : Interrompu
+[2026-01-29 19:37:12] [INFO] Visiteur 7 : Interrompu
+[2026-01-29 19:37:12] [INFO] Employe-16 interrompu
+[2026-01-29 19:37:12] [INFO] Thread arrêté: Employe-16
+[2026-01-29 19:37:12] [INFO] Employe-20 interrompu
+[2026-01-29 19:37:12] [INFO] Thread arrêté: Employe-20
+[2026-01-29 19:37:12] [INFO] Employe-19 interrompu
+[2026-01-29 19:37:12] [INFO] Thread arrêté: Employe-19
+[2026-01-29 19:37:12] [INFO] Employe-13 interrompu
+[2026-01-29 19:37:12] [INFO] Thread arrêté: Employe-13
+[2026-01-29 19:37:12] [INFO] Employe-3 interrompu
+[2026-01-29 19:37:12] [INFO] Thread arrêté: Employe-3
+[2026-01-29 19:37:12] [INFO] Employe-1 interrompu
+[2026-01-29 19:37:12] [INFO] Thread arrêté: Employe-1
+[2026-01-29 19:37:12] [INFO] Employe-15 interrompu
+[2026-01-29 19:37:12] [INFO] Thread arrêté: Employe-15
+[2026-01-29 19:37:12] [INFO] Employe-12 interrompu
+[2026-01-29 19:37:12] [INFO] Thread arrêté: Employe-12
+[2026-01-29 19:37:12] [INFO] Employe-4 interrompu
+[2026-01-29 19:37:12] [INFO] Thread arrêté: Employe-4
+[2026-01-29 19:37:12] [INFO] Employe-18 interrompu
+[2026-01-29 19:37:12] [INFO] Thread arrêté: Employe-18
+[2026-01-29 19:37:12] [INFO] Employe-17 interrompu
+[2026-01-29 19:37:12] [INFO] Thread arrêté: Employe-17
+[2026-01-29 19:37:12] [INFO] Parc fermé
+[2026-01-29 19:37:12] [INFO] Employe-11 interrompu
+[2026-01-29 19:37:12] [INFO] Thread arrêté: Employe-11
+[2026-01-29 19:37:12] [INFO] Employe-2 interrompu
+[2026-01-29 19:37:12] [INFO] Thread arrêté: Employe-2
+[2026-01-29 19:37:12] [INFO] Employe-5 interrompu
+[2026-01-29 19:37:12] [INFO] Thread arrêté: Employe-5
+[2026-01-29 19:37:12] [INFO] Employe-7 interrompu
+[2026-01-29 19:37:12] [INFO] Thread arrêté: Employe-7
+[2026-01-29 19:37:12] [INFO] Employe-6 interrompu
+[2026-01-29 19:37:12] [INFO] Thread arrêté: Employe-6
+[2026-01-29 19:37:12] [INFO] Employe-8 interrompu
+[2026-01-29 19:37:12] [INFO] Thread arrêté: Employe-8
+[2026-01-29 19:37:12] [INFO] Employe-10 interrompu
+[2026-01-29 19:37:12] [INFO] Thread arrêté: Employe-10
+[2026-01-29 19:37:12] [INFO] Employe-9 interrompu
+[2026-01-29 19:37:12] [INFO] Thread arrêté: Employe-9
+[2026-01-29 19:37:12] [INFO] Maison Hantée des Ombres : Thread interrompu
+[2026-01-29 19:37:12] [INFO] Grande Roue Panoramique : Thread interrompu
+[2026-01-29 19:37:12] [INFO] Carrousel Magique : Thread interrompu
+[2026-01-29 19:37:12] [INFO] Thread arrêté: Carrousel Magique
+[2026-01-29 19:37:12] [INFO] Chute Libre Vertigineuse : Thread interrompu
+[2026-01-29 19:37:12] [INFO] Thread arrêté: Chute Libre Vertigineuse
+[2026-01-29 19:37:12] [INFO] Manège Enchanté : Thread interrompu
+[2026-01-29 19:37:12] [INFO] Thread arrêté: Manège Enchanté
+[2026-01-29 19:37:12] [INFO] Thread arrêté: GenerateurVisiteurs
+[2026-01-29 19:37:12] [INFO] Simulateur VR Spatial : Thread interrompu
+[2026-01-29 19:37:12] [INFO] Thread arrêté: Simulateur VR Spatial
+[2026-01-29 19:37:12] [INFO] Toboggan Aquatique Splash : Thread interrompu
+[2026-01-29 19:37:12] [INFO] Thread arrêté: Toboggan Aquatique Splash
+[2026-01-29 19:37:12] [INFO] Montagnes Russes Extrême : Thread interrompu
+[2026-01-29 19:37:12] [INFO] Thread arrêté: Grande Roue Panoramique
+[2026-01-29 19:37:12] [INFO] Thread arrêté: Maison Hantée des Ombres
+[2026-01-29 19:37:12] [INFO] === STATISTIQUES DU PARC ===
+Visiteurs total: 3
+Visiteurs actuels: 3
+Tours effectués: 0
+Revenus: 180,00 €
+Revenu moyen/visiteur: 60,00 €
+Temps attente moyen: 0 min 0 sec
+Satisfaction: 0,0% 😞
+Avis positifs: 0 | Négatifs: 3
+============================
+[2026-01-29 19:37:12] [INFO] Thread arrêté: Employe-14
+[2026-01-29 19:37:12] [INFO] Thread arrêté: Horloge
+[2026-01-29 19:37:12] [INFO] Thread arrêté: Montagnes Russes Extrême
+[2026-01-29 19:37:12] [INFO] Visiteur 7 quitte le parc - Attractions: 0 - Satisfaction: 50% (Neutre 😐) - Argent restant: 29,29€
+[2026-01-29 19:37:12] [INFO] Visiteur 6 quitte le parc - Attractions: 0 - Satisfaction: 50% (Neutre 😐) - Argent restant: 128,63€
+[2026-01-29 19:37:12] [INFO] Thread arrêté: Visiteur-6
+[2026-01-29 19:37:12] [INFO] Visiteur 3 quitte le parc - Attractions: 0 - Satisfaction: 50% (Neutre 😐) - Argent restant: 64,21€
+[2026-01-29 19:37:12] [INFO] Thread arrêté: Visiteur-3
+[2026-01-29 19:37:12] [INFO] Thread arrêté: Visiteur-7
+[2026-01-29 19:37:16] [INFO] ═══════════════════════════════════════
+[2026-01-29 19:37:16] [INFO]    OUVERTURE DU PARC D'ATTRACTIONS
+[2026-01-29 19:37:16] [INFO] ═══════════════════════════════════════
+[2026-01-29 19:37:16] [INFO] Thread démarré: Horloge
+[2026-01-29 19:37:16] [INFO] Horloge démarrée - Vitesse: x10
+[2026-01-29 19:37:22] [INFO] Heure actuelle: 10:00
+[2026-01-29 19:37:28] [INFO] Heure actuelle: 11:00
+[2026-01-29 19:37:34] [INFO] Heure actuelle: 12:00
+[2026-01-29 19:37:35] [INFO] 🎉 Happy Hour démarré ! Réduction de 20% sur les billets
+[2026-01-29 19:37:35] [INFO] 🟢 Happy Hour en cours - Réduction de 20% sur les billets jusqu'à 16h
+[2026-01-29 19:37:40] [INFO] Heure actuelle: 13:00
+[2026-01-29 19:37:46] [INFO] Heure actuelle: 14:00
+[2026-01-29 19:37:52] [INFO] Heure actuelle: 15:00
+[2026-01-29 19:37:56] [INFO] Événement terminé: Happy Hour
+[2026-01-29 19:37:58] [INFO] Heure actuelle: 16:00
+[2026-01-29 19:38:04] [INFO] Heure actuelle: 17:00
+
+================================================================================
+FIN DE SESSION - 2026-01-29 19:38:08
+================================================================================
+
