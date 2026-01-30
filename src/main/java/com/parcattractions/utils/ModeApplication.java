@@ -4,9 +4,7 @@ package main.java.com.parcattractions.utils;
  * Énumération des modes de fonctionnement de l'application
  */
 public enum ModeApplication {
-    SIMULATION("Simulation automatique", "Générateurs automatiques de visiteurs"),
-    GESTION("Gestion manuelle", "Ajout/suppression manuel des visiteurs et attractions"),
-    HYBRIDE("Mode hybride", "Combinaison de simulation et gestion manuelle");
+    GESTION("Gestion manuelle", "Ajout/suppression manuel des visiteurs et attractions");
     
     private final String nom;
     private final String description;

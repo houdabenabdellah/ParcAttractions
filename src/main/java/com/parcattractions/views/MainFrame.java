@@ -1,35 +1,17 @@
 package main.java.com.parcattractions.views;
 
 import java.awt.BorderLayout;
-import java.awt.Image;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
-import java.io.ByteArrayInputStream;
-import java.io.IOException;
-import java.util.Base64;
-import javax.imageio.ImageIO;
-import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JSlider;
-import javax.swing.JToolBar;
-import javax.swing.SwingUtilities;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
-import javax.swing.ImageIcon;
 import javax.swing.JTabbedPane;
-import main.java.com.parcattractions.controllers.GenerateurVisiteurs;
 import main.java.com.parcattractions.controllers.GestionnaireEvenements;
 import main.java.com.parcattractions.controllers.GestionnaireParc;
 import main.java.com.parcattractions.exceptions.systeme.ParcFermeException;
-import main.java.com.parcattractions.utils.Logger;
 import main.java.com.parcattractions.utils.ModeApplication;
-import java.awt.Color;
-import java.awt.Font;
 
 /**
  * Fenêtre principale de l'application
@@ -37,7 +19,6 @@ import java.awt.Font;
 public class MainFrame extends JFrame {
     
     private final GestionnaireParc gestionnaireParc;
-    private final GenerateurVisiteurs generateurVisiteurs;
     private final GestionnaireEvenements gestionnaireEvenements;
     
     private PanelDashboard panelDashboard;
@@ -48,44 +29,20 @@ public class MainFrame extends JFrame {
     private PanelGestion panelGestion;
     private PanelTransactions panelTransactions;
     
-    // Toolbar controls
-    private JToolBar toolBar;
-    private JButton btnStart;
-    private JButton btnPause;
-    private JButton btnResume;
-    private JButton btnStep;
-    private JButton btnStop;
-    // Speed control
-    private JSlider speedSlider;
-    
-    // Secondary actions toolbar removed — now in PanelAttractions
-
-    private boolean simulationEnCours;
-    private ModeApplication modeApplication;
+    private ModeApplication mode;
     
     /**
      * Constructeur
      */
-    public MainFrame(GestionnaireParc gestionnaireParc, GenerateurVisiteurs generateurVisiteurs,
+    public MainFrame(GestionnaireParc gestionnaireParc,
             GestionnaireEvenements gestionnaireEvenements) {
-        super("Parc d'Attractions");
+        super("Parc d'Attractions - Mode Gestion");
         
         this.gestionnaireParc = gestionnaireParc;
-        this.generateurVisiteurs = generateurVisiteurs;
         this.gestionnaireEvenements = gestionnaireEvenements;
-        this.simulationEnCours = false;
-        this.modeApplication = ModeApplication.GESTION; // Par défaut
         
         initialiserInterface();
         configurerFermeture();
-    }
-    
-    /**
-     * Définit le mode de fonctionnement
-     */
-    public void setMode(ModeApplication mode) {
-        this.modeApplication = mode;
-        setTitle("Parc d'Attractions - " + mode.getNom());
     }
     
     /**
@@ -101,8 +58,6 @@ public class MainFrame extends JFrame {
         
         // Menu
         creerMenu();
-        // Toolbar
-        creerToolBar();
         
         // Layout principal
         setLayout(new BorderLayout());
@@ -143,187 +98,22 @@ public class MainFrame extends JFrame {
         
         add(tabbedPane, BorderLayout.CENTER);
     }
-
-    /**
-     * Crée la barre d'outils avec boutons de contrôle
-     */
-    private void creerToolBar() {
-        toolBar = new JToolBar();
-        toolBar.setBackground(UIStyles.PRIMARY_COLOR);
-        toolBar.setRollover(true);
-        
-        btnStart = new JButton(loadIcon("start"));
-        btnStart.setToolTipText("Démarrer la simulation");
-        btnStart.addActionListener(e -> demarrerSimulation());
-        UIStyles.stylePrimaryButton(btnStart);
-        toolBar.add(btnStart);
-
-        btnPause = new JButton(loadIcon("pause"));
-        btnPause.setToolTipText("Mettre en pause");
-        btnPause.addActionListener(e -> {
-            if (!simulationEnCours) {
-                JOptionPane.showMessageDialog(this, "La simulation n'est pas démarrée", "Information", JOptionPane.INFORMATION_MESSAGE);
-                return;
-            }
-            gestionnaireParc.pauseSimulation();
-            updateToolbarState();
-        });
-        UIStyles.stylePrimaryButton(btnPause);
-        toolBar.add(btnPause);
-
-        btnResume = new JButton(loadIcon("resume"));
-        btnResume.setToolTipText("Reprendre la simulation");
-        btnResume.addActionListener(e -> {
-            if (!simulationEnCours) {
-                JOptionPane.showMessageDialog(this, "La simulation n'est pas démarrée", "Information", JOptionPane.INFORMATION_MESSAGE);
-                return;
-            }
-            gestionnaireParc.reprendreSimulation();
-            updateToolbarState();
-        });
-        UIStyles.stylePrimaryButton(btnResume);
-        toolBar.add(btnResume);
-
-        btnStep = new JButton(loadIcon("step"));
-        btnStep.setToolTipText("Avancer d'un pas");
-        btnStep.addActionListener(e -> {
-            if (!simulationEnCours) {
-                JOptionPane.showMessageDialog(this, "La simulation n'est pas démarrée", "Information", JOptionPane.INFORMATION_MESSAGE);
-                return;
-            }
-            gestionnaireParc.stepSimulation();
-        });
-        UIStyles.stylePrimaryButton(btnStep);
-        toolBar.add(btnStep);
-
-        btnStop = new JButton(loadIcon("stop"));
-        btnStop.setToolTipText("Arrêter la simulation");
-        btnStop.addActionListener(e -> arreterSimulation());
-        UIStyles.styleAccentButton(btnStop);
-        toolBar.add(btnStop);
-
-        // Speed slider (1..60, default 10)
-        speedSlider = new JSlider(1, 60, 10);
-        speedSlider.setToolTipText("Vitesse de simulation (minutes simulées par seconde)");
-        speedSlider.setPaintTicks(true);
-        speedSlider.setMajorTickSpacing(10);
-        speedSlider.setMinorTickSpacing(1);
-        speedSlider.setMaximumSize(new java.awt.Dimension(200, 50));
-        speedSlider.addChangeListener(new ChangeListener() {
-            @Override
-            public void stateChanged(ChangeEvent e) {
-                int value = speedSlider.getValue();
-                if (gestionnaireParc != null && gestionnaireParc.getHorloge() != null) {
-                    gestionnaireParc.getHorloge().setVitesseSimulation(value);
-                }
-            }
-        });
-        toolBar.add(speedSlider);
-
-        add(toolBar, BorderLayout.NORTH);
-        updateToolbarState();
-    }
-
-    /**
-     * Crée la barre d'actions pour attractions / employés
-     */
-    // Secondary actions moved into PanelAttractions
-
-    /**
-     * Charge une icône depuis `src/resources/images/<name>.png` ou utilise un fallback embarqué.
-     */
-    private ImageIcon loadIcon(String name) {
-        try {
-            String path = "/resources/images/" + name + ".png";
-            var res = getClass().getResource(path);
-            Image img = null;
-            if (res != null) {
-                img = ImageIO.read(res);
-            } else {
-                // Fallback: tiny 1x1 PNG (transparent) as placeholder
-                String b64 = "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR4nGNgYAAAAAMAASsJTYQAAAAASUVORK5CYII=";
-                byte[] bytes = Base64.getDecoder().decode(b64);
-                img = ImageIO.read(new ByteArrayInputStream(bytes));
-            }
-            if (img != null) {
-                Image scaled = img.getScaledInstance(16, 16, Image.SCALE_SMOOTH);
-                return new ImageIcon(scaled);
-            }
-        } catch (IOException ignored) {
-        }
-        return new ImageIcon();
-    }
-
-    /**
-     * Met à jour l'état activé/désactivé des boutons selon l'état de la simulation
-     */
-    private void updateToolbarState() {
-        boolean started = simulationEnCours;
-        boolean paused = gestionnaireParc != null && gestionnaireParc.estSimulationEnPause();
-
-        btnStart.setEnabled(!started);
-        btnPause.setEnabled(started && !paused);
-        btnResume.setEnabled(started && paused);
-        btnStep.setEnabled(started);
-        btnStop.setEnabled(started);
-    }
     
     /**
-     * Crée le menu
+     * Crée la barre de menu
      */
     private void creerMenu() {
         JMenuBar menuBar = new JMenuBar();
         
-        // Menu Simulation
-        JMenu menuSimulation = new JMenu("Simulation");
-        
-        JMenuItem itemDemarrer = new JMenuItem("Démarrer");
-        itemDemarrer.addActionListener(e -> demarrerSimulation());
-        menuSimulation.add(itemDemarrer);
-        JMenuItem itemPause = new JMenuItem("Pause");
-        itemPause.addActionListener(e -> {
-            if (!simulationEnCours) {
-                JOptionPane.showMessageDialog(this, "La simulation n'est pas démarrée", "Information", JOptionPane.INFORMATION_MESSAGE);
-                return;
-            }
-            gestionnaireParc.pauseSimulation();
-            updateToolbarState();
-        });
-        menuSimulation.add(itemPause);
-
-        JMenuItem itemReprendre = new JMenuItem("Reprendre");
-        itemReprendre.addActionListener(e -> {
-            if (!simulationEnCours) {
-                JOptionPane.showMessageDialog(this, "La simulation n'est pas démarrée", "Information", JOptionPane.INFORMATION_MESSAGE);
-                return;
-            }
-            gestionnaireParc.reprendreSimulation();
-            updateToolbarState();
-        });
-        menuSimulation.add(itemReprendre);
-
-        JMenuItem itemPas = new JMenuItem("Pas");
-        itemPas.addActionListener(e -> {
-            if (!simulationEnCours) {
-                JOptionPane.showMessageDialog(this, "La simulation n'est pas démarrée", "Information", JOptionPane.INFORMATION_MESSAGE);
-                return;
-            }
-            gestionnaireParc.stepSimulation();
-            updateToolbarState();
-        });
-        menuSimulation.add(itemPas);
-
-        JMenuItem itemArreter = new JMenuItem("Arrêter");
-        itemArreter.addActionListener(e -> arreterSimulation());
-        menuSimulation.add(itemArreter);
-        
-        menuSimulation.addSeparator();
-        
-        JMenuItem itemQuitter = new JMenuItem("Quitter");
-        itemQuitter.addActionListener(e -> quitter());
-        menuSimulation.add(itemQuitter);
-        
-        menuBar.add(menuSimulation);
+        // Menu Parc (Ouvrir / Fermer le parc)
+        JMenu menuParc = new JMenu("Parc");
+        JMenuItem itemOuvrirParc = new JMenuItem("Ouvrir le parc");
+        itemOuvrirParc.addActionListener(e -> ouvrirParc());
+        JMenuItem itemFermerParc = new JMenuItem("Fermer le parc");
+        itemFermerParc.addActionListener(e -> fermerParc());
+        menuParc.add(itemOuvrirParc);
+        menuParc.add(itemFermerParc);
+        menuBar.add(menuParc);
         
         // Menu Manager (UC14 Gérer Personnel, UC15 Lancer Événement)
         JMenu menuManager = new JMenu("Manager");
@@ -378,112 +168,78 @@ public class MainFrame extends JFrame {
         itemAPropos.addActionListener(e -> afficherAPropos());
         menuAide.add(itemAPropos);
         
+        JMenuItem itemQuitter = new JMenuItem("Quitter");
+        itemQuitter.addActionListener(e -> quitter());
+        menuAide.addSeparator();
+        menuAide.add(itemQuitter);
+        
         menuBar.add(menuAide);
         
         setJMenuBar(menuBar);
     }
     
     /**
-     * Démarre la simulation
+     * Ouvre le parc (menu Parc)
      */
-    private void demarrerSimulation() {
-        if (simulationEnCours) {
-            JOptionPane.showMessageDialog(this, 
-                "La simulation est déjà en cours", 
-                "Information", 
-                JOptionPane.INFORMATION_MESSAGE);
-            return;
-        }
-        
+    private void ouvrirParc() {
         try {
             gestionnaireParc.ouvrirParc();
-            // Apply speed slider value to horloge if available
-            if (gestionnaireParc.getHorloge() != null) {
-                gestionnaireParc.getHorloge().setVitesseSimulation(speedSlider.getValue());
-            }
-            generateurVisiteurs.start();
-            simulationEnCours = true;
-            
-            // Démarrer rafraîchissement des panels
-            demarrerRafraichissement();
-            updateToolbarState();
-            
-            JOptionPane.showMessageDialog(this, 
-                "Simulation démarrée avec succès !", 
-                "Succès", 
+            JOptionPane.showMessageDialog(this, "Le parc est ouvert.", "Parc",
                 JOptionPane.INFORMATION_MESSAGE);
-            
-        } catch (ParcFermeException e) {
-            JOptionPane.showMessageDialog(this, 
-                "Erreur: " + e.getMessage(), 
-                "Erreur", 
-                JOptionPane.ERROR_MESSAGE);
+            rafraichirTousLesPanels();
+        } catch (ParcFermeException ex) {
+            JOptionPane.showMessageDialog(this,
+                "Le parc est déjà ouvert.", "Parc", JOptionPane.WARNING_MESSAGE);
         }
     }
     
     /**
-     * Arrête la simulation
+     * Ferme le parc (menu Parc)
      */
-    private void arreterSimulation() {
-        if (!simulationEnCours) {
-            return;
-        }
-        
-        int confirmation = JOptionPane.showConfirmDialog(this, 
-            "Êtes-vous sûr de vouloir arrêter la simulation ?", 
-            "Confirmation", 
-            JOptionPane.YES_NO_OPTION);
-        
-        if (confirmation == JOptionPane.YES_OPTION) {
-            generateurVisiteurs.arreter();
-            gestionnaireParc.fermerParc();
-            simulationEnCours = false;
-                updateToolbarState();
-            
-            JOptionPane.showMessageDialog(this, 
-                "Simulation arrêtée", 
-                "Information", 
-                JOptionPane.INFORMATION_MESSAGE);
-        }
+    private void fermerParc() {
+        gestionnaireParc.fermerParc();
+        JOptionPane.showMessageDialog(this, "Le parc est fermé.", "Parc",
+            JOptionPane.INFORMATION_MESSAGE);
+        rafraichirTousLesPanels();
     }
     
     /**
-     * Démarre le rafraîchissement périodique des panels
+     * Rafraîchit l'affichage de tous les panels (état du parc, dashboard, etc.)
+     * Appelable depuis l'extérieur (ex. après ouverture du parc au démarrage).
      */
-    private void demarrerRafraichissement() {
-        javax.swing.Timer timer = new javax.swing.Timer(1000, e -> {
-            SwingUtilities.invokeLater(() -> {
-                panelDashboard.rafraichir();
-                panelAttractions.rafraichir();
-                panelStatistiques.rafraichir();
-                panelNotifications.rafraichir();
-                panelVueParc.rafraichir();
-            });
-        });
-        timer.start();
+    public void rafraichirAffichage() {
+        rafraichirTousLesPanels();
+    }
+    
+    private void rafraichirTousLesPanels() {
+        if (panelVueParc != null) panelVueParc.rafraichir();
+        if (panelDashboard != null) panelDashboard.rafraichir();
+        if (panelAttractions != null) panelAttractions.rafraichir();
+        if (panelStatistiques != null) panelStatistiques.rafraichir();
+        if (panelNotifications != null) panelNotifications.rafraichir();
     }
     
     /**
      * Affiche la boîte À propos
      */
     private void afficherAPropos() {
-        String message = "Parc d'Attractions - Simulation\n\n" +
+        String message = "Parc d'Attractions - Mode Gestion\n\n" +
             "Version 1.0\n" +
-            "Simulation complète d'un parc d'attractions\n" +
-            "avec gestion des visiteurs, attractions, employés,\n" +
-            "météo et événements spéciaux.";
+            "Gestion manuelle d'un parc d'attractions\n" +
+            "avec ajout/suppression de visiteurs, attractions,\n" +
+            "employés, gestion météo et événements.";
         
         JOptionPane.showMessageDialog(this, message, 
             "À propos", JOptionPane.INFORMATION_MESSAGE);
     }
     
     /**
-     * Configure la fermeture de la fenêtre
+     * Configure la fermeture de l'application
      */
     private void configurerFermeture() {
-        addWindowListener(new WindowAdapter() {
+        addWindowListener(new java.awt.event.WindowAdapter() {
             @Override
-            public void windowClosing(WindowEvent e) {
+            public void windowClosing(java.awt.event.WindowEvent windowEvent) {
                 quitter();
             }
         });
@@ -493,20 +249,17 @@ public class MainFrame extends JFrame {
      * Quitte l'application
      */
     private void quitter() {
-        if (simulationEnCours) {
-            int confirmation = JOptionPane.showConfirmDialog(this, 
-                "La simulation est en cours. Voulez-vous vraiment quitter ?", 
-                "Confirmation", 
-                JOptionPane.YES_NO_OPTION);
-            
-            if (confirmation != JOptionPane.YES_OPTION) {
-                return;
-            }
-            
-            arreterSimulation();
-        }
+        int confirmation = JOptionPane.showConfirmDialog(this,
+            "Êtes-vous sûr de vouloir quitter ?",
+            "Confirmation",
+            JOptionPane.YES_NO_OPTION);
         
-        Logger.close();
-        System.exit(0);
+        if (confirmation == JOptionPane.YES_OPTION) {
+            System.exit(0);
+        }
+    }
+
+    public void setMode(ModeApplication mode) {
+        this.mode = mode;
     }
 }

@@ -414,11 +414,14 @@ public class GestionnaireParc {
     }
     
     /**
-     * Ajoute un employé
+     * Ajoute un employé.
+     * Ne démarre son thread que si le parc est ouvert (évite double start au chargement puis ouvrirParc).
      */
     public synchronized void ajouterEmploye(Employe employe) {
         employes.add(employe);
-        employe.start();
+        if (parcOuvert) {
+            employe.start();
+        }
         Logger.logInfo("Employé ajouté: " + employe);
     }
     

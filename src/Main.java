@@ -1,8 +1,7 @@
 import javax.swing.*;
-import main.java.com.parcattractions.controllers.GenerateurVisiteurs;
 import main.java.com.parcattractions.controllers.GestionnaireEvenements;
-import main.java.com.parcattractions.controllers.GestionnaireMeteo;
 import main.java.com.parcattractions.controllers.GestionnaireParc;
+import main.java.com.parcattractions.exceptions.systeme.ParcFermeException;
 import main.java.com.parcattractions.utils.DataManager;
 import main.java.com.parcattractions.utils.Logger;
 import main.java.com.parcattractions.utils.ModeApplication;
@@ -37,26 +36,26 @@ public class Main {
             DataManager.loadAllData(gestionnaireParc);
             
             // Créer les gestionnaires
-            GenerateurVisiteurs generateurVisiteurs = new GenerateurVisiteurs(gestionnaireParc);
-            GestionnaireMeteo gestionnaireMeteo = new GestionnaireMeteo(gestionnaireParc);
             GestionnaireEvenements gestionnaireEvenements = 
                 new GestionnaireEvenements(gestionnaireParc);
             gestionnaireParc.setGestionnaireEvenements(gestionnaireEvenements);
             
-            // Démarrer les services selon le mode
-            gestionnaireMeteo.start();
+            // Demarrer les services
             gestionnaireEvenements.start();
             
-            if (mode == ModeApplication.SIMULATION || mode == ModeApplication.HYBRIDE) {
-                generateurVisiteurs.start();
-                Logger.logInfo("Générateur de visiteurs activé");
-            }
-            
             // Créer et afficher la fenêtre principale
-            MainFrame mainFrame = new MainFrame(gestionnaireParc, generateurVisiteurs,
-                gestionnaireEvenements);
+            MainFrame mainFrame = new MainFrame(gestionnaireParc, gestionnaireEvenements);
             mainFrame.setMode(mode);
             mainFrame.setVisible(true);
+            
+            // Ouvrir le parc (démarre horloge, attractions, employés)
+            try {
+                gestionnaireParc.ouvrirParc();
+                Logger.logInfo("Parc ouvert au démarrage");
+                mainFrame.rafraichirAffichage();
+            } catch (ParcFermeException e) {
+                Logger.logWarning("Parc déjà ouvert ou erreur: " + e.getMessage());
+            }
             
             // Configurer la sauvegarde au fermeture
             mainFrame.addWindowListener(new java.awt.event.WindowAdapter() {
