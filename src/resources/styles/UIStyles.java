@@ -1,4 +1,4 @@
-package main.java.com.parcattractions.views;
+package resources.styles;
 
 import java.awt.*;
 import javax.swing.*;

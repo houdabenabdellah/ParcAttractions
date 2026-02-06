@@ -8,7 +8,9 @@ import java.util.Map;
 import java.util.concurrent.CopyOnWriteArrayList;
 import main.java.com.parcattractions.enums.EtatAttraction;
 import main.java.com.parcattractions.enums.Meteo;
+import main.java.com.parcattractions.enums.TypeBillet;
 import main.java.com.parcattractions.enums.TypeNotification;
+import main.java.com.parcattractions.exceptions.attractions.AttractionException;
 import main.java.com.parcattractions.exceptions.systeme.ParcFermeException;
 import main.java.com.parcattractions.models.attractions.Attraction;
 import main.java.com.parcattractions.models.attractions.Carrousel;
@@ -39,6 +41,8 @@ import main.java.com.parcattractions.utils.TransactionManager;
  * Singleton pattern pour garantir une seule instance
  */
 public class GestionnaireParc {
+
+    private volatile double tauxReductionActif = 0.0;
     
     private static GestionnaireParc instance;
     
@@ -205,22 +209,42 @@ public class GestionnaireParc {
         revenuSessionActuelle = 0.0;
         
         // Démarrer l'horloge
-        horloge = new Horloge(10); // 1 sec = 10 min simulées
-        horloge.start();
+        //horloge = new Horloge(10); // 1 sec = 10 min simulées
+       // horloge.start();
+
+
+       // Créer l'horloge mais ne pas la démarrer automatiquement
+        horloge = new Horloge(10);
+        Logger.logInfo("Horloge créée (mode manuel)");
         
         // Démarrer toutes les attractions
-        for (Attraction attraction : attractions) {
-            attraction.start();
-            Logger.logInfo("Attraction démarrée: " + attraction.getNom());
-        }
+        //for (Attraction attraction : attractions) {
+            //attraction.start();
+            //Logger.logInfo("Attraction démarrée: " + attraction.getNom());
+        //}
+
+        // Attractions créées mais en mode manuel
+        Logger.logInfo("Attractions prêtes (mode manuel)");
         
         // Démarrer tous les employés
-        for (Employe employe : employes) {
+        /**for (Employe employe : employes) {
             employe.start();
             Logger.logInfo("Employé démarré: " + employe.getNom());
         }
         
-        Logger.logInfo("Parc ouvert et opérationnel");
+        Logger.logInfo("Parc ouvert et opérationnel");*/
+        
+        // Employés créés mais en mode manuel
+        Logger.logInfo("Employés prêts (mode manuel)");
+    }
+
+    
+        
+    /**
+     * Renvoie le nombre d'employés dans le parc
+     */
+    public int getNombreEmployes() {
+        return employes.size();
     }
     
     /**
@@ -243,7 +267,7 @@ public class GestionnaireParc {
         }
         
         // Arrêter toutes les attractions
-        for (Attraction attraction : attractions) {
+        /**for (Attraction attraction : attractions) {
             attraction.arreter();
         }
         
@@ -256,7 +280,7 @@ public class GestionnaireParc {
         for (Employe employe : employes) {
             employe.arreter();
         }
-        
+        */
         // Sauvegarder les données de session
         sauvegarderSession();
         
@@ -325,7 +349,7 @@ public class GestionnaireParc {
         
         visiteurs.add(visiteur);
         statistiques.ajouterVisiteur();
-        visiteur.start();
+        //visiteur.start();
         
         Logger.logDebug("Visiteur ajouté: " + visiteur);
     }
@@ -390,6 +414,57 @@ public class GestionnaireParc {
      */
     public List<Visiteur> getVisiteurs() {
         return Collections.unmodifiableList(visiteurs);
+    }
+    
+    /**
+     * Retourne le visiteur ayant le nom donné (recherche insensible à la casse)
+     * @param nom Nom du visiteur
+     * @return Le visiteur ou null si non trouvé
+     */
+    public Visiteur getVisiteurParNom1(String nom) {
+        if (nom == null || nom.isBlank()) return null;
+        String nomNorm = nom.trim();
+        for (Visiteur v : visiteurs) {
+            if (v.getNomVisiteur().equalsIgnoreCase(nomNorm)) {
+                return v;
+            }
+        }
+        return null;
+    }
+    
+    /**
+     * Achète un ticket pour une attraction (logique métier)
+     * Vérifie que le visiteur existe, a assez d'argent, et que l'attraction accepte
+     * @param attraction L'attraction
+     * @param visiteur Le visiteur (doit exister dans le parc)
+     * @param type STANDARD ou FAST_PASS
+     * @return Message de succès ou d'erreur
+     */
+    public String acheterTicketAttraction1(Attraction attraction, Visiteur visiteur, TypeBillet type) {
+        if (attraction == null || visiteur == null) {
+            return "Erreur: attraction ou visiteur invalide.";
+        }
+        if (type != TypeBillet.STANDARD && type != TypeBillet.FAST_PASS) {
+            return "Type de ticket invalide. Choisissez Normal ou Fast Pass.";
+        }
+        double prix = type == TypeBillet.FAST_PASS 
+            ? attraction.getPrixTicketFastPass() 
+            : attraction.getPrixTicketNormal();
+        if (visiteur.getArgent() < prix) {
+            return String.format("Budget insuffisant. Prix: %.2f €, disponible: %.2f €.", 
+                prix, visiteur.getArgent());
+        }
+        try {
+            boolean fastPass = (type == TypeBillet.FAST_PASS);
+            attraction.ajouterVisiteur((int) visiteur.getId(), fastPass);
+            attraction.ajouterRevenu(prix);
+            visiteur.payer(prix);
+            statistiques.ajouterRevenus(prix);
+            return String.format("Ticket %s acheté avec succès pour %.2f € !", 
+                type.getLibelle(), prix);
+        } catch (AttractionException e) {
+            return "Impossible d'ajouter à la file: " + e.getMessage();
+        }
     }
     
     /**
@@ -819,5 +894,117 @@ public class GestionnaireParc {
     public void reinitialiserStatistiquesTransactions() {
         TransactionManager.reinitialiserStatistiques();
     }
+
+    
+    /**
+ * Active une réduction sur les tickets (pour événements)
+ * @param tauxReduction Taux de réduction (0.20 = 20%)
+ */
+public synchronized void activerReduction(double tauxReduction) {
+    this.tauxReductionActif = tauxReduction;
+    Logger.logInfo("Réduction activée: " + (tauxReduction * 100) + "%");
+}
+
+/**
+ * Désactive la réduction active
+ */
+public synchronized void desactiverReduction() {
+    if (tauxReductionActif > 0) {
+        Logger.logInfo("Réduction désactivée (était: " + (tauxReductionActif * 100) + "%)");
+    }
+    this.tauxReductionActif = 0.0;
+}
+
+/**
+ * Retourne le taux de réduction actif
+ */
+public double getTauxReductionActif() {
+    return tauxReductionActif;
+}
+
+/**
+ * Vérifie si une réduction est active
+ */
+public boolean aReductionActive() {
+    return tauxReductionActif > 0;
+}
+
+/**
+ * Achète un ticket avec réduction si applicable
+ */
+public String acheterTicketAttraction(Attraction attraction, Visiteur visiteur, TypeBillet typeBillet) {
+    if (attraction == null || visiteur == null || typeBillet == null) {
+        return "Erreur: paramètres invalides";
+    }
+    
+    // Calculer le prix de base
+    double prixBase;
+    if (typeBillet == TypeBillet.FAST_PASS) {
+        prixBase = attraction.getPrixTicketFastPass();
+    } else {
+        prixBase = attraction.getPrixTicketNormal();
+    }
+    
+    // Appliquer la réduction si active
+    double prixFinal = prixBase;
+    boolean reductionAppliquee = false;
+    
+    if (aReductionActive()) {
+        prixFinal = prixBase * (1.0 - tauxReductionActif);
+        reductionAppliquee = true;
+    }
+    
+    // Vérifier les fonds
+    if (visiteur.getArgent() < prixFinal) {
+        return "Erreur: fonds insuffisants (prix: " + 
+               String.format("%.2f€", prixFinal) + 
+               ", disponible: " + String.format("%.2f€", visiteur.getArgent()) + ")";
+    }
+    
+    // Effectuer l'achat
+    visiteur.payer(prixFinal);
+    attraction.ajouterRevenu(prixFinal);
+    
+    // Message de confirmation
+    String message = "Ticket acheté avec succès!\n";
+    message += "Type: " + typeBillet + "\n";
+    message += "Prix de base: " + String.format("%.2f€", prixBase) + "\n";
+    
+    if (reductionAppliquee) {
+        double economie = prixBase - prixFinal;
+        message += "Réduction: -" + (int)(tauxReductionActif * 100) + "% (" + 
+                  String.format("%.2f€", economie) + ")\n";
+        message += "Prix payé: " + String.format("%.2f€", prixFinal) + "\n";
+    } else {
+        message += "Prix payé: " + String.format("%.2f€", prixFinal) + "\n";
+    }
+    
+    message += "Solde restant: " + String.format("%.2f€", visiteur.getArgent());
+    
+    Logger.logInfo("Achat ticket: " + visiteur.getNomVisiteur() + 
+                  " → " + attraction.getNom() + 
+                  " (" + String.format("%.2f€", prixFinal) + ")");
+    
+    return message;
+}
+
+/**
+ * Recherche un visiteur par son nom
+ */
+public Visiteur getVisiteurParNom(String nom) {
+    if (nom == null || nom.isBlank()) {
+        return null;
+    }
+    
+    String nomRecherche = nom.trim().toLowerCase();
+    
+    for (Visiteur v : visiteurs) {
+        if (v.getNomVisiteur().toLowerCase().contains(nomRecherche)) {
+            return v;
+        }
+    }
+    
+    return null;
+}
 }
 

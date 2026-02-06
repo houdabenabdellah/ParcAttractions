@@ -15,7 +15,11 @@ public class VisiteurGroupe extends Visiteur {
     private final Map<TypeAttraction, Integer> preferences;
     
     public VisiteurGroupe(int age, int taille) {
-        super("Groupe", age, taille, ProfilVisiteur.GROUPE);
+        this("Groupe", age, taille);
+    }
+    
+    public VisiteurGroupe(String nom, int age, int taille) {
+        super(nom != null && !nom.isBlank() ? nom : "Groupe", age, taille, ProfilVisiteur.GROUPE);
         this.membres = new ArrayList<>();
         
         // Définir les préférences

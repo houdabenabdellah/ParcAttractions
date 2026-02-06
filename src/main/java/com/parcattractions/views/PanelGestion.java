@@ -8,6 +8,7 @@ import main.java.com.parcattractions.models.attractions.Attraction;
 import main.java.com.parcattractions.models.employes.Employe;
 import main.java.com.parcattractions.models.visiteurs.Visiteur;
 import main.java.com.parcattractions.utils.Logger;
+import resources.styles.UIStyles;
 
 /**
  * Panneau de gestion des entités du parc
@@ -95,6 +96,15 @@ public class PanelGestion extends JPanel {
         chargerBtn = createButton("Charger", UIStyles.WARNING_COLOR);
         chargerBtn.addActionListener(e -> chargerDonnees());
         actionPanel.add(chargerBtn);
+
+        
+
+JButton rafraichirBtn = createButton("Rafraîchir", UIStyles.INFO_COLOR);
+rafraichirBtn.addActionListener(e -> {
+    updateStats();
+    ajouterLog("Affichage rafraîchi manuellement");
+});
+actionPanel.add(rafraichirBtn);
         
         JPanel centerPanel = new JPanel(new BorderLayout(15, 15));
         centerPanel.setBackground(UIStyles.BG_LIGHT);
@@ -163,19 +173,36 @@ public class PanelGestion extends JPanel {
      */
     private void ajouterVisiteur() {
         if (!gestionnaireParc.estOuvert()) {
-            JOptionPane.showMessageDialog(this, 
-                "Le parc doit être ouvert pour ajouter des visiteurs", 
-                "Parc fermé", JOptionPane.WARNING_MESSAGE);
+        int reponse = JOptionPane.showConfirmDialog(this, 
+            "Le parc est fermé. Voulez-vous l'ouvrir d'abord?", 
+            "Parc fermé", 
+            JOptionPane.YES_NO_OPTION,
+            JOptionPane.WARNING_MESSAGE);
+        
+        if (reponse == JOptionPane.YES_OPTION) {
+            try {
+                gestionnaireParc.ouvrirParc();
+                ajouterLog("Parc ouvert automatiquement");
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(this, 
+                    "Erreur lors de l'ouverture du parc: " + ex.getMessage(), 
+                    "Erreur", 
+                    JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+        } else {
             return;
         }
-        
-        DialogAjoutVisiteur dialog = new DialogAjoutVisiteur((JFrame) SwingUtilities.getWindowAncestor(this));
-        dialog.setVisible(true);
-        
-        if (dialog.estValide()) {
-            logArea.append("[" + java.time.LocalTime.now() + "] Visiteur ajouté\n");
-            updateStats();
-        }
+    }
+    
+    DialogAjoutVisiteur dialog = new DialogAjoutVisiteur(
+        (JFrame) SwingUtilities.getWindowAncestor(this));
+    dialog.setVisible(true);
+    
+    if (dialog.estValide()) {
+        ajouterLog("Visiteur ajouté manuellement");
+        updateStats();
+    }
     }
     
     /**

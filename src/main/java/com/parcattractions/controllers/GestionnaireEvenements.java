@@ -5,7 +5,6 @@ import main.java.com.parcattractions.models.evenements.Evenement;
 import main.java.com.parcattractions.models.evenements.HappyHour;
 import main.java.com.parcattractions.models.evenements.Parade;
 import main.java.com.parcattractions.models.evenements.SpectacleNocturne;
-import main.java.com.parcattractions.utils.Horloge;
 import main.java.com.parcattractions.utils.Logger;
 
 /**
@@ -35,32 +34,20 @@ public class GestionnaireEvenements extends Thread {
     @Override
     public void run() {
         Logger.logThreadStart(getName());
-        actif = true;
-        
-        try {
-            while (actif) {
-                if (gestionnaireParc.estOuvert()) {
-                    Horloge horloge = gestionnaireParc.getHorloge();
-                    if (horloge != null) {
-                        LocalTime heure = horloge.getHeureActuelle();
-                        
-                        // Vérifier si un événement doit démarrer
-                        verifierEvenements(heure);
-                    }
-                    
-                    // Attendre 1 minute simulée (6 secondes réelles)
-                    Thread.sleep(6000);
-                } else {
-                    Thread.sleep(5000); // Attendre 5 s avant de revérifier si le parc est ouvert
-                }
-            }
-        } catch (InterruptedException e) {
-            Logger.logInfo("GestionnaireEvenements interrompu");
-            Thread.currentThread().interrupt();
-        } finally {
-            actif = false;
-            Logger.logThreadStop(getName());
+    actif = true;
+    
+    // Mode manuel : le thread ne fait rien automatiquement
+    try {
+        while (actif) {
+            Thread.sleep(1000); // Attend simplement
         }
+    } catch (InterruptedException e) {
+        Logger.logInfo("GestionnaireEvenements interrompu");
+        Thread.currentThread().interrupt();
+    } finally {
+        actif = false;
+        Logger.logThreadStop(getName());
+    }
     }
     
     /**
@@ -101,11 +88,15 @@ public class GestionnaireEvenements extends Thread {
      */
     private void lancerHappyHour() {
         evenementActuel = new HappyHour();
-        Logger.logInfo("Happy Hour demarré ! Réduction de 20% sur les billets");
-        SystemeNotifications.getInstance().ajouterNotification(
-            main.java.com.parcattractions.enums.TypeNotification.INFO,
-            "Happy Hour en cours - Réduction de 20% sur les billets jusqu'à 16h"
-        );
+    
+    //  ACTIVER LA RÉDUCTION DE 20%
+    gestionnaireParc.activerReduction(0.20);
+    
+    Logger.logInfo("Happy Hour démarré ! Réduction de 20% sur les billets");
+    SystemeNotifications.getInstance().ajouterNotification(
+        main.java.com.parcattractions.enums.TypeNotification.INFO,
+        " Happy Hour en cours - Réduction de 20% sur les billets !"
+    );
     }
     
     /**
@@ -125,7 +116,7 @@ public class GestionnaireEvenements extends Thread {
      */
     private void lancerSpectacleNocturne() {
         evenementActuel = new SpectacleNocturne();
-        Logger.logInfo("✨ Spectacle Nocturne démarré !");
+        Logger.logInfo("Spectacle Nocturne démarré !");
         SystemeNotifications.getInstance().ajouterNotification(
             main.java.com.parcattractions.enums.TypeNotification.INFO,
             "Spectacle Nocturne en cours - Un moment magique à ne pas manquer !"
@@ -133,7 +124,7 @@ public class GestionnaireEvenements extends Thread {
     }
     
     /**
-     * Lance le Happy Hour manuellement (UC15 – Lancer Événement, Manager)
+     * Lance le Happy Hour manuellement (UC15  Lancer Événement, Manager)
      */
     public void lancerHappyHourManuel() {
         terminerEvenement();
@@ -141,11 +132,11 @@ public class GestionnaireEvenements extends Thread {
     }
     
     /**
-     * Lance la parade manuellement (UC15 – Lancer Événement, Manager)
+     * Lance la parade manuellement (UC15  Lancer Événement, Manager)
      */
     public void lancerParadeManuel() {
         terminerEvenement();
-        lancerParade();
+        lancerParade(); 
     }
     
     /**
@@ -161,10 +152,33 @@ public class GestionnaireEvenements extends Thread {
      */
     private void terminerEvenement() {
         if (evenementActuel != null) {
-            Logger.logInfo("Événement terminé: " + evenementActuel);
-            evenementActuel = null;
+        Logger.logInfo("Événement terminé: " + evenementActuel);
+        
+        //  DÉSACTIVER LA RÉDUCTION SI C'ÉTAIT UN HAPPY HOUR
+        if (evenementActuel instanceof HappyHour) {
+            gestionnaireParc.desactiverReduction();
+            Logger.logInfo("Réduction Happy Hour désactivée");
+            SystemeNotifications.getInstance().ajouterNotification(
+                main.java.com.parcattractions.enums.TypeNotification.INFO,
+                "Happy Hour terminé - Prix normaux rétablis"
+            );
         }
+        
+        evenementActuel = null;
     }
+    }
+    public void terminerEvenementManuel() {
+    if (evenementActuel != null) {
+        String nomEvenement = evenementActuel.getNom();
+        terminerEvenement();
+        
+        Logger.logInfo("Événement '" + nomEvenement + "' terminé manuellement");
+        SystemeNotifications.getInstance().ajouterNotification(
+            main.java.com.parcattractions.enums.TypeNotification.INFO,
+            "Événement '" + nomEvenement + "' terminé"
+        );
+    }
+}
     
     /**
      * Retourne l'événement actuel

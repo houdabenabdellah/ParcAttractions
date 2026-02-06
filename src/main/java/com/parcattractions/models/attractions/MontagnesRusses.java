@@ -14,7 +14,9 @@ public class MontagnesRusses extends Attraction {
             NiveauIntensite.EXTREME,
             12,                              // Âge minimum: 12 ans
             140,                             // Taille minimum: 140 cm
-            true                             // Extérieure
+            true,                             // Extérieure
+            "resources/images/montagnesrussesextreme.png",
+            8.0, 13.0  // Ticket normal 8€, Fast Pass 13€
         );
     }
 }

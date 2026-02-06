@@ -14,7 +14,9 @@ public class SimulateurVR extends Attraction {
             NiveauIntensite.EXTREME,
             14,                              // Âge minimum: 14 ans
             0,                               // Pas de restriction de taille
-            false                            // Intérieure
+            false,                            // Intérieure
+            "resources/images/simulateurvrspatial.png",
+            7.0, 11.0  // Ticket normal 7€, Fast Pass 11€
         );
     }
 }

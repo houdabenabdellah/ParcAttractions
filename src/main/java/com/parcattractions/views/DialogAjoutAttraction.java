@@ -4,6 +4,7 @@ import java.awt.*;
 import javax.swing.*;
 import main.java.com.parcattractions.enums.NiveauIntensite;
 import main.java.com.parcattractions.enums.TypeAttraction;
+import resources.styles.UIStyles;
 
 /**
  * Dialog pour ajouter/visualiser une attraction

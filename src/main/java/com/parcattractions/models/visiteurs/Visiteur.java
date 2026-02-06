@@ -14,9 +14,11 @@ import main.java.com.parcattractions.exceptions.attractions.RestrictionException
 import main.java.com.parcattractions.exceptions.visiteurs.BudgetInsuffisantException;
 import main.java.com.parcattractions.exceptions.visiteurs.PatienceEpuiseeException;
 import main.java.com.parcattractions.models.attractions.Attraction;
+import main.java.com.parcattractions.models.evenements.HappyHour;
 import main.java.com.parcattractions.models.services.Billet;
 import main.java.com.parcattractions.utils.Logger;
 import main.java.com.parcattractions.utils.Tarification;
+
 
 public abstract class Visiteur extends Thread {
     
@@ -186,6 +188,17 @@ public abstract class Visiteur extends Thread {
             : TypeBillet.STANDARD;
         
         double prix = Tarification.calculerPrix(age, type);
+        
+        // Appliquer les réductions d'événements si applicable
+        var ge = GestionnaireParc.getInstance().getGestionnaireEvenements();
+        if (ge != null && ge.getEvenementActuel() != null) {
+            var evenement = ge.getEvenementActuel();
+            // Vérifier si c'est un HappyHour
+            if (evenement instanceof HappyHour) {
+                HappyHour hh = (HappyHour) evenement;
+                prix = Tarification.appliquerReduction(prix, hh.getTauxReduction());
+            }
+        }
         
         if (argent < prix) {
             throw new BudgetInsuffisantException(id, argent, prix);
@@ -412,6 +425,19 @@ public abstract class Visiteur extends Thread {
     
     public double getArgent() {
         return argent;
+    }
+    
+    /**
+     * Débite un montant du budget du visiteur (ex: achat ticket attraction)
+     * @param montant Montant à débiter (€)
+     * @return true si le débiter a réussi (argent suffisant)
+     */
+    public synchronized boolean payer(double montant) {
+        if (montant <= 0 || argent < montant) {
+            return false;
+        }
+        argent -= montant;
+        return true;
     }
     
     public List<Attraction> getAttractionsVisitees() {

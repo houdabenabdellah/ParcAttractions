@@ -8,8 +8,10 @@ import javax.swing.BorderFactory;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
+import javax.swing.Timer;
 import main.java.com.parcattractions.controllers.GestionnaireParc;
 import main.java.com.parcattractions.utils.Horloge;
+import resources.styles.UIStyles;
 
 /**
  * Panel du tableau de bord stylisé
@@ -22,6 +24,8 @@ public class PanelDashboard extends JPanel {
     private JLabel labelVisiteurs;
     private JLabel labelAttractions;
     private JLabel labelMeteo;
+    
+    private Timer refreshTimer;  // ADD THIS
     
     public PanelDashboard(GestionnaireParc gestionnaireParc) {
         this.gestionnaireParc = gestionnaireParc;
@@ -58,6 +62,27 @@ public class PanelDashboard extends JPanel {
         add(createDashboardItem("Visiteurs", labelVisiteurs));
         add(createDashboardItem("Attractions", labelAttractions));
         add(createDashboardItem("Météo", labelMeteo));
+        
+        // START AUTO-REFRESH TIMER - ADD THIS
+        startAutoRefresh();
+    }
+    
+    /**
+     * Démarre le rafraîchissement automatique
+     */
+    private void startAutoRefresh() {
+        // Refresh every 500ms (0.5 seconds) for smooth updates
+        refreshTimer = new Timer(500, e -> rafraichir());
+        refreshTimer.start();
+    }
+    
+    /**
+     * Arrête le rafraîchissement automatique
+     */
+    public void stopAutoRefresh() {
+        if (refreshTimer != null && refreshTimer.isRunning()) {
+            refreshTimer.stop();
+        }
     }
     
     /**
@@ -114,4 +139,21 @@ public class PanelDashboard extends JPanel {
         
         labelMeteo.setText(gestionnaireParc.getMeteoActuelle().toString());
     }
+    /**
+ * Active/désactive le rafraîchissement automatique
+ */
+public void setAutoRefresh(boolean enabled) {
+    if (enabled && (refreshTimer == null || !refreshTimer.isRunning())) {
+        startAutoRefresh();
+    } else if (!enabled && refreshTimer != null) {
+        stopAutoRefresh();
+    }
+}
+
+/**
+ * Retourne l'état du rafraîchissement automatique
+ */
+public boolean isAutoRefreshEnabled() {
+    return refreshTimer != null && refreshTimer.isRunning();
+}
 }

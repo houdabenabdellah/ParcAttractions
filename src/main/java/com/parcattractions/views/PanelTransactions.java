@@ -4,6 +4,7 @@ import java.awt.*;
 import javax.swing.*;
 import main.java.com.parcattractions.utils.Logger;
 import main.java.com.parcattractions.utils.TransactionManager;
+import resources.styles.UIStyles;
 
 /**
  * Panneau pour afficher les statistiques financières et transactions
@@ -120,7 +121,7 @@ public class PanelTransactions extends JPanel {
         panel.add(Box.createVerticalGlue());
         
         // Boutons d'action
-        JPanel buttonPanel = new JPanel(new GridLayout(2, 1, 0, 10));
+        JPanel buttonPanel = new JPanel(new GridLayout(3, 1, 0, 10));
         buttonPanel.setBackground(Color.WHITE);
         
         JButton exportBtn = new JButton("Exporter Rapport");
@@ -132,6 +133,21 @@ public class PanelTransactions extends JPanel {
         exportBtn.setCursor(new Cursor(Cursor.HAND_CURSOR));
         exportBtn.addActionListener(e -> exporterRapport());
         buttonPanel.add(exportBtn);
+
+        JButton rafraichirBtn = new JButton(" Rafraîchir");
+rafraichirBtn.setFont(UIStyles.HEADER_FONT);
+rafraichirBtn.setBackground(UIStyles.SUCCESS_COLOR);
+rafraichirBtn.setForeground(Color.WHITE);
+rafraichirBtn.setFocusPainted(false);
+rafraichirBtn.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+rafraichirBtn.setCursor(new Cursor(Cursor.HAND_CURSOR));
+rafraichirBtn.addActionListener(e -> {
+    updateAffichage();
+    JOptionPane.showMessageDialog(this, 
+        "Affichage rafraîchi!", 
+        "Rafraîchissement", 
+        JOptionPane.INFORMATION_MESSAGE);
+});
         
         JButton reinitBtn = new JButton("Réinitialiser");
         reinitBtn.setFont(UIStyles.HEADER_FONT);
@@ -232,17 +248,42 @@ public class PanelTransactions extends JPanel {
      */
     private void reinitialiserTransactions() {
         int result = JOptionPane.showConfirmDialog(this,
-            "Êtes-vous sûr de vouloir réinitialiser toutes les statistiques?",
-            "Confirmation", JOptionPane.YES_NO_OPTION);
+        " ATTENTION \n\n" +
+        "Cette action va réinitialiser TOUTES les statistiques financières!\n\n" +
+        "Les données suivantes seront perdues:\n" +
+        "• Revenus des billets\n" +
+        "• Revenus des restaurants\n" +
+        "• Revenus des souvenirs\n" +
+        "• Toutes les transactions enregistrées\n\n" +
+        "Voulez-vous vraiment continuer?",
+        "Confirmation de Réinitialisation", 
+        JOptionPane.YES_NO_OPTION,
+        JOptionPane.WARNING_MESSAGE);
+    
+    if (result == JOptionPane.YES_OPTION) {
+        // Double confirmation pour une action critique
+        int confirm2 = JOptionPane.showConfirmDialog(this,
+            "Dernière confirmation:\n" +
+            "Êtes-vous ABSOLUMENT sûr de vouloir réinitialiser?",
+            "Confirmation finale", 
+            JOptionPane.YES_NO_OPTION,
+            JOptionPane.WARNING_MESSAGE);
         
-        if (result == JOptionPane.YES_OPTION) {
+        if (confirm2 == JOptionPane.YES_OPTION) {
             TransactionManager.reinitialiserStatistiques();
             updateAffichage();
             JOptionPane.showMessageDialog(this, 
-                "Statistiques réinitialisées avec succès!", 
-                "Succès", JOptionPane.INFORMATION_MESSAGE);
-            Logger.logInfo("Statistiques réinitialisées par l'utilisateur");
+                "Statistiques réinitialisées avec succès!\n\n" +
+                "Les compteurs sont remis à zéro.", 
+                "Succès", 
+                JOptionPane.INFORMATION_MESSAGE);
+            Logger.logInfo("Statistiques réinitialisées par l'utilisateur en mode manuel");
+        } else {
+            Logger.logInfo("Réinitialisation annulée (2ème confirmation)");
         }
+    } else {
+        Logger.logInfo("Réinitialisation annulée");
+    }
     }
     
     /**
@@ -253,4 +294,43 @@ public class PanelTransactions extends JPanel {
             updateTimer.stop();
         }
     }
+    /**
+ * Arrête le timer automatique (mode manuel total)
+ */
+public void stopAutoUpdate() {
+    if (updateTimer != null && updateTimer.isRunning()) {
+        updateTimer.stop();
+        Logger.logInfo("Mise à jour automatique des transactions arrêtée");
+    }
+}
+
+/**
+ * Démarre le timer automatique
+ */
+public void startAutoUpdate() {
+    if (updateTimer != null && !updateTimer.isRunning()) {
+        updateTimer.start();
+        Logger.logInfo("Mise à jour automatique des transactions démarrée");
+    }
+}
+
+/**
+ * Bascule entre auto/manuel
+ */
+public void toggleAutoUpdate() {
+    if (updateTimer != null) {
+        if (updateTimer.isRunning()) {
+            stopAutoUpdate();
+        } else {
+            startAutoUpdate();
+        }
+    }
+}
+
+/**
+ * Rafraîchit manuellement (appel externe)
+ */
+public void rafraichirManuel() {
+    updateAffichage();
+}
 }

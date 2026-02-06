@@ -15,7 +15,11 @@ public class VisiteurEnfant extends Visiteur {
     private final Map<TypeAttraction, Integer> preferences;
     
     public VisiteurEnfant(int age, int taille, Visiteur accompagnateur) {
-        super("Enfant", age, taille, ProfilVisiteur.ENFANT);
+        this("Enfant", age, taille, accompagnateur);
+    }
+    
+    public VisiteurEnfant(String nom, int age, int taille, Visiteur accompagnateur) {
+        super(nom != null && !nom.isBlank() ? nom : "Enfant", age, taille, ProfilVisiteur.ENFANT);
         this.accompagnateur = accompagnateur;
         
         // Définir les préférences

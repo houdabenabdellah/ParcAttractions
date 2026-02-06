@@ -5,12 +5,12 @@ import java.nio.file.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import main.java.com.parcattractions.controllers.GestionnaireParc;
+import main.java.com.parcattractions.enums.*;
 import main.java.com.parcattractions.models.attractions.*;
 import main.java.com.parcattractions.models.employes.AgentSecurite;
 import main.java.com.parcattractions.models.employes.Employe;
 import main.java.com.parcattractions.models.employes.Technicien;
 import main.java.com.parcattractions.models.visiteurs.*;
-import main.java.com.parcattractions.enums.*;
 
 /**
  * Gestionnaire de chargement/sauvegarde des données en CSV
@@ -66,17 +66,19 @@ public class DataManager {
         try (BufferedReader reader = Files.newBufferedReader(file)) {
             reader.readLine(); // Skip header
             String line;
+            int attractionsChargees = 0;
             while ((line = reader.readLine()) != null) {
                 String[] parts = line.split(";");
-                if (parts.length >= 5) {
+                if (parts.length >= 2) {
                     String typeName = parts[1].trim();
                     Attraction attraction = createAttraction(typeName);
                     if (attraction != null) {
                         gestionnaireParc.ajouterAttraction(attraction);
+                        attractionsChargees++;
                     }
                 }
             }
-            Logger.logInfo("Attractions chargées: " + gestionnaireParc.getAttractions().size());
+            Logger.logInfo("Attractions chargées du CSV: " + attractionsChargees);
         } catch (IOException e) {
             Logger.logError("Erreur lors du chargement des attractions: " + e.getMessage());
         }

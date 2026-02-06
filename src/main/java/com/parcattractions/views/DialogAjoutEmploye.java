@@ -8,6 +8,7 @@ import main.java.com.parcattractions.models.employes.Employe;
 import main.java.com.parcattractions.models.employes.Technicien;
 import main.java.com.parcattractions.models.employes.Vendeur;
 import main.java.com.parcattractions.utils.Logger;
+import resources.styles.UIStyles;
 
 /**
  * Dialog pour ajouter manuellement un employé

@@ -11,6 +11,7 @@ import main.java.com.parcattractions.models.visiteurs.VisiteurExtreme;
 import main.java.com.parcattractions.models.visiteurs.VisiteurFamille;
 import main.java.com.parcattractions.models.visiteurs.VisiteurGroupe;
 import main.java.com.parcattractions.utils.Logger;
+import resources.styles.UIStyles;
 
 /**
  * Dialog pour ajouter manuellement un visiteur
@@ -153,14 +154,15 @@ public class DialogAjoutVisiteur extends JDialog {
             return;
         }
         
+        String nom = nomField.getText().trim();
         int age = (Integer) ageSpinner.getValue();
         int taille = (Integer) tailleSpinner.getValue();
         ProfilVisiteur profil = (ProfilVisiteur) profilCombo.getSelectedItem();
         int details = (Integer) detailsSpinner.getValue();
         
         try {
-            // Créer visiteur selon profil
-            Visiteur visiteur = creerVisiteurSelonProfil(age, taille, profil, details);
+            // Créer visiteur selon profil (avec le nom saisi)
+            Visiteur visiteur = creerVisiteurSelonProfil(nom, age, taille, profil, details);
             
             if (visiteur != null) {
                 // Ajouter au parc
@@ -182,21 +184,21 @@ public class DialogAjoutVisiteur extends JDialog {
     }
     
     /**
-     * Crée un visiteur selon son profil
+     * Crée un visiteur selon son profil (avec le nom saisi par l'utilisateur)
      */
-    private Visiteur creerVisiteurSelonProfil(int age, int taille, ProfilVisiteur profil, int details) {
+    private Visiteur creerVisiteurSelonProfil(String nom, int age, int taille, ProfilVisiteur profil, int details) {
         return switch (profil) {
             case ENFANT -> {
-                Visiteur accompagnateur = new VisiteurGroupe(age + 20, taille + 20);
-                yield new VisiteurEnfant(age, taille, accompagnateur);
+                Visiteur accompagnateur = new VisiteurGroupe(nom + "-accompagnateur", age + 20, taille + 20);
+                yield new VisiteurEnfant(nom, age, taille, accompagnateur);
             }
             case COUPLE -> {
-                Visiteur partenaire = new VisiteurCouple(age, taille, null);
-                yield new VisiteurCouple(age, taille, partenaire);
+                Visiteur partenaire = new VisiteurCouple(nom + "-partenaire", age, taille, null);
+                yield new VisiteurCouple(nom, age, taille, partenaire);
             }
-            case FAMILLE -> new VisiteurFamille(age, taille, details);
-            case GROUPE -> new VisiteurGroupe(age, taille);
-            case EXTREME -> new VisiteurExtreme(age, taille);
+            case FAMILLE -> new VisiteurFamille(nom, age, taille, details);
+            case GROUPE -> new VisiteurGroupe(nom, age, taille);
+            case EXTREME -> new VisiteurExtreme(nom, age, taille);
         };
     }
     

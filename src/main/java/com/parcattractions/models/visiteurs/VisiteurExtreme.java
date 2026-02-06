@@ -15,10 +15,12 @@ public class VisiteurExtreme extends Visiteur {
     private final Map<TypeAttraction, Integer> preferences;
     
     public VisiteurExtreme(int age, int taille) {
-        super("Extreme", age, taille, ProfilVisiteur.EXTREME);
+        this("Extreme", age, taille);
+    }
+    
+    public VisiteurExtreme(String nom, int age, int taille) {
+        super(nom != null && !nom.isBlank() ? nom : "Extreme", age, taille, ProfilVisiteur.EXTREME);
         this.seuilIntensite = 2; // Minimum modéré
-        
-        // Définir les préférences
         this.preferences = new HashMap<>();
         preferences.put(TypeAttraction.SENSATIONS_FORTES, 100);
         preferences.put(TypeAttraction.AQUATIQUE, 70);

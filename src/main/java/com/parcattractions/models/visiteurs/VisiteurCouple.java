@@ -15,7 +15,11 @@ public class VisiteurCouple extends Visiteur {
     private final Map<TypeAttraction, Integer> preferences;
     
     public VisiteurCouple(int age, int taille, Visiteur partenaire) {
-        super("Couple", age, taille, ProfilVisiteur.COUPLE);
+        this("Couple", age, taille, partenaire);
+    }
+    
+    public VisiteurCouple(String nom, int age, int taille, Visiteur partenaire) {
+        super(nom != null && !nom.isBlank() ? nom : "Couple", age, taille, ProfilVisiteur.COUPLE);
         this.partenaire = partenaire;
         
         // Définir les préférences

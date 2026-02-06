@@ -14,7 +14,9 @@ public class Carrousel extends Attraction {
             NiveauIntensite.FAIBLE,
             0,                               // Âge minimum: tous âges
             0,                               // Pas de restriction de taille
-            true                             // Extérieure
+            true,                             // Extérieure
+            "resources/images/carrousel.png",
+            4.0, 6.0  // Ticket normal 4€, Fast Pass 6€
         );
     }
 }

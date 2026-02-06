@@ -27,6 +27,7 @@ import main.java.com.parcattractions.models.employes.Technicien;
 import main.java.com.parcattractions.models.employes.Vendeur;
 import main.java.com.parcattractions.models.services.Boutique;
 import main.java.com.parcattractions.models.services.Restaurant;
+import resources.styles.UIStyles;
 
 /**
  * Dialogue Manager : Gérer Personnel (UC14) - Stylisé
@@ -85,7 +86,7 @@ public class DialogGestionPersonnel extends JDialog {
         boutons.setBackground(UIStyles.BG_LIGHT);
         boutons.setBorder(BorderFactory.createEmptyBorder(10, 15, 15, 15));
         
-        JButton btnAjouter = new JButton("➕ Ajouter");
+        JButton btnAjouter = new JButton("Ajouter");
         btnAjouter.addActionListener(e -> ajouterEmploye());
         UIStyles.stylePrimaryButton(btnAjouter);
         
@@ -260,4 +261,10 @@ public class DialogGestionPersonnel extends JDialog {
         gestionnaireParc.retirerEmploye(e);
         rafraichir();
     }
+    /**
+ * Rafraîchit manuellement l'affichage
+ */
+public void rafraichirManuel() {
+    rafraichir();
+}
 }

@@ -15,6 +15,7 @@ import javax.swing.JTextArea;
 import main.java.com.parcattractions.controllers.GestionnaireParc;
 import main.java.com.parcattractions.utils.ExporteurCSV;
 import main.java.com.parcattractions.utils.GenerateurRapports;
+import resources.styles.UIStyles;
 
 /**
  * Dialog pour afficher tous les rapports du parc
@@ -108,45 +109,62 @@ public class DialogRapports extends JDialog {
         JPanel panel = new JPanel();
         panel.setBackground(UIStyles.BG_LIGHT);
         panel.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
-        panel.setLayout(new GridLayout(1, 3, 10, 10));
+        panel.setLayout(new GridLayout(1, 4, 10, 10));
         
         // Bouton Exporter CSV
         JButton btnExportCSV = new JButton("Exporter en CSV");
         btnExportCSV.addActionListener(e -> {
-            String fichier = exporteur.exporterResume();
-            if (fichier != null) {
-                javax.swing.JOptionPane.showMessageDialog(this, 
-                    "Rapport CSV exporté :\n" + fichier,
-                    "Succès", 
-                    javax.swing.JOptionPane.INFORMATION_MESSAGE);
-            } else {
-                javax.swing.JOptionPane.showMessageDialog(this, 
-                    "Erreur lors de l'export CSV",
-                    "Erreur", 
-                    javax.swing.JOptionPane.ERROR_MESSAGE);
-            }
-        });
+    String fichier = exporteur.exporterResume();
+    if (fichier != null) {
+        javax.swing.JOptionPane.showMessageDialog(this, 
+            "Rapport CSV exporté avec succès!\n\n" +
+            "Emplacement:\n" + fichier + "\n\n" +
+            "Vous pouvez ouvrir ce fichier avec Excel ou LibreOffice.",
+            "Exportation réussie", 
+            javax.swing.JOptionPane.INFORMATION_MESSAGE);
+    } else {
+        javax.swing.JOptionPane.showMessageDialog(this, 
+            "Erreur lors de l'export CSV\n\n" +
+            "Vérifiez les permissions d'écriture du dossier.",
+            "Erreur d'exportation", 
+            javax.swing.JOptionPane.ERROR_MESSAGE);
+    }
+});
         UIStyles.stylePrimaryButton(btnExportCSV);
         panel.add(btnExportCSV);
         
         // Bouton Exporter HTML
         JButton btnExportHTML = new JButton("Exporter en HTML");
         btnExportHTML.addActionListener(e -> {
-            String fichier = exporteur.exporterHTML();
-            if (fichier != null) {
-                javax.swing.JOptionPane.showMessageDialog(this, 
-                    "Rapport HTML exporté :\n" + fichier,
-                    "Succès", 
-                    javax.swing.JOptionPane.INFORMATION_MESSAGE);
-            } else {
-                javax.swing.JOptionPane.showMessageDialog(this, 
-                    "Erreur lors de l'export HTML",
-                    "Erreur", 
-                    javax.swing.JOptionPane.ERROR_MESSAGE);
-            }
-        });
+    String fichier = exporteur.exporterHTML();
+    if (fichier != null) {
+        javax.swing.JOptionPane.showMessageDialog(this, 
+            " Rapport HTML exporté avec succès!\n\n" +
+            "Emplacement:\n" + fichier + "\n\n" +
+            "Vous pouvez ouvrir ce fichier dans votre navigateur web.",
+            "Exportation réussie", 
+            javax.swing.JOptionPane.INFORMATION_MESSAGE);
+    } else {
+        javax.swing.JOptionPane.showMessageDialog(this, 
+            " Erreur lors de l'export HTML\n\n" +
+            "Vérifiez les permissions d'écriture du dossier.",
+            "Erreur d'exportation", 
+            javax.swing.JOptionPane.ERROR_MESSAGE);
+    }
+});
         UIStyles.stylePrimaryButton(btnExportHTML);
         panel.add(btnExportHTML);
+
+        // Bouton Rafraîchir les rapports
+JButton btnRafraichir = new JButton("Rafraîchir");
+btnRafraichir.addActionListener(e -> {
+    dispose();
+    DialogRapports nouveauDialog = new DialogRapports(
+        (JFrame) getOwner(), gestionnaireParc);
+    nouveauDialog.setVisible(true);
+});
+UIStyles.styleAccentButton(btnRafraichir);
+panel.add(btnRafraichir);
         
         // Bouton Fermer
         JButton btnFermer = new JButton("Fermer");

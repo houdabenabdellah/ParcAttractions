@@ -2,15 +2,15 @@ package main.java.com.parcattractions.models.attractions;
 
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.locks.ReentrantLock;
+import main.java.com.parcattractions.controllers.GestionnaireParc;
+import main.java.com.parcattractions.controllers.SystemeNotifications;
 import main.java.com.parcattractions.enums.EtatAttraction;
 import main.java.com.parcattractions.enums.NiveauIntensite;
 import main.java.com.parcattractions.enums.TypeAttraction;
+import main.java.com.parcattractions.enums.TypeNotification;
 import main.java.com.parcattractions.exceptions.attractions.AttractionException;
 import main.java.com.parcattractions.exceptions.attractions.AttractionFermeeException;
 import main.java.com.parcattractions.exceptions.attractions.CapaciteDepasseeException;
-import main.java.com.parcattractions.controllers.GestionnaireParc;
-import main.java.com.parcattractions.controllers.SystemeNotifications;
-import main.java.com.parcattractions.enums.TypeNotification;
 import main.java.com.parcattractions.exceptions.attractions.MaintenanceEnCoursException;
 import main.java.com.parcattractions.models.employes.Operateur;
 import main.java.com.parcattractions.models.employes.Technicien;
@@ -24,6 +24,7 @@ public abstract class Attraction extends Thread {
     protected static final int TOURS_AVANT_MAINTENANCE = 10;
     protected static final double PROBABILITE_PANNE = 0.05; // 5%
     
+    
     // Attributs de base
     protected final String nom;
     protected final int capacite;
@@ -33,6 +34,7 @@ public abstract class Attraction extends Thread {
     protected final int ageMin;
     protected final int tailleMin; // en cm
     protected final boolean estExterieure;
+    protected  final String imagePath;
     
     // Files d'attente
     protected final FileAttente<Integer> fileNormale; // IDs visiteurs
@@ -50,12 +52,20 @@ public abstract class Attraction extends Thread {
     // Temps de maintenance restant
     protected volatile int tempsMaintenanceRestant;
     
+    // Tarification par attraction (ticket normal et fast pass)
+    protected final double prixTicketNormal;
+    protected final double prixTicketFastPass;
+    protected volatile double revenuTotal;
+    
     /**
      * Constructeur pour initialiser une attraction
+     * @param prixTicketNormal Prix du ticket normal (€)
+     * @param prixTicketFastPass Prix du fast pass (€), doit être > prixTicketNormal
      */
     protected Attraction(String nom, int capacite, int dureeTour, 
                         TypeAttraction type, NiveauIntensite intensite,
-                        int ageMin, int tailleMin, boolean estExterieure) {
+                        int ageMin, int tailleMin, boolean estExterieure,
+                        String imagePath, double prixTicketNormal, double prixTicketFastPass) {
         super("Thread-" + nom);
         this.nom = nom;
         this.capacite = capacite;
@@ -65,6 +75,10 @@ public abstract class Attraction extends Thread {
         this.ageMin = ageMin;
         this.tailleMin = tailleMin;
         this.estExterieure = estExterieure;
+        this.imagePath = imagePath;
+        this.prixTicketNormal = prixTicketNormal;
+        this.prixTicketFastPass = Math.max(prixTicketFastPass, prixTicketNormal);
+        this.revenuTotal = 0.0;
         
         this.fileNormale = new FileAttente<>(CAPACITE_MAX_FILE);
         this.fileFastPass = new FileAttente<>(CAPACITE_MAX_FILE / 2);
@@ -77,7 +91,8 @@ public abstract class Attraction extends Thread {
         this.parcOuvert = true;
         this.tempsMaintenanceRestant = 0;
     }
-    
+
+
     @Override
     public void run() {
         Logger.logThreadStart(nom);
@@ -298,6 +313,13 @@ public abstract class Attraction extends Thread {
     }
     
     /**
+     * Déclenche manuellement une panne (pour simulation/UI).
+     */
+    public void mettrePanne() {
+        declencherPanne();
+    }
+    
+    /**
      * Déclenche une panne (diagramme : opérateur, notif, technicien).
      */
     private void declencherPanne() {
@@ -439,6 +461,41 @@ public abstract class Attraction extends Thread {
     
     public int getTailleFileTotal() {
         return getTailleFileNormale() + getTailleFileFastPass();
+    }
+
+    public String getImagePath() {
+        return imagePath;
+    }
+    
+    /** Prix du ticket normal (€) */
+    public double getPrixTicketNormal() {
+        return prixTicketNormal;
+    }
+    
+    /** Prix du fast pass (€) */
+    public double getPrixTicketFastPass() {
+        return prixTicketFastPass;
+    }
+    
+    /** Revenu total généré par l'attraction (€) */
+    public double getRevenuTotal() {
+        return revenuTotal;
+    }
+    
+    /**
+     * Ajoute un montant au revenu de l'attraction (appelé lors d'un achat de ticket)
+     */
+    public synchronized void ajouterRevenu(double montant) {
+        this.revenuTotal += montant;
+    }
+    
+    /**
+     * Retourne la description de l'attraction
+     */
+    public String getDescription() {
+        return String.format("%s - %s, intensité %s. Âge min: %d ans, Taille min: %d cm. %s.",
+            type.getLibelle(), nom, intensite, ageMin, tailleMin,
+            estExterieure ? "Attraction extérieure" : "Attraction couverte");
     }
     
     /**
