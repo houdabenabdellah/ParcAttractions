@@ -15,7 +15,7 @@ public class Carrousel extends Attraction {
             0,                               // Âge minimum: tous âges
             0,                               // Pas de restriction de taille
             true,                             // Extérieure
-            "resources/images/carrousel.png",
+            "/main/java/com/parcattractions/resources/images/carrousel.png",
             4.0, 6.0  // Ticket normal 4€, Fast Pass 6€
         );
     }

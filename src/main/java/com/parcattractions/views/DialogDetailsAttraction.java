@@ -6,189 +6,156 @@ import main.java.com.parcattractions.controllers.GestionnaireParc;
 import main.java.com.parcattractions.enums.TypeBillet;
 import main.java.com.parcattractions.models.attractions.Attraction;
 import main.java.com.parcattractions.models.visiteurs.Visiteur;
+import main.java.com.parcattractions.resources.styles.UIStyles;
 import main.java.com.parcattractions.utils.Tarification;
-import resources.styles.UIStyles;
 
-/**
- * Dialog affichant les détails d'une attraction et permettant l'achat de tickets
- * Vérifie l'existence du visiteur avant l'achat
- */
 public class DialogDetailsAttraction extends JDialog {
     
     private final Attraction attraction;
     private final GestionnaireParc gestionnaireParc;
-    
     private JTextField nomVisiteurField;
     private JComboBox<TypeBillet> typeTicketCombo;
     private JLabel revenuLabel;
     private JButton prendreTicketBtn;
     
-    /** Types de ticket proposés (Normal et Fast Pass uniquement) */
     private static final TypeBillet[] TYPES_TICKET = { TypeBillet.STANDARD, TypeBillet.FAST_PASS };
     
     public DialogDetailsAttraction(JFrame parent, Attraction attraction, GestionnaireParc gestionnaireParc) {
-        super(parent, "Détails - " + attraction.getNom(), true);
+        super(parent, "Détails Attraction", true);
         this.attraction = attraction;
         this.gestionnaireParc = gestionnaireParc;
         
-        setSize(500, 520);
+        setSize(550, 600);
         setLocationRelativeTo(parent);
-        getContentPane().setBackground(UIStyles.BG_LIGHT);
+        getContentPane().setBackground(UIStyles.BG_WINDOW); // Fond Modern
         buildUI();
         mettreAJourRevenu();
     }
     
     private void buildUI() {
-        JPanel content = (JPanel) getContentPane();
-        content.setLayout(new BorderLayout(10, 10));
-        content.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
+        setLayout(new BorderLayout(15, 15));
         
-        // ========== Section Détails de l'attraction ==========
-        JPanel detailsPanel = new JPanel();
-        detailsPanel.setLayout(new BoxLayout(detailsPanel, BoxLayout.Y_AXIS));
-        detailsPanel.setBackground(Color.WHITE);
-        detailsPanel.setBorder(BorderFactory.createCompoundBorder(
-            BorderFactory.createLineBorder(UIStyles.BORDER_COLOR, 1),
-            BorderFactory.createEmptyBorder(15, 15, 15, 15)
-        ));
-        
-        // Nom
-        JLabel nomLabel = new JLabel(attraction.getNom());
-        nomLabel.setFont(UIStyles.TITLE_FONT);
-        nomLabel.setForeground(UIStyles.PRIMARY_COLOR);
-        detailsPanel.add(nomLabel);
-        detailsPanel.add(Box.createVerticalStrut(8));
-        
-        // Description
-        JLabel descLabel = new JLabel("<html>" + attraction.getDescription().replaceAll("\n", "<br>") + "</html>");
+        // --- Header Fancy ---
+        JLabel titleLabel = new JLabel(attraction.getNom().toUpperCase());
+        titleLabel.setFont(UIStyles.TITLE_FONT);
+        titleLabel.setForeground(UIStyles.DUSK_BLUE);
+        titleLabel.setHorizontalAlignment(SwingConstants.CENTER);
+        titleLabel.setBorder(BorderFactory.createEmptyBorder(20, 10, 5, 10));
+        add(titleLabel, BorderLayout.NORTH);
+
+        JPanel mainPanel = new JPanel();
+        mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
+        mainPanel.setOpaque(false);
+        mainPanel.setBorder(BorderFactory.createEmptyBorder(0, 25, 10, 25));
+
+        // --- Card Détails ---
+        JPanel cardInfo = new JPanel();
+        cardInfo.setLayout(new BoxLayout(cardInfo, BoxLayout.Y_AXIS));
+        cardInfo.setBackground(Color.WHITE);
+        cardInfo.setBorder(UIStyles.createStyledBorder("Infos & Statistiques"));
+
+        JLabel descLabel = new JLabel("<html><p style='width:300px;'>" + attraction.getDescription() + "</p></html>");
         descLabel.setFont(UIStyles.REGULAR_FONT);
-        descLabel.setForeground(UIStyles.TEXT_SECONDARY);
-        descLabel.setMaximumSize(new Dimension(450, 80));
-        detailsPanel.add(descLabel);
-        detailsPanel.add(Box.createVerticalStrut(12));
+        descLabel.setForeground(UIStyles.TEXT_PRIMARY);
+        descLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
+        descLabel.setBorder(BorderFactory.createEmptyBorder(0, 0, 15, 0));
         
-        // Prix et revenu
-        JPanel infoPanel = new JPanel(new GridLayout(3, 2, 8, 6));
-        infoPanel.setBackground(Color.WHITE);
-        infoPanel.setAlignmentX(Component.LEFT_ALIGNMENT);
-        
-        infoPanel.add(createInfoLabel("Prix ticket Normal:"));
-        infoPanel.add(createValueLabel(Tarification.formaterPrix(attraction.getPrixTicketNormal())));
-        infoPanel.add(createInfoLabel("Prix ticket Fast Pass:"));
-        infoPanel.add(createValueLabel(Tarification.formaterPrix(attraction.getPrixTicketFastPass())));
-        infoPanel.add(createInfoLabel("Revenu total:"));
-        revenuLabel = createValueLabel(Tarification.formaterPrix(attraction.getRevenuTotal()));
-        infoPanel.add(revenuLabel);
-        
-        detailsPanel.add(infoPanel);
-        content.add(detailsPanel, BorderLayout.NORTH);
-        
-        // ========== Section Achat de ticket ==========
-        JPanel achatPanel = new JPanel();
-        achatPanel.setLayout(new GridBagLayout());
-        achatPanel.setBackground(Color.WHITE);
-        achatPanel.setBorder(BorderFactory.createCompoundBorder(
-            BorderFactory.createTitledBorder(
-                BorderFactory.createLineBorder(UIStyles.BORDER_COLOR, 1),
-                " Prendre un ticket "),
-            BorderFactory.createEmptyBorder(15, 15, 15, 15)
-        ));
+        JPanel gridPrices = new JPanel(new GridLayout(3, 2, 10, 10));
+        gridPrices.setOpaque(false);
+        gridPrices.add(new JLabel("Prix Standard :")); 
+        gridPrices.add(new JLabel(Tarification.formaterPrix(attraction.getPrixTicketNormal())));
+        gridPrices.add(new JLabel("Prix FastPass :")); 
+        gridPrices.add(new JLabel(Tarification.formaterPrix(attraction.getPrixTicketFastPass())));
+        gridPrices.add(new JLabel("Recettes générées :"));
+        revenuLabel = new JLabel();
+        revenuLabel.setFont(UIStyles.HEADER_FONT);
+        revenuLabel.setForeground(UIStyles.LIGHT_BRONZE);
+        gridPrices.add(revenuLabel);
+
+        cardInfo.add(descLabel);
+        cardInfo.add(gridPrices);
+        mainPanel.add(cardInfo);
+        mainPanel.add(Box.createVerticalStrut(20));
+
+        // --- Card Vente ---
+        JPanel cardAchat = new JPanel(new GridBagLayout());
+        cardAchat.setBackground(Color.WHITE);
+        cardAchat.setBorder(UIStyles.createStyledBorder("Billeterie Express"));
         
         GridBagConstraints gbc = new GridBagConstraints();
-        gbc.insets = new Insets(5, 5, 5, 5);
-        gbc.anchor = GridBagConstraints.WEST;
-        
-        // Nom du visiteur
-        gbc.gridx = 0; gbc.gridy = 0;
-        achatPanel.add(new JLabel("Nom du visiteur:"), gbc);
-        gbc.gridx = 1; gbc.fill = GridBagConstraints.HORIZONTAL; gbc.weightx = 1;
-        nomVisiteurField = new JTextField(20);
-        nomVisiteurField.setFont(UIStyles.REGULAR_FONT);
-        achatPanel.add(nomVisiteurField, gbc);
-        
-        // Type de ticket
-        gbc.gridx = 0; gbc.gridy = 1; gbc.fill = 0; gbc.weightx = 0;
-        achatPanel.add(new JLabel("Type de ticket:"), gbc);
-        gbc.gridx = 1; gbc.fill = GridBagConstraints.HORIZONTAL; gbc.weightx = 1;
-        typeTicketCombo = new JComboBox<>(TYPES_TICKET);
-        typeTicketCombo.setFont(UIStyles.REGULAR_FONT);
-        typeTicketCombo.setBackground(Color.WHITE);
-        achatPanel.add(typeTicketCombo, gbc);
-        
-        // Bouton Prendre un ticket
-        gbc.gridx = 0; gbc.gridy = 2; gbc.gridwidth = 2; gbc.insets = new Insets(15, 5, 5, 5);
-        prendreTicketBtn = new JButton("Prendre un ticket");
-        prendreTicketBtn.setFont(UIStyles.HEADER_FONT);
-        prendreTicketBtn.setBackground(UIStyles.SUCCESS_COLOR);
-        prendreTicketBtn.setForeground(Color.WHITE);
-        prendreTicketBtn.setFocusPainted(false);
+        gbc.insets = new Insets(10, 10, 10, 10);
+        gbc.fill = GridBagConstraints.HORIZONTAL;
+
+        gbc.gridx = 0; gbc.gridy = 0; cardAchat.add(new JLabel("Visiteur :"), gbc);
+        gbc.gridx = 1; nomVisiteurField = new JTextField(15); cardAchat.add(nomVisiteurField, gbc);
+
+        gbc.gridx = 0; gbc.gridy = 1; cardAchat.add(new JLabel("Billet :"), gbc);
+        gbc.gridx = 1; typeTicketCombo = new JComboBox<>(TYPES_TICKET); cardAchat.add(typeTicketCombo, gbc);
+
+        gbc.gridx = 0; gbc.gridy = 2; gbc.gridwidth = 2;
+        prendreTicketBtn = new JButton("Vendre le Billet");
+        UIStyles.stylePrimaryButton(prendreTicketBtn); // Dusk Blue
         prendreTicketBtn.addActionListener(e -> onPrendreTicket());
-        achatPanel.add(prendreTicketBtn, gbc);
-        
-        content.add(achatPanel, BorderLayout.CENTER);
-        
-        // Bouton Fermer
-        JPanel footerPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
-        footerPanel.setBackground(UIStyles.BG_LIGHT);
-        JButton fermerBtn = new JButton("Fermer");
-        fermerBtn.setFont(UIStyles.REGULAR_FONT);
-        fermerBtn.addActionListener(e -> dispose());
-        footerPanel.add(fermerBtn);
-        content.add(footerPanel, BorderLayout.SOUTH);
-    }
-    
-    private JLabel createInfoLabel(String text) {
-        JLabel l = new JLabel(text);
-        l.setFont(UIStyles.REGULAR_FONT);
-        l.setForeground(UIStyles.TEXT_SECONDARY);
-        return l;
-    }
-    
-    private JLabel createValueLabel(String text) {
-        JLabel l = new JLabel(text);
-        l.setFont(UIStyles.BOLD_FONT);
-        l.setForeground(UIStyles.TEXT_PRIMARY);
-        return l;
+        cardAchat.add(prendreTicketBtn, gbc);
+
+        mainPanel.add(cardAchat);
+        add(mainPanel, BorderLayout.CENTER);
+
+        // --- Footer ---
+        JPanel footer = new JPanel(new FlowLayout(FlowLayout.RIGHT, 10, 10));
+        footer.setOpaque(false);
+
+        JButton fermerAttraction = new JButton("Fermer Attraction");
+        UIStyles.styleAccentButton(fermerAttraction);
+        fermerAttraction.addActionListener(e -> {
+            try {
+                attraction.fermer();
+                mettreAJourRevenu();
+                JOptionPane.showMessageDialog(this, attraction.getNom() + " est maintenant FERMÉE", "Succès", JOptionPane.INFORMATION_MESSAGE);
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(this, "Erreur: " + ex.getMessage(), "Erreur", JOptionPane.ERROR_MESSAGE);
+            }
+        });
+
+        JButton mettrePanne = new JButton("Mettre en panne");
+        UIStyles.styleAccentButton(mettrePanne);
+        mettrePanne.addActionListener(e -> {
+            try {
+                attraction.mettrePanne();
+                mettreAJourRevenu();
+                JOptionPane.showMessageDialog(this, attraction.getNom() + " est signalée EN PANNE.", "Panne déclenchée", JOptionPane.WARNING_MESSAGE);
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(this, "Erreur: " + ex.getMessage(), "Erreur", JOptionPane.ERROR_MESSAGE);
+            }
+        });
+
+        JButton close = new JButton("Fermer");
+        UIStyles.styleAccentButton(close); // Rosewood
+        close.addActionListener(e -> dispose());
+
+        footer.add(fermerAttraction);
+        footer.add(mettrePanne);
+        footer.add(close);
+        add(footer, BorderLayout.SOUTH);
     }
     
     private void mettreAJourRevenu() {
         revenuLabel.setText(Tarification.formaterPrix(attraction.getRevenuTotal()));
     }
     
-    /**
-     * Gère l'achat de ticket: vérifie le visiteur puis appelle la logique métier
-     */
     private void onPrendreTicket() {
-        String nom = nomVisiteurField.getText();
-        if (nom == null || nom.isBlank()) {
-            JOptionPane.showMessageDialog(this,
-                "Veuillez saisir le nom du visiteur.",
-                "Champ requis",
-                JOptionPane.WARNING_MESSAGE);
-            return;
-        }
+        String nom = nomVisiteurField.getText().trim();
+        if (nom.isEmpty()) { JOptionPane.showMessageDialog(this, "Saisissez un nom !"); return; }
         
-        Visiteur visiteur = gestionnaireParc.getVisiteurParNom(nom.trim());
-        if (visiteur == null) {
-            JOptionPane.showMessageDialog(this,
-                "Visiteur non trouvé. Veuillez vous inscrire.",
-                "Visiteur introuvable",
-                JOptionPane.ERROR_MESSAGE);
-            return;
-        }
+        Visiteur v = gestionnaireParc.getVisiteurParNom(nom);
+        if (v == null) { JOptionPane.showMessageDialog(this, "Visiteur non inscrit."); return; }
         
-        TypeBillet type = (TypeBillet) typeTicketCombo.getSelectedItem();
-        if (type == null) {
-            type = TypeBillet.STANDARD;
-        }
-        
-        String resultat = gestionnaireParc.acheterTicketAttraction(attraction, visiteur, type);
-        
-        if (resultat.contains("succès")) {
+        String res = gestionnaireParc.acheterTicketAttraction(attraction, v, (TypeBillet)typeTicketCombo.getSelectedItem());
+        if (res.contains("succès")) {
             mettreAJourRevenu();
-            JOptionPane.showMessageDialog(this, resultat, "Succès", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(this, res, "Succès", JOptionPane.INFORMATION_MESSAGE);
         } else {
-            JOptionPane.showMessageDialog(this, resultat, "Erreur", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, res, "Erreur", JOptionPane.ERROR_MESSAGE);
         }
     }
 }

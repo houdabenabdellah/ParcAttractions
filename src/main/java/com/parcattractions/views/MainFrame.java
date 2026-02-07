@@ -1,594 +1,254 @@
 package main.java.com.parcattractions.views;
 
-import java.awt.BorderLayout;
-import java.awt.CardLayout;
-import javax.swing.JFrame;
-import javax.swing.JMenu;
-import javax.swing.JMenuBar;
-import javax.swing.JMenuItem;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import main.java.com.parcattractions.controllers.GestionnaireEvenements;
-import main.java.com.parcattractions.controllers.GestionnaireParc;
+import java.awt.*;
+import javax.swing.*;
+import main.java.com.parcattractions.controllers.*;
 import main.java.com.parcattractions.exceptions.systeme.ParcFermeException;
-import main.java.com.parcattractions.utils.ModeApplication;
-import resources.styles.UIStyles;
+import main.java.com.parcattractions.resources.styles.UIStyles;
 
-/**
- * Fenêtre principale de l'application
- */
+
 public class MainFrame extends JFrame {
-    
-    private final GestionnaireParc gestionnaireParc;
-    private final GestionnaireEvenements gestionnaireEvenements;
-    
-    private PanelDashboard panelDashboard;
-    private PanelAttractions panelAttractions;
-    private PanelStatistiques panelStatistiques;
-    private PanelNotifications panelNotifications;
-    private PanelVueParc panelVueParc;
-    private PanelGestion panelGestion;
-    private PanelTransactions panelTransactions;
-    
+    private final GestionnaireParc gp;
     private JPanel contentPanel;
     private CardLayout cardLayout;
-    
-    private static final String CARD_DASHBOARD = "dashboard";
-    private static final String CARD_GESTION = "gestion";
-    private static final String CARD_TRANSACTIONS = "transactions";
-    
-    private ModeApplication mode;
-    
-    /**
-     * Constructeur
-     */
-    public MainFrame(GestionnaireParc gestionnaireParc,
-            GestionnaireEvenements gestionnaireEvenements) {
-        super("Parc d'Attractions - Mode Gestion");
-        
-        this.gestionnaireParc = gestionnaireParc;
-        this.gestionnaireEvenements = gestionnaireEvenements;
-        
-        initialiserInterface();
-        configurerFermeture();
-    }
-    
-    /**
-     * Initialise l'interface utilisateur
-     */
-    private void initialiserInterface() {
-        setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+
+    public MainFrame(GestionnaireParc gp, GestionnaireEvenements ge) {
+        super("Grand Parc Simulator 2026");
+        this.gp = gp;
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(1400, 900);
+        
+        creerBarreMenuFancy();
+        initialiserInterface();
         setLocationRelativeTo(null);
-        
-        // Style global
-        getContentPane().setBackground(UIStyles.BG_LIGHT);
-        
-        // Menu
-        creerMenu();
-        
-        // Layout principal
-        setLayout(new BorderLayout());
-        
-        // Panels
-        panelDashboard = new PanelDashboard(gestionnaireParc);
-        panelAttractions = new PanelAttractions(gestionnaireParc, this);
-        panelStatistiques = new PanelStatistiques(gestionnaireParc);
-        panelNotifications = new PanelNotifications();
-        panelVueParc = new PanelVueParc(gestionnaireParc);
-        panelGestion = new PanelGestion(gestionnaireParc);
-        panelTransactions = new PanelTransactions();
-        
-        // Organisation avec CardLayout (navigation par menu)
-        cardLayout = new CardLayout();
-        contentPanel = new JPanel(cardLayout);
-        contentPanel.setBackground(UIStyles.BG_LIGHT);
-        
-        // Vue Tableau de bord
-        JPanel dashboardTab = new JPanel(new BorderLayout());
-        dashboardTab.setBackground(UIStyles.BG_LIGHT);
-        JPanel panelOuest = new JPanel(new BorderLayout());
-        panelOuest.setBackground(UIStyles.BG_LIGHT);
-        panelOuest.add(panelDashboard, BorderLayout.NORTH);
-        panelOuest.add(panelStatistiques, BorderLayout.CENTER);
-        
-        JPanel panelEst = new JPanel(new BorderLayout());
-        panelEst.setBackground(UIStyles.BG_LIGHT);
-        panelEst.add(panelNotifications, BorderLayout.CENTER);
-        panelEst.add(panelVueParc, BorderLayout.SOUTH);
-        
-        dashboardTab.add(panelOuest, BorderLayout.WEST);
-        dashboardTab.add(panelAttractions, BorderLayout.CENTER);
-        dashboardTab.add(panelEst, BorderLayout.EAST);
-        
-        contentPanel.add(dashboardTab, CARD_DASHBOARD);
-        contentPanel.add(panelGestion, CARD_GESTION);
-        contentPanel.add(panelTransactions, CARD_TRANSACTIONS);
-        
-        add(contentPanel, BorderLayout.CENTER);
-        
-        // Vue initiale : Tableau de bord
-        afficherVue(CARD_DASHBOARD);
     }
-    
-    /**
-     * Affiche la vue sélectionnée (Tableau de bord, Gestion ou Transactions)
-     */
-    private void afficherVue(String cardName) {
-        if (cardLayout != null && contentPanel != null) {
-            cardLayout.show(contentPanel, cardName);
-        }
-    }
-    
-    /**
-     * Crée la barre de menu
-     */
-    private void creerMenu() {
-        JMenuBar menuBar = new JMenuBar();
-    
-    
-    // ========== MENU PARC ==========
-    JMenu menuParc = new JMenu("Parc");
-    
-    JMenuItem itemOuvrirParc = new JMenuItem("Ouvrir le parc");
-    itemOuvrirParc.addActionListener(e -> ouvrirParc());
-    
-    JMenuItem itemFermerParc = new JMenuItem("Fermer le parc");
-    itemFermerParc.addActionListener(e -> fermerParc());
-    
-    JMenuItem itemPauseSimulation = new JMenuItem("Pause");
-    itemPauseSimulation.addActionListener(e -> pauseSimulation());
-    
-    JMenuItem itemReprendreSimulation = new JMenuItem("Reprendre");
-    itemReprendreSimulation.addActionListener(e -> reprendreSimulation());
-    
-    menuParc.add(itemOuvrirParc);
-    menuParc.add(itemFermerParc);
-    menuParc.addSeparator();
-    menuParc.add(itemPauseSimulation);
-    menuParc.add(itemReprendreSimulation);
-    
-    menuBar.add(menuParc);
-    
-    // ========== MENU VISITEURS (NOUVEAU) ==========
-    JMenu menuVisiteurs = new JMenu(" Visiteurs");
-    
-    JMenuItem itemAjouterVisiteur = new JMenuItem("Ajouter un visiteur");
-    itemAjouterVisiteur.addActionListener(e -> ajouterVisiteurManuel());
-    
-    JMenuItem itemVoirVisiteurs = new JMenuItem("Voir tous les visiteurs");
-    itemVoirVisiteurs.addActionListener(e -> visualiserVisiteurs());
-    
-    menuVisiteurs.add(itemAjouterVisiteur);
-    menuVisiteurs.add(itemVoirVisiteurs);
-    
-    menuBar.add(menuVisiteurs);
-    
-    // ========== MENU MÉTÉO (NOUVEAU) ==========
-    JMenu menuMeteo = new JMenu("Météo");
-    
-    for (main.java.com.parcattractions.enums.Meteo meteo : 
-         main.java.com.parcattractions.enums.Meteo.values()) {
-        JMenuItem itemMeteo = new JMenuItem(meteo.toString());
-        itemMeteo.addActionListener(e -> changerMeteo(meteo));
-        menuMeteo.add(itemMeteo);
-    }
-    
-    menuBar.add(menuMeteo);
-    
-    // ========== MENU MANAGER ==========
-    JMenu menuManager = new JMenu("Manager");
-    
-    JMenuItem itemGérerPersonnel = new JMenuItem("Gérer le personnel");
-    itemGérerPersonnel.addActionListener(e -> {
-        DialogGestionPersonnel d = new DialogGestionPersonnel(this, gestionnaireParc);
-        d.setVisible(true);
-        rafraichirTousLesPanels();
-    });
-    menuManager.add(itemGérerPersonnel);
-    
-    JMenu subLancerEvenement = new JMenu("Lancer un événement");
-    
-    JMenuItem itemHappyHour = new JMenuItem("Happy Hour");
-    itemHappyHour.addActionListener(e -> {
-        gestionnaireEvenements.lancerHappyHourManuel();
-        JOptionPane.showMessageDialog(this, "Happy Hour lancé manuellement!", 
-            "Événement", JOptionPane.INFORMATION_MESSAGE);
-        rafraichirTousLesPanels();
-    });
-    
-    JMenuItem itemParade = new JMenuItem("Parade");
-    itemParade.addActionListener(e -> {
-        gestionnaireEvenements.lancerParadeManuel();
-        JOptionPane.showMessageDialog(this, "Parade lancée manuellement!", 
-            "Événement", JOptionPane.INFORMATION_MESSAGE);
-        rafraichirTousLesPanels();
-    });
-    
-    JMenuItem itemSpectacle = new JMenuItem("Spectacle nocturne");
-    itemSpectacle.addActionListener(e -> {
-        gestionnaireEvenements.lancerSpectacleNocturneManuel();
-        JOptionPane.showMessageDialog(this, "Spectacle nocturne lancé manuellement!", 
-            "Événement", JOptionPane.INFORMATION_MESSAGE);
-        rafraichirTousLesPanels();
-    });
-    
-    subLancerEvenement.add(itemHappyHour);
-    subLancerEvenement.add(itemParade);
-    subLancerEvenement.add(itemSpectacle);
-    menuManager.add(subLancerEvenement);
-    
-    menuBar.add(menuManager);
-    
-    // ========== MENU ATTRACTIONS (NOUVEAU) ==========
-    JMenu menuAttractions = new JMenu("Attractions");
-    
-    JMenuItem itemOuvrirAttraction = new JMenuItem("Ouvrir une attraction");
-    itemOuvrirAttraction.addActionListener(e -> ouvrirAttractionManuel());
-    
-    JMenuItem itemFermerAttraction = new JMenuItem("Fermer une attraction");
-    itemFermerAttraction.addActionListener(e -> fermerAttractionManuel());
-    
-    JMenuItem itemMettreEnPanne = new JMenuItem("Simuler une panne");
-    itemMettreEnPanne.addActionListener(e -> simulerPanneAttraction());
-    
-    menuAttractions.add(itemOuvrirAttraction);
-    menuAttractions.add(itemFermerAttraction);
-    menuAttractions.addSeparator();
-    menuAttractions.add(itemMettreEnPanne);
-    
-    menuBar.add(menuAttractions);
-    
-    // ========== MENU AFFICHAGE ==========
-    JMenu menuAffichage = new JMenu("Affichage");
-    
-    JMenuItem itemTableauBord = new JMenuItem("Tableau de bord");
-    itemTableauBord.addActionListener(e -> afficherVue(CARD_DASHBOARD));
-    
-    JMenuItem itemGestion = new JMenuItem("Gestion");
-    itemGestion.addActionListener(e -> afficherVue(CARD_GESTION));
-    
-    JMenuItem itemTransactions = new JMenuItem("Transactions");
-    itemTransactions.addActionListener(e -> afficherVue(CARD_TRANSACTIONS));
-    
-    menuAffichage.add(itemTableauBord);
-    menuAffichage.add(itemGestion);
-    menuAffichage.add(itemTransactions);
-    
-    menuBar.add(menuAffichage);
-    
-    // ========== MENU RAPPORTS ==========
-JMenu menuRapports = new JMenu(" Rapports");
 
-JMenuItem itemAfficherRapports = new JMenuItem(" Afficher les rapports");
-itemAfficherRapports.addActionListener(e -> {
-    DialogRapports d = new DialogRapports(this, gestionnaireParc);
-    d.setVisible(true);
-});
-menuRapports.add(itemAfficherRapports);
+    private void creerBarreMenuFancy() {
+        JMenuBar mb = new JMenuBar();
+        mb.setBackground(UIStyles.DUSK_BLUE);
+        mb.setBorder(BorderFactory.createEmptyBorder(5, 10, 5, 10));
 
-// NOUVEAU : Rafraîchir tous les panels
-JMenuItem itemRafraichirTout = new JMenuItem(" Rafraîchir l'affichage");
-itemRafraichirTout.addActionListener(e -> {
-    rafraichirTousLesPanels();
-    JOptionPane.showMessageDialog(this,
-        " Tous les panneaux ont été rafraîchis!",
-        "Rafraîchissement",
-        JOptionPane.INFORMATION_MESSAGE);
-});
-menuRapports.add(itemRafraichirTout);
-
-menuBar.add(menuRapports);
-    
-    // ========== MENU AIDE ==========
-    JMenu menuAide = new JMenu("Aide");
-    
-    JMenuItem itemAPropos = new JMenuItem("À propos");
-    itemAPropos.addActionListener(e -> afficherAPropos());
-    menuAide.add(itemAPropos);
-    
-    JMenuItem itemQuitter = new JMenuItem("Quitter");
-    itemQuitter.addActionListener(e -> quitter());
-    menuAide.addSeparator();
-    menuAide.add(itemQuitter);
-    
-    menuBar.add(menuAide);
-    
-    setJMenuBar(menuBar);
-    }
-    
-    /**
-     * Ouvre le parc (menu Parc)
-     */
-    private void ouvrirParc() {
-        try {
-            gestionnaireParc.ouvrirParc();
-            JOptionPane.showMessageDialog(this, "Le parc est ouvert.", "Parc",
-                JOptionPane.INFORMATION_MESSAGE);
-            rafraichirTousLesPanels();
-        } catch (ParcFermeException ex) {
-            JOptionPane.showMessageDialog(this,
-                "Le parc est déjà ouvert.", "Parc", JOptionPane.WARNING_MESSAGE);
-        }
-    }
-    
-    /**
-     * Ferme le parc (menu Parc)
-     */
-    private void fermerParc() {
-        gestionnaireParc.fermerParc();
-        JOptionPane.showMessageDialog(this, "Le parc est fermé.", "Parc",
-            JOptionPane.INFORMATION_MESSAGE);
-        rafraichirTousLesPanels();
-    }
-    
-    /**
-     * Rafraîchit l'affichage de tous les panels (état du parc, dashboard, etc.)
-     * Appelable depuis l'extérieur (ex. après ouverture du parc au démarrage).
-     */
-    public void rafraichirAffichage() {
-        rafraichirTousLesPanels();
-    }
-    
-    private void rafraichirTousLesPanels() {
-        if (panelVueParc != null) panelVueParc.rafraichir();
-        if (panelDashboard != null) panelDashboard.rafraichir();
-        if (panelAttractions != null) panelAttractions.rafraichir();
-        if (panelStatistiques != null) panelStatistiques.rafraichir();
-        if (panelNotifications != null) panelNotifications.rafraichir();
-    }
-    
-    /**
-     * Affiche la boîte À propos
-     */
-    private void afficherAPropos() {
-        String message = "Parc d'Attractions - Mode Gestion\n\n" +
-            "Version 1.0\n" +
-            "Gestion manuelle d'un parc d'attractions\n" +
-            "avec ajout/suppression de visiteurs, attractions,\n" +
-            "employés, gestion météo et événements.";
-        
-        JOptionPane.showMessageDialog(this, message, 
-            "À propos", JOptionPane.INFORMATION_MESSAGE);
-    }
-    
-    /**
-     * Configure la fermeture de l'application
-     */
-    private void configurerFermeture() {
-        addWindowListener(new java.awt.event.WindowAdapter() {
-            @Override
-            public void windowClosing(java.awt.event.WindowEvent windowEvent) {
-                quitter();
+        // === MENU PARC ===
+        JMenu mParc = creerMenuSimple("Le Parc");
+        JMenuItem iOuvrir = new JMenuItem("Ouvrir le Parc");
+        iOuvrir.addActionListener(e -> {
+            try {
+                gp.ouvrirParc();
+                rafraichirTousLesPanels();
+            } catch (ParcFermeException ex) {
+                JOptionPane.showMessageDialog(MainFrame.this, 
+                    "Impossible d'ouvrir le parc: " + ex.getMessage(), 
+                    "Erreur", JOptionPane.ERROR_MESSAGE);
             }
         });
-    }
-    
-    /**
-     * Quitte l'application
-     */
-    private void quitter() {
-        int confirmation = JOptionPane.showConfirmDialog(this,
-            "Êtes-vous sûr de vouloir quitter ?",
-            "Confirmation",
-            JOptionPane.YES_NO_OPTION);
         
-        if (confirmation == JOptionPane.YES_OPTION) {
-            System.exit(0);
-        }
-    }
-
-    public void setMode(ModeApplication mode) {
-        this.mode = mode;
-    }
-    /**
- * Pause la simulation
- */
-private void pauseSimulation() {
-    gestionnaireParc.pauseSimulation();
-    JOptionPane.showMessageDialog(this, 
-        "Simulation mise en pause", 
-        "Pause", 
-        JOptionPane.INFORMATION_MESSAGE);
-    rafraichirTousLesPanels();
-}
-
-/**
- * Reprend la simulation
- */
-private void reprendreSimulation() {
-    gestionnaireParc.reprendreSimulation();
-    JOptionPane.showMessageDialog(this, 
-        "Simulation reprise", 
-        "Reprise", 
-        JOptionPane.INFORMATION_MESSAGE);
-    rafraichirTousLesPanels();
-}
-
-/**
- * Ajoute un visiteur manuellement
- */
-private void ajouterVisiteurManuel() {
-    if (!gestionnaireParc.estOuvert()) {
-        JOptionPane.showMessageDialog(this, 
-            "Le parc doit être ouvert pour ajouter des visiteurs", 
-            "Parc fermé", 
-            JOptionPane.WARNING_MESSAGE);
-        return;
-    }
-    
-    DialogAjoutVisiteur dialog = new DialogAjoutVisiteur(this);
-    dialog.setVisible(true);
-    
-    if (dialog.estValide()) {
-        rafraichirTousLesPanels();
-        JOptionPane.showMessageDialog(this, 
-            "Visiteur ajouté avec succès!", 
-            "Succès", 
-            JOptionPane.INFORMATION_MESSAGE);
-    }
-}
-
-/**
- * Visualise tous les visiteurs
- */
-private void visualiserVisiteurs() {
-    java.util.List<main.java.com.parcattractions.models.visiteurs.Visiteur> visiteurs = 
-        gestionnaireParc.getVisiteurs();
-    
-    if (visiteurs.isEmpty()) {
-        JOptionPane.showMessageDialog(this, 
-            "Aucun visiteur actuellement dans le parc", 
-            "Liste vide", 
-            JOptionPane.INFORMATION_MESSAGE);
-        return;
-    }
-    
-    StringBuilder sb = new StringBuilder("Visiteurs actuels (" + visiteurs.size() + "):\n\n");
-    for (main.java.com.parcattractions.models.visiteurs.Visiteur v : visiteurs) {
-        sb.append(String.format("• %s - Âge: %d ans, Satisfaction: %d%%, État: %s\n",
-            v.getNomVisiteur(), v.getAge(), v.getSatisfaction(), v.getEtat()));
-    }
-    
-    javax.swing.JTextArea textArea = new javax.swing.JTextArea(sb.toString());
-    textArea.setEditable(false);
-    textArea.setFont(UIStyles.MONOSPACE_FONT);
-    javax.swing.JScrollPane scrollPane = new javax.swing.JScrollPane(textArea);
-    scrollPane.setPreferredSize(new java.awt.Dimension(600, 400));
-    
-    JOptionPane.showMessageDialog(this, scrollPane, 
-        "Liste des Visiteurs", JOptionPane.INFORMATION_MESSAGE);
-}
-
-/**
- * Change la météo manuellement
- */
-private void changerMeteo(main.java.com.parcattractions.enums.Meteo meteo) {
-    gestionnaireParc.setMeteoActuelle(meteo);
-    JOptionPane.showMessageDialog(this, 
-        "Météo changée à : " + meteo, 
-        "Météo", 
-        JOptionPane.INFORMATION_MESSAGE);
-    rafraichirTousLesPanels();
-}
-
-/**
- * Ouvre une attraction manuellement
- */
-private void ouvrirAttractionManuel() {
-    String[] attractionNames = gestionnaireParc.getAttractions().stream()
-        .map(a -> a.getNom())
-        .toArray(String[]::new);
-    
-    if (attractionNames.length == 0) {
-        JOptionPane.showMessageDialog(this, 
-            "Aucune attraction disponible", 
-            "Erreur", 
-            JOptionPane.ERROR_MESSAGE);
-        return;
-    }
-    
-    String selected = (String) JOptionPane.showInputDialog(
-        this,
-        "Sélectionnez l'attraction à ouvrir:",
-        "Ouvrir Attraction",
-        JOptionPane.QUESTION_MESSAGE,
-        null,
-        attractionNames,
-        attractionNames[0]
-    );
-    
-    if (selected != null) {
-        main.java.com.parcattractions.models.attractions.Attraction attraction = 
-            gestionnaireParc.getAttractionParNom(selected);
-        if (attraction != null) {
-            attraction.ouvrir();
-            JOptionPane.showMessageDialog(this, 
-                "Attraction '" + selected + "' ouverte", 
-                "Succès", 
-                JOptionPane.INFORMATION_MESSAGE);
+        JMenuItem iFermer = new JMenuItem("Fermer le Parc");
+        iFermer.addActionListener(e -> {
+            try {
+                gp.fermerParc();
+                rafraichirTousLesPanels();
+                JOptionPane.showMessageDialog(MainFrame.this, "Parc fermé avec succès", "Info", JOptionPane.INFORMATION_MESSAGE);
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(MainFrame.this, "Erreur fermeture: " + ex.getMessage(), "Erreur", JOptionPane.ERROR_MESSAGE);
+            }
+        });
+        
+        JMenuItem iPause = new JMenuItem("Pause/Reprendre");
+        iPause.addActionListener(e -> {
+            try {
+                if (gp.estSimulationEnPause()) {
+                    gp.reprendreSimulation();
+                    JOptionPane.showMessageDialog(MainFrame.this, "Simulation reprise", "Info", JOptionPane.INFORMATION_MESSAGE);
+                } else {
+                    gp.pauseSimulation();
+                    JOptionPane.showMessageDialog(MainFrame.this, "Simulation en pause", "Info", JOptionPane.INFORMATION_MESSAGE);
+                }
+                rafraichirTousLesPanels();
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(MainFrame.this, "Erreur: " + ex.getMessage(), "Erreur", JOptionPane.ERROR_MESSAGE);
+            }
+        });
+        
+        mParc.add(iOuvrir);
+        mParc.addSeparator();
+        mParc.add(iFermer);
+        mParc.add(iPause);
+        mb.add(mParc);
+        
+        // === MENU VISITEURS ===
+        JMenu mVisiteurs = creerMenuSimple("Visiteurs");
+        JMenuItem iAjouterVisiteur = new JMenuItem("Ajouter un visiteur");
+        iAjouterVisiteur.addActionListener(e -> {
+            DialogAjoutVisiteur dialog = new DialogAjoutVisiteur(MainFrame.this);
+            dialog.setVisible(true);
             rafraichirTousLesPanels();
-        }
-    }
-}
-
-/**
- * Ferme une attraction manuellement
- */
-private void fermerAttractionManuel() {
-    String[] attractionNames = gestionnaireParc.getAttractions().stream()
-        .map(a -> a.getNom())
-        .toArray(String[]::new);
-    
-    if (attractionNames.length == 0) {
-        JOptionPane.showMessageDialog(this, 
-            "Aucune attraction disponible", 
-            "Erreur", 
-            JOptionPane.ERROR_MESSAGE);
-        return;
-    }
-    
-    String selected = (String) JOptionPane.showInputDialog(
-        this,
-        "Sélectionnez l'attraction à fermer:",
-        "Fermer Attraction",
-        JOptionPane.QUESTION_MESSAGE,
-        null,
-        attractionNames,
-        attractionNames[0]
-    );
-    
-    if (selected != null) {
-        main.java.com.parcattractions.models.attractions.Attraction attraction = 
-            gestionnaireParc.getAttractionParNom(selected);
-        if (attraction != null) {
-            attraction.fermer();
-            JOptionPane.showMessageDialog(this, 
-                "Attraction '" + selected + "' fermée", 
-                "Succès", 
-                JOptionPane.INFORMATION_MESSAGE);
+        });
+        
+        JMenuItem iListeVisiteurs = new JMenuItem("Consulter les visiteurs");
+        iListeVisiteurs.addActionListener(e -> {
+            DialogGestionVisiteurs dialog = new DialogGestionVisiteurs(MainFrame.this, gp);
+            dialog.setVisible(true);
             rafraichirTousLesPanels();
-        }
-    }
-}
-
-/**
- * Simule une panne sur une attraction
- */
-private void simulerPanneAttraction() {
-    String[] attractionNames = gestionnaireParc.getAttractions().stream()
-        .map(a -> a.getNom())
-        .toArray(String[]::new);
-    
-    if (attractionNames.length == 0) {
-        JOptionPane.showMessageDialog(this, 
-            "Aucune attraction disponible", 
-            "Erreur", 
-            JOptionPane.ERROR_MESSAGE);
-        return;
-    }
-    
-    String selected = (String) JOptionPane.showInputDialog(
-        this,
-        "Sélectionnez l'attraction à mettre en panne:",
-        "Simuler Panne",
-        JOptionPane.WARNING_MESSAGE,
-        null,
-        attractionNames,
-        attractionNames[0]
-    );
-    
-    if (selected != null) {
-        main.java.com.parcattractions.models.attractions.Attraction attraction = 
-            gestionnaireParc.getAttractionParNom(selected);
-        if (attraction != null) {
-            attraction.mettrePanne();
-            JOptionPane.showMessageDialog(this, 
-                "Panne simulée sur '" + selected + "'!\nUn technicien sera appelé.", 
-                "Panne", 
-                JOptionPane.WARNING_MESSAGE);
+        });
+        
+        mVisiteurs.add(iAjouterVisiteur);
+        mVisiteurs.add(iListeVisiteurs);
+        mb.add(mVisiteurs);
+        
+        // === MENU ATTRACTIONS ===
+        JMenu mAttractions = creerMenuSimple("Attractions");
+        JMenuItem iOuvrirAttraction = new JMenuItem("Ouvrir");
+        iOuvrirAttraction.addActionListener(e -> {
+            JOptionPane.showMessageDialog(MainFrame.this, "Utilisez le panneau des attractions pour gérer", "Info", JOptionPane.INFORMATION_MESSAGE);
+        });
+        JMenuItem iFermerAttraction = new JMenuItem("Fermer");
+        iFermerAttraction.addActionListener(e -> {
+            JOptionPane.showMessageDialog(MainFrame.this, "Utilisez le panneau des attractions pour gérer", "Info", JOptionPane.INFORMATION_MESSAGE);
+        });
+        mAttractions.add(iOuvrirAttraction);
+        mAttractions.add(iFermerAttraction);
+        mb.add(mAttractions);
+        
+        // === MENU MÉTÉO ===
+        JMenu mMeteo = creerMenuSimple("Météo");
+        JMenuItem iChangerMeteo = new JMenuItem("Changer la météo");
+        iChangerMeteo.addActionListener(e -> {
+            new DialogConfiguration(MainFrame.this).setVisible(true);
             rafraichirTousLesPanels();
+        });
+        mMeteo.add(iChangerMeteo);
+        mb.add(mMeteo);
+        
+        // === MENU MANAGER ===
+        JMenu mManager = creerMenuSimple("Manager");
+        JMenuItem iEvenement = new JMenuItem("Lancer un événement");
+        iEvenement.addActionListener(e -> {
+            if (!gp.estOuvert()) {
+                JOptionPane.showMessageDialog(MainFrame.this, "Le parc doit être ouvert", "Erreur", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            String[] options = {"Happy Hour", "Parade", "Spectacle Nocturne", "Annuler"};
+            int choice = JOptionPane.showOptionDialog(MainFrame.this, "Quel événement lancer?", "Événements",
+                    JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
+            if (choice >= 0 && choice < 3) {
+                JOptionPane.showMessageDialog(MainFrame.this, "Événement lancé!", "Info", JOptionPane.INFORMATION_MESSAGE);
+                rafraichirTousLesPanels();
+            }
+        });
+        
+        JMenuItem iGestionPersonnel = new JMenuItem("Gérer le personnel");
+        iGestionPersonnel.addActionListener(e -> {
+            new DialogGestionPersonnel(MainFrame.this, gp).setVisible(true);
+            rafraichirTousLesPanels();
+        });
+        
+        mManager.add(iEvenement);
+        mManager.add(iGestionPersonnel);
+        mb.add(mManager);
+        
+        // === MENU GESTION RH ===
+        JMenu mGestionRH = creerMenuSimple("Gestion RH");
+        JMenuItem iAjouterEmploye = new JMenuItem("Ajouter un employé");
+        iAjouterEmploye.addActionListener(e -> {
+            new DialogAjoutEmploye(MainFrame.this).setVisible(true);
+            rafraichirTousLesPanels();
+        });
+        JMenuItem iGererRH = new JMenuItem("Gérer les employés");
+        iGererRH.addActionListener(e -> {
+            new DialogGestionPersonnel(MainFrame.this, gp).setVisible(true);
+            rafraichirTousLesPanels();
+        });
+        mGestionRH.add(iAjouterEmploye);
+        mGestionRH.add(iGererRH);
+        mb.add(mGestionRH);
+        
+        // === MENU AFFICHAGE ===
+        JMenu mAffichage = creerMenuSimple("Affichage");
+        JMenuItem iDashboard = new JMenuItem("Tableau de Bord");
+        iDashboard.addActionListener(e -> cardLayout.show(contentPanel, "dashboard"));
+        JMenuItem iNotifications = new JMenuItem("Notifications & Alertes");
+        iNotifications.addActionListener(e -> cardLayout.show(contentPanel, "notifications"));
+        JMenuItem iTransactions = new JMenuItem("Moniteur Financier");
+        iTransactions.addActionListener(e -> cardLayout.show(contentPanel, "transactions"));
+        JMenuItem iRapports = new JMenuItem("Rapports & Statistiques");
+        iRapports.addActionListener(e -> cardLayout.show(contentPanel, "rapports"));
+        
+        mAffichage.add(iDashboard);
+        mAffichage.addSeparator();
+        mAffichage.add(iNotifications);
+        mAffichage.add(iTransactions);
+        mAffichage.add(iRapports);
+        mb.add(mAffichage);
+        
+        setJMenuBar(mb);
+    }
+
+    private JMenu creerMenuSimple(String title) {
+        JMenu m = new JMenu(title);
+        m.setForeground(Color.WHITE);
+        m.setFont(UIStyles.HEADER_FONT);
+        return m;
+    }
+
+    private void initialiserInterface() {
+        getContentPane().setBackground(UIStyles.BG_WINDOW); // Fond global gris modern
+        
+        cardLayout = new CardLayout();
+        contentPanel = new JPanel(cardLayout);
+        contentPanel.setBackground(UIStyles.BG_WINDOW);
+
+        // === VUE TABLEAU DE BORD ===
+        JPanel dashboardView = creerVueDashboard();
+        contentPanel.add(dashboardView, "dashboard");
+        
+        // === VUE NOTIFICATIONS ===
+        JPanel notificationsView = new JPanel(new BorderLayout());
+        notificationsView.setBackground(UIStyles.BG_WINDOW);
+        notificationsView.add(new PanelNotifications(), BorderLayout.CENTER);
+        contentPanel.add(notificationsView, "notifications");
+        
+        // === VUE TRANSACTIONS ===
+        JPanel transactionsView = new JPanel(new BorderLayout());
+        transactionsView.setBackground(UIStyles.BG_WINDOW);
+        transactionsView.add(new PanelTransactions(), BorderLayout.CENTER);
+        contentPanel.add(transactionsView, "transactions");
+        
+        // === VUE RAPPORTS ===
+        JPanel rapportsView = new JPanel(new BorderLayout());
+        rapportsView.setBackground(UIStyles.BG_WINDOW);
+        rapportsView.add(new PanelRapports(gp), BorderLayout.CENTER);
+        contentPanel.add(rapportsView, "rapports");
+        
+        cardLayout.show(contentPanel, "dashboard");
+        add(contentPanel, BorderLayout.CENTER);
+    }
+    
+    private JPanel creerVueDashboard() {
+        JPanel mainView = new JPanel(new BorderLayout(20, 20));
+        mainView.setBackground(UIStyles.BG_WINDOW);
+        mainView.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
+        
+        PanelDashboard db = new PanelDashboard(gp);
+        PanelStatistiques stats = new PanelStatistiques(gp);
+        
+        JPanel leftPanel = new JPanel(new BorderLayout(10, 10));
+        leftPanel.setOpaque(false);
+        leftPanel.add(db, BorderLayout.NORTH);
+        leftPanel.add(stats, BorderLayout.CENTER);
+
+        mainView.add(leftPanel, BorderLayout.WEST);
+        mainView.add(new PanelAttractions(gp, this), BorderLayout.CENTER);
+        
+        return mainView;
+    }
+
+    private void rafraichirTousLesPanels() {
+        // Logique de rafraîchissement
+        Component[] components = contentPanel.getComponents();
+        for (Component c : components) {
+            if (c instanceof PanelDashboard) {
+                ((PanelDashboard) c).rafraichir();
+            }
         }
     }
-}
 }

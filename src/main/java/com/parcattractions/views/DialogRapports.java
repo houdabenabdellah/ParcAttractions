@@ -1,25 +1,12 @@
 package main.java.com.parcattractions.views;
 
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Font;
-import java.awt.GridLayout;
-import javax.swing.BorderFactory;
-import javax.swing.JButton;
-import javax.swing.JDialog;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTabbedPane;
-import javax.swing.JTextArea;
+import java.awt.*;
+import javax.swing.*;
 import main.java.com.parcattractions.controllers.GestionnaireParc;
-import main.java.com.parcattractions.utils.ExporteurCSV;
-import main.java.com.parcattractions.utils.GenerateurRapports;
-import resources.styles.UIStyles;
+import main.java.com.parcattractions.resources.styles.UIStyles;
+import main.java.com.parcattractions.utils.*;
 
-/**
- * Dialog pour afficher tous les rapports du parc
- */
+
 public class DialogRapports extends JDialog {
     
     private final GestionnaireParc gestionnaireParc;
@@ -27,151 +14,80 @@ public class DialogRapports extends JDialog {
     private final ExporteurCSV exporteur;
     
     public DialogRapports(JFrame parent, GestionnaireParc gestionnaireParc) {
-        super(parent, "Rapports et Statistiques", true);
-        
+        super(parent, "Rapports & Analystiques", true);
         this.gestionnaireParc = gestionnaireParc;
         this.generateur = new GenerateurRapports(gestionnaireParc);
         this.exporteur = new ExporteurCSV(gestionnaireParc);
         
-        setSize(900, 650);
+        setSize(950, 700);
         setLocationRelativeTo(parent);
-        getContentPane().setBackground(UIStyles.BG_LIGHT);
-        
+        getContentPane().setBackground(UIStyles.BG_WINDOW);
         buildUI();
     }
     
     private void buildUI() {
-        setLayout(new BorderLayout());
-        
-        // Titre
-        JPanel panelTitre = new JPanel();
-        panelTitre.setBackground(UIStyles.PRIMARY_COLOR);
-        JPanel panelLabelTitre = new JPanel();
-        panelLabelTitre.setBackground(UIStyles.PRIMARY_COLOR);
-        
-        JTabbedPane tabbedPane = new JTabbedPane();
-        tabbedPane.setFont(UIStyles.HEADER_FONT);
-        tabbedPane.setBackground(Color.WHITE);
-        
-        // Onglet Résumé Financier
-        tabbedPane.addTab("Financier", createRapportPanel(generateur.genererRapportFinancier()));
-        
-        // Onglet Occupation
-        tabbedPane.addTab("Occupation", createRapportPanel(generateur.genererRapportOccupation()));
-        
-        // Onglet Satisfaction
-        tabbedPane.addTab("Satisfaction", createRapportPanel(generateur.genererRapportSatisfaction()));
-        
-        // Onglet RH
-        tabbedPane.addTab("Ressources Humaines", createRapportPanel(generateur.genererRapportRH()));
-        
-        // Onglet Complet
-        tabbedPane.addTab("Rapport Complet", createRapportPanel(generateur.genererRapportComplet()));
-        
-        add(tabbedPane, BorderLayout.CENTER);
-        
-        // Boutons d'export
-        JPanel panelBoutons = creerPanelBoutons();
-        add(panelBoutons, BorderLayout.SOUTH);
-    }
-    
-    /**
-     * Crée un panel affichant un rapport dans un JTextArea scrollable
-     */
-    private JPanel createRapportPanel(String contenuRapport) {
-        JPanel panel = new JPanel(new BorderLayout());
-        panel.setBackground(Color.WHITE);
-        panel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
-        
-        JTextArea textArea = new JTextArea();
-        textArea.setText(contenuRapport);
-        textArea.setEditable(false);
-        textArea.setFont(new Font("Courier New", Font.PLAIN, 11));
-        textArea.setBackground(UIStyles.BG_LIGHT);
-        textArea.setForeground(UIStyles.TEXT_PRIMARY);
-        textArea.setLineWrap(false);
-        textArea.setWrapStyleWord(false);
-        textArea.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
-        
-        JScrollPane scrollPane = new JScrollPane(textArea);
-        scrollPane.setBorder(BorderFactory.createLineBorder(UIStyles.BORDER_COLOR, 1));
-        scrollPane.setBackground(Color.WHITE);
-        
-        panel.add(scrollPane, BorderLayout.CENTER);
-        
-        return panel;
-    }
-    
-    /**
-     * Crée le panel des boutons d'export
-     */
-    private JPanel creerPanelBoutons() {
-        JPanel panel = new JPanel();
-        panel.setBackground(UIStyles.BG_LIGHT);
-        panel.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
-        panel.setLayout(new GridLayout(1, 4, 10, 10));
-        
-        // Bouton Exporter CSV
-        JButton btnExportCSV = new JButton("Exporter en CSV");
-        btnExportCSV.addActionListener(e -> {
-    String fichier = exporteur.exporterResume();
-    if (fichier != null) {
-        javax.swing.JOptionPane.showMessageDialog(this, 
-            "Rapport CSV exporté avec succès!\n\n" +
-            "Emplacement:\n" + fichier + "\n\n" +
-            "Vous pouvez ouvrir ce fichier avec Excel ou LibreOffice.",
-            "Exportation réussie", 
-            javax.swing.JOptionPane.INFORMATION_MESSAGE);
-    } else {
-        javax.swing.JOptionPane.showMessageDialog(this, 
-            "Erreur lors de l'export CSV\n\n" +
-            "Vérifiez les permissions d'écriture du dossier.",
-            "Erreur d'exportation", 
-            javax.swing.JOptionPane.ERROR_MESSAGE);
-    }
-});
-        UIStyles.stylePrimaryButton(btnExportCSV);
-        panel.add(btnExportCSV);
-        
-        // Bouton Exporter HTML
-        JButton btnExportHTML = new JButton("Exporter en HTML");
-        btnExportHTML.addActionListener(e -> {
-    String fichier = exporteur.exporterHTML();
-    if (fichier != null) {
-        javax.swing.JOptionPane.showMessageDialog(this, 
-            " Rapport HTML exporté avec succès!\n\n" +
-            "Emplacement:\n" + fichier + "\n\n" +
-            "Vous pouvez ouvrir ce fichier dans votre navigateur web.",
-            "Exportation réussie", 
-            javax.swing.JOptionPane.INFORMATION_MESSAGE);
-    } else {
-        javax.swing.JOptionPane.showMessageDialog(this, 
-            " Erreur lors de l'export HTML\n\n" +
-            "Vérifiez les permissions d'écriture du dossier.",
-            "Erreur d'exportation", 
-            javax.swing.JOptionPane.ERROR_MESSAGE);
-    }
-});
-        UIStyles.stylePrimaryButton(btnExportHTML);
-        panel.add(btnExportHTML);
+        setLayout(new BorderLayout(15, 15));
 
-        // Bouton Rafraîchir les rapports
-JButton btnRafraichir = new JButton("Rafraîchir");
-btnRafraichir.addActionListener(e -> {
-    dispose();
-    DialogRapports nouveauDialog = new DialogRapports(
-        (JFrame) getOwner(), gestionnaireParc);
-    nouveauDialog.setVisible(true);
-});
-UIStyles.styleAccentButton(btnRafraichir);
-panel.add(btnRafraichir);
-        
-        // Bouton Fermer
-        JButton btnFermer = new JButton("Fermer");
-        btnFermer.addActionListener(e -> dispose());
-        UIStyles.styleSecondaryButton(btnFermer);
-        panel.add(btnFermer);
-        
-        return panel;
+        JLabel title = new JLabel("REPRÉSENTATION DES PERFORMANCES DU PARC");
+        title.setFont(UIStyles.TITLE_FONT);
+        title.setForeground(UIStyles.DUSK_BLUE);
+        title.setHorizontalAlignment(SwingConstants.CENTER);
+        title.setBorder(BorderFactory.createEmptyBorder(20, 0, 10, 0));
+        add(title, BorderLayout.NORTH);
+
+        JTabbedPane tabs = new JTabbedPane();
+        tabs.setFont(UIStyles.HEADER_FONT);
+        tabs.setBackground(Color.WHITE);
+
+        tabs.addTab(" Finance ", createReportPanel(generateur.genererRapportFinancier(), UIStyles.LIGHT_BRONZE));
+        tabs.addTab(" Fréquentation ", createReportPanel(generateur.genererRapportOccupation(), UIStyles.DUSTY_LAVENDER));
+        tabs.addTab(" Satisfaction ", createReportPanel(generateur.genererRapportSatisfaction(), UIStyles.ROSEWOOD));
+        tabs.addTab(" Rapport Global ", createReportPanel(generateur.genererRapportComplet(), UIStyles.DUSK_BLUE));
+
+        JPanel wrapper = new JPanel(new BorderLayout());
+        wrapper.setOpaque(false);
+        wrapper.setBorder(BorderFactory.createEmptyBorder(0, 25, 0, 25));
+        wrapper.add(tabs, BorderLayout.CENTER);
+        add(wrapper, BorderLayout.CENTER);
+
+        // --- Action Panel ---
+        JPanel actionPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 20, 25));
+        actionPanel.setOpaque(false);
+
+        JButton csvBtn = new JButton("Exporter (.CSV)");
+        UIStyles.styleSecondaryButton(csvBtn);
+        csvBtn.addActionListener(e -> exporteur.exporterResume());
+
+        JButton htmlBtn = new JButton("Aperçu Web (.HTML)");
+        UIStyles.stylePrimaryButton(htmlBtn);
+        htmlBtn.addActionListener(e -> exporteur.exporterHTML());
+
+        JButton quit = new JButton("Fermer");
+        UIStyles.styleAccentButton(quit);
+        quit.addActionListener(e -> dispose());
+
+        actionPanel.add(csvBtn); actionPanel.add(htmlBtn); actionPanel.add(quit);
+        add(actionPanel, BorderLayout.SOUTH);
+    }
+    
+    private JPanel createReportPanel(String text, Color borderColor) {
+        JPanel p = new JPanel(new BorderLayout());
+        p.setBackground(Color.WHITE);
+        p.setBorder(BorderFactory.createCompoundBorder(
+            BorderFactory.createMatteBorder(3, 0, 0, 0, borderColor),
+            BorderFactory.createEmptyBorder(15, 15, 15, 15)
+        ));
+
+        JTextArea area = new JTextArea(text);
+        area.setEditable(false);
+        area.setFont(UIStyles.MONOSPACE_FONT);
+        area.setBackground(new Color(250, 250, 252));
+        area.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+
+        JScrollPane sp = new JScrollPane(area);
+        sp.setBorder(BorderFactory.createLineBorder(new Color(230, 230, 230)));
+        p.add(sp, BorderLayout.CENTER);
+
+        return p;
     }
 }

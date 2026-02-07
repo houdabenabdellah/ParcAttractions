@@ -1,27 +1,70 @@
 ID;Nom;Poste;État;Fatigue;SalaireJour
-EMP001;Jean Dupont;Animateur;EN_SERVICE;25.5%;50.00€
-EMP002;Marie Martin;Contremaître;EN_SERVICE;15.3%;55.00€
-EMP003;Pierre Bernard;Maintenance;EN_REPOS;0.0%;50.00€
-EMP004;Sophie Laurent;Caissière;EN_SERVICE;30.0%;50.00€
-EMP005;Luc Moreau;Animateur;EN_SERVICE;45.2%;50.00€
-EMP006;Isabelle Durand;Contremaître;ABSENCE;0.0%;55.00€
-1;Jean Dupont;Opérateur;DISPONIBLE;0;2026-01-30 01:48:37
-2;Marie Martin;Opérateur;DISPONIBLE;0;2026-01-30 01:48:37
-3;Pierre Bernard;Opérateur;DISPONIBLE;0;2026-01-30 01:48:37
-4;Sophie Dubois;Opérateur;DISPONIBLE;0;2026-01-30 01:48:37
-5;Luc Moreau;Opérateur;DISPONIBLE;0;2026-01-30 01:48:37
-6;Emma Laurent;Opérateur;DISPONIBLE;0;2026-01-30 01:48:37
-7;Thomas Simon;Opérateur;DISPONIBLE;0;2026-01-30 01:48:37
-8;Julie Michel;Opérateur;DISPONIBLE;0;2026-01-30 01:48:37
-9;Robert Durand;Technicien;DISPONIBLE;0;2026-01-30 01:48:37
-10;Claire Leroy;Technicien;DISPONIBLE;0;2026-01-30 01:48:37
-11;Marc Petit;Technicien;DISPONIBLE;0;2026-01-30 01:48:37
-12;Isabelle Roux;Technicien;DISPONIBLE;0;2026-01-30 01:48:37
-13;Paul Girard;Agent Sécurité;DISPONIBLE;0;2026-01-30 01:48:37
-14;Anne Lefebvre;Agent Sécurité;DISPONIBLE;0;2026-01-30 01:48:37
-15;Michel Bonnet;Agent Sécurité;DISPONIBLE;0;2026-01-30 01:48:37
-16;Camille Vincent;Vendeur Restaurant;DISPONIBLE;0;2026-01-30 01:48:37
-17;Nicolas Fournier;Vendeur Restaurant;DISPONIBLE;0;2026-01-30 01:48:37
-18;Laura Garcia;Vendeur Boutique;DISPONIBLE;0;2026-01-30 01:48:37
-19;David Martinez;Vendeur Boutique;DISPONIBLE;0;2026-01-30 01:48:37
-20;Sarah Brown;Vendeur Boutique;DISPONIBLE;0;2026-01-30 01:48:37
+1;Jean Dupont;Opérateur;DISPONIBLE;0%;50,00€
+2;Marie Martin;Opérateur;DISPONIBLE;0%;50,00€
+3;Pierre Bernard;Opérateur;DISPONIBLE;0%;50,00€
+4;Sophie Dubois;Opérateur;DISPONIBLE;0%;50,00€
+5;Luc Moreau;Opérateur;DISPONIBLE;0%;50,00€
+6;Emma Laurent;Opérateur;DISPONIBLE;0%;50,00€
+7;Thomas Simon;Opérateur;DISPONIBLE;0%;50,00€
+8;Julie Michel;Opérateur;DISPONIBLE;0%;50,00€
+9;Robert Durand;Technicien;DISPONIBLE;0%;50,00€
+10;Claire Leroy;Technicien;DISPONIBLE;0%;50,00€
+11;Marc Petit;Technicien;DISPONIBLE;0%;50,00€
+12;Isabelle Roux;Technicien;DISPONIBLE;0%;50,00€
+13;Paul Girard;Agent Sécurité;DISPONIBLE;0%;50,00€
+14;Anne Lefebvre;Agent Sécurité;DISPONIBLE;0%;50,00€
+15;Michel Bonnet;Agent Sécurité;DISPONIBLE;0%;50,00€
+16;Camille Vincent;Vendeur Restaurant;DISPONIBLE;0%;50,00€
+17;Nicolas Fournier;Vendeur Restaurant;DISPONIBLE;0%;50,00€
+18;Laura Garcia;Vendeur Boutique;DISPONIBLE;0%;50,00€
+19;David Martinez;Vendeur Boutique;DISPONIBLE;0%;50,00€
+20;Sarah Brown;Vendeur Boutique;DISPONIBLE;0%;50,00€
+21;Robert Durand;Technicien;DISPONIBLE;0%;50,00€
+22;Claire Leroy;Technicien;DISPONIBLE;0%;50,00€
+23;Marc Petit;Technicien;DISPONIBLE;0%;50,00€
+24;Isabelle Roux;Technicien;DISPONIBLE;0%;50,00€
+25;Paul Girard;Agent Sécurité;DISPONIBLE;0%;50,00€
+26;Anne Lefebvre;Agent Sécurité;DISPONIBLE;0%;50,00€
+27;Michel Bonnet;Agent Sécurité;DISPONIBLE;0%;50,00€
+28;Robert Durand;Technicien;DISPONIBLE;0%;50,00€
+29;Claire Leroy;Technicien;DISPONIBLE;0%;50,00€
+30;Marc Petit;Technicien;DISPONIBLE;0%;50,00€
+31;Isabelle Roux;Technicien;DISPONIBLE;0%;50,00€
+32;Paul Girard;Agent Sécurité;DISPONIBLE;0%;50,00€
+33;Anne Lefebvre;Agent Sécurité;DISPONIBLE;0%;50,00€
+34;Michel Bonnet;Agent Sécurité;DISPONIBLE;0%;50,00€
+35;Robert Durand;Technicien;DISPONIBLE;0%;50,00€
+36;Claire Leroy;Technicien;DISPONIBLE;0%;50,00€
+37;Marc Petit;Technicien;DISPONIBLE;0%;50,00€
+38;Isabelle Roux;Technicien;DISPONIBLE;0%;50,00€
+39;Paul Girard;Agent Sécurité;DISPONIBLE;0%;50,00€
+40;Anne Lefebvre;Agent Sécurité;DISPONIBLE;0%;50,00€
+41;Michel Bonnet;Agent Sécurité;DISPONIBLE;0%;50,00€
+42;Robert Durand;Technicien;DISPONIBLE;0%;50,00€
+43;Claire Leroy;Technicien;DISPONIBLE;0%;50,00€
+44;Marc Petit;Technicien;DISPONIBLE;0%;50,00€
+45;Isabelle Roux;Technicien;DISPONIBLE;0%;50,00€
+46;Paul Girard;Agent Sécurité;DISPONIBLE;0%;50,00€
+47;Anne Lefebvre;Agent Sécurité;DISPONIBLE;0%;50,00€
+48;Michel Bonnet;Agent Sécurité;DISPONIBLE;0%;50,00€
+49;Robert Durand;Technicien;DISPONIBLE;0%;50,00€
+50;Claire Leroy;Technicien;DISPONIBLE;0%;50,00€
+51;Marc Petit;Technicien;DISPONIBLE;0%;50,00€
+52;Isabelle Roux;Technicien;DISPONIBLE;0%;50,00€
+53;Paul Girard;Agent Sécurité;DISPONIBLE;0%;50,00€
+54;Anne Lefebvre;Agent Sécurité;DISPONIBLE;0%;50,00€
+55;Michel Bonnet;Agent Sécurité;DISPONIBLE;0%;50,00€
+56;Robert Durand;Technicien;DISPONIBLE;0%;50,00€
+57;Claire Leroy;Technicien;DISPONIBLE;0%;50,00€
+58;Marc Petit;Technicien;DISPONIBLE;0%;50,00€
+59;Isabelle Roux;Technicien;DISPONIBLE;0%;50,00€
+60;Paul Girard;Agent Sécurité;DISPONIBLE;0%;50,00€
+61;Anne Lefebvre;Agent Sécurité;DISPONIBLE;0%;50,00€
+62;Michel Bonnet;Agent Sécurité;DISPONIBLE;0%;50,00€
+63;Robert Durand;Technicien;DISPONIBLE;0%;50,00€
+64;Claire Leroy;Technicien;DISPONIBLE;0%;50,00€
+65;Marc Petit;Technicien;DISPONIBLE;0%;50,00€
+66;Isabelle Roux;Technicien;DISPONIBLE;0%;50,00€
+67;Paul Girard;Agent Sécurité;DISPONIBLE;0%;50,00€
+68;Anne Lefebvre;Agent Sécurité;DISPONIBLE;0%;50,00€
+69;Michel Bonnet;Agent Sécurité;DISPONIBLE;0%;50,00€

@@ -15,7 +15,7 @@ public class ManegeEnfants extends Attraction {
             3,                               // Âge minimum: 3 ans
             0,                               // Pas de restriction de taille
             false,                            // Intérieure
-            "resources/images/manegeenchante.png",
+            "/main/java/com/parcattractions/resources/images/manegeenchante.png",
             3.0, 5.0  // Ticket normal 3€, Fast Pass 5€
         );
     }

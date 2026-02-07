@@ -15,7 +15,7 @@ public class GrandeRoue extends Attraction {
             3,                               // Âge minimum: 3 ans
             0,                               // Pas de restriction de taille
             true,                             // Extérieure
-            "resources/images/granderoue.png",
+            "/main/java/com/parcattractions/resources/images/granderoue.png",
             5.0, 8.0  // Ticket normal 5€, Fast Pass 8€
         );
     }

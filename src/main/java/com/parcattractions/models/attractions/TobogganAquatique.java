@@ -15,7 +15,7 @@ public class TobogganAquatique extends Attraction {
             8,                               // Âge minimum: 8 ans
             120,                             // Taille minimum: 120 cm
             true,                                // Extérieure
-            "resources/images/tobogganaquatique.png",
+            "/main/java/com/parcattractions/resources/images/tobogganaquatique.png",
             5.0, 8.0  // Ticket normal 5€, Fast Pass 8€
         );
     }

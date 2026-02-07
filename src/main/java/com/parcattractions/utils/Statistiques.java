@@ -169,9 +169,12 @@ public class Statistiques {
     }
     
     /**
-     * @return Temps d'attente moyen formaté
+     * @return Temps d'attente moyen formaté (ou "—" si jamais mis à jour)
      */
     public synchronized String getTempsAttenteMoyenFormate() {
+        if (tempsAttenteMoyen <= 0 && nombreToursEffectues.get() == 0) {
+            return "—";
+        }
         int minutes = (int) (tempsAttenteMoyen / 60);
         int secondes = (int) (tempsAttenteMoyen % 60);
         return String.format("%d min %d sec", minutes, secondes);
@@ -194,9 +197,13 @@ public class Statistiques {
     }
     
     /**
-     * @return Satisfaction formatée avec emoji
+     * @return Satisfaction formatée (ou "—" si aucun avis)
      */
     public synchronized String getSatisfactionFormatee() {
+        int totalAvis = avisPositifs.get() + avisNegatifs.get();
+        if (totalAvis == 0) {
+            return "— (aucun avis)";
+        }
         String indicateur;
         if (satisfactionMoyenne >= 80) {
             indicateur = "[Excellent]";

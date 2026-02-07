@@ -1,100 +1,53 @@
 package main.java.com.parcattractions.views;
 
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Component;
-import java.awt.Font;
-import java.awt.GridLayout;
-import javax.swing.BorderFactory;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.SwingConstants;
+import java.awt.*;
+import javax.swing.*;
 import main.java.com.parcattractions.controllers.GestionnaireParc;
-import resources.styles.UIStyles;
-
-/**
- * Panel vue d'ensemble du parc - Stylisé
- */
+import main.java.com.parcattractions.resources.styles.UIStyles;
 public class PanelVueParc extends JPanel {
     
     private final GestionnaireParc gestionnaireParc;
-    private JLabel labelEtat;
+    private JLabel labelStatusBadge;
+    private JLabel labelMeteo, labelPop;
     
     public PanelVueParc(GestionnaireParc gestionnaireParc) {
         this.gestionnaireParc = gestionnaireParc;
         
-        setBackground(Color.WHITE);
-        setBorder(UIStyles.createStyledBorder("État du Parc"));
-        setLayout(new BorderLayout(5, 5));
-        setBorder(BorderFactory.createCompoundBorder(
-            UIStyles.createStyledBorder("État du Parc"),
-            BorderFactory.createEmptyBorder(15, 15, 15, 15)
-        ));
+        setBackground(Color.WHITE); // Panel intérieur Blanc
+        setLayout(new BorderLayout(10, 10));
+        setBorder(UIStyles.createStyledBorder("Monitoring Principal"));
         
-        labelEtat = new JLabel("Parc Fermé");
-        labelEtat.setFont(new Font("Segoe UI", Font.BOLD, 18));
-        labelEtat.setForeground(UIStyles.DANGER_COLOR);
-        labelEtat.setHorizontalAlignment(SwingConstants.CENTER);
-        labelEtat.setOpaque(true);
-        labelEtat.setBackground(UIStyles.BG_LIGHT);
-        labelEtat.setBorder(BorderFactory.createCompoundBorder(
-            BorderFactory.createLineBorder(UIStyles.BORDER_COLOR, 2),
-            BorderFactory.createEmptyBorder(20, 20, 20, 20)
-        ));
-        // Panel d'infos supplémentaires
-JPanel infoPanel = new JPanel(new GridLayout(2, 1, 5, 5));
-infoPanel.setBackground(Color.WHITE);
+        // Badge d'état central
+        labelStatusBadge = new JLabel("PARC FERMÉ", SwingConstants.CENTER);
+        labelStatusBadge.setOpaque(true);
+        labelStatusBadge.setFont(new Font("Segoe UI", Font.BOLD, 20));
+        labelStatusBadge.setForeground(Color.WHITE);
+        labelStatusBadge.setBackground(UIStyles.LIGHT_CORAL); // Coral = Fermé
+        labelStatusBadge.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
 
-JLabel labelMeteo = new JLabel("Météo: " + gestionnaireParc.getMeteoActuelle());
-labelMeteo.setFont(UIStyles.REGULAR_FONT);
-labelMeteo.setForeground(UIStyles.TEXT_SECONDARY);
-labelMeteo.setHorizontalAlignment(SwingConstants.CENTER);
-
-JLabel labelVisiteurs = new JLabel("Visiteurs: " + 
-    gestionnaireParc.getVisiteurs().size());
-labelVisiteurs.setFont(UIStyles.REGULAR_FONT);
-labelVisiteurs.setForeground(UIStyles.TEXT_SECONDARY);
-labelVisiteurs.setHorizontalAlignment(SwingConstants.CENTER);
-
-infoPanel.add(labelMeteo);
-infoPanel.add(labelVisiteurs);
-
-add(infoPanel, BorderLayout.SOUTH);
+        JPanel statsFooter = new JPanel(new GridLayout(1, 2, 10, 0));
+        statsFooter.setOpaque(false);
+        labelMeteo = new JLabel("Ciel: --");
+        labelPop = new JLabel("Population: 0");
+        labelMeteo.setFont(UIStyles.HEADER_FONT);
+        labelPop.setFont(UIStyles.HEADER_FONT);
         
-        add(labelEtat, BorderLayout.CENTER);
+        statsFooter.add(labelMeteo);
+        statsFooter.add(labelPop);
+        
+        add(labelStatusBadge, BorderLayout.CENTER);
+        add(statsFooter, BorderLayout.SOUTH);
     }
     
-    /**
- * Rafraîchit les données affichées - MODE MANUEL
- */
-public void rafraichir() {
-    if (gestionnaireParc.estOuvert()) {
-        labelEtat.setText(" PARC OUVERT");
-        labelEtat.setForeground(UIStyles.SUCCESS_COLOR);
-        labelEtat.setBackground(new Color(200, 255, 200));
-    } else {
-        labelEtat.setText(" PARC FERMÉ");
-        labelEtat.setForeground(UIStyles.DANGER_COLOR);
-        labelEtat.setBackground(new Color(255, 200, 200));
-    }
-    
-    // Mise à jour des infos si elles existent
-    Component[] components = getComponents();
-    for (Component c : components) {
-        if (c instanceof JPanel && c != labelEtat) {
-            JPanel panel = (JPanel) c;
-            Component[] labels = panel.getComponents();
-            if (labels.length >= 2) {
-                if (labels[0] instanceof JLabel) {
-                    ((JLabel) labels[0]).setText(" Météo: " + 
-                        gestionnaireParc.getMeteoActuelle());
-                }
-                if (labels[1] instanceof JLabel) {
-                    ((JLabel) labels[1]).setText(" Visiteurs: " + 
-                        gestionnaireParc.getVisiteurs().size());
-                }
-            }
+    public void rafraichir() {
+        if (gestionnaireParc.estOuvert()) {
+            labelStatusBadge.setText("SÉCURITÉ : PARC OUVERT");
+            labelStatusBadge.setBackground(UIStyles.LIGHT_BRONZE); // Bronze = Succès/Ouvert
+        } else {
+            labelStatusBadge.setText("SÉCURITÉ : PARC FERMÉ");
+            labelStatusBadge.setBackground(UIStyles.LIGHT_CORAL); // Coral = Fermé
         }
+        labelMeteo.setText("MÉTÉO : " + gestionnaireParc.getMeteoActuelle());
+        labelPop.setText("VISITEURS : " + gestionnaireParc.getVisiteurs().size());
     }
-}
 }

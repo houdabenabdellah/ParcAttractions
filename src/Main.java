@@ -54,7 +54,6 @@ public class Main {
             
             // Créer et afficher la fenêtre principale
             MainFrame mainFrame = new MainFrame(gestionnaireParc, gestionnaireEvenements);
-            mainFrame.setMode(mode);
             mainFrame.setVisible(true);
             
             // NE PAS ouvrir le parc automatiquement au démarrage
@@ -66,7 +65,7 @@ public class Main {
             Logger.logInfo("═══════════════════════════════════════");
             
             // Afficher un message de bienvenue explicatif
-            javax.swing.SwingUtilities.invokeLater(() -> {
+            /*javax.swing.SwingUtilities.invokeLater(() -> {
                 JOptionPane.showMessageDialog(mainFrame,
                     "╔════════════════════════════════════════╗\n" +
                     "║   BIENVENUE EN MODE MANUEL !           ║\n" +
@@ -96,7 +95,7 @@ public class Main {
                     "🚀 Bonne gestion de votre parc d'attractions!",
                     "🎮 Mode Manuel - Guide de Démarrage",
                     JOptionPane.INFORMATION_MESSAGE);
-            });
+            });*/
             
             // Configurer la sauvegarde à la fermeture
             mainFrame.addWindowListener(new java.awt.event.WindowAdapter() {

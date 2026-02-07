@@ -15,7 +15,7 @@ public class ChuteLibre extends Attraction {
             16,                              // Âge minimum: 16 ans
             150,                             // Taille minimum: 150 cm
             true,                             // Extérieure
-            "resources/images/chutelibre.png",
+            "/main/java/com/parcattractions/resources/images/chutelibre.png",
             8.0, 13.0  // Ticket normal 8€, Fast Pass 13€
         );
     }

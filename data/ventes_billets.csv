@@ -1,1 +1,3 @@
-ID;IdVisiteur;TypeBillet;PrixPaye;AgeVisiteur;DateTime
+ID;IdVisiteur;TypeBillet;PrixPaye;AgeVisiteur;DateTime1770486975321;2;Fast-Pass;13,00;19;2026-02-07 18:56:15
+1770486982562;2;Fast-Pass;13,00;19;2026-02-07 18:56:22
+1770487004637;2;Billet standard;5,00;19;2026-02-07 18:56:44

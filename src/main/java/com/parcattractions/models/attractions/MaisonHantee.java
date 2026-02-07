@@ -15,7 +15,7 @@ public class MaisonHantee extends Attraction {
             10,                              // Âge minimum: 10 ans
             0,                               // Pas de restriction de taille
             false,                            // Intérieure
-            "resources/images/maisonhantee.png",
+            "/main/java/com/parcattractions/resources/images/maisonhantee.png",
             6.0, 10.0  // Ticket normal 6€, Fast Pass 10€
         );
     }

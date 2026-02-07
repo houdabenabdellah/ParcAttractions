@@ -53,8 +53,12 @@ public class DataManager {
         Logger.logInfo("Chargement des données terminé");
     }
     
+    /** Nombre fixe d'attractions du parc (évite doublons au rechargement). */
+    private static final int MAX_ATTRACTIONS = 8;
+
     /**
-     * Charge les attractions depuis CSV
+     * Charge les attractions depuis CSV.
+     * Vide d'abord la liste pour éviter d'ajouter aux 8 par défaut, puis charge au maximum 8 lignes.
      */
     public static void loadAttractions(GestionnaireParc gestionnaireParc) {
         Path file = Paths.get(ATTRACTIONS_FILE);
@@ -67,7 +71,8 @@ public class DataManager {
             reader.readLine(); // Skip header
             String line;
             int attractionsChargees = 0;
-            while ((line = reader.readLine()) != null) {
+            gestionnaireParc.clearAttractions();
+            while ((line = reader.readLine()) != null && attractionsChargees < MAX_ATTRACTIONS) {
                 String[] parts = line.split(";");
                 if (parts.length >= 2) {
                     String typeName = parts[1].trim();
@@ -78,7 +83,10 @@ public class DataManager {
                     }
                 }
             }
-            Logger.logInfo("Attractions chargées du CSV: " + attractionsChargees);
+            if (attractionsChargees == 0) {
+                gestionnaireParc.initialiserAttractionsParDefaut();
+            }
+            Logger.logInfo("Attractions chargées du CSV: " + attractionsChargees + "/" + MAX_ATTRACTIONS);
         } catch (IOException e) {
             Logger.logError("Erreur lors du chargement des attractions: " + e.getMessage());
         }

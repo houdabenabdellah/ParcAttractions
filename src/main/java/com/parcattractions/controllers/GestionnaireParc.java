@@ -102,12 +102,10 @@ public class GestionnaireParc {
     }
     
     /**
-     * Initialise le parc avec toutes les attractions
+     * Ajoute les 8 attractions par défaut si la liste est vide (après chargement CSV vide par ex.).
      */
-    private void initialiserParc() {
-        Logger.logInfo("Initialisation du parc d'attractions...");
-        
-        // Créer les 8 attractions selon spécifications PDF
+    public synchronized void initialiserAttractionsParDefaut() {
+        if (!attractions.isEmpty()) return;
         attractions.add(new MontagnesRusses());
         attractions.add(new GrandeRoue());
         attractions.add(new ManegeEnfants());
@@ -116,8 +114,17 @@ public class GestionnaireParc {
         attractions.add(new ChuteLibre());
         attractions.add(new Carrousel());
         attractions.add(new TobogganAquatique());
+        Logger.logInfo("8 attractions par défaut créées");
+    }
+
+    /**
+     * Initialise le parc avec toutes les attractions
+     */
+    private void initialiserParc() {
+        Logger.logInfo("Initialisation du parc d'attractions...");
         
-        Logger.logInfo("8 attractions créées");
+        // Créer les 8 attractions selon spécifications PDF
+        initialiserAttractionsParDefaut();
         
         // Créer restaurants
         restaurants.add(new Restaurant("Restaurant Central", 80));
@@ -208,14 +215,10 @@ public class GestionnaireParc {
         dateOuvertureSession = LocalDateTime.now();
         revenuSessionActuelle = 0.0;
         
-        // Démarrer l'horloge
-        //horloge = new Horloge(10); // 1 sec = 10 min simulées
-       // horloge.start();
-
-
-       // Créer l'horloge mais ne pas la démarrer automatiquement
-        horloge = new Horloge(10);
-        Logger.logInfo("Horloge créée (mode manuel)");
+        // Horloge temps réel : heure système, avance en temps réel
+        horloge = new Horloge(true);
+        horloge.start();
+        Logger.logInfo("Horloge démarrée (temps réel = heure système)");
         
         // Démarrer toutes les attractions
         //for (Attraction attraction : attractions) {
@@ -401,6 +404,14 @@ public class GestionnaireParc {
         return null;
     }
     
+    /**
+     * Vide la liste des attractions (utilisé avant chargement CSV pour éviter doublons).
+     */
+    public synchronized void clearAttractions() {
+        attractions.clear();
+        Logger.logInfo("Liste des attractions vidée");
+    }
+
     /**
      * Ajoute une attraction
      */
@@ -964,7 +975,9 @@ public String acheterTicketAttraction(Attraction attraction, Visiteur visiteur, 
     // Effectuer l'achat
     visiteur.payer(prixFinal);
     attraction.ajouterRevenu(prixFinal);
-    
+    statistiques.ajouterRevenus(prixFinal);
+    TransactionManager.enregistrerVenteBillet((int) visiteur.getId(), typeBillet.getLibelle(), prixFinal, visiteur.getAge());
+
     // Message de confirmation
     String message = "Ticket acheté avec succès!\n";
     message += "Type: " + typeBillet + "\n";

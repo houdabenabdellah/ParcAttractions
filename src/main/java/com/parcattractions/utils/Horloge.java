@@ -4,43 +4,59 @@ import  java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 
 /**
- * Horloge de simulation du parc
- * Gère le temps virtuel accéléré
+ * Horloge du parc : mode temps réel (heure système) ou simulation accélérée.
  */
 public class Horloge extends Thread {
     
     private static final DateTimeFormatter FORMATTER = 
         DateTimeFormatter.ofPattern("HH:mm");
     
-    // Heures d'ouverture
+    // Heures d'ouverture (utilisées en mode simulation)
     private static final LocalTime HEURE_OUVERTURE = LocalTime.of(9, 0);
     private static final LocalTime HEURE_FERMETURE = LocalTime.of(22, 0);
     
-    // Vitesse de simulation (1 seconde réelle = X minutes simulées)
+    /** Si true, l'heure suit l'heure système et avance en temps réel. */
+    private final boolean tempsReel;
+    
+    // Vitesse de simulation (1 sec réelle = X min simulées) — utilisé si !tempsReel
     private int vitesseSimulation;
     
     // Temps actuel
-    private LocalTime heureActuelle;
+    private volatile LocalTime heureActuelle;
     
     // État
     private volatile boolean enCours;
     private volatile boolean pausee;
     
     /**
-     * Constructeur avec vitesse par défaut (1 sec = 10 min)
+     * Constructeur avec vitesse par défaut (1 sec = 10 min) — mode simulation.
      */
     public Horloge() {
         this(10);
     }
     
     /**
-     * Constructeur avec vitesse personnalisée
+     * Constructeur avec vitesse personnalisée — mode simulation.
      * @param vitesseSimulation Nombre de minutes simulées par seconde réelle
      */
     public Horloge(int vitesseSimulation) {
         super("Horloge");
+        this.tempsReel = false;
         this.vitesseSimulation = vitesseSimulation;
         this.heureActuelle = HEURE_OUVERTURE;
+        this.enCours = false;
+        this.pausee = false;
+    }
+    
+    /**
+     * Mode temps réel : heure = heure système, avance en temps réel.
+     * @param tempsReel true pour heure système, false pour simulation
+     */
+    public Horloge(boolean tempsReel) {
+        super("Horloge");
+        this.tempsReel = tempsReel;
+        this.vitesseSimulation = 1;
+        this.heureActuelle = java.time.LocalTime.now();
         this.enCours = false;
         this.pausee = false;
     }
@@ -58,7 +74,11 @@ public class Horloge extends Thread {
     public void run() {
         enCours = true;
         Logger.logThreadStart("Horloge");
-        Logger.logInfo("Horloge démarrée - Vitesse: x" + vitesseSimulation);
+        if (tempsReel) {
+            Logger.logInfo("Horloge démarrée - Mode temps réel (heure système)");
+        } else {
+            Logger.logInfo("Horloge démarrée - Vitesse: x" + vitesseSimulation);
+        }
         
         try {
             while (enCours && !isInterrupted()) {
@@ -70,19 +90,19 @@ public class Horloge extends Thread {
                 // Attendre 1 seconde réelle
                 Thread.sleep(1000);
                 
-                // Avancer le temps simulé
-                heureActuelle = heureActuelle.plusMinutes(vitesseSimulation);
-                
-                // Vérifier heure de fermeture
-                if (heureActuelle.isAfter(HEURE_FERMETURE)) {
-                    Logger.logInfo("Heure de fermeture atteinte: " + heureActuelle.format(FORMATTER));
-                    // TODO: Signaler fermeture du parc
-                    break;
-                }
-                
-                // Log toutes les heures simulées
-                if (heureActuelle.getMinute() == 0) {
-                    Logger.logInfo("Heure actuelle: " + heureActuelle.format(FORMATTER));
+                if (tempsReel) {
+                    heureActuelle = java.time.LocalTime.now();
+                } else {
+                    // Avancer le temps simulé
+                    heureActuelle = heureActuelle.plusMinutes(vitesseSimulation);
+                    // Vérifier heure de fermeture
+                    if (heureActuelle.isAfter(HEURE_FERMETURE)) {
+                        Logger.logInfo("Heure de fermeture atteinte: " + heureActuelle.format(FORMATTER));
+                        break;
+                    }
+                    if (heureActuelle.getMinute() == 0) {
+                        Logger.logInfo("Heure actuelle: " + heureActuelle.format(FORMATTER));
+                    }
                 }
             }
         } catch (InterruptedException e) {
@@ -166,11 +186,17 @@ public class Horloge extends Thread {
     }
     
     /**
-     * @return Vrai si le parc est ouvert (entre 9h et 22h)
+     * @return Vrai si le parc est ouvert (en temps réel: toujours true tant que l'horloge tourne ; en simulation: entre 9h et 22h)
      */
     public synchronized boolean parcOuvert() {
+        if (tempsReel) return enCours;
         return !heureActuelle.isBefore(HEURE_OUVERTURE) && 
                heureActuelle.isBefore(HEURE_FERMETURE);
+    }
+    
+    /** @return true si l'horloge est en mode temps réel (heure système). */
+    public boolean isTempsReel() {
+        return tempsReel;
     }
     
     /**

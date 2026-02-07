@@ -1,0 +1,25 @@
+RÉSUMÉ FINAL DU PARC D'ATTRACTIONS
+Date;Heure;Catégorie;Valeur;Unité
+07/02/2026;18:57:44;Visiteurs Total;2;visiteurs
+07/02/2026;18:57:44;Visiteurs Actuels;2;visiteurs
+07/02/2026;18:57:44;Tours Effectués;0;tours
+07/02/2026;18:57:44;Revenus Total;31,00;€
+07/02/2026;18:57:44;Revenu Moyen Par Visiteur;15,50;€
+07/02/2026;18:57:44;Satisfaction Moyenne;0,0;%
+07/02/2026;18:57:44;Avis Positifs;0;avis
+07/02/2026;18:57:44;Avis Négatifs;0;avis
+07/02/2026;18:57:44;Temps Attente Moyen;0;secondes
+
+DÉTAIL PAR ATTRACTION
+Attraction;Visiteurs;File;Temps Attente;État
+Montagnes Russes Extrême;0;0;0;OPERATIONNELLE
+Grande Roue Panoramique;0;0;0;OPERATIONNELLE
+Manège Enchanté;0;0;0;OPERATIONNELLE
+Maison Hantée des Ombres;0;0;0;OPERATIONNELLE
+Simulateur VR Spatial;0;0;0;OPERATIONNELLE
+Chute Libre Vertigineuse;0;0;0;OPERATIONNELLE
+Carrousel Magique;0;0;0;OPERATIONNELLE
+Toboggan Aquatique Splash;0;0;0;OPERATIONNELLE
+
+DÉTAIL DES EMPLOYÉS
+Nom;Poste;État;Fatigue
