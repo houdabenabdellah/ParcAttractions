@@ -16,14 +16,7 @@ public class ModeConfig {
         public static final boolean PERMETTRE_SUPPRESSION = true;
         public static final boolean PERMETTRE_MODIFICATION = true;
     }
-    
-    /**
-     * Recupere la configuration selon le mode
-     */
-    public static Object getConfig(ModeApplication mode) {
-        return GestionConfig.class;
-    }
-    
+
     /**
      * Affiche la configuration active
      */

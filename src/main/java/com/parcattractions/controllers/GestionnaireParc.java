@@ -10,7 +10,6 @@ import main.java.com.parcattractions.enums.EtatAttraction;
 import main.java.com.parcattractions.enums.Meteo;
 import main.java.com.parcattractions.enums.TypeBillet;
 import main.java.com.parcattractions.enums.TypeNotification;
-import main.java.com.parcattractions.exceptions.attractions.AttractionException;
 import main.java.com.parcattractions.exceptions.systeme.ParcFermeException;
 import main.java.com.parcattractions.models.attractions.Attraction;
 import main.java.com.parcattractions.models.attractions.Carrousel;
@@ -352,16 +351,6 @@ public class GestionnaireParc {
     }
 
     /**
-     * Avance la simulation d'un pas (utile en mode pas-à-pas)
-     */
-    public synchronized void stepSimulation() {
-        if (horloge != null) {
-            horloge.avancerUnPas();
-            Logger.logInfo("Simulation avancée d'un pas");
-        }
-    }
-
-    /**
      * Indique si la simulation est en pause
      */
     public boolean estSimulationEnPause() {
@@ -468,41 +457,6 @@ public class GestionnaireParc {
             }
         }
         return null;
-    }
-    
-    /**
-     * Achète un ticket pour une attraction (logique métier)
-     * Vérifie que le visiteur existe, a assez d'argent, et que l'attraction accepte
-     * @param attraction L'attraction
-     * @param visiteur Le visiteur (doit exister dans le parc)
-     * @param type STANDARD ou FAST_PASS
-     * @return Message de succès ou d'erreur
-     */
-    public String acheterTicketAttraction1(Attraction attraction, Visiteur visiteur, TypeBillet type) {
-        if (attraction == null || visiteur == null) {
-            return "Erreur: attraction ou visiteur invalide.";
-        }
-        if (type != TypeBillet.STANDARD && type != TypeBillet.FAST_PASS) {
-            return "Type de ticket invalide. Choisissez Normal ou Fast Pass.";
-        }
-        double prix = type == TypeBillet.FAST_PASS 
-            ? attraction.getPrixTicketFastPass() 
-            : attraction.getPrixTicketNormal();
-        if (visiteur.getArgent() < prix) {
-            return String.format("Budget insuffisant. Prix: %.2f €, disponible: %.2f €.", 
-                prix, visiteur.getArgent());
-        }
-        try {
-            boolean fastPass = (type == TypeBillet.FAST_PASS);
-            attraction.ajouterVisiteur((int) visiteur.getId(), fastPass);
-            attraction.ajouterRevenu(prix);
-            visiteur.payer(prix);
-            statistiques.ajouterRevenus(prix);
-            return String.format("Ticket %s acheté avec succès pour %.2f € !", 
-                type.getLibelle(), prix);
-        } catch (AttractionException e) {
-            return "Impossible d'ajouter à la file: " + e.getMessage();
-        }
     }
     
     /**
@@ -698,19 +652,6 @@ public class GestionnaireParc {
             }
         }
         return null;
-    }
-    
-    /**
-     * Retourne tous les techniciens
-     */
-    public List<Technicien> getTechniciens() {
-        List<Technicien> techniciens = new ArrayList<>();
-        for (Employe employe : employes) {
-            if (employe instanceof Technicien) {
-                techniciens.add((Technicien) employe);
-            }
-        }
-        return techniciens;
     }
     
     /**
@@ -911,27 +852,6 @@ public class GestionnaireParc {
     }
     
     // ================= TRANSACTION MANAGER =================
-    
-    /**
-     * Retourne les statistiques financières du TransactionManager
-     */
-    public java.util.Map<String, Object> obtenirStatistiquesFinancieres() {
-        return TransactionManager.obtenirStatistiques();
-    }
-    
-    /**
-     * Retourne le rapport financier complet
-     */
-    public String genererRapportFinancier() {
-        return TransactionManager.genererRapportFinancier();
-    }
-    
-    /**
-     * Retourne le rapport détaillé des transactions
-     */
-    public String genererRapportDetaillé() {
-        return TransactionManager.genererRapportDetaille();
-    }
     
     /**
      * Réinitialise les statistiques du TransactionManager (nouvelle session)

@@ -63,40 +63,7 @@ public class Main {
             Logger.logInfo("   Le parc est FERMÉ au démarrage");
             Logger.logInfo("   Utilisez 'Menu Parc → Ouvrir le parc'");
             Logger.logInfo("═══════════════════════════════════════");
-            
-            // Afficher un message de bienvenue explicatif
-            /*javax.swing.SwingUtilities.invokeLater(() -> {
-                JOptionPane.showMessageDialog(mainFrame,
-                    "╔════════════════════════════════════════╗\n" +
-                    "║   BIENVENUE EN MODE MANUEL !           ║\n" +
-                    "╚════════════════════════════════════════╝\n\n" +
-                    "Vous avez le CONTRÔLE TOTAL de l'application.\n\n" +
-                    "ACTIONS DISPONIBLES:\n\n" +
-                    "PARC:\n" +
-                    "   • Menu 'Parc → Ouvrir le parc' pour démarrer\n" +
-                    "   • Menu 'Parc → Fermer le parc' pour terminer\n" +
-                    "   • Menu 'Parc → Pause/Reprendre' pour contrôler le temps\n\n" +
-                    "VISITEURS:\n" +
-                    "   • Menu 'Visiteurs → Ajouter un visiteur'\n" +
-                    "   • Aucune génération automatique\n" +
-                    "   • Vous ajoutez chaque visiteur manuellement\n\n" +
-                    "MÉTÉO:\n" +
-                    "   • Menu 'Météo → [Sélectionner]' pour changer\n\n" +
-                    "ATTRACTIONS:\n" +
-                    "   • Menu 'Attractions → Ouvrir/Fermer/Panne'\n\n" +
-                    "ÉVÉNEMENTS:\n" +
-                    "   • Menu 'Manager → Lancer un événement'\n" +
-                    "   • Happy Hour, Parade, Spectacle nocturne\n\n" +
-                    "PERSONNEL:\n" +
-                    "   • Menu 'Manager → Gérer le personnel'\n\n" +
-                    "CONSEIL:\n" +
-                    "   Commencez par ouvrir le parc,\n" +
-                    "   puis ajoutez des visiteurs un par un!\n\n" +
-                    "🚀 Bonne gestion de votre parc d'attractions!",
-                    "🎮 Mode Manuel - Guide de Démarrage",
-                    JOptionPane.INFORMATION_MESSAGE);
-            });*/
-            
+
             // Configurer la sauvegarde à la fermeture
             mainFrame.addWindowListener(new java.awt.event.WindowAdapter() {
                 @Override
@@ -138,8 +105,4 @@ public class Main {
         }
     }
     
-    /**
-     * Méthode selectMode() supprimée car le mode est maintenant FORCÉ à GESTION (manuel)
-     * Plus besoin de sélection de mode au démarrage
-     */
 }

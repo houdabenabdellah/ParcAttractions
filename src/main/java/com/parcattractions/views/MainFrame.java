@@ -11,6 +11,7 @@ public class MainFrame extends JFrame {
     private final GestionnaireParc gp;
     private JPanel contentPanel;
     private CardLayout cardLayout;
+    private PanelDashboard dashboardPanel;
 
     public MainFrame(GestionnaireParc gp, GestionnaireEvenements ge) {
         super("Grand Parc Simulator 2026");
@@ -246,28 +247,24 @@ public class MainFrame extends JFrame {
         JPanel mainView = new JPanel(new BorderLayout(20, 20));
         mainView.setBackground(UIStyles.BG_WINDOW);
         mainView.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
-        
-        PanelDashboard db = new PanelDashboard(gp);
+
+        dashboardPanel = new PanelDashboard(gp);
         PanelStatistiques stats = new PanelStatistiques(gp);
-        
+
         JPanel leftPanel = new JPanel(new BorderLayout(10, 10));
         leftPanel.setOpaque(false);
-        leftPanel.add(db, BorderLayout.NORTH);
+        leftPanel.add(dashboardPanel, BorderLayout.NORTH);
         leftPanel.add(stats, BorderLayout.CENTER);
 
         mainView.add(leftPanel, BorderLayout.WEST);
         mainView.add(new PanelAttractions(gp, this), BorderLayout.CENTER);
-        
+
         return mainView;
     }
 
     private void rafraichirTousLesPanels() {
-        // Logique de rafraîchissement
-        Component[] components = contentPanel.getComponents();
-        for (Component c : components) {
-            if (c instanceof PanelDashboard) {
-                ((PanelDashboard) c).rafraichir();
-            }
+        if (dashboardPanel != null) {
+            dashboardPanel.rafraichir();
         }
     }
 }
