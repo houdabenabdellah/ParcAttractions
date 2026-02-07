@@ -28,6 +28,7 @@ import main.java.com.parcattractions.models.employes.Technicien;
 import main.java.com.parcattractions.models.employes.Vendeur;
 import main.java.com.parcattractions.models.services.Boutique;
 import main.java.com.parcattractions.models.services.Restaurant;
+import main.java.com.parcattractions.models.services.ServiceManager;
 import main.java.com.parcattractions.models.visiteurs.Visiteur;
 import main.java.com.parcattractions.utils.CSVManager;
 import main.java.com.parcattractions.utils.ExporteurCSV;
@@ -58,6 +59,9 @@ public class GestionnaireParc {
     
     // Visiteurs
     private final List<Visiteur> visiteurs;
+    
+    // Services Manager
+    private ServiceManager serviceManager;
     
     // Systèmes
     private Horloge horloge;
@@ -137,6 +141,16 @@ public class GestionnaireParc {
         boutiques.add(new Boutique("Boutique Photos"));
         
         Logger.logInfo("2 boutiques créées");
+        
+        // Initialiser ServiceManager avec restaurants et boutiques
+        serviceManager = new ServiceManager();
+        for (Restaurant resto : restaurants) {
+            serviceManager.ajouterRestaurant(resto);
+        }
+        for (Boutique boutique : boutiques) {
+            serviceManager.ajouterBoutique(boutique);
+        }
+        Logger.logInfo("ServiceManager initialisé avec services");
         
         // Créer employés selon spécifications PDF
         initialiserEmployes();
@@ -301,6 +315,19 @@ public class GestionnaireParc {
         }
         if (fichierHTML != null) {
             Logger.logInfo("Rapport HTML généré : " + fichierHTML);
+        }
+
+        // Générer et persister un rapport récapitulatif des services (restaurants + boutiques)
+        try {
+            if (serviceManager != null) {
+                String recapRevenus = serviceManager.genererRecapitulatifRevenus();
+                String recapTrans = serviceManager.genererRecapitulatifTransactions();
+                String contenu = recapRevenus + "\n\n" + recapTrans;
+                CSVManager.enregistrerRapportServices(contenu);
+                Logger.logInfo("Rapport services généré et enregistré");
+            }
+        } catch (Exception e) {
+            Logger.logException("Erreur lors de la génération du rapport services", e);
         }
     }
 
@@ -536,6 +563,13 @@ public class GestionnaireParc {
     
     public GestionnaireEvenements getGestionnaireEvenements() {
         return gestionnaireEvenements;
+    }
+
+    /**
+     * Retourne le gestionnaire des services (restaurants & boutiques)
+     */
+    public ServiceManager getServiceManager() {
+        return serviceManager;
     }
     
     /**

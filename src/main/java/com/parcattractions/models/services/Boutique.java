@@ -12,6 +12,7 @@ public class Boutique {
     private final Map<Produit, Integer> stock; // Produit -> Quantité
     private final AtomicLong revenus; // en centimes
     private final int seuilStockFaible;
+    private volatile boolean ouverte = true;
     
     /**
      * Constructeur
@@ -127,6 +128,27 @@ public class Boutique {
     private void ajouterRevenus(double montant) {
         long centimes = Math.round(montant * 100);
         revenus.addAndGet(centimes);
+    }
+
+    /**
+     * Méthode publique pour ajouter des revenus (ServiceManager)
+     */
+    public synchronized void ajouterRevenu(double montant) {
+        ajouterRevenus(montant);
+    }
+
+    /**
+     * Indique si la boutique est ouverte
+     */
+    public boolean isOuverte() {
+        return ouverte;
+    }
+
+    /**
+     * Définit le statut d'ouverture de la boutique
+     */
+    public void setOuverte(boolean ouverte) {
+        this.ouverte = ouverte;
     }
     
     /**

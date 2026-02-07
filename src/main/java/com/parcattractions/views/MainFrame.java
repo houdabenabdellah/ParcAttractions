@@ -146,6 +146,25 @@ public class MainFrame extends JFrame {
         mManager.add(iGestionPersonnel);
         mb.add(mManager);
         
+        // === MENU SERVICES ===
+        JMenu mServices = creerMenuSimple("Services");
+        JMenuItem iGestionRestaurants = new JMenuItem("Gérer les restaurants");
+        iGestionRestaurants.addActionListener(e -> {
+            // Créer dialog avec ServiceManager depuis GestionnaireParc
+            var sm = gp.getServiceManager();
+            new DialogGestionRestaurants(MainFrame.this, sm, gp).setVisible(true);
+            rafraichirTousLesPanels();
+        });
+        JMenuItem iGestionBoutiques = new JMenuItem("Gérer les boutiques");
+        iGestionBoutiques.addActionListener(e -> {
+            var sm = gp.getServiceManager();
+            new DialogGestionBoutiques(MainFrame.this, sm, gp).setVisible(true);
+            rafraichirTousLesPanels();
+        });
+        mServices.add(iGestionRestaurants);
+        mServices.add(iGestionBoutiques);
+        mb.add(mServices);
+        
         // === MENU GESTION RH ===
         JMenu mGestionRH = creerMenuSimple("Gestion RH");
         JMenuItem iAjouterEmploye = new JMenuItem("Ajouter un employé");

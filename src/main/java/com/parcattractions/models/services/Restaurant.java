@@ -16,6 +16,7 @@ public class Restaurant {
     private final List<MenuItem> menu;
     private final AtomicLong revenus; // en centimes
     private volatile int clientsActuels;
+    private volatile boolean enService = true; // true = en service, false = hors service
     
     /**
      * Constructeur
@@ -135,6 +136,28 @@ public class Restaurant {
     private void ajouterRevenus(double montant) {
         long centimes = Math.round(montant * 100);
         revenus.addAndGet(centimes);
+    }
+
+    /**
+     * Méthode publique pour ajouter des revenus depuis l'extérieur (ServiceManager)
+     * @param montant Montant en euros
+     */
+    public synchronized void ajouterRevenu(double montant) {
+        ajouterRevenus(montant);
+    }
+
+    /**
+     * Indique si le restaurant est en service
+     */
+    public boolean isEnService() {
+        return enService;
+    }
+
+    /**
+     * Définit le statut du restaurant (en service / hors service)
+     */
+    public void setEnService(boolean enService) {
+        this.enService = enService;
     }
     
     /**

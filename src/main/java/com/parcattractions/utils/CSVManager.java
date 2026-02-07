@@ -139,6 +139,33 @@ public class CSVManager {
             Logger.logException("Erreur mise à jour date départ visiteur", e);
         }
     }
+
+    /**
+     * Met à jour le montant d'argent restant d'un visiteur dans le CSV
+     * @param visiteurId ID du visiteur
+     * @param argent Nouveau solde (en euros)
+     */
+    public static void mettreAJourArgentVisiteur(int visiteurId, double argent) {
+        try {
+            Path path = Paths.get(VISITEURS_FILE);
+            if (!Files.exists(path)) return;
+            List<String> lines = Files.readAllLines(path, StandardCharsets.UTF_8);
+            for (int i = 1; i < lines.size(); i++) {
+                String[] parts = lines.get(i).split(DELIMITER, -1);
+                if (parts.length > 7 && Integer.parseInt(parts[0]) == visiteurId) {
+                    parts[7] = String.format("%.2f", argent);
+                    lines.set(i, String.join(DELIMITER, parts));
+                    Files.write(path, lines, StandardCharsets.UTF_8);
+                    Logger.logInfo("Mise à jour solde visiteur #" + visiteurId + " -> " + argent + "€");
+                    return;
+                }
+            }
+        } catch (IOException e) {
+            Logger.logException("Erreur mise à jour solde visiteur", e);
+        } catch (NumberFormatException ex) {
+            Logger.logException("Erreur parsing ID visiteur dans CSV", ex);
+        }
+    }
     
     // ================= ATTRACTIONS =================
     
@@ -541,6 +568,21 @@ public class CSVManager {
             Logger.logException("Erreur chargement sessions.csv", e);
         }
         return sessions;
+    }
+
+    /**
+     * Enregistre un rapport textuel des services (restaurants + boutiques)
+     * Le fichier est créé sous data/rapport_services_<timestamp>.txt
+     */
+    public static void enregistrerRapportServices(String contenu) {
+        try {
+            String fileName = "rapport_services_" + System.currentTimeMillis() + ".txt";
+            Path out = Paths.get(DATA_DIR, fileName);
+            Files.write(out, Collections.singletonList(contenu), StandardCharsets.UTF_8);
+            Logger.logInfo("Rapport services enregistré: " + out.toString());
+        } catch (IOException e) {
+            Logger.logException("Erreur enregistrement rapport services", e);
+        }
     }
     
     // ================= UTILITAIRES =================

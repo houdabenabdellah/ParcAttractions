@@ -105,6 +105,18 @@ public class DialogDetailsAttraction extends JDialog {
         JPanel footer = new JPanel(new FlowLayout(FlowLayout.RIGHT, 10, 10));
         footer.setOpaque(false);
 
+        JButton ouvrirAttraction = new JButton("Ouvrir");
+        UIStyles.stylePrimaryButton(ouvrirAttraction);
+        ouvrirAttraction.addActionListener(e -> {
+            try {
+                attraction.ouvrir();
+                mettreAJourRevenu();
+                JOptionPane.showMessageDialog(this, attraction.getNom() + " est maintenant OUVERTE", "Attraction Ouverte", JOptionPane.INFORMATION_MESSAGE);
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(this, "Erreur: " + ex.getMessage(), "Erreur", JOptionPane.ERROR_MESSAGE);
+            }
+        });
+
         JButton fermerAttraction = new JButton("Fermer Attraction");
         UIStyles.styleAccentButton(fermerAttraction);
         fermerAttraction.addActionListener(e -> {
@@ -133,6 +145,7 @@ public class DialogDetailsAttraction extends JDialog {
         UIStyles.styleAccentButton(close); // Rosewood
         close.addActionListener(e -> dispose());
 
+        footer.add(ouvrirAttraction);
         footer.add(fermerAttraction);
         footer.add(mettrePanne);
         footer.add(close);
