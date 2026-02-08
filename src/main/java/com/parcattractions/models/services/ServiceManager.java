@@ -4,12 +4,13 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
+import main.java.com.parcattractions.controllers.GestionnaireParc;
 import main.java.com.parcattractions.exceptions.services.RestaurantPleinException;
 import main.java.com.parcattractions.exceptions.services.StockEpuiseException;
-import main.java.com.parcattractions.utils.CSVManager;
 import main.java.com.parcattractions.models.visiteurs.Visiteur;
-import main.java.com.parcattractions.controllers.GestionnaireParc;
+import main.java.com.parcattractions.utils.CSVManager;
 import main.java.com.parcattractions.utils.Logger;
+import main.java.com.parcattractions.utils.TransactionManager;
 
 /**
  * ServiceManager - Gestionnaire centralisé des services (restaurants & boutiques)
@@ -111,6 +112,8 @@ public class ServiceManager {
             resto.ajouterRevenu(montant);
             // Persister la vente au restaurant dans data/
             CSVManager.enregistrerVenteRestaurant((int) visiteur.getId(), ordreCommande, montant);
+            // Enregistrer dans TransactionManager pour affichage dans le dashboard
+            TransactionManager.enregistrerVenteRestaurant((int) visiteur.getId(), ordreCommande, montant);
 
             Logger.logInfo("Réservation effectuée: " + reservation);
 
@@ -236,6 +239,8 @@ public class ServiceManager {
             boutique.ajouterRevenu(produit.getPrix());
             // Persister la vente souvenir
             CSVManager.enregistrerVenteSouvenir((int) visiteur.getId(), produit.getNom(), produit.getPrix());
+            // Enregistrer dans TransactionManager pour affichage dans le dashboard
+            TransactionManager.enregistrerVenteSouvenir((int) visiteur.getId(), produit.getNom(), produit.getPrix());
 
             Logger.logInfo("Achat effectué: " + achat);
 

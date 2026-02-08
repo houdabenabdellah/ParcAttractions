@@ -18,6 +18,7 @@ import main.java.com.parcattractions.models.evenements.HappyHour;
 import main.java.com.parcattractions.models.services.Billet;
 import main.java.com.parcattractions.utils.Logger;
 import main.java.com.parcattractions.utils.Tarification;
+import main.java.com.parcattractions.utils.TransactionManager;
 
 
 public abstract class Visiteur extends Thread {
@@ -207,6 +208,8 @@ public abstract class Visiteur extends Thread {
         this.billet = new Billet(type, prix, age);
         argent -= prix;
         GestionnaireParc.getInstance().getStatistiques().ajouterRevenus(prix);
+        // Enregistrer dans TransactionManager pour affichage dans le dashboard
+        TransactionManager.enregistrerVenteBillet((int)id, type.getLibelle(), prix, age);
         
         Logger.logInfo(String.format("Visiteur %d : Billet acheté [%s] - %.2f€", 
             id, type.getLibelle(), prix));

@@ -17,6 +17,7 @@ public class PanelTransactions extends JPanel {
         setBorder(BorderFactory.createEmptyBorder(25, 25, 25, 25));
         
         buildUI();
+        updateAffichage(); // Initialiser l'affichage au démarrage
         updateTimer = new Timer(1000, e -> updateAffichage());
         updateTimer.start();
     }

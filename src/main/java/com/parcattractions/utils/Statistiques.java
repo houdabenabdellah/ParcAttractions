@@ -139,10 +139,11 @@ public class Statistiques {
     }
     
     /**
-     * @return Revenus totaux en euros
+     * @return Revenus totaux en euros (inclut billets, restaurant, souvenirs)
      */
     public double getRevenusTotal() {
-        return revenusTotal.get() / 100.0;
+        // Utiliser TransactionManager qui agrège TOUS les revenus
+        return TransactionManager.getRevenuTotal();
     }
     
     /**

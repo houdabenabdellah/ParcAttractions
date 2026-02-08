@@ -29,6 +29,7 @@ public class PanelDashboard extends JPanel {
         add(createCard("STATUT PARC", labelStatutParc, UIStyles.DUSK_BLUE));
         add(createCard("RECETTES", labelRevenus, UIStyles.LIGHT_BRONZE));
 
+        rafraichir(); // Initialiser l'affichage au démarrage
         new Timer(1000, e -> rafraichir()).start();
     }
 

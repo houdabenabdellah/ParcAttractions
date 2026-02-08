@@ -39,6 +39,7 @@ public class PanelStatistiques extends JPanel {
         btnRafraichir.addActionListener(e -> rafraichir());
         add(btnRafraichir, BorderLayout.SOUTH);
         
+        rafraichir(); // Initialiser l'affichage au démarrage
         refreshTimer = new Timer(500, e -> rafraichir());
         refreshTimer.start();
     }
