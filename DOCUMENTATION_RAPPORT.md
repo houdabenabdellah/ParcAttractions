@@ -88,9 +88,108 @@ Les **Timer** Swing exécutent leur `ActionListener` sur l’EDT, ce qui rend l�
 
 Chaque classe concrète appelle `super(nom, capacite, dureeTour, ...)` dans son constructeur (ex. `MontagnesRusses.java` l.8–20).
 
+#### 3.1.1 Simulation temps réel avec contrôle utilisateur
+
+**Objectif :** Simuler une journée complète de parc d'attractions en temps accéléré, avec contrôle total de l'utilisateur : pause, reprise, avance pas à pas, réglage de vitesse, et fermeture automatique à 16h00.
+
+**Architecture :**
+
+**1. Classe Horloge (`utils/Horloge.java`)**
+
+La classe `Horloge` gère la boucle de simulation temps réel. Modifications clés :
+
+- **Fermeture à 16h00** : constante `HEURE_FERMETURE = 16` (l.6) remplace la valeur 22h00 précédente.
+- **Callback fermeture automatique** (l.12) : champ `private Runnable onHeureFermeture` enregistre une fonction appelée quand l'heure simulée atteint 16h00.
+- **Méthode `setOnHeureFermeture(Runnable r)`** (l.Z) : permet au gestionnaire du parc de passer la fonction de fermeture (`this::fermerParc`).
+- **Méthode `getHeureFermeture()`** (l.Y) : retourne 16 pour affichage ("Fermeture automatique à 16:00").
+
+**Boucle de simulation (`run()`, l.74–115) :**
+- Initialisation : heure 09:00 (départ de la journée simulée).
+- **Pause/Reprise** : flag `accelere` (booléen).
+  - Si `accelere = false` : boucle attend sans avancer le temps.
+  - Si `accelere = true` : chaque itération ajoute N minutes simulées (N = vitesse définie), avec sleep(1000 ms) entre les itérations.
+- **Avance d'un pas** : incrémente manuelle de 1 minute (appelée en pause).
+- **Fermeture auto** : quand `heure == 16` :
+  1. Appel du callback `onHeureFermeture.run()` (déclenche `gestionnaire.fermerParc()`).
+  2. Arrêt de la boucle.
+
+**API de contrôle :**
+
+| Méthode | Rôle |
+|---------|------|
+| `pause()` | Met `accelere = false` → pause la simulation |
+| `reprendre()` | Met `accelere = true` → reprend la simulation |
+| `avancerDUnPas()` | Incrémente manuellement 1 minute ; si `heure >= 16`, déclenche fermeture |
+| `setVitesse(int minutes)` | Définit l'accélération : n minutes simulées par seconde réelle (ex. 1, 5, 10, 30) |
+| `setOnHeureFermeture(Runnable r)` | Enregistre callback appelé à 16h00 |
+| `getHeureFermeture()` | Retourne 16 pour affichage |
+| `getHeure()`, `getMinute()` | Accesseurs pour heure/minute courante |
+
+**2. Ouverture du parc (`controllers/GestionnaireParc.java`)**
+
+Modifications clés :
+
+- **Initialisation** (l.232–233) :
+  ```java
+  horloge = new Horloge(1);  // 1 minute simulée par seconde réelle
+  horloge.setOnHeureFermeture(this::fermerParc);  // Callback pour fermeture auto à 16h00
+  horloge.start();
+  ```
+- **Méthode `fermerParc()`** (existante, appelée ou en pause) : 
+  - Sauvegarde des données.
+  - Génération des rapports (CSV, HTML).
+  - Arrêt des threads (horloge, attractions, visiteurs, événements).
+  - Notification "Parc fermé".
+  - Mise à jour UI.
+
+**3. Contrôle de temps par l'utilisateur**
+
+**Menu Parc** (`MainFrame`, l.35–100) :
+
+- **Pause / Reprendre** (`iPause`) :
+  - Appelle `horloge.pause()` pour mettre en pause.
+  - Appelle `horloge.reprendre()` pour relancer.
+  - Toggle : affiche "Pause" en fonctionnement, "Reprendre" si en pause.
+  
+- **Avancer d'un pas** (`iAvancerDUnPas`) :
+  - Visible uniquement quand le parc est ouvert ET en pause.
+  - Appelle `horloge.avancerDUnPas()` → avance 1 minute simulée.
+  - Si le pas dépasse 16h00, la fermeture automatique est déclenchée immédiatement.
+
+**Menu Météo → Configuration** (`DialogConfiguration`, l.35–60) :
+
+- **Affichage statut** : mention "Fermeture automatique du parc à 16:00".
+- **Sélecteur de vitesse** (JComboBox) :
+  - Options : `1`, `5`, `10`, `30` (nombre de minutes simulées par seconde réelle).
+  - Défaut : 1 min/sec (temps naturel, 1 seconde réelle = 1 minute simulée).
+  - 30 min/sec = 30x plus rapide (3 heures simulées = 6 minutes réelles).
+  - Action : appelle `horloge.setVitesse(vitesse)`.
+  - Modifiable à tout moment (parc ouvert).
+
+**Comportement résultant :**
+
+| Action | Résultat |
+|--------|----------|
+| Ouvrir parc | Heure = 09:00, horloge marche (par défaut vitesse 1) |
+| Pause | Horloge gèle l'heure actuelle |
+| En pause + Avancer d'un pas | Heure += 1 minute |
+| Reprendre | Horloge relance l'incrémentation |
+| Régler vitesse à 30 | 30 min/sec : l'horloge avance 30x plus vite |
+| 16h00 atteint | `horloge.onHeureFermeture.run()` → `fermerParc()` → sauvegarde + rapports + arrêt |
+
+**Exemple de journée simulée :**
+1. 09:00 → Ouvrir parc (vitesse 1 min/sec).
+2. Ajouter visiteurs → ils circulent, paient, font files.
+3. 09:30 → Mettre en pause, avancer manuellement pour voir des événements.
+4. 10:00 → Reprendre (vitesse 5 min/sec) → accélère 5x.
+5. 14:00 → Augmenter vitesse à 30 min/sec → arrive à 16h00 rapidement.
+6. 16h00 → Fermeture auto → UI montre "Parc ferme", rapports générés.
+
+---
+
 - **Simulation temps réel :**  
-  - **Horloge :** `Horloge.java` — constructeur `Horloge(true)` = heure système, mise à jour chaque seconde dans `run()` (l.54–61, 94–96).  
-  - **GUI :** `PanelDashboard`, `PanelTransactions`, `PanelStatistiques` utilisent des **Timer** pour afficher heure, revenus et stats en continu (voir § 2.2).
+  - **Horloge :** `Horloge.java` — Simulation accélérée (1 à 30 min/sec) démarrant à 09:00, avec pause/reprise et avance pas à pas. Fermeture automatique à 16h00 via callback déclenché aupres du gestionnaire du parc.  
+  - **GUI :** `PanelDashboard`, `PanelTransactions`, `PanelStatistiques` utilisent des **Timer** (500–1000 ms) pour afficher heure, revenus et stats en continu (voir § 2.2). Menu Parc offre pause/reprise et avance. Menu Configuration offre réglage de vitesse (1, 5, 10, 30 min/sec).
 
 ---
 

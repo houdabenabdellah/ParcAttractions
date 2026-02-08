@@ -4,16 +4,20 @@ import  java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 
 /**
- * Horloge du parc : mode temps réel (heure système) ou simulation accélérée.
+ * Horloge du parc : simulation temps réel (utilisateur contrôle vitesse/pause)
+ * ou heure système. Fermeture automatique à 16h00 en mode simulation.
  */
 public class Horloge extends Thread {
     
     private static final DateTimeFormatter FORMATTER = 
         DateTimeFormatter.ofPattern("HH:mm");
     
-    // Heures d'ouverture (utilisées en mode simulation)
+    // Heures d'ouverture et fermeture (simulation : 9h → 16h, fermeture auto)
     private static final LocalTime HEURE_OUVERTURE = LocalTime.of(9, 0);
-    private static final LocalTime HEURE_FERMETURE = LocalTime.of(22, 0);
+    private static final LocalTime HEURE_FERMETURE = LocalTime.of(16, 0);
+    
+    /** Callback appelé lorsque l'heure de fermeture est atteinte (ex: fermer le parc). */
+    private Runnable onHeureFermeture;
     
     /** Si true, l'heure suit l'heure système et avance en temps réel. */
     private final boolean tempsReel;
@@ -62,6 +66,13 @@ public class Horloge extends Thread {
     }
 
     /**
+     * Définit le callback appelé quand l'heure de fermeture (16h00) est atteinte.
+     */
+    public void setOnHeureFermeture(Runnable r) {
+        this.onHeureFermeture = r;
+    }
+    
+    /**
      * Change la vitesse de simulation (minutes simulées par seconde réelle)
      */
     public synchronized void setVitesseSimulation(int nouvelleVitesse) {
@@ -93,11 +104,14 @@ public class Horloge extends Thread {
                 if (tempsReel) {
                     heureActuelle = java.time.LocalTime.now();
                 } else {
-                    // Avancer le temps simulé
+                    // Avancer le temps simulé (contrôle utilisateur : vitesse + pause)
                     heureActuelle = heureActuelle.plusMinutes(vitesseSimulation);
-                    // Vérifier heure de fermeture
-                    if (heureActuelle.isAfter(HEURE_FERMETURE)) {
+                    // Fermeture automatique à 16h00
+                    if (!heureActuelle.isBefore(HEURE_FERMETURE)) {
                         Logger.logInfo("Heure de fermeture atteinte: " + heureActuelle.format(FORMATTER));
+                        if (onHeureFermeture != null) {
+                            onHeureFermeture.run();
+                        }
                         break;
                     }
                     if (heureActuelle.getMinute() == 0) {
@@ -143,9 +157,10 @@ public class Horloge extends Thread {
         heureActuelle = heureActuelle.plusMinutes(vitesseSimulation);
         Logger.logInfo("Horloge avancée d'un pas: " + heureActuelle.format(FORMATTER));
 
-        // Vérifier heure de fermeture
-        if (heureActuelle.isAfter(HEURE_FERMETURE)) {
+        // Fermeture automatique à 16h00 si l'utilisateur avance le temps jusqu'à l'heure
+        if (!heureActuelle.isBefore(HEURE_FERMETURE) && onHeureFermeture != null) {
             Logger.logInfo("Heure de fermeture atteinte: " + heureActuelle.format(FORMATTER));
+            onHeureFermeture.run();
         }
     }
 
@@ -186,12 +201,17 @@ public class Horloge extends Thread {
     }
     
     /**
-     * @return Vrai si le parc est ouvert (en temps réel: toujours true tant que l'horloge tourne ; en simulation: entre 9h et 22h)
+     * @return Vrai si le parc est ouvert (en temps réel: toujours true tant que l'horloge tourne ; en simulation: entre 9h et 16h)
      */
     public synchronized boolean parcOuvert() {
         if (tempsReel) return enCours;
         return !heureActuelle.isBefore(HEURE_OUVERTURE) && 
                heureActuelle.isBefore(HEURE_FERMETURE);
+    }
+    
+    /** Heure de fermeture automatique (16h00). */
+    public static LocalTime getHeureFermeture() {
+        return HEURE_FERMETURE;
     }
     
     /** @return true si l'horloge est en mode temps réel (heure système). */

@@ -70,10 +70,25 @@ public class MainFrame extends JFrame {
             }
         });
         
+        JMenuItem iAvancerPas = new JMenuItem("Avancer le temps (1 pas)");
+        iAvancerPas.addActionListener(e -> {
+            try {
+                if (gp.getHorloge() != null && gp.getHorloge().estEnPause()) {
+                    gp.getHorloge().avancerUnPas();
+                    rafraichirTousLesPanels();
+                } else {
+                    JOptionPane.showMessageDialog(MainFrame.this, "Mettez la simulation en pause pour avancer d'un pas.", "Info", JOptionPane.INFORMATION_MESSAGE);
+                }
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(MainFrame.this, "Erreur: " + ex.getMessage(), "Erreur", JOptionPane.ERROR_MESSAGE);
+            }
+        });
+        
         mParc.add(iOuvrir);
         mParc.addSeparator();
         mParc.add(iFermer);
         mParc.add(iPause);
+        mParc.add(iAvancerPas);
         mb.add(mParc);
         
         // === MENU VISITEURS ===
@@ -114,7 +129,7 @@ public class MainFrame extends JFrame {
         JMenu mMeteo = creerMenuSimple("Météo");
         JMenuItem iChangerMeteo = new JMenuItem("Changer la météo");
         iChangerMeteo.addActionListener(e -> {
-            new DialogConfiguration(MainFrame.this).setVisible(true);
+            new DialogConfiguration(MainFrame.this, gp).setVisible(true);
             rafraichirTousLesPanels();
         });
         mMeteo.add(iChangerMeteo);

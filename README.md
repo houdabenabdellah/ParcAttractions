@@ -19,16 +19,30 @@ Application Java de simulation et gestion d’un parc d’attractions en temps r
 
 Au démarrage, le parc est **fermé**. Utiliser le menu **Le Parc → Ouvrir le Parc** pour démarrer la simulation, puis **Visiteurs → Ajouter un visiteur** pour ajouter des visiteurs manuellement.
 
+## Contrôle de la simulation temps réel
+
+L'horloge simule une **journée complète** (09h00 → 16h00 fermeture automatique) avec un **contrôle total** :
+
+- **Pause / Reprendre** (menu **Le Parc**) : gèle ou reprend l'avancée du temps.
+- **Avancer d'un pas** (menu **Le Parc**, visible en pause) : avance manuellement de 1 minute simulée.
+- **Vitesse de simulation** (menu **Météo → Configuration**) : choisir 1, 5, 10 ou 30 minutes simulées par seconde réelle.
+  - Exemple : vitesse 30 = 30x plus rapide (3 heures simulées = 6 minutes réelles).
+- **Fermeture automatique à 16h00** : l'horloge déclenche la fermeture du parc automatiquement (sauvegarde, rapports, arrêt).
+
+Cette simulation permet une **journée complète** d'opération en quelques **minutes réelles**.
+
+---
+
 ## Fonctionnalités principales
 
-- **8 attractions** avec capacités et files d’attente (normale + Fast Pass)
+- **8 attractions** avec capacités et files d'attente (normale + Fast Pass)
 - **Simulation temps réel** : horloge, tableau de bord, statistiques et moniteur financier mis à jour en continu
-- **Files d’attente** thread-safe (attractions et restaurants)
+- **Files d'attente** thread-safe (attractions et restaurants)
 - **Maintenance programmée** (tous les N tours) et gestion des pannes
 - **Gestion** : visiteurs, personnel, restaurants, boutiques, météo, événements (Happy Hour, Parade, Spectacle)
 - **Rapports** : résumés, export CSV/HTML
 
-## Structure du projet
+---
 
 ```
 ParcAttractions/

@@ -228,10 +228,11 @@ public class GestionnaireParc {
         dateOuvertureSession = LocalDateTime.now();
         revenuSessionActuelle = 0.0;
         
-        // Horloge temps réel : heure système, avance en temps réel
-        horloge = new Horloge(true);
+        // Simulation temps réel : l'utilisateur contrôle le temps (vitesse 1 min/sec, pause possible). Fermeture auto à 16h00.
+        horloge = new Horloge(1);
+        horloge.setOnHeureFermeture(this::fermerParc);
         horloge.start();
-        Logger.logInfo("Horloge démarrée (temps réel = heure système)");
+        Logger.logInfo("Horloge démarrée - Simulation (1 min/sec). Fermeture automatique à 16h00.");
         
         // Démarrer toutes les attractions
         //for (Attraction attraction : attractions) {
