@@ -13148,3 +13148,187 @@ NOUVELLE SESSION - 2026-02-08 21:34:13
 FIN DE SESSION - 2026-02-08 21:38:09
 ================================================================================
 
+
+================================================================================
+NOUVELLE SESSION - 2026-02-08 23:13:54
+================================================================================
+[2026-02-08 23:13:54] [INFO] ═══════════════════════════════════════
+[2026-02-08 23:13:54] [INFO]    PARC D'ATTRACTIONS - MODE MANUEL
+[2026-02-08 23:13:54] [INFO] ═══════════════════════════════════════
+[2026-02-08 23:13:54] [INFO] Répertoire data créé ou existant
+[2026-02-08 23:13:54] [INFO] Mode: MANUEL (Contrôle Total)
+[2026-02-08 23:13:54] [INFO] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[2026-02-08 23:13:54] [INFO] Configuration du Mode: Gestion manuelle
+[2026-02-08 23:13:54] [INFO] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[2026-02-08 23:13:54] [INFO] Meteo: ACTIVE
+[2026-02-08 23:13:54] [INFO] Evenements: ACTIFS
+[2026-02-08 23:13:54] [INFO] Generateur: INACTIF
+[2026-02-08 23:13:54] [INFO] Ajout Manuel: AUTORISE
+[2026-02-08 23:13:54] [INFO] Modification: AUTORISEE
+[2026-02-08 23:13:54] [INFO] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[2026-02-08 23:13:54] [INFO] Répertoire data/ vérifiée/créée
+[2026-02-08 23:13:54] [INFO] CSVManager initialisé
+[2026-02-08 23:13:54] [INFO] Initialisation du parc d'attractions...
+[2026-02-08 23:13:54] [INFO] 8 attractions par défaut créées
+[2026-02-08 23:13:54] [INFO] Restaurant créé: Restaurant Central (capacité: 80)
+[2026-02-08 23:13:54] [INFO] Restaurant créé: Snack Rapide (capacité: 40)
+[2026-02-08 23:13:54] [INFO] 2 restaurants créés
+[2026-02-08 23:13:54] [INFO] Stock initialisé pour Boutique Souvenirs (9 produits)
+[2026-02-08 23:13:54] [INFO] Boutique créée: Boutique Souvenirs
+[2026-02-08 23:13:54] [INFO] Stock initialisé pour Boutique Photos (9 produits)
+[2026-02-08 23:13:54] [INFO] Boutique créée: Boutique Photos
+[2026-02-08 23:13:54] [INFO] 2 boutiques créées
+[2026-02-08 23:13:54] [INFO] ServiceManager initialisé
+[2026-02-08 23:13:54] [INFO] Restaurant ajouté: Restaurant Central
+[2026-02-08 23:13:54] [INFO] Restaurant ajouté: Snack Rapide
+[2026-02-08 23:13:54] [INFO] Boutique ajoutée: Boutique Souvenirs
+[2026-02-08 23:13:54] [INFO] Boutique ajoutée: Boutique Photos
+[2026-02-08 23:13:54] [INFO] ServiceManager initialisé avec services
+[2026-02-08 23:13:54] [INFO] 8 opérateurs créés
+[2026-02-08 23:13:54] [INFO] 4 techniciens créés
+[2026-02-08 23:13:54] [INFO] 3 agents de sécurité créés
+[2026-02-08 23:13:54] [INFO] 5 vendeurs créés
+[2026-02-08 23:13:54] [INFO] Total: 20 employés créés
+[2026-02-08 23:13:54] [INFO] Parc initialisé avec succès
+[2026-02-08 23:13:54] [INFO] ═══════════════════════════════════════
+[2026-02-08 23:13:54] [INFO]    CHARGEMENT DES DONNÉES
+[2026-02-08 23:13:54] [INFO] ═══════════════════════════════════════
+[2026-02-08 23:13:54] [INFO] Liste des attractions vidée
+[2026-02-08 23:13:54] [INFO] Attraction ajoutée: Montagnes Russes Extrême
+[2026-02-08 23:13:54] [INFO] Attraction ajoutée: Grande Roue Panoramique
+[2026-02-08 23:13:54] [INFO] Attraction ajoutée: Manège Enchanté
+[2026-02-08 23:13:54] [INFO] Attraction ajoutée: Maison Hantée des Ombres
+[2026-02-08 23:13:54] [INFO] Attraction ajoutée: Simulateur VR Spatial
+[2026-02-08 23:13:54] [INFO] Attraction ajoutée: Chute Libre Vertigineuse
+[2026-02-08 23:13:54] [INFO] Attraction ajoutée: Carrousel Magique
+[2026-02-08 23:13:54] [INFO] Attraction ajoutée: Toboggan Aquatique Splash
+[2026-02-08 23:13:54] [INFO] Attractions chargées du CSV: 8/8
+[2026-02-08 23:13:54] [INFO] Employé ajouté: Robert Durand [Technicien] - État: Disponible - Fatigue: 0%
+[2026-02-08 23:13:54] [INFO] Employé ajouté: Claire Leroy [Technicien] - État: Disponible - Fatigue: 0%
+[2026-02-08 23:13:54] [INFO] Employé ajouté: Marc Petit [Technicien] - État: Disponible - Fatigue: 0%
+[2026-02-08 23:13:54] [INFO] Employé ajouté: Isabelle Roux [Technicien] - État: Disponible - Fatigue: 0%
+[2026-02-08 23:13:54] [INFO] Employé ajouté: Paul Girard [Agent Sécurité] - État: Disponible - Fatigue: 0%
+[2026-02-08 23:13:54] [INFO] Employé ajouté: Anne Lefebvre [Agent Sécurité] - État: Disponible - Fatigue: 0%
+[2026-02-08 23:13:54] [INFO] Employé ajouté: Michel Bonnet [Agent Sécurité] - État: Disponible - Fatigue: 0%
+[2026-02-08 23:13:54] [INFO] Employé ajouté: Robert Durand [Technicien] - État: Disponible - Fatigue: 0%
+[2026-02-08 23:13:54] [INFO] Employé ajouté: Claire Leroy [Technicien] - État: Disponible - Fatigue: 0%
+[2026-02-08 23:13:54] [INFO] Employé ajouté: Marc Petit [Technicien] - État: Disponible - Fatigue: 0%
+[2026-02-08 23:13:54] [INFO] Employé ajouté: Isabelle Roux [Technicien] - État: Disponible - Fatigue: 0%
+[2026-02-08 23:13:54] [INFO] Employé ajouté: Paul Girard [Agent Sécurité] - État: Disponible - Fatigue: 0%
+[2026-02-08 23:13:54] [INFO] Employé ajouté: Anne Lefebvre [Agent Sécurité] - État: Disponible - Fatigue: 0%
+[2026-02-08 23:13:54] [INFO] Employé ajouté: Michel Bonnet [Agent Sécurité] - État: Disponible - Fatigue: 0%
+[2026-02-08 23:13:54] [INFO] Employé ajouté: Robert Durand [Technicien] - État: Disponible - Fatigue: 0%
+[2026-02-08 23:13:54] [INFO] Employé ajouté: Claire Leroy [Technicien] - État: Disponible - Fatigue: 0%
+[2026-02-08 23:13:54] [INFO] Employé ajouté: Marc Petit [Technicien] - État: Disponible - Fatigue: 0%
+[2026-02-08 23:13:54] [INFO] Employé ajouté: Isabelle Roux [Technicien] - État: Disponible - Fatigue: 0%
+[2026-02-08 23:13:54] [INFO] Employé ajouté: Paul Girard [Agent Sécurité] - État: Disponible - Fatigue: 0%
+[2026-02-08 23:13:54] [INFO] Employé ajouté: Anne Lefebvre [Agent Sécurité] - État: Disponible - Fatigue: 0%
+[2026-02-08 23:13:54] [INFO] Employé ajouté: Michel Bonnet [Agent Sécurité] - État: Disponible - Fatigue: 0%
+[2026-02-08 23:13:54] [INFO] Employé ajouté: Robert Durand [Technicien] - État: Disponible - Fatigue: 0%
+[2026-02-08 23:13:54] [INFO] Employé ajouté: Claire Leroy [Technicien] - État: Disponible - Fatigue: 0%
+[2026-02-08 23:13:54] [INFO] Employé ajouté: Marc Petit [Technicien] - État: Disponible - Fatigue: 0%
+[2026-02-08 23:13:54] [INFO] Employé ajouté: Isabelle Roux [Technicien] - État: Disponible - Fatigue: 0%
+[2026-02-08 23:13:54] [INFO] Employé ajouté: Paul Girard [Agent Sécurité] - État: Disponible - Fatigue: 0%
+[2026-02-08 23:13:54] [INFO] Employé ajouté: Anne Lefebvre [Agent Sécurité] - État: Disponible - Fatigue: 0%
+[2026-02-08 23:13:54] [INFO] Employé ajouté: Michel Bonnet [Agent Sécurité] - État: Disponible - Fatigue: 0%
+[2026-02-08 23:13:54] [INFO] Employé ajouté: Robert Durand [Technicien] - État: Disponible - Fatigue: 0%
+[2026-02-08 23:13:54] [INFO] Employé ajouté: Claire Leroy [Technicien] - État: Disponible - Fatigue: 0%
+[2026-02-08 23:13:54] [INFO] Employé ajouté: Marc Petit [Technicien] - État: Disponible - Fatigue: 0%
+[2026-02-08 23:13:54] [INFO] Employé ajouté: Isabelle Roux [Technicien] - État: Disponible - Fatigue: 0%
+[2026-02-08 23:13:54] [INFO] Employé ajouté: Paul Girard [Agent Sécurité] - État: Disponible - Fatigue: 0%
+[2026-02-08 23:13:54] [INFO] Employé ajouté: Anne Lefebvre [Agent Sécurité] - État: Disponible - Fatigue: 0%
+[2026-02-08 23:13:54] [INFO] Employé ajouté: Michel Bonnet [Agent Sécurité] - État: Disponible - Fatigue: 0%
+[2026-02-08 23:13:54] [INFO] Employé ajouté: Robert Durand [Technicien] - État: Disponible - Fatigue: 0%
+[2026-02-08 23:13:54] [INFO] Employé ajouté: Claire Leroy [Technicien] - État: Disponible - Fatigue: 0%
+[2026-02-08 23:13:54] [INFO] Employé ajouté: Marc Petit [Technicien] - État: Disponible - Fatigue: 0%
+[2026-02-08 23:13:54] [INFO] Employé ajouté: Isabelle Roux [Technicien] - État: Disponible - Fatigue: 0%
+[2026-02-08 23:13:54] [INFO] Employé ajouté: Paul Girard [Agent Sécurité] - État: Disponible - Fatigue: 0%
+[2026-02-08 23:13:54] [INFO] Employé ajouté: Anne Lefebvre [Agent Sécurité] - État: Disponible - Fatigue: 0%
+[2026-02-08 23:13:54] [INFO] Employé ajouté: Michel Bonnet [Agent Sécurité] - État: Disponible - Fatigue: 0%
+[2026-02-08 23:13:54] [INFO] Employé ajouté: Robert Durand [Technicien] - État: Disponible - Fatigue: 0%
+[2026-02-08 23:13:54] [INFO] Employé ajouté: Claire Leroy [Technicien] - État: Disponible - Fatigue: 0%
+[2026-02-08 23:13:54] [INFO] Employé ajouté: Marc Petit [Technicien] - État: Disponible - Fatigue: 0%
+[2026-02-08 23:13:54] [INFO] Employé ajouté: Isabelle Roux [Technicien] - État: Disponible - Fatigue: 0%
+[2026-02-08 23:13:54] [INFO] Employé ajouté: Paul Girard [Agent Sécurité] - État: Disponible - Fatigue: 0%
+[2026-02-08 23:13:54] [INFO] Employé ajouté: Anne Lefebvre [Agent Sécurité] - État: Disponible - Fatigue: 0%
+[2026-02-08 23:13:54] [INFO] Employé ajouté: Michel Bonnet [Agent Sécurité] - État: Disponible - Fatigue: 0%
+[2026-02-08 23:13:54] [INFO] Employé ajouté: Robert Durand [Technicien] - État: Disponible - Fatigue: 0%
+[2026-02-08 23:13:54] [INFO] Employé ajouté: Claire Leroy [Technicien] - État: Disponible - Fatigue: 0%
+[2026-02-08 23:13:54] [INFO] Employé ajouté: Marc Petit [Technicien] - État: Disponible - Fatigue: 0%
+[2026-02-08 23:13:54] [INFO] Employé ajouté: Isabelle Roux [Technicien] - État: Disponible - Fatigue: 0%
+[2026-02-08 23:13:54] [INFO] Employé ajouté: Paul Girard [Agent Sécurité] - État: Disponible - Fatigue: 0%
+[2026-02-08 23:13:54] [INFO] Employé ajouté: Anne Lefebvre [Agent Sécurité] - État: Disponible - Fatigue: 0%
+[2026-02-08 23:13:54] [INFO] Employé ajouté: Michel Bonnet [Agent Sécurité] - État: Disponible - Fatigue: 0%
+[2026-02-08 23:13:54] [INFO] Employé ajouté: Robert Durand [Technicien] - État: Disponible - Fatigue: 0%
+[2026-02-08 23:13:54] [INFO] Employé ajouté: Claire Leroy [Technicien] - État: Disponible - Fatigue: 0%
+[2026-02-08 23:13:54] [INFO] Employé ajouté: Marc Petit [Technicien] - État: Disponible - Fatigue: 0%
+[2026-02-08 23:13:54] [INFO] Employé ajouté: Isabelle Roux [Technicien] - État: Disponible - Fatigue: 0%
+[2026-02-08 23:13:54] [INFO] Employé ajouté: Paul Girard [Agent Sécurité] - État: Disponible - Fatigue: 0%
+[2026-02-08 23:13:54] [INFO] Employé ajouté: Anne Lefebvre [Agent Sécurité] - État: Disponible - Fatigue: 0%
+[2026-02-08 23:13:54] [INFO] Employé ajouté: Michel Bonnet [Agent Sécurité] - État: Disponible - Fatigue: 0%
+[2026-02-08 23:13:54] [INFO] Employé ajouté: Robert Durand [Technicien] - État: Disponible - Fatigue: 0%
+[2026-02-08 23:13:54] [INFO] Employé ajouté: Claire Leroy [Technicien] - État: Disponible - Fatigue: 0%
+[2026-02-08 23:13:54] [INFO] Employé ajouté: Marc Petit [Technicien] - État: Disponible - Fatigue: 0%
+[2026-02-08 23:13:54] [INFO] Employé ajouté: Isabelle Roux [Technicien] - État: Disponible - Fatigue: 0%
+[2026-02-08 23:13:54] [INFO] Employé ajouté: Paul Girard [Agent Sécurité] - État: Disponible - Fatigue: 0%
+[2026-02-08 23:13:54] [INFO] Employé ajouté: Anne Lefebvre [Agent Sécurité] - État: Disponible - Fatigue: 0%
+[2026-02-08 23:13:54] [INFO] Employé ajouté: Michel Bonnet [Agent Sécurité] - État: Disponible - Fatigue: 0%
+[2026-02-08 23:13:54] [INFO] Employé ajouté: Robert Durand [Technicien] - État: Disponible - Fatigue: 0%
+[2026-02-08 23:13:54] [INFO] Employé ajouté: Claire Leroy [Technicien] - État: Disponible - Fatigue: 0%
+[2026-02-08 23:13:54] [INFO] Employé ajouté: Marc Petit [Technicien] - État: Disponible - Fatigue: 0%
+[2026-02-08 23:13:54] [INFO] Employé ajouté: Isabelle Roux [Technicien] - État: Disponible - Fatigue: 0%
+[2026-02-08 23:13:54] [INFO] Employé ajouté: Paul Girard [Agent Sécurité] - État: Disponible - Fatigue: 0%
+[2026-02-08 23:13:54] [INFO] Employé ajouté: Anne Lefebvre [Agent Sécurité] - État: Disponible - Fatigue: 0%
+[2026-02-08 23:13:54] [INFO] Employé ajouté: Michel Bonnet [Agent Sécurité] - État: Disponible - Fatigue: 0%
+[2026-02-08 23:13:54] [INFO] Employé ajouté: Robert Durand [Technicien] - État: Disponible - Fatigue: 0%
+[2026-02-08 23:13:54] [INFO] Employé ajouté: Claire Leroy [Technicien] - État: Disponible - Fatigue: 0%
+[2026-02-08 23:13:54] [INFO] Employé ajouté: Marc Petit [Technicien] - État: Disponible - Fatigue: 0%
+[2026-02-08 23:13:54] [INFO] Employé ajouté: Isabelle Roux [Technicien] - État: Disponible - Fatigue: 0%
+[2026-02-08 23:13:54] [INFO] Employé ajouté: Paul Girard [Agent Sécurité] - État: Disponible - Fatigue: 0%
+[2026-02-08 23:13:54] [INFO] Employé ajouté: Anne Lefebvre [Agent Sécurité] - État: Disponible - Fatigue: 0%
+[2026-02-08 23:13:54] [INFO] Employé ajouté: Michel Bonnet [Agent Sécurité] - État: Disponible - Fatigue: 0%
+[2026-02-08 23:13:54] [INFO] Employé ajouté: Robert Durand [Technicien] - État: Disponible - Fatigue: 0%
+[2026-02-08 23:13:54] [INFO] Employé ajouté: Claire Leroy [Technicien] - État: Disponible - Fatigue: 0%
+[2026-02-08 23:13:54] [INFO] Employé ajouté: Marc Petit [Technicien] - État: Disponible - Fatigue: 0%
+[2026-02-08 23:13:54] [INFO] Employé ajouté: Isabelle Roux [Technicien] - État: Disponible - Fatigue: 0%
+[2026-02-08 23:13:54] [INFO] Employé ajouté: Paul Girard [Agent Sécurité] - État: Disponible - Fatigue: 0%
+[2026-02-08 23:13:54] [INFO] Employé ajouté: Anne Lefebvre [Agent Sécurité] - État: Disponible - Fatigue: 0%
+[2026-02-08 23:13:54] [INFO] Employé ajouté: Michel Bonnet [Agent Sécurité] - État: Disponible - Fatigue: 0%
+[2026-02-08 23:13:54] [INFO] Employé ajouté: Robert Durand [Technicien] - État: Disponible - Fatigue: 0%
+[2026-02-08 23:13:54] [INFO] Employé ajouté: Claire Leroy [Technicien] - État: Disponible - Fatigue: 0%
+[2026-02-08 23:13:54] [INFO] Employé ajouté: Marc Petit [Technicien] - État: Disponible - Fatigue: 0%
+[2026-02-08 23:13:54] [INFO] Employé ajouté: Isabelle Roux [Technicien] - État: Disponible - Fatigue: 0%
+[2026-02-08 23:13:54] [INFO] Employé ajouté: Paul Girard [Agent Sécurité] - État: Disponible - Fatigue: 0%
+[2026-02-08 23:13:54] [INFO] Employé ajouté: Anne Lefebvre [Agent Sécurité] - État: Disponible - Fatigue: 0%
+[2026-02-08 23:13:54] [INFO] Employé ajouté: Michel Bonnet [Agent Sécurité] - État: Disponible - Fatigue: 0%
+[2026-02-08 23:13:54] [INFO] Employé ajouté: Robert Durand [Technicien] - État: Disponible - Fatigue: 0%
+[2026-02-08 23:13:54] [INFO] Employé ajouté: Claire Leroy [Technicien] - État: Disponible - Fatigue: 0%
+[2026-02-08 23:13:54] [INFO] Employé ajouté: Marc Petit [Technicien] - État: Disponible - Fatigue: 0%
+[2026-02-08 23:13:54] [INFO] Employé ajouté: Isabelle Roux [Technicien] - État: Disponible - Fatigue: 0%
+[2026-02-08 23:13:54] [INFO] Employé ajouté: Paul Girard [Agent Sécurité] - État: Disponible - Fatigue: 0%
+[2026-02-08 23:13:54] [INFO] Employé ajouté: Anne Lefebvre [Agent Sécurité] - État: Disponible - Fatigue: 0%
+[2026-02-08 23:13:54] [INFO] Employé ajouté: Michel Bonnet [Agent Sécurité] - État: Disponible - Fatigue: 0%
+[2026-02-08 23:13:54] [INFO] Employé ajouté: Robert Durand [Technicien] - État: Disponible - Fatigue: 0%
+[2026-02-08 23:13:54] [INFO] Employé ajouté: Claire Leroy [Technicien] - État: Disponible - Fatigue: 0%
+[2026-02-08 23:13:54] [INFO] Employé ajouté: Marc Petit [Technicien] - État: Disponible - Fatigue: 0%
+[2026-02-08 23:13:54] [INFO] Employé ajouté: Isabelle Roux [Technicien] - État: Disponible - Fatigue: 0%
+[2026-02-08 23:13:54] [INFO] Employé ajouté: Paul Girard [Agent Sécurité] - État: Disponible - Fatigue: 0%
+[2026-02-08 23:13:54] [INFO] Employé ajouté: Anne Lefebvre [Agent Sécurité] - État: Disponible - Fatigue: 0%
+[2026-02-08 23:13:54] [INFO] Employé ajouté: Michel Bonnet [Agent Sécurité] - État: Disponible - Fatigue: 0%
+[2026-02-08 23:13:54] [INFO] Employés chargés: 132
+[2026-02-08 23:13:54] [WARNING] Tentative d'ajout de visiteur alors que le parc est fermé
+[2026-02-08 23:13:54] [WARNING] Tentative d'ajout de visiteur alors que le parc est fermé
+[2026-02-08 23:13:54] [WARNING] Tentative d'ajout de visiteur alors que le parc est fermé
+[2026-02-08 23:13:54] [INFO] Visiteurs chargés: 0
+[2026-02-08 23:13:54] [INFO] Chargement des données terminé
+[2026-02-08 23:13:54] [INFO] Gestionnaire d'événements créé (mode manuel - non démarré)
+[2026-02-08 23:13:54] [INFO] Mode manuel: Pas de génération automatique de visiteurs
+[2026-02-08 23:13:54] [INFO] Utilisez le menu 'Visiteurs → Ajouter un visiteur' pour ajouter des visiteurs
+[2026-02-08 23:13:56] [INFO] ═══════════════════════════════════════
+[2026-02-08 23:13:56] [INFO]    MODE MANUEL ACTIVÉ
+[2026-02-08 23:13:56] [INFO]    Le parc est FERMÉ au démarrage
+[2026-02-08 23:13:56] [INFO]    Utilisez 'Menu Parc → Ouvrir le parc'
+[2026-02-08 23:13:56] [INFO] ═══════════════════════════════════════
+[2026-02-08 23:13:56] [INFO] Application démarrée avec succès en MODE MANUEL
+[2026-02-08 23:13:56] [INFO] Aucun générateur de visiteurs actif
+[2026-02-08 23:13:56] [INFO] Aucune simulation automatique
